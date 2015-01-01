@@ -1,0 +1,14 @@
+main .nav-tabs {
+  background:$gray-darker;
+  li  {
+    margin-left: 0;
+  }
+  > li.active,
+  > li.active > a,
+  > li.active > a:hover,
+  > li > a:hover,
+  > li > a:active,
+  > li > a.active {
+    background-color: $body-bg;
+  }
+}

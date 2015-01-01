@@ -1,0 +1,27 @@
+{% extends 'html.html' %}
+
+  {% block contents %}
+  <main role="main">
+
+    <article>
+
+        <section class="lede">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, harum officia doloremque. Et rem doloremque amet, magni fugit necessitatibus vel cumque eos id quidem dolorum, ad deleniti numquam enim dicta.
+        </section>
+
+        <section class="content">
+          {{ description }}
+
+          {% for key, contentBlock in collections.marketOpportunityContent %}
+            {{contentBlock.template}}
+            {% include contentBlock.template with contentBlock only%}
+          {% endfor %}
+
+          {{contents|safe}}
+        </section>
+
+    </article>
+
+  </main>
+  {% endblock %}
+

@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "title": "Kalastatic",
+    "description": "Static site framework for prototyping and building out CMS-less websites at Kalamuna"
+  },
+  "plugins": {
+    "metalsmith-collections": {
+      "management": {
+        "pattern": "collections/management/*.md",
+        "sortBy": "order"
+      },
+      "board": {
+        "pattern": "collections/board/*.md",
+        "sortBy": "order"
+      },
+      "investors": {
+        "pattern": "collections/investors/*.md",
+        "sortBy": "order"
+      },
+      "abab": {
+        "pattern": "collections/abab/*.md",
+        "sortBy": "order"
+      },
+      "managementContent": {
+        "pattern": "partials/management/*.md",
+        "sortBy": "order"
+      },
+      "investorContent": {
+        "pattern": "partials/investors/*.md",
+        "sortBy": "order"
+      },
+      "boardContent": {
+        "pattern": "partials/board/*.md",
+        "sortBy": "order"
+      },
+      "marketOpportunityContent": {
+        "pattern": "partials/market-opportunity/*.md",
+        "sortBy": "order"
+      }
+
+    },
+    "metalsmith-markdown": {},
+    "metalsmith-permalinks": {
+      "pattern": ":url"
+    },
+    "metalsmith-templates": {
+      "engine": "swig"
+    },
+    "metalsmith-assets": {
+      "source": "./assets",
+      "dest": "."
+    },
+    "metalsmith-sass": {
+      "outputStyle": "expanded",
+      "includePaths": [
+        "src/styles",
+        "assets/vendor",
+        "assets/vendor/bootstrap-sass-twbs/assets/stylesheets",
+        "assets/vendor/fontawesome/scss/"
+      ]
+    },
+    "metalsmith-concat": {
+      "files": "js/**/*.js",
+      "output": "js/scripts.js"
+    }
+  }
+}

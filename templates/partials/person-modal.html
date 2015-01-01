@@ -1,0 +1,45 @@
+<div class="modal fade" id="modal-{{slug}}" tabindex="-1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content vcard">
+
+            <header class="modal-header">
+              <a class="close" data-dismiss="modal">
+                <span class="icon" aria-hidden="true"></span>
+                <span class="sr-only">Close</span>
+              </a>
+              <h2 class="modal-title fn">{{name}}</h2>
+              <h4 class="category">{{title}}</h4>
+              <ul class="social-links">
+                {% for item in social %}
+                <li>
+                  <a href="{{item.url}}" target="_blank" class="url">
+                    <span class="icon {{item.service|safe}}" aria-hidden="true"></span>
+                    <span class="sr-only">{{item.name|safe}}</span>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </header>
+
+            <div class="photo">
+              <img data-src="holder.js/600x250/#222:#aaa/text:{{name}}">
+                {#
+                  <img src="/images/team/{{slug}}.jpg">
+                #}
+            </div>
+
+            <section class="content">
+
+                <div class="bio">
+                  {{contents|safe}}
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</div>

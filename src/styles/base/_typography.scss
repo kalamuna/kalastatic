@@ -1,0 +1,28 @@
+@include font-face("ChaletComprimeMilanSixy", "/fonts/chalet_comprime_milan_sixty", normal );
+
+@include font-face("SourceSansPro", "/fonts/sourcesanspro-regular" );
+@include font-face("SourceSansPro", "/fonts/sourcesanspro-italic", normal, italic);
+@include font-face("SourceSansPro", "/fonts/sourcesanspro-bold", bold );
+@include font-face("SourceSansPro", "/fonts/sourcesanspro-bolditalic", bold, italic);
+
+textarea,
+input {
+  @include placeholder {
+    line-height: 1.5;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: .25em;
+  line-height: 1.2;
+  letter-spacing: .05em;
+}
+
+%h6 {
+  font-size: $font-size-h5;
+  font-family: $font-family-base;
+  font-weight: bold;
+}

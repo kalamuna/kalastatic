@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>
+    {% block title %}{{sitemeta.title}}{% endblock %}
+  </title>
+
+  {% block head %}
+  <meta name="description" content="{{ description }}">
+  {% endblock %}
+
+  {% block styles %}
+  <link rel="stylesheet" type="text/css" href="/main.css">
+  {% endblock %}
+
+</head>
+<body class="{{page_slug}}">
+
+  {% block header %}
+  <header id="header">
+    {% block navigation %}
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <h1 class="navbar-brand">
+            <a class="logo" href="/">
+              <span class="sr-only">KalaStatic</span>
+            </a>
+          </h1>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/about">About</a></li>
+            <li><a href="/technology">Tech</a></li>
+            <li class="logogap"><a href="/market-opportunity">Market Opportunity</a></li>
+            <li><a href="/news">News & Events</a></li>
+            <li><a href="/news">Careers</a></li>
+            <li><a href="/news">Contact</a></li>
+          </ul>
+        </div>
+    </nav>
+    {% endblock %}
+  </header>
+  {% endblock %}
+
+  {% block contents %}
+  <main role="main">
+
+    <article>
+
+      <div class="content">
+        {# <h1>{{ title }}</h1> #}
+        <p>{{ description }}</p>
+        <p><a href="/about" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+      </div>
+
+      {{contents|safe}}
+
+    </article>
+
+  </main>
+  {% endblock %}
+
+  {% block footer %}
+  <footer class="footer">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Investor Information</a></li>
+        <li><a href="#">Media</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <p class="navbar-text navbar-right text-muted">Copyright © 2015 Kalamuna, Inc. All Rights Reserved.</p>
+    </div>
+  </footer>
+  {% endblock %}
+
+  {% block page-suffix %}
+  {% endblock %}
+
+  {% block scripts %}
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/vendor/matchHeight/jquery.matchHeight.js"></script>
+    <script src="/vendor/holderjs/holder.js"></script>
+    <script src="/vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js"></script>
+    <script src="/js/scripts.js"></script>
+  {% endblock %}
+
+</body>
+</html>

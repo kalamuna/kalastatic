@@ -1,0 +1,8 @@
+.cta-wrapper {
+  @extend .clearfix;
+  clear: both;
+  background: #dedede;
+  .cta {
+    text-align: center;
+  }
+}

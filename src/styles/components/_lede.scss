@@ -1,0 +1,10 @@
+.lede {
+  @extend .jumboTron;
+  @extend %panelShadow;
+  position: relative;
+  // top: -6em;
+  background: $body-bg;
+  padding: 2em;
+  margin-bottom: 2em;
+}
+

@@ -1,0 +1,26 @@
+.modal-backdrop {
+  opacity: .9;
+}
+
+.modal {
+
+  perspective-origin: bottom;
+  perspective: 1200px;
+  text-color: #000;
+
+  & .modal-dialog {
+    transform: rotateY(90deg) translate3d( 0, 0, 0 ) !important;
+    top: 0;
+    transform-origin: center top;
+    transition-property: transform;
+    transition-duration: .275s !important;
+    @extend %easeOutQuad;
+    margin-bottom: 0;
+    padding-bottom: 2em;
+  }
+
+  &.in .modal-dialog {
+    transform: rotateY(0) translate3d( 0, 0, 0 ) !important;
+  }
+
+}

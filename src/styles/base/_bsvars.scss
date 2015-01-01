@@ -1,0 +1,36 @@
+/* bootstrap overrides */
+
+$body-bg: #f3f3f3;
+$gray-dark: #444;
+
+$font-family-sans-serif:  "SourceSansPro", Helvetica, Arial, sans-serif;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+
+$font-size-base:          16px;
+
+$font-size-h1:            $font-size-base * 3.5;
+$font-size-h2:            $font-size-base * 2;
+$font-size-h3:            $font-size-base * 1.6875;
+$font-size-h4:            $font-size-base * 1.3125;
+$font-size-h5:            $font-size-base * 1.125;
+$font-size-h6:            $font-size-base;
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    "ChaletComprimeMilanSixy", Helvetica, Arial, sans-serif;
+
+$navbar-inverse-bg:       rgba(0,0,0,.3);
+$navbar-inverse-border:   none;
+
+$jumbotron-padding:       2em;
+$jumbotron-font-size:     1em;
+
+
+//== Tabs
+$nav-tabs-border-color:                     none;
+$nav-tabs-link-hover-border-color:          transparent;
+
+$nav-tabs-active-link-hover-bg:             $body-bg;
+$nav-tabs-active-link-hover-color:          $gray-dark;
+$nav-tabs-active-link-hover-border-color:   transparent;

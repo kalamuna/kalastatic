@@ -1,0 +1,90 @@
+{% extends 'tabbed-section.html' %}
+
+{% block contents %}
+<main role="main">
+  <article>
+
+    <nav class="tabbed-nav">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+          <a href="#management" role="tab" data-toggle="tab">Management</a>
+        </li>
+        <li>
+          <a href="#boards" role="tab" data-toggle="tab">Boards</a>
+        </li>
+        <li>
+          <a href="#investors" role="tab" data-toggle="tab">Investors</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="tab-content">
+      <section class="content management tab-pane fade in active" id="management">
+        {% for key, contentBlock in collections.managementContent %}
+          {% include "./partials/copyblock-intro.html" with contentBlock only%}
+        {% endfor %}
+
+        {% for key, person in collections.management %}
+          {% include "./partials/person.html" with person only %}
+        {% endfor %}
+      </section>
+
+      <section class="content boards tab-pane fade" id="boards">
+
+
+        <section class="board-of-directors">
+
+          {% for key, contentBlock in collections.boardContent %}
+            {% include "./partials/copyblock-intro.html" with contentBlock only%}
+          {% endfor %}
+
+          <h3>Board of Directors</h3>
+          {% for key, person in collections.board %}
+            {% include "./partials/person.html" with person only %}
+          {% endfor %}
+        </section>
+
+        <section class="asian-business-advisory-board">
+          <h3>Asian Business Advisory Board</h3>
+          {% for key, person in collections.abab %}
+            {% include "./partials/person.html" with person only %}
+          {% endfor %}
+        </section>
+
+      </section>
+
+      <section class="content investors tab-pane fade" id="investors">
+        {% for key, contentBlock in collections.investorContent %}
+          {% include "./partials/copyblock-intro.html" with contentBlock only%}
+        {% endfor %}
+        {% for key, investor in collections.investors %}
+          {% include "./partials/investor.html" with investor only %}
+        {% endfor %}
+      </section>
+
+    </div>
+
+    <section class="cta-wrapper">
+      {% include "./partials/cta.html" with cta only %}
+    </section>
+
+  </article>
+
+</main>
+
+{% endblock %}
+
+
+{% block page-suffix %}
+<section class="people-modals">
+  {% for key, person in collections.management %}
+    {% include "./partials/person-modal.html" with person only %}
+  {% endfor %}
+  {% for key, person in collections.board %}
+    {% include "./partials/person-modal.html" with person only %}
+  {% endfor %}
+  {% for key, person in collections.abab %}
+    {% include "./partials/person-modal.html" with person only %}
+  {% endfor %}
+</section>
+{% endblock %}

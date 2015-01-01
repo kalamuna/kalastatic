@@ -1,0 +1,16 @@
+body {
+  background-color: $text-color;
+  background-image: url('images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media screen and (min-width: $screen-md){
+    background-size: contain;
+  }
+}
+
+.intro {
+}
+
+.content {
+
+}

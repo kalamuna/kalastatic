@@ -1,0 +1,37 @@
+%responsive-image{
+  width: 100%;
+  height: auto;
+}
+
+%center-h {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+%panelShadow {
+  box-shadow: 1px 1px 5px rgba(#000,.5);
+}
+
+%vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+%responsive-grid-item {
+  @extend .col-xs-6;
+  @extend .col-sm-6;
+  @extend .col-md-4;
+  @extend .col-lg-3;
+  @media screen and (max-width: $screen-xs ){
+    width: 100%;
+    margin: 0 auto;
+  }
+  img {
+    @extend %responsive-image;
+  }
+}
+

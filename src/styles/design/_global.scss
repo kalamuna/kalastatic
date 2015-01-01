@@ -1,0 +1,16 @@
+.tabbed-nav {
+
+  margin-bottom: 3em;
+
+  .nav-tabs > li > a {
+    font-family: $headings-font-family;
+    font-size: $font-size-h2;
+    letter-spacing: .0375em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+  }
+  .nav-tabs > li > a:hover {
+    border: none;
+  }
+}

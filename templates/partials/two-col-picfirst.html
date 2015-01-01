@@ -1,0 +1,12 @@
+<div class="row twocol-pic-first">
+  <div class="copy">
+  {{contents|safe}}
+  </div>
+  <div class="image">
+    {% if image-file-name == "holder" %}
+      <img data-src="holder.js/200x200/#222:#aaa/text:image left" />
+    {% else %}
+      <img data-src="path/to/image/{{image-file-name}}" />
+    {% endif %}
+  </div>
+</div>

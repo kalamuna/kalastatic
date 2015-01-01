@@ -1,0 +1,9 @@
+{
+  "name": "kalastatic",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap-sass-twbs": "~3.3.1",
+    "fontawesome": "~4.2.0",
+    "holderjs": "~2.4.0"
+  }
+}
