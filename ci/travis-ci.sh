@@ -1,4 +1,11 @@
 #!/bin/bash
+  
+##
+# PROJECT SPECIFIC SETTINGS
+##
+KALA_REPO_URL="git@alltherepos.com:mysickrepo.git"
+KALA_REPO_SLUG="kalamuna/sloth-nasty-6000"
+KALA_REPO_BRANCH="master"
 
 COMMAND=$1
 EXIT_VALUE=0
@@ -44,10 +51,9 @@ after-script() {
 # Deploy
 #
 after-success() {
-  REPO_ADDRESS="ssh://repo-address/repository.git"
-  if [ $TRAVIS_BRANCH == "master" ] &&
+  if [ $TRAVIS_BRANCH == $KALA_REPO_BRANCH ] &&
     [ $TRAVIS_PULL_REQUEST == "false" ] &&
-    [ $TRAVIS_REPO_SLUG == "kalamuna/pinnacle" ]; then
+    [ $TRAVIS_REPO_SLUG == $KALA_REPO_SLUG ]; then
     # prepare the build for deployment
     # set up ssh keyz
     eval "$(ssh-agent)"
@@ -64,7 +70,7 @@ after-success() {
 
     # clean to be sure
     rm -rf $TRAVIS_BUILD_DIR/deploy
-    git clone $REPO_ADDRESS $TRAVIS_BUILD_DIR/deploy
+    git clone $KALA_REPO_URL $TRAVIS_BUILD_DIR/deploy
     cd $TRAVIS_BUILD_DIR/deploy
     # move new code into repo and commit
     rsync -rt --exclude=.git --delete $TRAVIS_BUILD_DIR/build/ $TRAVIS_BUILD_DIR/deploy/
