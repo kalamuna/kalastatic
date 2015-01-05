@@ -1,0 +1,6 @@
+{
+  "source": "styleguide",
+  "destination": "build/styleguide",
+  "template": "node_modules/kss-bootstrap/bootstrap",
+  "css": "build/styleguide.css"
+}
