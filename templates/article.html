@@ -5,11 +5,8 @@
 
     <article>
         <section class="content">
-          {{contents|safe}}
-
           {% for article in collections.articles %}
-            {{article.slug}}
-            {% include "./partials/teaser.html" %}
+            {% include "teaser.html" %}
           {% endfor %}
         </section>
 

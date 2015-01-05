@@ -9,12 +9,6 @@
         "pattern": "collections/articles/*.md",
         "sortBy": "order"
       }
-/*
-      "managementContent": {
-        "pattern": "partials/management/*.md",
-        "sortBy": "order"
-      }
-*/
     },
     "metalsmith-markdown": {},
     "metalsmith-permalinks": {

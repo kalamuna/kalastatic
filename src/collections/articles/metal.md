@@ -2,7 +2,6 @@
 title: Metal
 slug: Metal is the best
 permalink: false
-
 order: 2
 ---
 

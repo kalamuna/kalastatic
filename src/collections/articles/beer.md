@@ -2,7 +2,6 @@
 title: Beer
 slug: Beer is nice
 permalink: false
-
 order: 1
 ---
 
