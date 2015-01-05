@@ -1,0 +1,12 @@
+---
+template: article.html
+title: These are some cool things
+---
+
+## Things that are cool
+
+Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+
+- Beer
+- Coffee
+- Metal
