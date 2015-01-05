@@ -5,39 +5,16 @@
   },
   "plugins": {
     "metalsmith-collections": {
-      "management": {
-        "pattern": "collections/management/*.md",
+      "articles": {
+        "pattern": "collections/articles/*.md",
         "sortBy": "order"
       },
-      "board": {
-        "pattern": "collections/board/*.md",
-        "sortBy": "order"
-      },
-      "investors": {
-        "pattern": "collections/investors/*.md",
-        "sortBy": "order"
-      },
-      "abab": {
-        "pattern": "collections/abab/*.md",
-        "sortBy": "order"
-      },
+/*
       "managementContent": {
         "pattern": "partials/management/*.md",
         "sortBy": "order"
-      },
-      "investorContent": {
-        "pattern": "partials/investors/*.md",
-        "sortBy": "order"
-      },
-      "boardContent": {
-        "pattern": "partials/board/*.md",
-        "sortBy": "order"
-      },
-      "marketOpportunityContent": {
-        "pattern": "partials/market-opportunity/*.md",
-        "sortBy": "order"
       }
-
+*/
     },
     "metalsmith-markdown": {},
     "metalsmith-permalinks": {
