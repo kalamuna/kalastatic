@@ -8,7 +8,7 @@
       "articles": {
         "pattern": "collections/articles/*.md",
         "sortBy": "order"
-      },
+      }
 /*
       "managementContent": {
         "pattern": "partials/management/*.md",
