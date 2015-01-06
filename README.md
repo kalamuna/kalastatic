@@ -8,6 +8,8 @@ Static site framework for prototyping and building out CMS-less websites at Kala
 * [Metalsmith](http://www.metalsmith.io) static site generator
 * [Swig](https://paularmstrong.github.io/swig/) template engine
 * [SASS](http://sass-lang.com) CSS pre-processor
+* [KSS](http://http://warpspire.com/kss/) CSS Documentation and Styleguide
+
 
 
 ## Requirements
