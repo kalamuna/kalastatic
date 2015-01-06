@@ -1,17 +1,12 @@
 {% extends 'html.html' %}
 
   {% block contents %}
+
   <main role="main">
 
-    <article>
-        <section class="content">
-          {% for article in collections.articles %}
-            {% include "teaser.html" %}
-          {% endfor %}
-        </section>
-
-    </article>
+    {{contents|safe}}
 
   </main>
+
   {% endblock %}
 

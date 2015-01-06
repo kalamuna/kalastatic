@@ -1,6 +1,5 @@
 ---
-title: Coffee
-slug: Coffee is COFFEE
+title: Coffee is Coffee
 permalink: false
 order: 3
 ---

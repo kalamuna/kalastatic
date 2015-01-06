@@ -1,7 +1,8 @@
 ---
-template: html.html
+template: home.html
 ---
 
 ## KalaStatic
 
 This is the homepage.
+

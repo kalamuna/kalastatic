@@ -1,6 +1,5 @@
 ---
-title: Beer
-slug: Beer is nice
+title: Beer is Nice
 permalink: false
 order: 1
 ---

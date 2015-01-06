@@ -1,0 +1,20 @@
+{% extends 'tabbed-section.html' %}
+
+{% block contents %}
+
+  <main role="main">
+
+    {{contents|safe}}
+
+    <section class="cool-things">
+      <div class="teasers">
+      {% for article in collections.articles %}
+        {% include "./partials/teaser.html" with article only %}
+      {% endfor %}
+      </div>
+    </section>
+
+
+  </main>
+
+{% endblock %}

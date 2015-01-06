@@ -1,6 +1,5 @@
 ---
-title: Metal
-slug: Metal is the best
+title: Metal is the Best
 permalink: false
 order: 2
 ---
