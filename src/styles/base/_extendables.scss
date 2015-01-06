@@ -1,6 +1,6 @@
 %responsive-image{
-  width: 100%;
-  height: auto;
+  width: 100% !important;
+  height: auto !important;
 }
 
 %center-h {
@@ -21,17 +21,28 @@
   transform: translateY(-50%);
 }
 
-%responsive-grid-item {
-  @extend .col-xs-6;
-  @extend .col-sm-6;
-  @extend .col-md-4;
-  @extend .col-lg-3;
-  @media screen and (max-width: $screen-xs ){
-    width: 100%;
-    margin: 0 auto;
-  }
+%responsive-item {
+  width: 100%;
+  margin: 0 auto;
   img {
     @extend %responsive-image;
   }
 }
+
+%tout-triptych{
+  @include make-xs-column(6);
+  @include make-sm-column(3);
+  @include make-md-column(4);
+  @include make-lg-column(4);
+  @extend %responsive-item;
+}
+
+%tout-quadriptych {
+  @include make-xs-column(6);
+  @include make-sm-column(6);
+  @include make-md-column(3);
+  @include make-lg-column(3);
+  @extend %responsive-item;
+}
+
 
