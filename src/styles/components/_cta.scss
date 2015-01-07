@@ -1,3 +1,21 @@
+/*
+CTA
+
+Call to action
+
+Markup:
+<section class="cta {$modifiers}">
+  <h2>CTA Title Here</h2>
+  <p class="blurb">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.
+  </p>
+  <button type="button" class="btn btn-default"><a href="#">Here's a button</a></button>
+</section>
+
+Styleguide 5.1
+*/
+
 .cta-wrapper {
   @extend .clearfix;
   clear: both;
