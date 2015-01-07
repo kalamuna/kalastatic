@@ -19,7 +19,7 @@
     "test": "./node_modules/.bin/metalsmith build && npm run-script styleguide",
     "postinstall": "./node_modules/.bin/bower install",
     "start": "./node_modules/.bin/grunt",
-    "styleguide": "./node_modules/kss-bootstrap/node_modules/.bin/kss-node --config='.kss-node.json'"
+    "styleguide": "./node_modules/kss-bootstrap/node_modules/.bin/kss-node --source styleguide --source src/styles --destination build/styleguide --css build/styles/main.css --template node_modules/kss-bootstrap/bootstrap"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
