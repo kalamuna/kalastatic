@@ -19,7 +19,6 @@
     .navbar-header {
       position: relative;
       width: 100%;
-      z-index: 2; // Make sure the logo floats above the nav so it's clickable.
     }
 
     .navbar-nav {
@@ -69,7 +68,7 @@
   background-image: url( ../images/logo.png );
   background-position: center center;
   background-size: contain;
-  background-repeat: no-repeat;
+  background-repeat: none;
   display: block;
   position: relative;
   @extend %center-h;

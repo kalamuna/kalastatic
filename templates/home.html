@@ -3,16 +3,15 @@
 {% block contents %}
 
   <main role="main">
-    <article>
-      {{contents|safe}}
-  
-      <section class="cool-things">
-        <div class="teasers">
-        {% for article in collections.articles %}
-          {% include "./partials/teaser.html" with article only %}
-        {% endfor %}
-        </div>
-      </article>
+
+    {{contents|safe}}
+
+    <section class="cool-things">
+      <div class="teasers">
+      {% for article in collections.articles %}
+        {% include "./partials/teaser.html" with article only %}
+      {% endfor %}
+      </div>
     </section>
 
 
