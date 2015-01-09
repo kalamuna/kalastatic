@@ -2,20 +2,35 @@
 
 {% block contents %}
 
-  <main role="main">
-    <article>
-      {{contents|safe}}
-  
-      <section class="cool-things">
-        <div class="teasers">
-        {% for article in collections.articles %}
-          {% include "./partials/teaser.html" with article only %}
-        {% endfor %}
-        </div>
-      </section>
-    </article>
+  <main role="main" class="homepage">
+    <div class="container">
+      <section class="jumbotron">
+          <h1>{{title|safe}}</h1>
+          {{contents|safe}}
+          <a href="news">Read some news</a>
+       </section>
+      
+<!--       @todo should probably turn these blocks into a partial -->
+      <div class="blocks">
+        <article>
+          <h3>About</h3>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vestibulum id ligula porta felis euismod semper. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.</p>
+          <a href="/about.html">Call to action</a>
+        </article>
+        <article>
+          <h3>Team</h3>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vestibulum id ligula porta felis euismod semper. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.</p>
+          <a href="/team.html">Call to action</a>
+        </article>
+        <article>
+          <h3>News</h3>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vestibulum id ligula porta felis euismod semper. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.</p>
+          <a href="/news.html">Call to action</a>
+        </article>
+      </div> 
 
-
+    </div>
+    <hr>
   </main>
 
 {% endblock %}

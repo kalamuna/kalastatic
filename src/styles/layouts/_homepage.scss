@@ -1,17 +1,24 @@
-.cool-things {
-  .teasers {
-
-    .teaser {
-
-      .wrapper {
-        padding: 1em;
-        background-color: #dedede;
-        box-shadow: 1px 1px 3px rgba(0,0,0,.3);
-      }
-
+.homepage {
+  padding-bottom: 2em;
+  
+  .jumbotron {
+    a {
+      @extend .btn;
+      @extend .btn-primary;
     }
-    @include container-fixed(12px);
-    max-width: $screen-lg;
-    margin: 0 auto;
+  }
+  
+  .blocks {
+    @extend .clearfix;
+    @extend .row;
+    
+    article {
+      @extend .col-sm-4;
+      
+      a {
+        @extend .btn;
+        @extend .btn-default;
+      }
+    }
   }
 }
