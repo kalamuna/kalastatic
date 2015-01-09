@@ -1,0 +1,20 @@
+{% extends 'html.html' %}
+
+{% block contents %}
+
+  <main role="main">
+    <article>
+      <div class="well">
+        {{contents|safe}}
+      </div>
+      <section id="team-members" class="teasers">
+        {% for person in collections.team %}
+          {% include "./partials/teaser.html" with person only %}
+        {% endfor %}
+      </section>
+    </article>
+
+
+  </main>
+
+{% endblock %}

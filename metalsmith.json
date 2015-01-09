@@ -9,13 +9,13 @@
         "url": "/about"
       },
       {
-        "name": "Cool Things",
-        "title": "Read about some cool things",
-        "url": "/cool-things"
+        "name": "Team",
+        "title": "Find out about our team",
+        "url": "/team"
       },
       {
-        "name": "Other Things",
-        "title": "Some other things for you to check out.",
+        "name": "News",
+        "title": "Read the news, it's important",
         "url": "/other-things"
       },
       {
@@ -29,6 +29,10 @@
     "metalsmith-collections": {
       "articles": {
         "pattern": "collections/articles/*.md",
+        "sortBy": "order"
+      },
+      "team": {
+        "pattern": "collections/team/*.md",
         "sortBy": "order"
       }
     },
