@@ -16,7 +16,7 @@
       {
         "name": "News",
         "title": "Read the news, it's important",
-        "url": "/other-things"
+        "url": "/news"
       },
       {
         "name": "Contact",
@@ -33,6 +33,10 @@
       },
       "team": {
         "pattern": "collections/team/*.md",
+        "sortBy": "order"
+      },
+      "news": {
+        "pattern": "collections/news/*.md",
         "sortBy": "order"
       }
     },

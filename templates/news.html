@@ -7,9 +7,9 @@
       <div class="content">
         {{contents|safe}}
       </div>
-      <section id="team-members" class="teaser-grid">
-        {% for person in collections.team %}
-          {% include "./partials/teaser.html" with person only %}
+      <section id="news-roll" class="teasers">
+        {% for news in collections.news %}
+          {% include "./partials/news-teaser.html" with news only %}
         {% endfor %}
       </section>
     </article>
