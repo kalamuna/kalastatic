@@ -1,7 +1,4 @@
 ---
 template: news.html
-title: News
+title: No news is good news
 ---
-
-## No news is good news
-
