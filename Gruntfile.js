@@ -42,12 +42,30 @@ module.exports = function(grunt) {
         },
       },
     },
+    // The Build Control plugin:
+    // https://www.npmjs.com/package/grunt-build-control
+    buildcontrol: {
+      options: {
+        dir: 'build',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      github: {
+        options: {
+          remote: 'git@github.com:kalamuna/kalastatic.git',
+          branch: 'gh-pages'
+        }
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-build-control');
 
-  grunt.registerTask('metalsmith', ['exec:metalsmith', 'exec:kss']);
-  grunt.registerTask('default', ['metalsmith', 'connect', 'watch']);
+  grunt.registerTask('deploy', ['build', 'buildcontrol:github']);
+  grunt.registerTask('build', ['exec:metalsmith', 'exec:kss']);
+  grunt.registerTask('default', ['build', 'connect', 'watch']);
 };
