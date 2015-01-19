@@ -1,3 +1,24 @@
+/*
+Sticky Footer
+
+Provides a sticky footer at the bottom of the page.
+
+Markup:
+<footer class="footer">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Investor Information</a></li>
+      <li><a href="#">Media</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <p class="navbar-text navbar-right text-muted">Copyright © 2014 KalaStatic, Inc. All Rights Reserved.</p>
+  </div>
+</footer>
+
+Styleguide 4.1
+*/
+
 html {
   position: relative;
   min-height: 100%;
