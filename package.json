@@ -12,7 +12,7 @@
     "metalsmith-concat": "^1.0.0",
     "metalsmith-collections": "^0.6.0",
     "swig": "^1.4.2",
-    "metalsmith-swig-helpers": "git://github.com/madeofpeople/metalsmith-swig-helpers"
+    "metalsmith-swig-helpers": "^0.1.0"
   },
   "scripts": {
     "build": "./node_modules/.bin/metalsmith build",

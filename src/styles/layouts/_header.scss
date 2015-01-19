@@ -1,181 +1,96 @@
+%standard-logo {
+  width: 262px;
+  height: 101px;
+}
 
-#header {
+%small-logo {
+  width: 187px;
+  height: 72px;
+}
 
-  .navbar {
+.identity {
 
-    @extend %panelShadow;
+  transition-property: width, height, margin-top;
+  transition-duration: .25s;
+  @extend %easeOutOver;
+  margin-top:0em;
+  @extend %standard-logo;
+  background-image: url(/images/logo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 
-    border: none;
+  .shrunk & {
+    @extend %small-logo;
+  }
 
-    transition-property: height;
-    transition-duration: .25s;
-    padding: 0;
-
-    height: 13em;
-    margin-bottom: 0;
-
-    background-image: linear-gradient(to top, #bababa, #fafafa, #fff, #fff, #fff);
-
-    .navbar-header {
-      position: relative;
-      width: 100%;
-    }
-
-    .navbar-nav {
-      @extend %center-h;
-      transition-property: padding-top;
-      transition-duration: .25s;
-      padding:  4.5em 0 0 0;
-      margin: 0;
-    }
-
-    li {
-      a {
-        font-family: "ChaletComprimeMilanSixy";
-        letter-spacing: 1px;
-        font-size: 1.5em;
-        &:hover {
-          background: #666;
-          color: #fff;
-        }
-      }
-    }
-
+  a {
+    display: block;
   }
 
 }
 
-.navbar-brand {
-  transition-property: width height;
+.collapsing {
+  transition-property: height;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
   transition-duration: .25s;
-  width: 160px;
-  height: 172px;
-  position: absolute;
-  left: 50%;
-  @extend %center-h;
-  float: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
 }
 
-.logo {
-  transition-property: width height;
-  transition-duration: .25s;
-  width: 160px;
-  height: 172px;
-  margin: 0;
-  background-image: url( ../images/logo.png );
-  background-position: center center;
-  background-size: contain;
-  background-repeat: none;
-  display: block;
-  position: relative;
-  @extend %center-h;
+#header>.navbar {
+  border: none;
+  background-color: $navbar-default-bg;
+  box-shadow: 0px 2px 12px rgba(0,0,0,.25);
+}
+
+#header .navbar-nav {
+
+  li {
+
+    a {
+
+      padding-top: 1em;
+      padding-bottom: 1.25em;
+      padding-left: 1em;
+
+      @media screen and (min-width: $screen-sm) {
+
+        transition-property: padding-top, padding-bottom, font-size;
+        transition-duration: .25s;
+        @extend %easeOutOver;
+
+        padding-top: 2.575em;
+
+        .shrunk & {
+          padding-top: 1.5em;
+          padding-bottom: 1.25em;
+        }
+      }
+
+    }
+
+    a:hover {
+      background: darken($navbar-default-bg,15);
+      color: #fff;
+    }
+
+  }
+
+  li:last-child {
+
+    a {
+      padding-right: 2em;
+    }
+
+  }
 
 }
 
 .navbar-toggle {
-  background-color: #ddd;
   margin-top: 2em;
-  right: 2em;
-  span {
-    border: 1px #666 solid;
-  }
-}
-
-
-.shrunk {
-
-  #header {
-
-    .navbar-brand {
-      width: 115px;
-      height: 95px;
-      overflow: hidden !important;
-    }
-
-    .logo {
-      width: 115px;
-      height: 125px;
-    }
-
-    .navbar {
-      height: 6.5em;
-    }
-
-    .navbar-nav {
-      padding-top: 2.25em;
-    }
-
-  }
-
-}
-
-@media screen and (min-width: $screen-sm ){
-
-  .nav li {
-    margin-left: 1.5em;
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-
-  .logogap {
-    margin-right: 10em;
-  }
-
-}
-
-@media screen and (min-width: $screen-md ){
-
-  .nav li {
-    margin-left: 1.75em;
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-
-  .logogap {
-    margin-right: 12em;
-  }
-
-}
-
-
-// Mobile Menu
-@media screen and (max-width: $screen-sm) {
-
-  .navbar-brand {
-    position: relative;
-    z-index: 111;
-  }
-
-  #header .navbar .navbar-nav {
-    padding-top: 0;
-  }
-  .navbar-fixed-top .navbar-collapse {
-    max-height: 1000px;
-    z-index: 100;
-    top: .625em;
-    .shrunk & {
-      top: -0.275em;
-    }
-  }
-  .navbar-collapse {
-    background-color: #333;
-    position: relative;
-    padding: 0;
-
-    li {
-      padding-top: 0;
-      text-align: center;
-      a {
-        font-size: 2.5em !important;
-        padding: .25em 1em;
-        line-height: 1.5;
-      }
-    }
-  }
-
+  margin-right: .5em;
+  border: none;
+  border-radius: 0;
+  background-color: $text-color;
+  padding: 1em .75em;
+  top: 0em;
+  font-size: .875em;
 }
