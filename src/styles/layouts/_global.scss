@@ -9,7 +9,8 @@ main > article {
   @extend .row;
   background-color: $body-bg;
   padding: 0;
-  margin: 34em auto 0 auto;
+  padding-bottom: 2em;
+  margin: 0 auto;
   clear: both;
   float: none;
 

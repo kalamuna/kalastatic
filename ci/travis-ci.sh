@@ -1,11 +1,4 @@
 #!/bin/bash
-  
-##
-# PROJECT SPECIFIC SETTINGS
-##
-KALA_REPO_URL="git@alltherepos.com:mysickrepo.git"
-KALA_REPO_SLUG="kalamuna/sloth-nasty-6000"
-KALA_REPO_BRANCH="master"
 
 COMMAND=$1
 EXIT_VALUE=0

@@ -1,6 +1,10 @@
 language: node_js
 node_js:
 - '0.10'
+env:
+  - KALA_REPO_URL=git@alltherepos.com:mysickrepo.git
+  - KALA_REPO_SLUG=kalamuna/sloth-nasty-6000
+  - KALA_REPO_BRANCH=master
 before_install:
 - cp ci/travis-ci.sh $HOME/
 - chmod +x $HOME/travis-ci.sh
