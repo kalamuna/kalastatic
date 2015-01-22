@@ -69,9 +69,10 @@ module.exports = function(grunt) {
   // Initialize the configuration.
   grunt.initConfig(config);
 
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-build-control');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('metalsmith', ['exec:metalsmith', 'exec:kss']);
   grunt.registerTask('deploy', ['metalsmith', 'buildcontrol:github']);
