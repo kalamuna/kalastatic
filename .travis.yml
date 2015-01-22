@@ -2,9 +2,14 @@ language: node_js
 node_js:
 - '0.10'
 after_success:
-  - if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then npm run deploy; fi
+- if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then npm run deploy; fi
 cache:
   directories:
   - node_modules
 notifications:
   email: false
+env:
+  global:
+  - GH_REPO="kalamuna/kalastatic"
+  # GIT_NAME, GIT_EMAIL and GH_TOKEN
+  - secure: ZJBBX6XW3mnbVAS8zddDebDUw+CPmAfzmQGu/pb75ndvRM9WUAyWTq30eh513IcE0tqqRk075U6kYTs+tA2HNDsUXpnggIj2s1s1U26o+0k4Yqxg3Wme4AEyYhfzgMrAwAVJbpGHyGjuhBlNiMlym+w2dceDzCTpZahDxVstmv0=
