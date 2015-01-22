@@ -6,7 +6,8 @@
  */
 
 module.exports = function(grunt) {
-  grunt.initConfig({
+  // Create the Grunt configuration
+  var config = {
     // Execute Metalsmith
     exec: {
       metalsmith: {
@@ -42,7 +43,31 @@ module.exports = function(grunt) {
         },
       },
     },
-  });
+    // The Build Control plugin:
+    // https://www.npmjs.com/package/grunt-build-control
+    buildcontrol: {
+      options: {
+        dir: 'build',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      github: {
+        options: {
+          remote: 'git@github.com:kalamuna/kalastatic.git',
+          branch: 'gh-pages'
+        }
+      }
+    }
+  };
+
+  // Extract any keys from the environmental variables.
+  if (process.env.GH_TOKEN && process.env.GH_REPO) {
+    config.buildcontrol.github.options.remote = "https://" + process.env.GH_TOKEN + "@github.com/" + process.env.GH_REPO + ".git";
+  }
+
+  // Initialize the configuration.
+  grunt.initConfig(config);
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-exec');
