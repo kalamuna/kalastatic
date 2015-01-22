@@ -19,16 +19,14 @@
     "test": "./node_modules/.bin/metalsmith build && npm run-script styleguide",
     "postinstall": "./node_modules/.bin/bower install",
     "start": "./node_modules/.bin/grunt",
-    "styleguide": "./node_modules/kss-bootstrap/node_modules/.bin/kss-node --config='.kss-node.json'",
-    "deploy": "./node_modules/.bin/grunt deploy"
+    "styleguide": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json'"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-build-control": "^0.2.2",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-connect": "^0.9.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.6",
-    "kss-bootstrap": "~0.2.0"
+    "kss-bootstrap": "~0.3.0"
   }
 }

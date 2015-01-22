@@ -72,9 +72,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-build-control');
 
-  grunt.registerTask('deploy', ['build', 'buildcontrol:github']);
-  grunt.registerTask('build', ['exec:metalsmith', 'exec:kss']);
-  grunt.registerTask('default', ['build', 'connect', 'watch']);
+  grunt.registerTask('metalsmith', ['exec:metalsmith', 'exec:kss']);
+  grunt.registerTask('default', ['metalsmith', 'connect', 'watch']);
 };
