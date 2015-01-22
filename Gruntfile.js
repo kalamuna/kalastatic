@@ -6,7 +6,8 @@
  */
 
 module.exports = function(grunt) {
-  grunt.initConfig({
+  // Create the Grunt configuration
+  var config = {
     // Execute Metalsmith
     exec: {
       metalsmith: {
@@ -58,7 +59,15 @@ module.exports = function(grunt) {
         }
       }
     }
-  });
+  };
+
+  // Extract any keys from the environmental variables.
+  if (process.env.GH_TOKEN && process.env.GH_REPO) {
+    config.buildcontrol.github.options.remote = "https://" + process.env.GH_TOKEN + "@github.com/" + process.env.GH_REPO + ".git";
+  }
+
+  // Initialize the configuration.
+  grunt.initConfig(config);
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-exec');
