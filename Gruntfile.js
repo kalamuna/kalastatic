@@ -11,10 +11,10 @@ module.exports = function(grunt) {
     // Execute Metalsmith
     exec: {
       metalsmith: {
-        cmd: 'npm run-script build'
+        cmd: 'npm run build'
       },
       kss: {
-        cmd: "npm run-script styleguide"
+        cmd: "npm run styleguide"
       }
     },
     // Local static web server
@@ -74,5 +74,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('metalsmith', ['exec:metalsmith', 'exec:kss']);
+  grunt.registerTask('deploy', ['metalsmith', 'buildcontrol:github']);
   grunt.registerTask('default', ['metalsmith', 'connect', 'watch']);
 };
