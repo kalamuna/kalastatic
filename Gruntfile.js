@@ -63,6 +63,7 @@ module.exports = function(grunt) {
 
   // Extract any keys from the environmental variables.
   if (process.env.GH_TOKEN && process.env.GH_REPO) {
+    // Update the remote git repository to use the GitHub token.
     config.buildcontrol.github.options.remote = "https://" + process.env.GH_TOKEN + "@github.com/" + process.env.GH_REPO + ".git";
   }
 
