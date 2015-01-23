@@ -5,9 +5,9 @@ after_success:
 # Automatically accept the host key authentication
 - echo -e "Host *drush.in\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 # Set up git to know the user name
-- git config --global user.name "Kala C. Bot"
-- git config --global user.email kalacommitbot@kalamuna.com
-# Use npm run deploy when it's not a pull request
+- git config --global user.name $GIT_NAME
+- git config --global user.email $GIT_EMAIL
+# Deploy if the commit was not a pull request
 - if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then npm run deploy; fi
 cache:
   directories:
