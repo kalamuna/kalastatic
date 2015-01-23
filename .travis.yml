@@ -2,7 +2,13 @@ language: node_js
 node_js:
 - '0.10'
 after_success:
-- if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then git config --global user.name "Kala C. Bot" && git config --global user.email kalacommitbot@kalamuna.com && npm run deploy; fi
+# Automatically accept the host key authentication
+- echo -e "Host *drush.in\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+# Set up git to know the user name
+- git config --global user.name "Kala C. Bot"
+- git config --global user.email kalacommitbot@kalamuna.com
+# Use npm run deploy when it's not a pull request
+- if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then npm run deploy; fi
 cache:
   directories:
   - node_modules
