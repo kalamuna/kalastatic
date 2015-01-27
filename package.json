@@ -17,7 +17,7 @@
   "scripts": {
     "build": "./node_modules/.bin/metalsmith build",
     "test": "./node_modules/.bin/metalsmith build && npm run-script styleguide",
-    "postinstall": "./node_modules/.bin/bower install",
+    "postinstall": "./node_modules/.bin/bower install && find node_modules/ -name '*.info' -type f -delete",
     "start": "./node_modules/.bin/grunt",
     "styleguide": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json'",
     "deploy": "./node_modules/.bin/grunt deploy"
