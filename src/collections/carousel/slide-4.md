@@ -1,5 +1,5 @@
 ---
-title: From the Train to the Plane — BART OAK Connector Opens
-image: /images/carousel/04-clipnorth_05.png
+title: Sometimes I like to do stuff but not go anywhere.
+image: holder.js/1000x500
 order: 4
 ---

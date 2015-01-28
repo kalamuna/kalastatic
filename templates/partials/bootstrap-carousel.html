@@ -1,16 +1,16 @@
-<div id="myCarousel1" class="carousel slide" data-ride="carousel" data-interval="false">
+<div id="myCarousel1" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
   {% for key, item in collections.carouselItems %}
-    <li data-target="#myCarousel1" data-slide-to="{{key}}" class="{% if loop.last %}active{% endif %}"></li>
+    <li data-target="#myCarousel1" data-slide-to="{{key}}" class="{% if loop.first %}active{% endif %}"></li>
   {% endfor %}
   </ol>
   
   <!-- Slides -->
   <div class="carousel-inner" role="listbox">
   {% for key, item in collections.carouselItems %}
-    <div class="item{% if loop.last %} active{% endif %}">
-      <img src="{{item.image}}" alt="First slide">
+    <div class="item{% if loop.first %} active{% endif %}">
+      <img data-src="{{item.image}}" alt="First slide">
       <div class="container">
         <div class="carousel-caption">
           <h1><a href="{{item.url}}">{{item.title}}</a></h1>

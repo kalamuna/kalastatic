@@ -1,5 +1,5 @@
 ---
-title: San Jose, VivaFest to Host Free Electric Vehicle Test-Drive
-image: /images/carousel/01-EV_SanJose04.jpg
+title: Making things is fun—you should try it.
+image: holder.js/1000x500
 order: 1
 ---
