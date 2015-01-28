@@ -1,5 +1,5 @@
 ---
-title: The Transbay Transit Center Begins Its Historic Rise
-image: /images/carousel/02-Transbay-Transit-Center-Natoma-Street.jpg
+title: I like stuff, do you like stuff?
+image: holder.js/1000x500
 order: 2
 ---

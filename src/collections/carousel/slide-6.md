@@ -1,5 +1,5 @@
 ---
-title: MTC Invites Comments on Public Participation Plan
-image: /images/carousel/06-Marin-DSC_0138.jpg
+title: Very carousel, much bootstrap.
+image: holder.js/1000x500
 order: 6
 ---

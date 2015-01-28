@@ -1,5 +1,5 @@
 ---
-title: Zipping Along — First Golden Gate Commute with New Median Barriers
-image: /images/carousel/05-GG-Zipper-Truck-3.jpg
+title: Sometimes I like to go places and do nothing.
+image: holder.js/1000x500
 order: 5
 ---
