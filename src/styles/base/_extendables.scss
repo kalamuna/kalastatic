@@ -45,4 +45,12 @@
   @extend %responsive-item;
 }
 
+%tout-pentaptych {
+  @include make-xs-column(12);
+  @include make-sm-column(2.4);
+  @include make-md-column(2.4);
+  @include make-lg-column(2.4);
+  @extend %responsive-item;
+}
+
 
