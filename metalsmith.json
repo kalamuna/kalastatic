@@ -47,14 +47,21 @@
     "metalsmith-sass": {
       "outputStyle": "expanded",
       "includePaths": [
-        "src/styles",
-        "assets/vendor",
-        "assets/vendor/bootstrap-sass-twbs/assets/stylesheets",
-        "assets/vendor/fontawesome/scss/"
+        "src/vendor",
+        "src/vendor/bootstrap-sass-twbs/assets/stylesheets",
+        "src/vendor/fontawesome/scss/"
       ]
     },
     "metalsmith-concat": {
-      "files": "js/**/*.js",
+      "files": [
+        "vendor/jquery/dist/jquery.min.js",
+        "vendor/matchHeight/jquery.matchHeight.js",
+        "vendor/holderjs/holder.js",
+        "vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js",
+        "js/utils.js",
+        "js/about.js",
+        "js/global.js"
+      ],
       "output": "js/scripts.js"
     }
   }

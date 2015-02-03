@@ -1,0 +1,36 @@
+{
+  "name": "matchHeight",
+  "version": "0.5.2",
+  "homepage": "https://github.com/liabru/jquery-match-height",
+  "authors": [
+    "Liam Brummitt <liam@brm.io> (http://brm.io/)"
+  ],
+  "description": "a more robust, responsive equal heights plugin for jQuery",
+  "main": "jquery.matchHeight-min.js",
+  "keywords": [
+    "matchHeight",
+    "equal",
+    "match",
+    "height",
+    "equalize",
+    "columns"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.5.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.5.2",
+    "commit": "4b8f8e421fdb363a6a547de7433f4f4c450e7fda"
+  },
+  "_source": "git://github.com/liabru/jquery-match-height.git",
+  "_target": "~0.5.2",
+  "_originalSource": "matchHeight",
+  "_direct": true
+}
