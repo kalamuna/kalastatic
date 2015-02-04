@@ -1,11 +1,11 @@
 ---
 template: about.html
 page_slug: page-about
+title: About
 cta:
   title: Interested in learning more about us?
   cta: Contact us
   url: "/contact"
-title: About
 ---
 
 ## KalaStatic is a game-changing prototyping tool.
