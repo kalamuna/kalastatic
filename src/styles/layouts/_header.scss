@@ -68,7 +68,8 @@ $nav-bar-padding-shrunk: 1.5em;
 
     }
 
-    a:hover {
+    &.active a,
+    a:hover, {
       background: darken($navbar-default-bg,15);
       color: #fff;
     }
