@@ -1,6 +1,7 @@
 ---
-template: article.html
 title: These are some cool things
+slug: cool-things
+template: article.html
 ---
 
 ## Things that are cool
