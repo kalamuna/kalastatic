@@ -22,6 +22,11 @@
         "name": "Contact",
         "title": "Contact us about anything at all!",
         "url": "/contact"
+      },
+      {
+        "name": "Bootstrap carousel",
+        "title": "Check out the bootstrap carousel",
+        "url": "/carousel"
       }
     ]
   },
@@ -36,7 +41,10 @@
         "sortBy": "order"
       },
       "news": {
-        "pattern": "collections/news/*.md",
+        "pattern": "collections/news/*.md"
+      },
+      "carouselItems": {
+        "pattern": "collections/carousel/*.md",
         "sortBy": "order"
       }
     },
