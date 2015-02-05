@@ -16,7 +16,6 @@
     <ul class="nav navbar-nav">
       {% for navItem in nav %}
         {% set navItemIsActivePage = navItem.name|isSlugMatch(title) %}
-        {{navItemIsActivePage}}
         {% if navItemIsActivePage == true %}
           <li class="{{ navItem.name|slug }} active">
         {% else %}
