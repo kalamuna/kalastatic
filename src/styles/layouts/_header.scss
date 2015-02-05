@@ -35,14 +35,15 @@
   transition-duration: .25s;
 }
 
-#header>.navbar {
+#header > .navbar {
   border: none;
   background-color: $navbar-default-bg;
   box-shadow: 0px 2px 12px rgba(0,0,0,.25);
 }
 
+$nav-bar-padding: 2.575em;
+$nav-bar-padding-shrunk: 1.5em;
 #header .navbar-nav {
-
   li {
 
     a {
@@ -57,10 +58,10 @@
         transition-duration: .25s;
         @extend %easeOutOver;
 
-        padding-top: 2.575em;
+        padding-top: $nav-bar-padding;
 
         .shrunk & {
-          padding-top: 1.5em;
+          padding-top: $nav-bar-padding-shrunk;
           padding-bottom: 1.25em;
         }
       }
@@ -83,6 +84,27 @@
 
   }
 
+}
+
+#navbar {
+  @extend .container;
+  
+  #search-form {
+    $search-form-padding-offset: 0.5em;
+    @extend .col-sm-3;
+    padding-top: $nav-bar-padding - $search-form-padding-offset;
+    float: right;
+    
+    @media screen and (min-width: $screen-sm) {
+      transition-property: padding-top;
+      transition-duration: .25s;
+      @extend %easeOutOver;
+
+      .shrunk & {
+        padding-top: $nav-bar-padding-shrunk - $search-form-padding-offset;
+      }
+    }
+  }
 }
 
 .navbar-toggle {

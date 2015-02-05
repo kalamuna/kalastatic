@@ -2,20 +2,11 @@
 
 {% block contents %}
 
-  <main role="main">
-    <article>
-      {{contents|safe}}
-  
-      <section class="cool-things">
-        <div class="teasers">
-        {% for article in collections.articles %}
-          {% include "./partials/teaser.html" with article only %}
-        {% endfor %}
-        </div>
-      </section>
-    </article>
-
-
+  <main role="main" class="homepage">
+    <div class="container">
+<!--       Home page content here -->
+    </div>
+    <hr>
   </main>
 
 {% endblock %}

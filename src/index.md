@@ -1,9 +1,6 @@
 ---
 template: home.html
-title: Home Page
+title: Who needs a CMS?
 ---
 
-## KalaStatic
-
-This is the homepage.
-
+Not me, that's for sure. CMS's are for whimps and loosers so suck it up and generate your static site now!
