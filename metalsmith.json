@@ -65,7 +65,7 @@
       "includePaths": [
         "src/vendor",
         "src/vendor/bootstrap-sass-twbs/assets/stylesheets",
-        "/src/vendor/fontawesome/scss/"
+        "src/vendor/fontawesome/scss/"
       ]
     },
     "metalsmith-concat": {
