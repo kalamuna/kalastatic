@@ -1,0 +1,17 @@
+{% extends 'html.html' %}
+
+{% block contents %}
+
+  <main role="main">
+    <article>
+      {{contents|safe}}
+  
+      <section class="cool-things">
+        <div class="teasers">
+        {% include "./partials/bootstrap-carousel.html" %}
+        </div>
+      </section>
+    </article>
+  </main>
+
+{% endblock %}
