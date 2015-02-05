@@ -1,5 +1,5 @@
 body {
-  padding-top: 13em;
+  padding-top: 8em;
 }
 
 main > article {
@@ -17,12 +17,18 @@ main > article {
   .content {
   }
 
-  .cta-wrapper,
-  .tab-pane,
+  //.cta-wrapper,
+  //..tab-pane,
+/*
   .content {
     @extend .row;
     padding: 2em;
     margin: 0;
+  }
+*/
+
+  .content {
+    @extend .col-sm-12;
   }
 
   section > section {
@@ -31,12 +37,16 @@ main > article {
 
 }
 
-// teasers and article grids
-.teasers {
+// Teasers and article grids.
+.teaser-grid {
   @extend .clearfix;
   .teaser {
     @extend %tout-quadriptych;
   }
+}
+
+.teasers {
+  @extend .col-sm-12;
 }
 
 
