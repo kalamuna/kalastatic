@@ -13,17 +13,23 @@
     </button>
   </div>
   <div id="navbar" class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
-      {% for navItem in nav %}
-        {% set navItemIsActivePage = navItem.name|isSlugMatch(title) %}
-        {% if navItemIsActivePage == true %}
-          <li class="{{ navItem.name|slug }} active">
-        {% else %}
-          <li class="{{ navItem.name|slug }}">
-        {% endif %}
-          <a href="{% if navItem.url %}{{ navItem.url }}{% else %}{{ navItem.name|slug }}{% endif %}">{{navItem.name}}</a>
+    <div class="row">
+      <ul class="nav navbar-nav">
+        {% for navitem in nav %}
+        <li class="{{navitem.name|slug}}">
+          <!-- we use both navitems.slug and navitem.url to handle outside links, or nested pages -->
+          <a href="{{navitem.url}}">{{navitem.name}}</a>
         </li>
-       {% endfor %}
-    </ul>
+        {% endfor %}
+      </ul>
+      <div id="search-form">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Go!</button>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </nav>
