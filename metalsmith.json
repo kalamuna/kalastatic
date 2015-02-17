@@ -63,9 +63,9 @@
     "metalsmith-sass": {
       "outputStyle": "expanded",
       "includePaths": [
-        "src/vendor",
-        "src/vendor/bootstrap-sass-twbs/assets/stylesheets",
-        "src/vendor/fontawesome/scss/"
+        "assets/vendor",
+        "assets/vendor/bootstrap-sass-twbs/assets/stylesheets",
+        "assets/vendor/fontawesome/scss/"
       ]
     },
     "metalsmith-concat": {

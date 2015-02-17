@@ -764,11 +764,11 @@ an error. To work around this, you'll need to modify the social icon class names
 </section>
 </div>
 
----Styleguide 5.0 - Commented out until Font Awesome is used locally.
+Styleguide 6.0
 */
 
 // Customized Variables - Overrides the !defaults.
-$fa-font-path: "/vendor/fontawesome/fonts";
+$fa-font-path: "../vendor/fontawesome/fonts";
 
 // Vendor Code
 @import "font-awesome";
