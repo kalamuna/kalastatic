@@ -23,9 +23,26 @@ module.exports = function(grunt) {
         options: {
           base: 'build',
           open: true,
-          livereload: true
+          livereload: false
         },
       },
+    },
+
+    // BrowserSync Task
+    browserSync: {
+      default_options: {
+        bsFiles: {
+          src: [
+            "**/*.css",
+            "**/*.html"
+          ]
+        },
+        options: {
+          watchTask: true,
+          baseDir: "build",
+          proxy: "0.0.0.0:8000"
+        }
+      }
     },
     // Watch files and run tasks when changed
     watch: {
@@ -39,7 +56,7 @@ module.exports = function(grunt) {
         options: {
           spawn: false,
           interupt: true,
-          livereload: true
+          livereload: false
         },
       },
     },
@@ -74,8 +91,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-browser-sync');
 
   grunt.registerTask('metalsmith', ['exec:metalsmith', 'exec:kss']);
   grunt.registerTask('deploy', ['metalsmith', 'buildcontrol:github']);
-  grunt.registerTask('default', ['metalsmith', 'connect', 'watch']);
+  grunt.registerTask('default', ['metalsmith', 'connect', 'browserSync', 'watch']);
 };
