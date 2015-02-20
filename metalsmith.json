@@ -74,7 +74,7 @@
         "vendor/matchHeight/jquery.matchHeight.js",
         "vendor/holderjs/holder.js",
         "vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js",
-        "js/utils.js",
+        "js/kala_utils.js",
         "js/about.js",
         "js/global.js"
       ],
