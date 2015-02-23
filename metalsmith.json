@@ -22,7 +22,7 @@
       }
     },
     "metalsmith-metadata": {
-      "navigation": "navigation.yaml"
+      "config": "config.yaml"
     },
     "metalsmith-markdown": {},
     "metalsmith-permalinks": {
