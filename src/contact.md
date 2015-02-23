@@ -3,7 +3,7 @@ template: contact.html
 title: Contact
 ---
 
-<form method="POST" action="http://formspree.io/kalastatic@example.com" id="contact">
+<form method="POST" action="nrrv<))`itkuvtcc(oi)mgjgurgroeFc~gkvjc(eik" id="contact">
   <div class="form-group">
     <label for="name">Name</label>
     <input name="name" type="name" class="form-control" id="name" placeholder="Enter name" required>

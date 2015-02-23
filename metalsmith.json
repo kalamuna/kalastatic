@@ -74,8 +74,10 @@
         "vendor/matchHeight/jquery.matchHeight.js",
         "vendor/holderjs/holder.js",
         "vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js",
+        "vendor/xor-crypt/xor-crypt.js",
         "js/kala_utils.js",
         "js/about.js",
+        "js/contact.js",
         "js/global.js"
       ],
       "output": "js/scripts.js"
