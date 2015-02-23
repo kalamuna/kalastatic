@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
-    {% block title %}{{config.title|"KalaStatic"}}{% endblock %}
+    {% block title %}{{config.title|title}}{% endblock %}
   </title>
 
   {% block head %}
@@ -52,7 +52,9 @@
           <li><a href="{{ navItem.url }}" title="{{ navItem.title|'' }}">{{ navItem.name }}</a></li>
         {% endfor %}
       </ul>
-      <p class="navbar-text navbar-right text-muted">Copyright © 2015 Kalamuna, Inc. All Rights Reserved.</p>
+      {% if config.copyright %}
+        <p class="navbar-text navbar-right text-muted">{{ config.copyright|safe }}</p>
+      {% endif %}
     </div>
   </footer>
   {% endblock %}
