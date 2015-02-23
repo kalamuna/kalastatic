@@ -1,8 +1,4 @@
 {
-  "metadata": {
-    "title": "Kalastatic",
-    "description": "Static site framework for prototyping and building out CMS-less websites at Kalamuna"
-  },
   "plugins": {
     "metalsmith-collections": {
       "articles": {
@@ -22,7 +18,8 @@
       }
     },
     "metalsmith-metadata": {
-      "config": "config.yaml"
+      "config": "config.yaml",
+      "navigation": "navigation.yaml"
     },
     "metalsmith-markdown": {},
     "metalsmith-permalinks": {

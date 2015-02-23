@@ -5,11 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
-    {% block title %}{{sitemeta.title}}{% endblock %}
+    {% block title %}{{config.title|"KalaStatic"}}{% endblock %}
   </title>
 
   {% block head %}
-  <meta name="description" content="{{ description }}">
+    <meta name="description" content="{{ config.description }}">
   {% endblock %}
 
   {% block styles %}
@@ -48,10 +48,9 @@
   <footer class="footer">
     <div class="container">
       <ul class="nav navbar-nav">
-        <li><a href="#">Footer nav 1</a></li>
-        <li><a href="#">Footer nav 2</a></li>
-        <li><a href="#">Footer nav 3</a></li>
-        <li><a href="#">Footer nav 4</a></li>
+        {% for navItem in navigation.footer %}
+          <li><a href="{{ navItem.url }}" title="{{ navItem.title|'' }}">{{ navItem.name }}</a></li>
+        {% endfor %}
       </ul>
       <p class="navbar-text navbar-right text-muted">Copyright © 2015 Kalamuna, Inc. All Rights Reserved.</p>
     </div>
