@@ -15,7 +15,7 @@
   <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
       {% for navItem in navigation.primary %}
-        {% set navItemIsActivePage = navItem.name|isSlugMatch(title) %}
+        {% set navItemIsActivePage = navItem.name|isSlugMatch(pageSlug) %}
         {% if navItemIsActivePage == true %}
           <li class="{{ navItem.name|slug }} active">
         {% else %}
