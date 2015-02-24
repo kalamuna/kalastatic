@@ -1,0 +1,37 @@
+primary:
+  - name: About
+    title: About Us
+    url: /about
+
+  - name: Team
+    title: Find out about our team
+    url: /team
+
+  - name: News
+    title: Read the news, it's important
+    url: /news
+
+  - name: Contact
+    title: Contact us about anything at all!
+    url: /contact
+
+  - name: Bootstrap carousel
+    title: Check out the bootstrap carousel
+    url: /carousel
+
+footer:
+  - name: Footer 1
+    title: This is the first footer link.
+    url: #
+
+  - name: Footer 2
+    title: This is the second footer link.
+    url: #
+
+  - name: Footer 3
+    title: This is the third footer link.
+    url: #
+
+  - name: Footer 4
+    title: This is the fourth footer link.
+    url: #
