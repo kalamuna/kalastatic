@@ -72,7 +72,7 @@ module.exports = function(grunt) {
 
   // Allow deploying to different multi-dev environments on Pantheon.
   if (process.env.TRAVIS_BRANCH) {
-    config.buildcontrol.deploy.options.branch = TRAVIS_BRANCH;
+    config.buildcontrol.deploy.options.branch = process.env.TRAVIS_BRANCH;
   }
 
   // Extract any keys from the environmental variables.
