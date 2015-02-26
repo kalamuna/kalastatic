@@ -16,7 +16,7 @@ notifications:
   email: false
 env:
   global:
-  - GIT_NAME: Kala C. Bot
+  - GIT_NAME: "Kala C. Bot"
   - GIT_EMAIL: kalacommitbot@kalamuna.com
 
   # Encrypted Environment Variables
