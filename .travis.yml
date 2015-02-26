@@ -7,8 +7,7 @@ after_success:
 # Set up git to know the user name
 - git config --global user.name $GIT_NAME
 - git config --global user.email $GIT_EMAIL
-# Deploy if the commit was not a pull request
-- if [ $TRAVIS_PULL_REQUEST == 'false' ] && [ $TRAVIS_BRANCH == "master" ] && [ $TRAVIS_REPO_SLUG == $GH_REPO ]; then npm run deploy; fi
+- npm run deploy
 cache:
   directories:
   - node_modules
@@ -16,6 +15,16 @@ notifications:
   email: false
 env:
   global:
-  - GH_REPO="kalamuna/kalastatic"
-  # GIT_NAME, GIT_EMAIL and GH_TOKEN
+  - GIT_NAME: Kala C. Bot
+  - GIT_EMAIL: kalacommitbot@kalamuna.com
+
+  # Encrypted Environment Variables
+  # GIT_NAME: The name of the git user to use.
+  # GIT_EMAIL: The email address for the git user.
+  # GH_TOKEN: The personal token from https://github.com/settings/tokens/new .
+  #
+  # gem install travis
+  # travis encrypt GIT_NAME="John Smith"
+  # travis encrypt GIT_EMAIL="john@smith.com"
+  # travis encrypt GH_TOKEN=fd0c12c7b959b423a18fa416a1d924f3fdf82824
   - secure: ZJBBX6XW3mnbVAS8zddDebDUw+CPmAfzmQGu/pb75ndvRM9WUAyWTq30eh513IcE0tqqRk075U6kYTs+tA2HNDsUXpnggIj2s1s1U26o+0k4Yqxg3Wme4AEyYhfzgMrAwAVJbpGHyGjuhBlNiMlym+w2dceDzCTpZahDxVstmv0=

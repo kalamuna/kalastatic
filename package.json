@@ -18,10 +18,10 @@
   },
   "scripts": {
     "build": "metalsmith build",
-    "test": "metalsmith build && npm run-script styleguide",
-    "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",
+    "postbuild": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json'",
+    "test": "npm run build",
     "start": "grunt",
-    "styleguide": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json'",
+    "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",
     "deploy": "grunt deploy"
   },
   "devDependencies": {
@@ -32,5 +32,9 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.6",
     "kss-bootstrap": "~0.3.0"
+  },
+  "extra": {
+    "repo": "kalamuna/kalastatic",
+    "deploy": "ssh://codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5@codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5.drush.in:2222/~/repository.git"
   }
 }
