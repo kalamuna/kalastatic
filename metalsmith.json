@@ -21,6 +21,9 @@
       "config": "config.yaml",
       "navigation": "navigation.yaml"
     },
+    "metalsmith-prismic": {
+      "url": "http://kalastatic.prismic.io/api"
+    },
     "metalsmith-markdown": {},
     "metalsmith-permalinks": {
       "pattern": ":url"
