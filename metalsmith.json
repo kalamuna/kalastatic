@@ -48,7 +48,6 @@
         "vendor/holderjs/holder.js",
         "vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js",
         "js/kala_utils.js",
-        "js/about.js",
         "js/global.js"
       ],
       "output": "js/scripts.js"
