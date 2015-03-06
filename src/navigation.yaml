@@ -15,6 +15,10 @@ primary:
     title: Contact us about anything at all!
     url: /contact
 
+  - name: Style Guide
+    title: The Style Guide for Kalastatic
+    url: /styleguide
+
   - name: Bootstrap carousel
     title: Check out the bootstrap carousel
     url: /carousel
