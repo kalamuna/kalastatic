@@ -1,0 +1,19 @@
+<footer class="footer">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      {% for navItem in navigation.footer %}
+      {% set navItemIsActivePage = navItem.name|isSlugMatch(pageSlug) %}
+      {% if navItemIsActivePage == true %}
+      <li class="{{ navItem.name|slug }} active">
+      {% else %}
+      <li class="{{ navItem.name|slug }}">
+      {% endif %}
+        <a href="{{ navItem.url }}" title="{{ navItem.title|'' }}">{{ navItem.name }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% if config.copyright %}
+    <p class="navbar-text navbar-right text-muted">{{ config.copyright|safe }}</p>
+    {% endif %}
+  </div>
+</footer>
