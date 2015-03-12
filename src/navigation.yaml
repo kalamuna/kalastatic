@@ -24,9 +24,9 @@ primary:
     url: /carousel
 
 footer:
-  - name: Footer 1
+  - name: News
     title: This is the first footer link.
-    url: #
+    url: /news
 
   - name: Footer 2
     title: This is the second footer link.
