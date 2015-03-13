@@ -20,8 +20,10 @@ $font-size-h6:            $font-size-base;
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-$navbar-inverse-bg:       rgba(0,0,0,.3);
+$navbar-inverse-bg:       rgba(0,0,0,.8);
 $navbar-inverse-border:   none;
+$navbar-inverse-link-color:                 #fff;
+$navbar-inverse-link-hover-color:           darken(#fff, 30%);
 
 $jumbotron-padding:       2em;
 $jumbotron-font-size:     1em;
