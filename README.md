@@ -53,3 +53,5 @@ npm run-script build
 3. Visit [`0.0.0.0:8000`](http://0.0.0.0:8000) in your browser
 
 4. Visit [`0.0.0.0:8000/stylguide`](http://0.0.0.0:8000/styleguide) for the style guide
+
+5. Visit [`0.0.0.0:8000/stylguide/a11y.txt`](http://0.0.0.0:8000/styleguide/a11y.txt) for accessibility test result

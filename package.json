@@ -17,11 +17,12 @@
   },
   "scripts": {
     "build": "metalsmith build",
-    "postbuild": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json'",
-    "test": "npm run build && npm run a11y",
+    "postbuild": "npm run kss && npm run a11y",
+    "test": "npm run build",
     "start": "grunt",
     "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",
     "deploy": "grunt deploy",
+    "kss": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json'",
     "a11y": "a11y build/**/*.html > build/styleguide/a11y.txt"
   },
   "devDependencies": {
