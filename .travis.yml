@@ -3,7 +3,7 @@ node_js:
 - '0.10'
 after_success:
 # Automatically accept the host key authentication
-- echo -e "Host *drush.in\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 # Set up git to know the user name
 - git config --global user.name $GIT_NAME
 - git config --global user.email $GIT_EMAIL
