@@ -12,19 +12,20 @@
     "metalsmith-sass": "~0.7.0",
     "metalsmith-swig-helpers": "^1.0.0",
     "metalsmith-templates": "~0.6.0",
-    "metalsmith-templates": "~0.6.0",
     "metalsmith-metadata": "~0.0.1",
     "swig": "^1.4.2"
   },
   "scripts": {
     "build": "metalsmith build",
     "postbuild": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json'",
-    "test": "npm run build",
+    "test": "npm run build && npm run a11y",
     "start": "grunt",
     "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",
-    "deploy": "grunt deploy"
+    "deploy": "grunt deploy",
+    "a11y": "a11y build/**/*.html > build/styleguide/a11y.txt"
   },
   "devDependencies": {
+    "a11y": "git://github.com/RobLoach/a11y.git#glob",
     "grunt": "^0.4.5",
     "grunt-build-control": "^0.3.0",
     "grunt-cli": "^0.1.13",
