@@ -10,7 +10,7 @@
     "metalsmith-markdown": "~0.2.1",
     "metalsmith-permalinks": "~0.4.0",
     "metalsmith-sass": "~0.7.0",
-    "metalsmith-swig-helpers": "^1.0.0",
+    "metalsmith-swig-helpers": "^1.1.2",
     "metalsmith-templates": "~0.6.0",
     "metalsmith-templates": "~0.6.0",
     "metalsmith-metadata": "~0.0.1",

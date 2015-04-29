@@ -22,7 +22,7 @@
   {% endblock %}
 
   {% block styles %}
-  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+  <link rel="stylesheet" type="text/css" href="{{'/styles/main.css'|bustcache}}">
   {% endblock %}
 
 </head>
@@ -65,7 +65,7 @@
     <script src="/vendor/matchHeight/jquery.matchHeight.js"></script>
     <script src="/vendor/holderjs/holder.js"></script>
     <script src="/vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js"></script>
-    <script src="/js/scripts.js"></script>
+    <script src="{{'/js/scripts.js'|bustcache}}"></script>
   {% endblock %}
 
 </body>
