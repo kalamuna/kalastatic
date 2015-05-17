@@ -7,13 +7,13 @@
     "metalsmith-assets": "^0.1.0",
     "metalsmith-collections": "^0.7.0",
     "metalsmith-concat": "^2.0.0",
+    "metalsmith-include": "file:../../../../var/folders/42/n0c4xvg56s53nm1w026f0b580000gs/T/npm-60648-d3cea30e/git-cache-194672c520f1/c0e9fb48e6b77811ef4a9d03c4104dd5804ae6d1",
     "metalsmith-markdown": "~0.2.1",
+    "metalsmith-metadata": "~0.0.1",
     "metalsmith-permalinks": "~0.4.0",
     "metalsmith-sass": "~0.7.0",
     "metalsmith-swig-helpers": "^1.1.2",
     "metalsmith-templates": "~0.6.0",
-    "metalsmith-templates": "~0.6.0",
-    "metalsmith-metadata": "~0.0.1",
     "swig": "^1.4.2"
   },
   "scripts": {
