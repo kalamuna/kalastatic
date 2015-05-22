@@ -90,6 +90,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('build', ['exec:build']);
-  grunt.registerTask('deploy', ['buildcontrol:github']);
+  grunt.registerTask('deploy', ['buildcontrol:deploy']);
   grunt.registerTask('default', ['build', 'connect', 'watch']);
 };
