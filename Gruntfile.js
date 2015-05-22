@@ -8,15 +8,16 @@
 module.exports = function(grunt) {
   // Create the Grunt configuration
   var config = {
+    // Load data from package.json
+    pkg: grunt.file.readJSON('package.json'),
+
     // Execute Metalsmith
     exec: {
-      metalsmith: {
+      build: {
         cmd: 'npm run build'
       },
-      kss: {
-        cmd: "npm run styleguide"
-      }
     },
+
     // Local static web server
     connect: {
       server: {
@@ -27,6 +28,7 @@ module.exports = function(grunt) {
         },
       },
     },
+
     // Watch files and run tasks when changed
     watch: {
       all: {
@@ -43,6 +45,7 @@ module.exports = function(grunt) {
         },
       },
     },
+
     // The Build Control plugin:
     // https://www.npmjs.com/package/grunt-build-control
     buildcontrol: {
@@ -54,17 +57,28 @@ module.exports = function(grunt) {
       },
       github: {
         options: {
-          remote: 'git@github.com:kalamuna/kalastatic.git',
+          remote: 'git@github.com:<%= pkg.extra.repo %>.git',
           branch: 'gh-pages'
+        }
+      },
+      deploy: {
+        options: {
+          remote: '<%= pkg.extra.deploy %>',
+          branch: 'master'
         }
       }
     }
   };
 
+  // Allow deploying to different multi-dev environments on Pantheon.
+  if (process.env.TRAVIS_BRANCH) {
+    config.buildcontrol.deploy.options.branch = process.env.TRAVIS_BRANCH;
+  }
+
   // Extract any keys from the environmental variables.
-  if (process.env.GH_TOKEN && process.env.GH_REPO) {
+  if (process.env.GH_TOKEN) {
     // Update the remote git repository to use the GitHub token.
-    config.buildcontrol.github.options.remote = "https://" + process.env.GH_TOKEN + "@github.com/" + process.env.GH_REPO + ".git";
+    config.buildcontrol.github.options.remote = "https://" + process.env.GH_TOKEN + "@github.com/<%= pkg.extra.repo %>.git";
   }
 
   // Initialize the configuration.
@@ -75,7 +89,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('metalsmith', ['exec:metalsmith', 'exec:kss']);
-  grunt.registerTask('deploy', ['metalsmith', 'buildcontrol:github']);
-  grunt.registerTask('default', ['metalsmith', 'connect', 'watch']);
+  grunt.registerTask('build', ['exec:build']);
+  grunt.registerTask('deploy', ['buildcontrol:deploy']);
+  grunt.registerTask('default', ['build', 'connect', 'watch']);
 };
