@@ -15,14 +15,18 @@ primary:
     title: Contact us about anything at all!
     url: /contact
 
+  - name: Style Guide
+    title: The Style Guide for Kalastatic
+    url: /styleguide
+
   - name: Bootstrap carousel
     title: Check out the bootstrap carousel
     url: /carousel
 
 footer:
-  - name: Footer 1
+  - name: News
     title: This is the first footer link.
-    url: #
+    url: /news
 
   - name: Footer 2
     title: This is the second footer link.
