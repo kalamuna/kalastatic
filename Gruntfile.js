@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     exec: {
       build: {
         cmd: 'npm run build'
-      },
+      }
     },
 
     // Local static web server
