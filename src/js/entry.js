@@ -18,8 +18,4 @@ $(function() {
   // Events
   $(document).scroll(onScroll.bind(this));
 
-  // Debug some output
-  // TODO: Remove this debug code.
-  console.log("Hello World!");
-  console.log(bootstrap);
 });
