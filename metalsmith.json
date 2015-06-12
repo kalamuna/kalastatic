@@ -29,6 +29,12 @@
     "metalsmith-templates": {
       "engine": "swig"
     },
+    "metalsmith-browserify": {
+      "files": [
+        "js/entry.js"
+      ],
+      "dest": "js/scripts.js"
+      },
     "metalsmith-assets": {
       "source": "./assets",
       "dest": "."
@@ -40,17 +46,6 @@
         "assets/vendor/bootstrap-sass-twbs/assets/stylesheets",
         "assets/vendor/fontawesome/scss/"
       ]
-    },
-    "metalsmith-concat": {
-      "files": [
-        "vendor/jquery/dist/jquery.min.js",
-        "vendor/matchHeight/jquery.matchHeight.js",
-        "vendor/holderjs/holder.js",
-        "vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js",
-        "js/kala_utils.js",
-        "js/global.js"
-      ],
-      "output": "js/scripts.js"
     }
   }
 }
