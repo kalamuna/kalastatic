@@ -5,13 +5,13 @@
     "bower": "~1.4.1",
     "metalsmith": "~1.7.0",
     "metalsmith-assets": "^0.1.0",
+    "metalsmith-browserify": "RobLoach/metalsmith-browserify#update",
     "metalsmith-collections": "^0.7.0",
     "metalsmith-concat": "^2.0.0",
     "metalsmith-markdown": "~0.2.1",
     "metalsmith-permalinks": "~0.4.0",
     "metalsmith-sass": "~1.2.1",
     "metalsmith-swig-helpers": "^1.1.2",
-    "metalsmith-templates": "~0.6.0",
     "metalsmith-templates": "~0.7.0",
     "metalsmith-metadata": "~0.0.1",
     "swig": "^1.4.2"
@@ -31,6 +31,7 @@
     "grunt-contrib-connect": "^0.10.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.6",
+    "jquery": "^2.1.4",
     "kss-bootstrap": "~0.4.3"
   },
   "extra": {
@@ -38,7 +39,7 @@
     "deploy": "ssh://codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5@codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5.drush.in:2222/~/repository.git"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/kalamuna/kalastatic.git"
+    "type": "git",
+    "url": "https://github.com/kalamuna/kalastatic.git"
   }
 }
