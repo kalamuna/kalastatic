@@ -7,6 +7,8 @@
 // Module Dependencies
 var $ = require('jquery');
 var bootstrap = require('bootstrap');
+var matchHeight = require("matchheight");
+var holderjs = require("holderjs");
 
 /**
  * Document Ready
@@ -17,5 +19,8 @@ $(function() {
 
   // Events
   $(document).scroll(onScroll.bind(this));
+
+  // Initiate all pages
+  require("./pages/contact")();
 
 });
