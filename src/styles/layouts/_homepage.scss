@@ -1,24 +1,11 @@
 .homepage {
   padding-bottom: 2em;
+  text-align: center;
   
-  .jumbotron {
-    a {
-      @extend .btn;
-      @extend .btn-primary;
-    }
-  }
-  
-  .blocks {
-    @extend .clearfix;
-    @extend .row;
-    
-    article {
-      @extend .col-sm-4;
-      
-      a {
-        @extend .btn;
-        @extend .btn-default;
-      }
-    }
-  }
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    font-weight: 700;
+    margin: 40px 0px -15px 0px;
+  }  
 }
