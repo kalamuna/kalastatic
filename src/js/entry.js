@@ -4,7 +4,7 @@
  * TODO: Get Metalsmith/Browserify to minify the output.
  */
 
-// Module Dependencies
+// Dependencies
 var $ = require('jquery');
 var bootstrap = require('bootstrap');
 var matchHeight = require("matchheight");

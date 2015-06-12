@@ -1,3 +1,6 @@
+// Dependencies
+var $ = require('jquery');
+
 /**
  * Sets url hash according to deeplinks
  * If a link's href matches the urlHash then we fire the click event.

@@ -1,3 +1,6 @@
+// Dependencies
+var $ = require('jquery');
+
 function onScroll() {
   var scroll,
       whenToShrink = 50,

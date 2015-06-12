@@ -1,4 +1,3 @@
-
 /**
  * Simple utility method for copying keys from one object to another
  * @static

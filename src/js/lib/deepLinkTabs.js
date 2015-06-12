@@ -1,3 +1,6 @@
+// Dependencies
+var $ = require('jquery');
+
 /**
  * Sets url hash according to deeplinks
  * And triggers the active tab (in a bootstrap tab group) if it's tabs's href matches the urlHash then we fire the click event.
