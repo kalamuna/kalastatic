@@ -37,7 +37,7 @@ module.exports = function(grunt) {
           'assets/**/*',
           'templates/**/*'
         ],
-        tasks: ['metalsmith'],
+        tasks: ['build'],
         options: {
           spawn: false,
           interupt: true,
