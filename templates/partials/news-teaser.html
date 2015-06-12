@@ -1,6 +1,7 @@
 <article class="teaser">
   <div class="wrapper">
-    <h3><a href="{{path}}">{{title}}</a></h3>
-    <p>{{contents|safe}}</p>
+    <h3><a href="
+      {{path}}">{{title}}</a></h3>
+    <p>{{contents|safe|limit(250)}}</p>
   </div>
 </article>
