@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     exec: {
       build: {
         cmd: 'npm run build'
-      },
+      }
     },
 
     // Local static web server
@@ -25,8 +25,38 @@ module.exports = function(grunt) {
           base: 'build',
           open: true,
           livereload: true
-        },
+        }
+      }
+    },
+
+    sass: {
+      options: {
+        includePaths: [
+          "src/styles",
+          "assets/vendor/bootstrap-sass-twbs/assets/stylesheets",
+          "assets/vendor/fontawesome/scss"
+        ]
       },
+      dev: {
+        options: {
+          outputStyle: "nested",
+          sourceComments: true,
+          sourceMap: true
+        },
+        files: {
+          'build/styles/main.css': 'assets/styles/main.scss'
+        }
+      },
+      dist: {
+        options: {
+          outputStyle: "compressed",
+          sourceComments: false,
+          sourceMap: false
+        },
+        files: {
+          'build/styles/main.css': 'assets/styles/main.scss'
+        }
+      }
     },
 
     // Watch files and run tasks when changed
@@ -37,13 +67,13 @@ module.exports = function(grunt) {
           'assets/**/*',
           'templates/**/*'
         ],
-        tasks: ['build'],
+        tasks: ['metalsmith','sass:dev'],
         options: {
           spawn: false,
           interupt: true,
           livereload: true
-        },
-      },
+        }
+      }
     },
 
     // The Build Control plugin:
@@ -87,12 +117,9 @@ module.exports = function(grunt) {
   // Initialize the configuration.
   grunt.initConfig(config);
 
-  grunt.loadNpmTasks('grunt-build-control');
-  grunt.loadNpmTasks('grunt-exec');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('build', ['exec:build']);
+  grunt.registerTask('build', ['exec:build','sass:dist']);
   grunt.registerTask('deploy', ['buildcontrol:deploy']);
   grunt.registerTask('default', ['build', 'connect', 'watch']);
 };
