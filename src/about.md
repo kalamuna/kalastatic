@@ -1,6 +1,6 @@
 ---
 template: about.html
-page_slug: page-about
+pageSlug: about
 title: About
 cta:
   title: Interested in learning more about us?

@@ -1,35 +1,4 @@
 {
-  "metadata": {
-    "title": "Kalastatic",
-    "description": "Static site framework for prototyping and building out CMS-less websites at Kalamuna",
-    "nav": [
-      {
-        "name": "About",
-        "title": "About Us",
-        "url": "/about"
-      },
-      {
-        "name": "Team",
-        "title": "Find out about our team",
-        "url": "/team"
-      },
-      {
-        "name": "News",
-        "title": "Read the news, it's important",
-        "url": "/news"
-      },
-      {
-        "name": "Contact",
-        "title": "Contact us about anything at all!",
-        "url": "/contact"
-      },
-      {
-        "name": "Bootstrap carousel",
-        "title": "Check out the bootstrap carousel",
-        "url": "/carousel"
-      }
-    ]
-  },
   "plugins": {
     "metalsmith-collections": {
       "articles": {
@@ -47,6 +16,10 @@
         "pattern": "collections/carousel/*.md",
         "sortBy": "order"
       }
+    },
+    "metalsmith-metadata": {
+      "config": "config.yaml",
+      "navigation": "navigation.yaml"
     },
     "metalsmith-markdown": {},
     "metalsmith-permalinks": {
@@ -76,7 +49,6 @@
         "vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js",
         "vendor/xor-crypt/xor-crypt.js",
         "js/kala_utils.js",
-        "js/about.js",
         "js/contact.js",
         "js/global.js"
       ],

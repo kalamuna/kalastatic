@@ -1,6 +1,6 @@
 ---
 title: These are some cool things
-slug: cool-things
+pageSlug: cool-things
 template: article.html
 ---
 

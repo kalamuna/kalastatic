@@ -4,16 +4,25 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  <link rel="icon" href="images/favicon.png">
+  <!--[if IE]><link rel="shortcut icon" href="/images/favicon.ico"><![endif]-->
+  <!-- or, set /favicon.ico for IE10 win -->
+  <meta name="msapplication-TileColor" content="#f00">
+  <meta name="msapplication-TileImage" content="/images/tileicon.png">
+
   <title>
-    {% block title %}{{sitemeta.title}}{% endblock %}
+    {% block title %}{{config.title|title}}{% endblock %}
   </title>
 
   {% block head %}
-  <meta name="description" content="{{ description }}">
+    <meta name="description" content="{{ config.description }}">
   {% endblock %}
 
   {% block styles %}
-  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+  <link rel="stylesheet" type="text/css" href="{{'/styles/main.css'|bustcache}}">
   {% endblock %}
 
 </head>
@@ -45,17 +54,7 @@
   {% endblock %}
 
   {% block footer %}
-  <footer class="footer">
-    <div class="container">
-      <ul class="nav navbar-nav">
-        <li><a href="#">Footer nav 1</a></li>
-        <li><a href="#">Footer nav 2</a></li>
-        <li><a href="#">Footer nav 3</a></li>
-        <li><a href="#">Footer nav 4</a></li>
-      </ul>
-      <p class="navbar-text navbar-right text-muted">Copyright © 2015 Kalamuna, Inc. All Rights Reserved.</p>
-    </div>
-  </footer>
+    {%include "./partials/footer.html" %}
   {% endblock %}
 
   {% block page-suffix %}
@@ -66,7 +65,7 @@
     <script src="/vendor/matchHeight/jquery.matchHeight.js"></script>
     <script src="/vendor/holderjs/holder.js"></script>
     <script src="/vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js"></script>
-    <script src="/js/scripts.js"></script>
+    <script src="{{'/js/scripts.js'|bustcache}}"></script>
   {% endblock %}
 
 </body>
