@@ -34,7 +34,9 @@
       "dest": "."
     },
     "metalsmith-sass": {
-      "outputStyle": "expanded",
+      "outputStyle": "nested",
+      "sourceComments": true,
+      "sourceMap": true,
       "includePaths": [
         "assets/vendor",
         "assets/vendor/bootstrap-sass-twbs/assets/stylesheets",
