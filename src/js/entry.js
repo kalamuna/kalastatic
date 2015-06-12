@@ -1,9 +1,25 @@
+/**
+ * KalaStatic
+ *
+ * TODO: Get Metalsmith/Browserify to minify the output.
+ */
+
+// Module Dependencies
 var $ = require('jquery');
+var bootstrap = require('bootstrap');
 
+/**
+ * Document Ready
+ */
 $(function() {
-	// Event.
-  $(document).scroll(require('utils/onScroll').bind(this));
+  // Library Dependencies
+  var onScroll = require('./lib/onScroll');
 
-  // Other things
-  console.log("Hello!");
+  // Events
+  $(document).scroll(onScroll.bind(this));
+
+  // Debug some output
+  // TODO: Remove this debug code.
+  console.log("Hello World!");
+  console.log(bootstrap);
 });

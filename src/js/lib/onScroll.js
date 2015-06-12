@@ -16,6 +16,7 @@ function onScroll() {
   } else {
     $('body').removeClass('shrunk');
   }
+
 };
 
 module.exports = onScroll;

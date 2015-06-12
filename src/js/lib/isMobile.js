@@ -9,7 +9,7 @@
 */
 function isMobile() {
 var hasTouchStart = ('ontouchstart' in document.documentElement),
-    hasOrientation = require('hasOrientation');
+    hasOrientation = require('./hasOrientation');
   return ( hasTouchStart && hasOrientation );
 };
 
