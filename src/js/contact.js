@@ -1,4 +1,4 @@
-(function( kalastatic, $, window ){
+;(function( kalastatic, $, window ){
 
   // Run xorCrypt on the contact form to encrypt the email.
   $('#contact').attr('action', function(index, attr) {
