@@ -35,21 +35,20 @@ npm install
 
 1. Build the site using the following command:
 
-```
-npm run-script build
-```
+  ```
+  npm test
+  ```
 
 2. Visit the compiled `build` folder to see the built site
 
 
 ### Development
 
-1. Install Grunt globally
+1. Run the following command to build, watch and serve the site:
 
-    npm install -g grunt-cli
+  ```
+  npm start
+  ```
 
-2. Run `grunt`
-
-3. Visit [`0.0.0.0:8000`](http://0.0.0.0:8000) in your browser
-
-4. Visit [`0.0.0.0:8000/stylguide`](http://0.0.0.0:8000/styleguide) for the style guide
+2. Visit [`0.0.0.0:8000`](http://0.0.0.0:8000) in your browser
+3. Visit [`0.0.0.0:8000/stylguide`](http://0.0.0.0:8000/styleguide) for the style guide
