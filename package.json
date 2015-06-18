@@ -16,7 +16,7 @@
     "metalsmith-swig-helpers": "git://github.com/madeofpeople/metalsmith-swig-helpers.git#609094c03bf0d0df534a39f2f66c9ac07a08e1bf",
     "metalsmith-templates": "~0.7.0",
     "swig": "^1.4.2",
-    "swig-extras": "0.0.1"
+    "swig-extras": "git://github.com/RobLoach/swig-extras.git#tostring"
   },
   "scripts": {
     "build": "metalsmith build",
