@@ -34,7 +34,7 @@
         "js/entry.js"
       ],
       "dest": "js/scripts.js"
-      },
+    },
     "metalsmith-assets": {
       "source": "./assets",
       "dest": "."
