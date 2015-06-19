@@ -88,21 +88,21 @@ $nav-bar-padding-shrunk: 1.5em;
 
 #navbar {
   @extend .container;
-  
-  #search-form {
-    $search-form-padding-offset: 0.5em;
-    @extend .col-sm-3;
-    padding-top: $nav-bar-padding - $search-form-padding-offset;
-    float: right;
-    
-    @media screen and (min-width: $screen-sm) {
-      transition-property: padding-top;
-      transition-duration: .25s;
-      @extend %easeOutOver;
+}
 
-      .shrunk & {
-        padding-top: $nav-bar-padding-shrunk - $search-form-padding-offset;
-      }
+#search-form {
+  $search-form-padding-offset: 0.5em;
+  @extend .col-sm-3;
+  padding-top: $nav-bar-padding - $search-form-padding-offset;
+  float: right;
+
+  @media screen and (min-width: $screen-sm) {
+    transition-property: padding-top;
+    transition-duration: .25s;
+    @extend %easeOutOver;
+
+    .shrunk & {
+      padding-top: $nav-bar-padding-shrunk - $search-form-padding-offset;
     }
   }
 }
