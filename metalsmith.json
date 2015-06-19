@@ -12,6 +12,10 @@
       "news": {
         "pattern": "collections/news/*.md"
       },
+      "examples": {
+        "pattern": "collections/examples/*.md",
+        "sortBy": "order"
+      },
       "carouselItems": {
         "pattern": "collections/carousel/*.md",
         "sortBy": "order"
