@@ -26,7 +26,11 @@
     "metalsmith-permalinks": {
       "pattern": ":url"
     },
-    "metalsmith-swig-helpers": {},
+    "metalsmith-swig-helpers": {
+      "filters": {
+        "xorcrypt": "xor-crypt"
+      }
+    },
     "metalsmith-templates": {
       "engine": "swig"
     },
@@ -35,7 +39,9 @@
       "dest": "."
     },
     "metalsmith-sass": {
-      "outputStyle": "expanded",
+      "outputStyle": "nested",
+      "sourceComments": true,
+      "sourceMap": true,
       "includePaths": [
         "assets/vendor",
         "assets/vendor/bootstrap-sass-twbs/assets/stylesheets",

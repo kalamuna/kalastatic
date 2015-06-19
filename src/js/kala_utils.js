@@ -1,4 +1,4 @@
-(function( kala, window, $ ){
+;(function( kala, window, $ ){
 
   /**
   * Feature detection for whether were in a mobile browser or not.
