@@ -1,5 +1,4 @@
 <footer class="footer">
-  <div class="container">
     <ul class="nav navbar-nav">
       {% for navItem in navigation.footer %}
       {% set navItemIsActivePage = navItem.name|isSlugMatch(pageSlug) %}
@@ -12,8 +11,14 @@
       </li>
       {% endfor %}
     </ul>
-    {% if config.copyright %}
-    <p class="navbar-text navbar-right text-muted">{{ config.copyright|safe }}</p>
+    {% if config.copyright || config.github %}
+    <div class="addendum">
+      <p class="copyright">
+        {{ config.copyright|safe }}
+      </p>
+      <p class="github">
+        {{ config.github|safe }}
+      </p>
+    </div>
     {% endif %}
-  </div>
 </footer>
