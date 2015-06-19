@@ -22,6 +22,7 @@
       "navigation": "navigation.yaml"
     },
     "metalsmith-markdown": {},
+    "metalsmith-include": {},
     "metalsmith-permalinks": {
       "pattern": ":url"
     },
