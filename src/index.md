@@ -3,7 +3,7 @@ template: home.html
 title: Who needs a CMS?
 pageSlug: homepage
 include:
-  included: asection/asection.md
+  included: asection/asection
 
 ---
 
