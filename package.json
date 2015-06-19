@@ -8,13 +8,13 @@
     "metalsmith-collections": "^0.7.0",
     "metalsmith-concat": "^2.0.0",
     "metalsmith-markdown": "~0.2.1",
+    "metalsmith-metadata": "~0.0.1",
     "metalsmith-permalinks": "~0.4.0",
     "metalsmith-sass": "~1.2.1",
-    "metalsmith-swig-helpers": "^1.2.1",
-    "metalsmith-templates": "~0.6.0",
+    "metalsmith-swig-helpers": "git://github.com/madeofpeople/metalsmith-swig-helpers.git#609094c03bf0d0df534a39f2f66c9ac07a08e1bf",
     "metalsmith-templates": "~0.7.0",
-    "metalsmith-metadata": "~0.0.1",
-    "swig": "^1.4.2"
+    "swig": "^1.4.2",
+    "xor-crypt": "~0.0.3"
   },
   "scripts": {
     "build": "metalsmith build",
@@ -38,7 +38,7 @@
     "deploy": "ssh://codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5@codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5.drush.in:2222/~/repository.git"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/kalamuna/kalastatic.git"
+    "type": "git",
+    "url": "https://github.com/kalamuna/kalastatic.git"
   }
 }

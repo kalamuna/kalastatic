@@ -9,7 +9,7 @@
             <!-- Contact Message is here -->
           </div>
           <div id="contact-form">
-            <form method="POST" action="{{encryptedAction}}" id="contact">
+            <form method="POST" action="{{action|xorcrypt}}" id="contact">
               {{contents|safe}}
             </form>
           </div>

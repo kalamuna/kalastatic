@@ -6,7 +6,7 @@
     "fontawesome": "~4.2.0",
     "holderjs": "~2.4.0",
     "matchHeight": "~0.5.2",
-    "xor-crypt": "~0.0.2",
-    "fontface-source-sans-pro": "*"
+    "fontface-source-sans-pro": "*",
+    "xor-crypt": "~0.0.3"
   }
 }
