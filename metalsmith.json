@@ -25,7 +25,11 @@
     "metalsmith-permalinks": {
       "pattern": ":url"
     },
-    "metalsmith-swig-helpers": {},
+    "metalsmith-swig-helpers": {
+      "filters": {
+        "xorcrypt": "xor-crypt"
+      }
+    },
     "metalsmith-templates": {
       "engine": "swig"
     },

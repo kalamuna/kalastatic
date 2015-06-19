@@ -5,9 +5,7 @@ pageSlug: contact
 
 # Destination action for the form
 # FormSpree: http://formspree.io
-# The destination action should be encrypted with
-# http://robloach.github.io/xor-crypt/ in order to avoid spam.
-encryptedAction: ))`itkuvtcc(oi)mgjgurgroeFc~gkvjc(eik
+action: //formspree.io/kalastatic@example.com
 ---
 
 <div class="form-group">

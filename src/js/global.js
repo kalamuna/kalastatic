@@ -1,4 +1,4 @@
-(function( kalaStatic, window, $, kala ){
+;(function( kalaStatic, window, $, kala ){
 
   // For things that run global (on all the pages)
   kalaStatic.Site = function() {
