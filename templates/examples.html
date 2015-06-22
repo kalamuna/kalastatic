@@ -5,12 +5,12 @@
   <main role="main">
     <article>
       {{contents|safe}}
-  
       <section class="carousel">
         <h1>Examples</h1>
         <div class="examples">
           {% for example in collections.examples %}
             <h2>{{example.title}}</h2>
+            {{example.contents|safe}}
             {% include example.template %}
           {% endfor %}
         </div>
