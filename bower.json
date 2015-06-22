@@ -4,6 +4,8 @@
   "dependencies": {
     "bootstrap-sass-twbs": "~3.3.1",
     "fontawesome": "~4.2.0",
-    "matchHeight": "~0.5.2"
+    "matchHeight": "~0.5.2",
+    "holderjs": "~2.4.0",
+    "fontface-source-sans-pro": "*"
   }
 }
