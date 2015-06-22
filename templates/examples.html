@@ -7,8 +7,12 @@
       {{contents|safe}}
   
       <section class="carousel">
-        <div class="teasers">
-        {% include "./partials/bootstrap-carousel.html" %}
+        <h1>Examples</h1>
+        <div class="examples">
+          {% for example in collections.examples %}
+            <h2>{{example.title}}</h2>
+            {% include example.template %}
+          {% endfor %}
         </div>
       </section>
     </article>
