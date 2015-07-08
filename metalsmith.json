@@ -28,7 +28,8 @@
     "metalsmith-markdown": {},
     "metalsmith-include": {},
     "metalsmith-permalinks": {
-      "pattern": ":url"
+      "pattern": ":url",
+      "relative": false
     },
     "metalsmith-swig-helpers": {
       "filters": {
