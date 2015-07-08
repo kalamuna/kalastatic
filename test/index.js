@@ -9,15 +9,13 @@ var rimraf = require('rimraf')
 
 function test(name) {
   /* global it */
-  it(name, function () {
-    return new Promise(function (fulfill, reject) {
-      var testPath = 'test/fixtures/' + name
-      rimraf(testPath + '/build', function () {
-        KalaStatic(testPath).then(function () {
-          assertDir(testPath + '/build', testPath + '/expected')
-          fulfill()
-        }, reject)
-      })
+  it(name, function (done) {
+    var testPath = 'test/fixtures/' + name
+    rimraf(testPath + '/build', function () {
+      KalaStatic(testPath).then(function () {
+        assertDir(testPath + '/build', testPath + '/expected')
+        done()
+      }, done).catch(done)
     })
   })
 }
