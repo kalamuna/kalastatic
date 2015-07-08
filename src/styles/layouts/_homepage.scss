@@ -1,11 +1,12 @@
 .homepage {
   padding-bottom: 2em;
-  text-align: center;
+  background-attachment: fixed;
   
-  h1 {
-    text-transform: uppercase;
-    letter-spacing: 15px;
-    font-weight: 700;
-    margin: 40px 0px -15px 0px;
-  }  
+  header.content-heading {
+    text-align: center;
+    
+    h1 {
+      @include textGlitch("heading", 15, black, trasnparent, #bfd4c0, #eedade, 800, 115);
+    }
+  }
 }

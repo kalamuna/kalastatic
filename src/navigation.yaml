@@ -19,9 +19,9 @@ primary:
     title: The Style Guide for Kalastatic
     url: /styleguide
 
-  - name: Bootstrap carousel
-    title: Check out the bootstrap carousel
-    url: /carousel
+  - name: Examples
+    title: Check out examples!
+    url: /examples
 
 footer:
   - name: News

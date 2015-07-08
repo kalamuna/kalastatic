@@ -4,9 +4,12 @@
 
   <main role="main" class="homepage">
     <div class="container">
-      <h1>Kalastatic</h1>
-      <img src="/images/static-mouth.gif">
-      {{included.contents|safe}}
+      <header class=content-heading>
+        <h1 data-text="Who needs a CMS?">{{title|safe}}</h1>
+<!--         <img src="/images/static-mouth.gif" width="200"> -->
+        <h2>{{subTitle|safe}}</h2>
+      </header>
+      {{contents|safe}}
     </div>
     <hr>
   </main>
