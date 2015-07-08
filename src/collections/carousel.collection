@@ -1,0 +1,6 @@
+---
+pattern: collections/carousel/*.md
+sortBy: order
+---
+
+A carousel example.

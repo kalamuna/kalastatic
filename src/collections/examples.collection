@@ -1,0 +1,6 @@
+---
+pattern: collections/examples/*.md
+sortBy: order
+---
+
+Examples of using some of the components.
