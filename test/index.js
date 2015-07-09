@@ -1,14 +1,11 @@
 var assertDir = require('assert-dir-equal')
 var KalaStatic = require('../')
-var assert = require('assert')
 var execFile = require('child_process').execFile
 var fs = require('fs')
 var it = require('testit')
-var assert = require('assert')
 var rimraf = require('rimraf')
 
-function test(name) {
-  /* global it */
+function test (name) {
   it(name, function (done) {
     var testPath = 'test/fixtures/' + name
     rimraf(testPath + '/build', function () {
@@ -21,6 +18,7 @@ function test(name) {
 }
 
 test('basic')
+test('layouts')
 
 it('cli', function (done) {
   var options = {

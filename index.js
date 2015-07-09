@@ -1,20 +1,21 @@
 var Metalsmith = require('metalsmith')
 var Promise = require('promise')
 
-module.exports = function(base) {
+module.exports = function (base) {
   return new Promise(function (fulfill, reject) {
     if (!base) {
       base = '.'
     }
 
     var plugins = {
-      "metalsmith-paths": true,
-      "metalsmith-metadata-convention": {},
-      "metalsmith-collections-convention": {},
-      "metalsmith-jstransformer": {},
-      "metalsmith-ignore": [
+      'metalsmith-paths': true,
+      'metalsmith-metadata-convention': {},
+      'metalsmith-collections-convention': {},
+      'metalsmith-jstransformer': {},
+      'metalsmith-jstransformer-layouts': {},
+      'metalsmith-ignore': [
         // Ignore partials.
-        "**/_*"
+        '**/_*'
       ]
     }
 
