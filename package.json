@@ -1,18 +1,21 @@
 {
   "name": "kalastatic-cli",
   "description": "Command line interface for KalaStatic",
-  "repository": "git://github.com/https://github.com/kalamuna/kalastatic-cli.git.git",
+  "repository": "https://github.com/kalamuna/kalastatic-cli.git",
   "version": "0.0.1",
   "license": "MIT",
   "dependencies": {
+    "extend": "^3.0.0",
     "jstransformer-jade": "0.0.3",
     "jstransformer-marked": "0.0.2",
+    "jstransformer-swig": "^0.1.2",
     "metalsmith": "^1.7.0",
     "metalsmith-collections-convention": "^1.0.0",
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-jstransformer": "^0.4.0",
     "metalsmith-jstransformer-layouts": "^0.2.0",
     "metalsmith-metadata-convention": "0.0.1",
+    "metalsmith-packagejson": "^1.0.1",
     "metalsmith-paths": "^2.0.0",
     "promise": "^7.0.3"
   },

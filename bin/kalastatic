@@ -5,5 +5,9 @@ var KalaStatic = require('../')
 KalaStatic(process.cwd()).then(function () {
   console.log('Complete!')
 }, function (err) {
+  console.log(err)
+  throw new Error(err)
+}).catch (function (err) {
+  console.log(err)
   throw new Error(err)
 })
