@@ -3,9 +3,6 @@
   "name": "kalastatic-mdl-blog",
   "private": true,
   "dependencies": {
-    "jstransformer-browserify": "jstransformers/jstransformer-browserify#renderAsync",
-    "jstransformer-duo": "^1.0.0",
-    "jstransformer-less": "^1.0.0",
     "jstransformer-scss": "^0.1.0",
     "kalastatic-cli": "../../",
     "material-design-lite": "^1.0.0-3"
