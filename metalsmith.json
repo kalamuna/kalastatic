@@ -1,26 +1,6 @@
 {
   "plugins": {
-    "metalsmith-collections": {
-      "articles": {
-        "pattern": "collections/articles/*.md",
-        "sortBy": "order"
-      },
-      "team": {
-        "pattern": "collections/team/*.md",
-        "sortBy": "order"
-      },
-      "news": {
-        "pattern": "collections/news/*.md"
-      },
-      "examples": {
-        "pattern": "collections/examples/*.md",
-        "sortBy": "order"
-      },
-      "carouselItems": {
-        "pattern": "collections/carousel/*.md",
-        "sortBy": "order"
-      }
-    },
+    "metalsmith-collections-convention": {},
     "metalsmith-metadata": {
       "config": "config.yaml",
       "navigation": "navigation.yaml"
