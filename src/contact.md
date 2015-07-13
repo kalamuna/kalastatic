@@ -5,7 +5,7 @@ pageSlug: contact
 
 # Destination action for the form
 # FormSpree: http://formspree.io
-action: //formspree.io/kalastatic@example.com
+action: //formspree.io/kalastatic@kalamuna.com
 ---
 
 <div class="form-group">
