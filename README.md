@@ -22,13 +22,13 @@ Static site framework for prototyping and building out CMS-less websites at Kala
 
 ### Download the site
 
-git clone git@github.com:kalamuna/kalastatic.git
-cd kalastatic
+    git clone git@github.com:kalamuna/kalastatic.git
+    cd kalastatic
 
 
 ### Install Dependencies
 
-npm install
+    npm install
 
 
 ### Build
