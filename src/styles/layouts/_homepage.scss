@@ -1,12 +1,37 @@
 .homepage {
+
   padding-bottom: 2em;
   background-attachment: fixed;
-  
-  header.content-heading {
-    text-align: center;
-    
-    h1 {
-      @include textGlitch("heading", 15, black, trasnparent, #bfd4c0, #eedade, 800, 115);
+  background-image: url("../images/static_b.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .homepage {
+    font-size: 2em;
+    @media (min-width: $screen-sm) {
+      font-size: 3em;
+    }
+    .contents {
+      line-height: 1.425;
+      p {
+        display: inline;
+        margin-left: .5em;
+        background: #ddd;
+        box-shadow: .375em 0 0 #ddd, -.375em 0 0 #ddd;
+        box-decoration-break: clone;
+      }
     }
   }
+
+  h1 {
+    @media ( max-width: $screen-sm ){
+      font-size: 2em;
+      @include textGlitch("heading", 32, #fff, transparent, #ccc, #eee, 480, 140);
+    }
+    @media ( min-width: $screen-sm ){
+      font-size: 3em;
+      @include textGlitch("heading", 48, #fff, transparent, #ccc, #eee, 1000, 200);
+    }
+  }
+
 }
