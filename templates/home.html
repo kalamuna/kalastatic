@@ -5,13 +5,12 @@
   <main role="main" class="homepage">
     <div class="container">
       <header class=content-heading>
-        <h1 data-text="Who needs a CMS?">{{title|safe}}</h1>
-<!--         <img src="/images/static-mouth.gif" width="200"> -->
-        <h2>{{subTitle|safe}}</h2>
+        <h1 data-text="{{title|safe}}">{{title|safe}}</h1>
       </header>
+      <div class="contents">
       {{contents|safe}}
+      </div>
     </div>
-    <hr>
   </main>
 
 {% endblock %}
