@@ -8,7 +8,7 @@ primary:
     url: /team
 
   - name: News
-    title: Read the news, it's important
+    title: "Read the news, it's important"
     url: /news
 
   - name: Contact
