@@ -14,7 +14,7 @@ Static site framework for prototyping and building out CMS-less websites at Kala
 
 ## Requirements
 
-* [Node.js](http://nodejs.org/) >=0.10
+* [Node.js](http://nodejs.org/) >=0.12
 * [npm](http://npmjs.org)
 
 
