@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "metalsmith build",
-    "paaostbuild": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json'",
+    "postbuild": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json'",
     "test": "npm run build",
     "start": "grunt",
     "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",

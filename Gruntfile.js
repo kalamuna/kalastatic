@@ -64,7 +64,7 @@ module.exports = function(grunt) {
       deploy: {
         options: {
           remote: '<%= pkg.extra.deploy %>',
-          branch: 'master'
+          branch: 'prismic'
         }
       }
     }
