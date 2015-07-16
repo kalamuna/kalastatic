@@ -1,5 +1,5 @@
 ---
-pattern: collections/carousel/*.md
+pattern: collections/carouselItems/*.md
 sortBy: order
 ---
 
