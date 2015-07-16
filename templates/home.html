@@ -4,9 +4,13 @@
 
   <main role="main" class="homepage">
     <div class="container">
-<!--       Home page content here -->
+      <header class=content-heading>
+        <h1 data-text="{{title|safe}}">{{title|safe}}</h1>
+      </header>
+      <div class="contents">
+      {{contents|safe}}
+      </div>
     </div>
-    <hr>
   </main>
 
 {% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'html.html' %}
+
+{% block contents %}
+
+  {% for article in prismic.news.results %}
+    <main role="main">
+      <article>
+        {{article.data.title.html|safe}}
+        {{article.data.content.html|safe}}
+      </article>
+    </main>
+  {% endfor %}
+
+{% endblock %}
+

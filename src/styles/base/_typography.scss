@@ -31,10 +31,9 @@ cillum dolore eu fugiat nulla pariatur.</blockquote>
 Styleguide 4.1
 */
 
-@include font-face("SourceSansPro", "/fonts/sourcesanspro-regular" );
-@include font-face("SourceSansPro", "/fonts/sourcesanspro-italic", normal, italic);
-@include font-face("SourceSansPro", "/fonts/sourcesanspro-bold", bold );
-@include font-face("SourceSansPro", "/fonts/sourcesanspro-bolditalic", bold, italic);
+// Source Sans Pro Vendor
+$SourceSansProFontsPath: "/vendor/fontface-source-sans-pro/fonts";
+@import "fontface-source-sans-pro/scss/source-sans-pro";
 
 textarea,
 input {

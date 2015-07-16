@@ -1,22 +1,6 @@
 {
   "plugins": {
-    "metalsmith-collections": {
-      "articles": {
-        "pattern": "collections/articles/*.md",
-        "sortBy": "order"
-      },
-      "team": {
-        "pattern": "collections/team/*.md",
-        "sortBy": "order"
-      },
-      "news": {
-        "pattern": "collections/news/*.md"
-      },
-      "carouselItems": {
-        "pattern": "collections/carousel/*.md",
-        "sortBy": "order"
-      }
-    },
+    "metalsmith-collections-convention": {},
     "metalsmith-metadata": {
       "config": "config.yaml",
       "navigation": "navigation.yaml"
@@ -25,36 +9,38 @@
       "url": "http://kalastatic.prismic.io/api"
     },
     "metalsmith-markdown": {},
+    "metalsmith-include": {},
     "metalsmith-permalinks": {
-      "pattern": ":url"
+      "pattern": ":url",
+      "relative": false
     },
-    "metalsmith-swig-helpers": {},
+    "metalsmith-swig-helpers": {
+      "filters": {
+        "xorcrypt": "xor-crypt"
+      }
+    },
     "metalsmith-templates": {
       "engine": "swig"
+    },
+    "metalsmith-browserify": {
+      "files": [
+        "js/entry.js"
+      ],
+      "dest": "js/scripts.js"
     },
     "metalsmith-assets": {
       "source": "./assets",
       "dest": "."
     },
     "metalsmith-sass": {
-      "outputStyle": "expanded",
+      "outputStyle": "nested",
+      "sourceComments": true,
+      "sourceMap": true,
       "includePaths": [
         "assets/vendor",
         "assets/vendor/bootstrap-sass-twbs/assets/stylesheets",
         "assets/vendor/fontawesome/scss/"
       ]
-    },
-    "metalsmith-concat": {
-      "files": [
-        "vendor/jquery/dist/jquery.min.js",
-        "vendor/matchHeight/jquery.matchHeight.js",
-        "vendor/holderjs/holder.js",
-        "vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js",
-        "js/kala_utils.js",
-        "js/about.js",
-        "js/global.js"
-      ],
-      "output": "js/scripts.js"
     }
   }
 }

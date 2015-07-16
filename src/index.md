@@ -1,7 +1,11 @@
 ---
 template: home.html
-title: Who needs a CMS?
+title: Kalastatic
 pageSlug: homepage
----
+include:
+  included: asection/asection
 
-Not me, that's for sure. CMS's are for whimps and loosers so suck it up and generate your static site now!
+---
+A static site framework for quickly and effectively prototyping responsive sites, developing styleguides and designing in-browser.
+
+Metalsmith, Grunt and Bootstrap and SASS.

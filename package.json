@@ -2,35 +2,70 @@
   "name": "kalastatic",
   "private": true,
   "dependencies": {
-    "bower": "~1.3.12",
-    "metalsmith": "~1.3.0",
+    "bower": "~1.4.1",
+    "browserify": "^10.2.4",
+    "browserify-shim": "^3.8.8",
+    "holderjs": "^2.8.0",
+    "jquery": "^2.1.4",
+    "kss-bootstrap": "~0.4.3",
+    "metalsmith": "~1.7.0",
     "metalsmith-assets": "^0.1.0",
-    "metalsmith-collections": "^0.7.0",
-    "metalsmith-concat": "^2.0.0",
+    "metalsmith-browserify": "RobLoach/metalsmith-browserify#update",
+    "metalsmith-collections-convention": "^1.0.0",
+    "metalsmith-include": "git://github.com/madeofpeople/metalsmith-include#includeWholeObject",
     "metalsmith-markdown": "~0.2.1",
     "metalsmith-metadata": "~0.0.1",
     "metalsmith-permalinks": "~0.4.0",
     "metalsmith-prismic": "^0.7.1",
-    "metalsmith-sass": "~0.6.0",
-    "metalsmith-swig-helpers": "^1.0.0",
-    "metalsmith-templates": "~0.6.0",
-    "swig": "^1.4.2"
+    "metalsmith-sass": "~1.2.1",
+    "metalsmith-swig-helpers": "^1.3.0",
+    "metalsmith-templates": "~0.7.0",
+    "swig": "^1.4.2",
+    "xor-crypt": "~0.0.3"
   },
   "scripts": {
     "build": "metalsmith build",
-    "test": "metalsmith build && npm run-script styleguide",
-    "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",
+    "paaostbuild": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json'",
+    "test": "npm run build",
     "start": "grunt",
-    "styleguide": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json'",
+    "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",
     "deploy": "grunt deploy"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-build-control": "^0.3.0",
+    "grunt-build-control": "^0.5.0",
     "grunt-cli": "^0.1.13",
-    "grunt-contrib-connect": "^0.9.0",
+    "grunt-contrib-connect": "^0.10.1",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-exec": "^0.4.6",
-    "kss-bootstrap": "~0.3.0"
+    "grunt-exec": "^0.4.6"
+  },
+  "extra": {
+    "repo": "kalamuna/kalastatic",
+    "deploy": "ssh://codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5@codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5.drush.in:2222/~/repository.git"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kalamuna/kalastatic.git"
+  },
+  "browser": {
+    "bootstrap": "./assets/vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js",
+    "matchheight": "./assets/vendor/matchHeight/jquery.matchHeight.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "bootstrap": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    },
+    "matchheight": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    }
   }
 }

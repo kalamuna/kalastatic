@@ -12,7 +12,10 @@ Markup:
       <li><a href="#">Careers</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
-    <p class="navbar-text navbar-right text-muted">Copyright © 2014 KalaStatic, Inc. All Rights Reserved.</p>
+    <div class="addendum">
+      <p class="copyright">MIT License</p>
+      <p class="github">Kalastatic on Github</p>
+    </div>
   </div>
 </footer>
 
@@ -36,14 +39,18 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #333;
+  background-color: $gray-dark;
 }
 
 .footer {
 
   .navbar-nav {
-      padding-top: .375em;
-    }
+    padding-top: .375em;
+  }
+
+  a {
+    color: white;
+  }
 
 }
 
@@ -58,4 +65,16 @@ body {
 .footer > .container {
   padding-right: 15px;
   padding-left: 15px;
+}
+
+.addendum {
+  .github,
+  .copyright {
+    @extend .navbar-text;
+    @extend .text-muted;
+    @extend .navbar-right;
+  }
+  .copyright {
+    margin-right: 2em;
+  }
 }
