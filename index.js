@@ -1,36 +1,94 @@
 var Metalsmith = require('metalsmith')
 var Promise = require('promise')
+var fs = require('fs')
+var path = require('path')
+var extend = require('extend')
+
+function getConfig (base, cb) {
+  if (!base) {
+    base = '.'
+  }
+  var config = {
+    plugins: [
+      {
+        // Initially ignore the node_modules directory.
+        'name': 'metalsmith-ignore',
+        'options': 'node_modules'
+      },
+      {
+        // Load information from package.json.
+        'name': 'metalsmith-packagejson'
+      },
+      {
+        // Add base, dir, ext, name, and href info to each file.
+        'name': 'metalsmith-paths'
+      },
+      {
+        // Load metadata info the metalsmith metadata object.
+        'name': 'metalsmith-metadata-convention'
+      },
+      {
+        // Concatenate any needed files.
+        'name': 'metalsmith-concat-convention'
+      },
+      {
+        // Load all collections.
+        'name': 'metalsmith-collections-convention'
+      },
+      {
+        // Load all Partials.
+        'name': 'metalsmith-jstransformer-partials'
+      },
+      {
+        // Render all content with JSTransformers.
+        'name': 'metalsmith-jstransformer'
+      },
+      {
+        // Render all layouts with JSTransformers.
+        'name': 'metalsmith-jstransformer-layouts'
+      },
+      {
+        // Ignore all partials and layouts.
+        'name': 'metalsmith-ignore',
+        'options': '**/_*'
+      }
+    ]
+  }
+  var packageJson = path.join(base, 'package.json')
+  fs.readFile(packageJson, function (err, data) {
+    if (err) {
+      data = {}
+    } else {
+      data = JSON.parse(data)
+    }
+    config = extend({}, data, config)
+    cb(config)
+  })
+}
 
 module.exports = function (base) {
   return new Promise(function (fulfill, reject) {
-    if (!base) {
-      base = '.'
-    }
+    getConfig(base, function (config) {
 
-    var plugins = {
-      'metalsmith-paths': true,
-      'metalsmith-metadata-convention': {},
-      'metalsmith-collections-convention': {},
-      'metalsmith-jstransformer': {},
-      'metalsmith-jstransformer-layouts': {},
-      'metalsmith-ignore': [
-        // Ignore partials.
-        '**/_*'
-      ]
-    }
+      var metalsmith = Metalsmith(base)
 
-    var metalsmith = Metalsmith(base)
-
-    for (var pluginName in plugins) {
-      var plugin = require(pluginName)
-      metalsmith.use(plugin(plugins[pluginName]))
-    }
-
-    metalsmith.build(function (err) {
-      if (err) {
-        return reject(err)
+      for (var i in config.plugins) {
+        var pluginName = config.plugins[i].name
+        var pluginOptions = config.plugins[i].options || {}
+        var plugin = require(pluginName)
+        metalsmith.use(plugin(pluginOptions))
       }
-      fulfill()
+
+      if (config.source) {
+        metalsmith.source(config.source)
+      }
+
+      metalsmith.build(function (err) {
+        if (err) {
+          return reject(err)
+        }
+        fulfill()
+      })
     })
   })
 }

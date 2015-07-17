@@ -3,17 +3,14 @@ var KalaStatic = require('../')
 var execFile = require('child_process').execFile
 var fs = require('fs')
 var it = require('testit')
-var rimraf = require('rimraf')
 
 function test (name) {
   it(name, function (done) {
     var testPath = 'test/fixtures/' + name
-    rimraf(testPath + '/build', function () {
-      KalaStatic(testPath).then(function () {
-        assertDir(testPath + '/build', testPath + '/expected')
-        done()
-      }, done).catch(done)
-    })
+    KalaStatic(testPath).then(function () {
+      assertDir(testPath + '/build', testPath + '/expected')
+      done()
+    }, done).catch(done)
   })
 }
 

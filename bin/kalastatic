@@ -2,8 +2,5 @@
 
 var KalaStatic = require('../')
 
-KalaStatic(process.cwd()).then(function () {
-  console.log('Complete!')
-}, function (err) {
-  throw new Error(err)
-})
+// TODO: Allow passing arguments.
+KalaStatic(process.cwd()).done()

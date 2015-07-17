@@ -1,0 +1,13 @@
+{
+  "title": "Google Material",
+  "name": "kalastatic-mdl-blog",
+  "private": true,
+  "dependencies": {
+    "jstransformer-scss": "^0.1.0",
+    "kalastatic-cli": "../../",
+    "material-design-lite": "^1.0.0-3"
+  },
+  "scripts": {
+    "test": "kalastatic"
+  }
+}
