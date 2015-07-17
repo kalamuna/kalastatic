@@ -4,46 +4,53 @@ var fs = require('fs')
 var path = require('path')
 var extend = require('extend')
 
-function getConfig(base, cb) {
+function getConfig (base, cb) {
   if (!base) {
     base = '.'
   }
-  var config = {plugins: []}
   var config = {
     plugins: [
       {
+        // Initially ignore the node_modules directory.
         'name': 'metalsmith-ignore',
-        'options': [
-          'node_modules'
-        ]
+        'options': 'node_modules'
       },
       {
+        // Load information from package.json.
         'name': 'metalsmith-packagejson'
       },
       {
+        // Add base, dir, ext, name, and href info to each file.
         'name': 'metalsmith-paths'
       },
       {
+        // Load metadata info the metalsmith metadata object.
         'name': 'metalsmith-metadata-convention'
       },
       {
+        // Concatenate any needed files.
+        'name': 'metalsmith-concat-convention'
+      },
+      {
+        // Load all collections.
         'name': 'metalsmith-collections-convention'
       },
       {
+        // Load all Partials.
+        'name': 'metalsmith-jstransformer-partials'
+      },
+      {
+        // Render all content with JSTransformers.
         'name': 'metalsmith-jstransformer'
       },
       {
+        // Render all layouts with JSTransformers.
         'name': 'metalsmith-jstransformer-layouts'
       },
       {
-        'name': 'metalsmith-metadata-convention'
-      },
-      {
+        // Ignore all partials and layouts.
         'name': 'metalsmith-ignore',
-        'options': [
-          // Ignore partials.
-          '**/_*'
-        ]
+        'options': '**/_*'
       }
     ]
   }
@@ -51,8 +58,7 @@ function getConfig(base, cb) {
   fs.readFile(packageJson, function (err, data) {
     if (err) {
       data = {}
-    }
-    else {
+    } else {
       data = JSON.parse(data)
     }
     config = extend({}, data, config)
@@ -63,7 +69,6 @@ function getConfig(base, cb) {
 module.exports = function (base) {
   return new Promise(function (fulfill, reject) {
     getConfig(base, function (config) {
-      console.log(config)
 
       var metalsmith = Metalsmith(base)
 
@@ -71,7 +76,7 @@ module.exports = function (base) {
         var pluginName = config.plugins[i].name
         var pluginOptions = config.plugins[i].options || {}
         var plugin = require(pluginName)
-        metalsmith.use(plugin(config.plugins[pluginName]))
+        metalsmith.use(plugin(pluginOptions))
       }
 
       if (config.source) {
@@ -85,7 +90,5 @@ module.exports = function (base) {
         fulfill()
       })
     })
-
-
   })
 }
