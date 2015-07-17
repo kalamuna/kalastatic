@@ -50,17 +50,19 @@ module.exports = function(grunt) {
     // https://www.npmjs.com/package/grunt-build-control
     buildcontrol: {
       options: {
-        dir: 'build',
-        commit: true,
-        push: true,
+        dir: 'build', // Which directory to deploy
+        commit: true, // Only commit if code has changed
+        push: true, // Push to remote
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
+      // GitHub Pages target: https://pages.github.com
       github: {
         options: {
           remote: 'git@github.com:<%= pkg.extra.repo %>.git',
           branch: 'gh-pages'
         }
       },
+      // The default deployment target, set in package.json.
       deploy: {
         options: {
           remote: '<%= pkg.extra.deploy %>',
