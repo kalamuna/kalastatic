@@ -78,3 +78,18 @@ body {
     margin-right: 2em;
   }
 }
+
+li.active a {
+  background: $link-color;
+  color: $gray-dark;
+}
+
+.footer .navbar-nav {
+ padding-left: 1em;
+ background-color: $gray-dark;
+ margin: 0;
+ @media (min-width: $screen-sm) {
+   padding-left: 0;
+   background-color: transparent;
+ }
+}
