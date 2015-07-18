@@ -78,3 +78,29 @@ body {
     margin-right: 2em;
   }
 }
+
+li.active a {
+  background: $link-color;
+  color: $gray-dark;
+}
+
+.footer .navbar-nav,
+.addendum {
+ padding-left: 1em;
+ background-color: $gray-dark;
+ margin: 0;
+ p {
+   margin: 0 !important /*thanks bootstrap*/;
+   padding-left: 1em;
+   padding-top: .5em;
+   padding-bottom: .5em;
+ }
+ @media (min-width: $screen-sm) {
+   padding-left: 0;
+   background-color: transparent;
+   p {
+     margin-top: .75em !important;
+     padding-right: 1em;
+   }
+ }
+}
