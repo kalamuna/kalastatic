@@ -26,13 +26,15 @@
     }
 
     .content-heading {
-      @media ( max-width: $screen-sm ){
-        font-size: 2em;
-        @include textGlitch("heading", 32, #fff, transparent, #ccc, #eee, 480, 140);
-      }
-      @media ( min-width: $screen-sm ){
-        font-size: 3em;
-        @include textGlitch("heading", 48, #fff, transparent, #ccc, #eee, 1000, 200);
+      h1 {
+        @media ( max-width: $screen-sm ){
+          font-size: 2em;
+          @include textGlitch("heading", 32, #fff, transparent, #ccc, #eee, 480, 140);
+        }
+        @media ( min-width: $screen-sm ){
+          font-size: 3em;
+          @include textGlitch("heading", 48, #fff, transparent, #ccc, #eee, 1000, 200);
+        }
       }
     }
   }

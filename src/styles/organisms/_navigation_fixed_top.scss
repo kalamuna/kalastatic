@@ -7,10 +7,27 @@
 
 #header > .navbar {
   border: none;
-  background-color: none;
-  box-shadow: none;
+  background-color: $gray-lighter;
+  box-shadow: 1px 1px 3px rgba(0,0,0,.25);
 }
 
+.navbar-header .identity {
+
+  transition-property: width, height, margin-top;
+  transition-duration: .25s;
+  @extend %easeOutOver;
+  margin-top: 0.065em;
+  width: 231px;
+  height: 89px;
+  background-image: url(/images/logo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  a {
+    display: block;
+  }
+
+}
 $nav-bar-padding: 2.575em;
 $nav-bar-padding-shrunk: 1.5em;
 #header .navbar-nav {
