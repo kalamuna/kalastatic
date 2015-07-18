@@ -1,19 +1,24 @@
-{% extends 'html.html' %}
+{% extends 'layouts/html.html' %}
 
 {% block contents %}
 
   <main role="main">
     <article>
+
       {{contents|safe}}
-      <section class="carousel">
+
+      <section class="examples">
         <h1>Examples</h1>
-        <div class="examples">
+        <ul class="examples">
           {% for example in collections.examples %}
-            <h2>{{example.title}}</h2>
-            {{example.contents|safe}}
-            {% include example.template %}
+          <li>
+            <a href="/examples/{% if example.pageSlug %}{{example.pageSlug}}{% else %}{{example.title|slug}}{% endif %}/">
+              <h2>{{example.title}}</h2>
+              <p>{{example.teaser|safe}}</p>
+            </a>
+          </li>
           {% endfor %}
-        </div>
+        </ul>
       </section>
     </article>
   </main>

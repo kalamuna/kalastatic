@@ -15,7 +15,8 @@
       line-height: 1.425;
       p {
         display: inline;
-        margin-left: .5em;
+        position: relative;
+        left: .5em;
         background: #ddd;
         box-shadow: .375em 0 0 #ddd, -.375em 0 0 #ddd;
         box-decoration-break: clone;

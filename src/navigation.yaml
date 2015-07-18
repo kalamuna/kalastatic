@@ -7,10 +7,6 @@ primary:
     title: Find out about our team
     url: /team
 
-  - name: News
-    title: "Read the news, it's important"
-    url: /news
-
   - name: Contact
     title: Contact us about anything at all!
     url: /contact
