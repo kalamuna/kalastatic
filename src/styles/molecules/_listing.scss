@@ -1,0 +1,12 @@
+.listing {
+  list-style: none;
+  padding: 0;
+  border-top: 1px $gray-lighter solid;
+  li {
+    margin: 0;
+    padding: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px $gray-light solid;
+  }
+}

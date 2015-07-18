@@ -1,5 +1,5 @@
 ---
-pattern: collections/examples/*.md
+pattern: examples/*.md
 sortBy: order
 ---
 

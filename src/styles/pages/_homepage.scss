@@ -5,11 +5,14 @@
   background-size: cover;
   background-repeat: no-repeat;
 
-  .homepage {
+  .main {
+
     font-size: 2em;
+
     @media (min-width: $screen-sm) {
       font-size: 3em;
     }
+
     .contents {
       line-height: 1.425;
       p {
@@ -21,17 +24,18 @@
         box-decoration-break: clone;
       }
     }
-  }
 
-  h1 {
-    @media ( max-width: $screen-sm ){
-      font-size: 2em;
-      @include textGlitch("heading", 32, #fff, transparent, #ccc, #eee, 480, 140);
-    }
-    @media ( min-width: $screen-sm ){
-      font-size: 3em;
-      @include textGlitch("heading", 48, #fff, transparent, #ccc, #eee, 1000, 200);
+    .content-heading {
+      h1 {
+        @media ( max-width: $screen-sm ){
+          font-size: 2em;
+          @include textGlitch("heading", 32, #fff, transparent, #ccc, #eee, 480, 140);
+        }
+        @media ( min-width: $screen-sm ){
+          font-size: 3em;
+          @include textGlitch("heading", 48, #fff, transparent, #ccc, #eee, 1000, 200);
+        }
+      }
     }
   }
-
 }
