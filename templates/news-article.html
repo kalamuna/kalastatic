@@ -6,6 +6,10 @@
     <main role="main">
       <article>
         {{article.data.title.html|safe}}
+        <figure class="article-img">
+          {{article.data.illustration.html|safe}}
+        </figure>
+        </div>
         {{article.data.content.html|safe}}
       </article>
     </main>

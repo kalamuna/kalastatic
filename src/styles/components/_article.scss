@@ -1,0 +1,5 @@
+.article-img {
+  img {
+   @extend .img-responsive;
+  }
+}
