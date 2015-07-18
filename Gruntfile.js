@@ -66,7 +66,7 @@ module.exports = function(grunt) {
       deploy: {
         options: {
           remote: '<%= pkg.extra.deploy %>',
-          branch: 'navupdate'
+          branch: 'master'
         }
       }
     }
