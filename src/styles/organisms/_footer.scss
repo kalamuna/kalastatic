@@ -97,3 +97,7 @@ body {
   }
 
 }
+li.active a {
+  background: $link-color;
+  color: $gray-dark;
+}

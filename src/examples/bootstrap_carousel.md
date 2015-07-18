@@ -1,6 +1,6 @@
 ---
 title: Bootstrap Carousel
-template: carousel_example.html
+template: examples/carousel.html
 permalink: true
 pageSlug: bootstrap_carousel
 order: 1
