@@ -1,0 +1,119 @@
+%standard-logo {
+  width: 262px;
+  height: 101px;
+}
+
+%small-logo {
+  width: 187px;
+  height: 72px;
+}
+
+.identity {
+
+  transition-property: width, height, margin-top;
+  transition-duration: .25s;
+  @extend %easeOutOver;
+  margin-top:0em;
+  @extend %standard-logo;
+  background-image: url(/images/logo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .shrunk & {
+    @extend %small-logo;
+  }
+
+  a {
+    display: block;
+  }
+
+}
+
+.collapsing {
+  transition-property: height;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-duration: .25s;
+}
+
+#header > .navbar {
+  border: none;
+  background-color: $navbar-default-bg;
+  box-shadow: 0px 2px 12px rgba(0,0,0,.25);
+}
+
+$nav-bar-padding: 2.575em;
+$nav-bar-padding-shrunk: 1.5em;
+#header .navbar-nav {
+  li {
+
+    a {
+
+      padding-top: 1em;
+      padding-bottom: 1.25em;
+      padding-left: 1em;
+
+      @media screen and (min-width: $screen-sm) {
+
+        transition-property: padding-top, padding-bottom, font-size;
+        transition-duration: .25s;
+        @extend %easeOutOver;
+
+        padding-top: $nav-bar-padding;
+
+        .shrunk & {
+          padding-top: $nav-bar-padding-shrunk;
+          padding-bottom: 1.25em;
+        }
+      }
+
+    }
+
+    &.active a,
+    a:hover, {
+      background: darken($navbar-default-bg,15);
+      color: #fff;
+    }
+
+  }
+
+  li:last-child {
+
+    a {
+      padding-right: 2em;
+    }
+
+  }
+
+}
+
+#navbar {
+  @extend .container;
+}
+
+#search-form {
+  $search-form-padding-offset: 0.5em;
+  @extend .col-sm-3;
+  padding-top: $nav-bar-padding - $search-form-padding-offset;
+  float: right;
+
+  @media screen and (min-width: $screen-sm) {
+    transition-property: padding-top;
+    transition-duration: .25s;
+    @extend %easeOutOver;
+
+    .shrunk & {
+      padding-top: $nav-bar-padding-shrunk - $search-form-padding-offset;
+    }
+  }
+}
+
+.navbar-toggle {
+  margin-top: 2em;
+  margin-right: .5em;
+  border: none;
+  border-radius: 0;
+  background-color: $text-color;
+  padding: 1em .75em;
+  top: 0em;
+  font-size: .875em;
+}

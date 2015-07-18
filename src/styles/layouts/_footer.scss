@@ -85,7 +85,7 @@ body {
   transition-property: width, height, margin-top;
   transition-duration: .25s;
   @extend %easeOutOver;
-  margin-top: 0.05em;
+  margin-top: 0.065em;
   width: 140px;
   height: 54px;
   background-image: url(/images/logo-reversed.png);
