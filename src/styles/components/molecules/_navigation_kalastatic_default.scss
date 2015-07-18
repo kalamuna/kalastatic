@@ -8,9 +8,15 @@
     @extend .fa-home;
     font-size: 1.125em;
     padding: .5em;
-    color: #fff;
+    color: $gray-light;
     background-color: $gray-dark;
     float: left;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $brand-primary;
+      color: $gray-dark;
+    }
   }
 }
 
@@ -102,12 +108,23 @@ $nav-bar-padding-shrunk: 1.5em;
 }
 
 .navbar-toggle {
-  margin-top: 2em;
-  margin-right: .5em;
+  top: 0;
+  right: 0;
+  margin: 0;
   border: none;
   border-radius: 0;
-  background-color: $text-color;
+  background-color: $gray-dark;
   padding: 1em .75em;
-  top: 0em;
   font-size: .875em;
+  .icon-bar {
+    border: 1px $gray-light solid;
+  }
+  &:hover,
+  &:active,
+  &focus {
+    background-color: $brand-primary;
+    .icon-bar {
+      border: 1px $gray-dark solid;
+    }
+  }
 }
