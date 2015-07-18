@@ -31,7 +31,8 @@
   {% block header %}
   <header id="header">
     {% block navigation %}
-      {% include "../partials/navigation_fixed_top.html" %}
+      {% set headerComponent = "../"+config.headerComponent %}
+      {% include headerComponent %}
     {% endblock %}
   </header>
   {% endblock %}
@@ -51,10 +52,11 @@
     </article>
 
   {% endblock %}
-  </main>
+</main>
 
   {% block footer %}
-    {%include "../partials/footer.html" %}
+    {% set footerComponent = "../"+config.footerComponent %}
+    {% include footerComponent %}
   {% endblock %}
 
   {% block page-suffix %}
