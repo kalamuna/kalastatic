@@ -1,6 +1,6 @@
 ---
 title: No news is good news
-template: news_example.html
+template: examples/news.html
 pageSlug: news
 permalink: true
 order: 2

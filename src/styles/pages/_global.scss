@@ -1,0 +1,28 @@
+body {
+  padding-top: 6.75em;
+}
+
+main > article {
+
+  border-radius: 0;
+  @extend .col-sm-9;
+  @extend .row;
+  background-color: $body-bg;
+  padding: 0;
+  padding-bottom: 2em;
+  margin: 0 auto;
+  clear: both;
+  float: none;
+
+  .content {
+  }
+
+  .content {
+    @extend .col-sm-12;
+  }
+
+  section > section {
+    @extend .clearfix;
+  }
+
+}

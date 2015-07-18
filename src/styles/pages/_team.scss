@@ -1,0 +1,15 @@
+.team-kalastatic {
+  .contents {
+    @extend .well;
+  }
+}
+
+
+
+// Teasers and article grids.
+.teaser-grid {
+  @extend .clearfix;
+  .teaser {
+    @extend %tout-quadriptych;
+  }
+}

@@ -17,12 +17,6 @@ Styleguide 4.0
 
 @import "fontawesome";
 
-@import "layouts/global";
-@import "layouts/header";
-@import "layouts/footer";
-@import "layouts/homepage";
-@import "layouts/team";
-
 
 /*
 Site Components
@@ -31,10 +25,17 @@ Site Components
 
 Styleguide 5.0
 */
-@import "components/footer";
-@import "components/modal";
-@import "components/lede";
-@import "components/cta";
+@import "molecules/modal";
+@import "molecules/lede";
+@import "molecules/cta";
+@import "molecules/teasers";
+@import "molecules/listing";
+
+@import "organisms/navigation_kalastatic_default";
+@import "organisms/footer";
 
 
-@import "pages/bootstrap_carousel_example"
+@import "pages/global";
+@import "pages/team";
+@import "pages/bootstrap_carousel_example";
+@import "pages/homepage";

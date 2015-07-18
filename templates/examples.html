@@ -2,14 +2,14 @@
 
 {% block contents %}
 
-  <main role="main">
     <article>
+
+      <h1>{{title}}</h1>
 
       {{contents|safe}}
 
       <section class="examples">
-        <h1>Examples</h1>
-        <ul class="examples">
+        <ul class="examples listing">
           {% for example in collections.examples %}
           <li>
             <a href="/examples/{% if example.pageSlug %}{{example.pageSlug}}{% else %}{{example.title|slug}}{% endif %}/">
@@ -21,6 +21,5 @@
         </ul>
       </section>
     </article>
-  </main>
 
 {% endblock %}
