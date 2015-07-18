@@ -3,11 +3,18 @@
   {% block contents %}
 
   <main role="main">
-    <article> 
+
+    <article>
       <h1>{{ title }}</h1>
       {{contents|safe}}
     </article>
+
+    {% if cta %}
+    <section class="cta-wrapper">
+      {% include "./partials/cta.html" with cta only %}
+    </section>
+    {% endif %}
+
   </main>
 
   {% endblock %}
-
