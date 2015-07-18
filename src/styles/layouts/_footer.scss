@@ -78,3 +78,22 @@ body {
     margin-right: 2em;
   }
 }
+
+
+.identity {
+
+  transition-property: width, height, margin-top;
+  transition-duration: .25s;
+  @extend %easeOutOver;
+  margin-top: 0.05em;
+  width: 140px;
+  height: 54px;
+  background-image: url(/images/logo-reversed.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  a {
+    display: block;
+  }
+
+}

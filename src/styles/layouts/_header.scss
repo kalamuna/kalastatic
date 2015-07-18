@@ -1,33 +1,3 @@
-%standard-logo {
-  width: 262px;
-  height: 101px;
-}
-
-%small-logo {
-  width: 187px;
-  height: 72px;
-}
-
-.identity {
-
-  transition-property: width, height, margin-top;
-  transition-duration: .25s;
-  @extend %easeOutOver;
-  margin-top:0em;
-  @extend %standard-logo;
-  background-image: url(/images/logo.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  .shrunk & {
-    @extend %small-logo;
-  }
-
-  a {
-    display: block;
-  }
-
-}
 
 .collapsing {
   transition-property: height;
