@@ -79,13 +79,12 @@ body {
   }
 }
 
-
 .footer .identity {
 
   transition-property: width, height, margin-top;
   transition-duration: .25s;
   @extend %easeOutOver;
-  margin-top: 0.065em;
+  margin-top: 0.0925em;
   width: 140px;
   height: 54px;
   background-image: url(/images/logo-reversed.png);
@@ -95,9 +94,19 @@ body {
   a {
     display: block;
   }
-
 }
+
 li.active a {
   background: $link-color;
   color: $gray-dark;
+}
+
+.footer .navbar-nav {
+ padding-left: 1em;
+ background-color: $gray-dark;
+ margin: 0;
+ @media (min-width: $screen-sm) {
+   padding-left: 0;
+   background-color: transparent;
+ }
 }
