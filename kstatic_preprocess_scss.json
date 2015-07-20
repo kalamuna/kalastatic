@@ -1,0 +1,13 @@
+{
+  "source": "components",
+  "destination": "src/components/",
+  "plugins": {
+    "metalsmith-debug": {},
+    "metalsmith-templates": {
+      "engine":"swig",
+      "inPlace": true,
+      "directory": "/",
+      "pattern": "**/*.scss"
+    }
+  }
+}
