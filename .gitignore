@@ -1,5 +1,5 @@
 node_modules
 build
-src/components/
+src/styles/components/
 npm-debug.log
 assets/vendor
