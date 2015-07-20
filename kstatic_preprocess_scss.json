@@ -1,6 +1,6 @@
 {
   "source": "components",
-  "destination": "src/styles/",
+  "destination": "src/components/",
   "plugins": {
     "metalsmith-debug": {},
     "metalsmith-templates": {
