@@ -3,6 +3,7 @@
   "destination": "src/components/",
   "plugins": {
     "metalsmith-debug": {},
+    "metalsmith-swig-helpers": {},
     "metalsmith-templates": {
       "engine":"swig",
       "inPlace": true,
