@@ -1,17 +1,18 @@
-/*!
+/*
 Component Name
 
 Component description
 
 Markup:
 {% include "components/molecules/cta/cta.html" %}
+
+Section 5.1
 */
 
-.cta-wrapper {
-  @extend .clearfix;
-  clear: both;
-  background: #dedede;
-  .cta {
-    text-align: center;
+.cta {
+  text-align: center;
+  .button {
+    @extend .btn;
+    @extend .btn-default;
   }
 }
