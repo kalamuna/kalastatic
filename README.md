@@ -2,6 +2,7 @@ kalastatic
 ==========
 
 Static site framework for prototyping and building out CMS-less websites at Kalamuna.
+
 demo site: http://test-kalastatic.at.kalamuna.com
 
 ## Features
