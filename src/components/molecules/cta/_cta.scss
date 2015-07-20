@@ -1,0 +1,22 @@
+/*
+Component Name
+
+Component description
+
+Markup:
+<section class="cta">
+  <h2>Title!</h2>
+  <a class="button" href=""></a>
+</section>
+
+
+Section 5.1
+*/
+
+.cta {
+  text-align: center;
+  .button {
+    @extend .btn;
+    @extend .btn-default;
+  }
+}
