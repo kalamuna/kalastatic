@@ -16,6 +16,9 @@ module.exports = function(grunt) {
       build: {
         cmd: 'npm run build'
       },
+      preProcessComponentScss: {
+        cmd: 'npm run preProcessComponentScss'
+      }
     },
 
     // Local static web server
@@ -35,7 +38,8 @@ module.exports = function(grunt) {
         files: [
           'src/**/*',
           'assets/**/*',
-          'templates/**/*'
+          'templates/**/*',
+          'components/**/*'
         ],
         tasks: ['build'],
         options: {
@@ -94,7 +98,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('build', ['exec:build']);
+  grunt.registerTask('build', ['exec:preProcessComponentScss','exec:build']);
   grunt.registerTask('deploy', ['buildcontrol:deploy']);
   grunt.registerTask('default', ['build', 'connect', 'watch']);
 };

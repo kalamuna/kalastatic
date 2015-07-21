@@ -1,6 +1,7 @@
 {
   "source": [
     "node_modules/kss-bootstrap/styleguide",
+    "src/components",
     "src/styles"
   ],
   "destination": "build/styleguide",

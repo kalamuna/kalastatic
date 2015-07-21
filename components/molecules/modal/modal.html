@@ -9,11 +9,11 @@
           <span class="icon" aria-hidden="true"></span>
           <span class="sr-only">Close</span>
         </a>
-        <h2 class="modal-title fn">{{title}}</h2>
+        <h2 class="modal-title fn">{% if title %}{{title}}{% else %}title{% endif %}</h2>
       </header>
 
       <section class="content">
-        {{contents|safe}}
+        {% if modalContent %}{{modalContent|safe}}{% else %}modalContent{% endif %}
       </section>
 
     </div>

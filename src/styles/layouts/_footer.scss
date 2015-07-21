@@ -12,10 +12,6 @@ Markup:
       <li><a href="#">Careers</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
-    <div class="addendum">
-      <p class="copyright">MIT License</p>
-      <p class="github">Kalastatic on Github</p>
-    </div>
   </div>
 </footer>
 
@@ -25,6 +21,11 @@ Styleguide 4.2
 html {
   position: relative;
   min-height: 100%;
+}
+
+li.active a {
+  background: $link-color;
+  color: $gray-dark;
 }
 
 body {

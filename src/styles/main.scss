@@ -25,13 +25,12 @@ Styleguide 4.0
 
 
 /*
-Site Components
+Custom Components
 
 …and other sundries
 
 Styleguide 5.0
 */
-@import "components/footer";
-@import "components/lede";
+@import "../components/molecules/lede/lede";
 @import "../components/molecules/cta/cta";
-@import "../components/molecules/cta/modal";
+@import "../components/molecules/modal/modal";
