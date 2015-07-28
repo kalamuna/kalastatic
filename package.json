@@ -7,7 +7,7 @@
     "browserify-shim": "^3.8.8",
     "holderjs": "^2.8.0",
     "jquery": "^2.1.4",
-    "kss-bootstrap": "kalamuna/kss-bootstrap#3fb55ed3dd1c35dd118db6866cf2660f792a097d",
+    "kss-bootstrap": "~0.4.3",
     "metalsmith": "~1.7.0",
     "metalsmith-assets": "^0.1.0",
     "metalsmith-browserify": "RobLoach/metalsmith-browserify#update",
