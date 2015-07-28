@@ -26,7 +26,7 @@
     "a11y": "a11y build/**/*.html > build/styleguide/a11y.txt"
   },
   "devDependencies": {
-    "a11y": "^0.3.2",
+    "a11y": "~0.3.2",
     "grunt": "^0.4.5",
     "grunt-build-control": "^0.3.0",
     "grunt-cli": "^0.1.13",
