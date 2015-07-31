@@ -4,7 +4,15 @@ Command line interface for KalaStatic.
 
 ## Install
 
+### Globally
+
     $ npm install kalastatic-cli -g
+
+### Project Dependency
+
+To install KalaStatic as a dependency in your project:
+
+    $ npm install kalstatic-cli --save
 
 ## Usage
 
@@ -28,9 +36,13 @@ html(lang="en")
 
 ### Build
 
-```
-$ kalastatic
-```
+#### Globally
+
+    $ kalastatic
+
+#### Project
+
+    $ node_modules/.bin/kalastatic
 
 ## API
 
@@ -39,3 +51,4 @@ var KalaStatic = require('kalastatic')
 KalaStatic('path/to/site').then(function() {
   // Site built
 })
+```
