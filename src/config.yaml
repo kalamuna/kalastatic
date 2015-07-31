@@ -1,4 +1,4 @@
 title: KalaStatic
 description: Static site framework for prototyping and building out CMS-less websites at Kalamuna.
-copyright: <a href="https://github.com/kalamuna/kalastatic/blob/master/LICENSE">MIT License</a>
-github: <a href="https://github.com/kalamuna/kalastatic/">Kalastatic on Github</a>
+headerComponent: "partials/navigation_kalastatic_default.html"
+footerComponent: "partials/footer.html"

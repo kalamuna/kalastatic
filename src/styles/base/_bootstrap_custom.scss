@@ -26,6 +26,10 @@
 @import "bootstrap/navs";
 @import "bootstrap/navbar";
 @import "bootstrap/breadcrumbs";
+// Fix for https://github.com/twbs/bootstrap-sass/issues/919
+body .breadcrumb > li + li:before {
+  content: "\3E";
+}
 @import "bootstrap/pagination";
 @import "bootstrap/pager";
 @import "bootstrap/labels";

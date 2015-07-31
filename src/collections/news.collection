@@ -1,5 +1,5 @@
 ---
-pattern: collections/news/*.md
+pattern: news/*.md
 sortBy: order
 ---
 

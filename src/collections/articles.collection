@@ -1,5 +1,5 @@
 ---
-pattern: collections/articles/*.md
+pattern: articles/*.md
 sortBy: order
 ---
 

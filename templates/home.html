@@ -1,8 +1,6 @@
-{% extends 'tabbed-section.html' %}
+{% extends 'layouts/html.html' %}
 
 {% block contents %}
-
-  <main role="main" class="homepage">
     <div class="container">
       <header class=content-heading>
         <h1 data-text="{{title|safe}}">{{title|safe}}</h1>
@@ -11,6 +9,4 @@
       {{contents|safe}}
       </div>
     </div>
-  </main>
-
 {% endblock %}

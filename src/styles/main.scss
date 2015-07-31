@@ -4,7 +4,7 @@
 @import "base/bootstrap_custom";
 
 /*
-Base styles
+Typography
 
 Type, color and the like.
 
@@ -17,22 +17,27 @@ Styleguide 4.0
 
 @import "fontawesome";
 
-@import "layouts/global";
-@import "layouts/header";
-@import "layouts/footer";
-@import "layouts/homepage";
-@import "layouts/team";
-
-
 /*
-Site Components
+Custom Components
 
-…and other sundries
+The following are components that are built specifically for the site.
 
 Styleguide 5.0
 */
-@import "components/footer";
-@import "components/modal";
-@import "components/lede";
-@import "components/cta";
-@import "components/article";
+@import "molecules/modal";
+@import "molecules/lede";
+@import "molecules/cta";
+@import "molecules/teasers";
+@import "molecules/listing";
+
+// header options here, we can comment out which ones we want.
+// also change the partial in templates/layouts/html.html
+@import "organisms/navigation_kalastatic_default";
+// @import "organisms/navigation_fixed_top";
+@import "organisms/footer";
+
+
+@import "pages/global";
+@import "pages/team";
+@import "pages/bootstrap_carousel_example";
+@import "pages/homepage";
