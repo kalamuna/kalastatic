@@ -1,10 +1,7 @@
 {
   "plugins": {
     "metalsmith-collections-convention": {},
-    "metalsmith-metadata": {
-      "config": "config.yaml",
-      "navigation": "navigation.yaml"
-    },
+    "metalsmith-metadata-convention": {},
     "metalsmith-markdown": {},
     "metalsmith-include": {},
     "metalsmith-permalinks": {

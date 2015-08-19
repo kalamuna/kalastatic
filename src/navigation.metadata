@@ -1,3 +1,4 @@
+---
 primary:
   - name: About
     title: About Us
@@ -32,3 +33,9 @@ footer:
   - name: MIT License
     title: Kalastatic on Github.
     url: https://tldrlegal.com/license/mit-license
+---
+
+This is the navigation for the site. There are two navs...
+
+1. The "primary" nav shows up at the top of each page.
+2. The "footer" nav shows up at the bottom.
