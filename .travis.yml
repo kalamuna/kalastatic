@@ -1,6 +1,7 @@
 language: node_js
 node_js:
 - '0.10'
+sudo: false
 after_success:
 # Automatically accept the host key authentication
 - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
