@@ -5,4 +5,5 @@
  */
 
 // Include the Material Design Lite CSS.
-{% include "../node_modules/material-design-lite/material.js" %}
+var mdl = require('material-design-lite/material.js')
+console.log(mdl);
