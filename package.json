@@ -73,7 +73,7 @@
   "config": {
     "kstatic": {
       "base": "/",
-      "baseRemote": "/sites/all/themes/themeName/build/"
-    }    
+      "drupalRemote": "/sites/all/themes/themeName/build/"
+    }
   }
 }
