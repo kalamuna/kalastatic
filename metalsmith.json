@@ -5,6 +5,8 @@
       "config": "config.yaml",
       "navigation": "navigation.yaml"
     },
+    "metalsmith-packagejson": {},
+    "metalsmith-env": {},
     "metalsmith-markdown": {},
     "metalsmith-include": {},
     "metalsmith-permalinks": {
