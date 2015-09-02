@@ -70,8 +70,10 @@
       ]
     }
   },
-  "kstatic": {
-    "base": "/",
-    "baseRemote": "/sites/all/themes/themeName/build/"
+  "config": {
+    "kstatic": {
+      "base": "/",
+      "baseRemote": "/sites/all/themes/themeName/build/"
+    }    
   }
 }
