@@ -16,7 +16,7 @@ demo site: http://test-kalastatic.at.kalamuna.com
 
 ## Requirements
 
-* [Node.js](http://nodejs.org/) >=0.12
+* [Node.js](http://nodejs.org/) >=0.12, up to [0.12.7](https://nodejs.org/dist/v0.12.7/)
 * [npm](http://npmjs.org)
 
 

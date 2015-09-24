@@ -2,6 +2,7 @@
   "plugins": {
     "metalsmith-collections-convention": {},
     "metalsmith-metadata-convention": {},
+    "metalsmith-env": {},
     "metalsmith-markdown": {},
     "metalsmith-include": {},
     "metalsmith-permalinks": {
