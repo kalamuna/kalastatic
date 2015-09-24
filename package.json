@@ -12,6 +12,7 @@
     "metalsmith-assets": "^0.1.0",
     "metalsmith-browserify": "RobLoach/metalsmith-browserify#update",
     "metalsmith-collections-convention": "^1.0.0",
+    "metalsmith-env": "^1.0.0",
     "metalsmith-include": "git://github.com/madeofpeople/metalsmith-include#includeWholeObject",
     "metalsmith-markdown": "~0.2.1",
     "metalsmith-metadata": "~0.0.1",
@@ -67,6 +68,12 @@
       "depends": [
         "jquery:jQuery"
       ]
+    }
+  },
+  "config": {
+    "kstatic": {
+      "base": "/",
+      "drupalRemote": "/sites/all/themes/themeName/build/"
     }
   }
 }
