@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          base: 'build',
+          base: 'build/',
           open: true,
           livereload: true
         },
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     // https://www.npmjs.com/package/grunt-build-control
     buildcontrol: {
       options: {
-        dir: 'build', // Which directory to deploy
+        dir: 'build/content', // Which directory to deploy
         commit: true, // Only commit if code has changed
         push: true, // Push to remote
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'

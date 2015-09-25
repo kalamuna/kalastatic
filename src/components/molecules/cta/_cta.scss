@@ -1,0 +1,7 @@
+.cta {
+  text-align: center;
+  .button {
+    @extend .btn;
+    @extend .btn-default;
+  }
+}

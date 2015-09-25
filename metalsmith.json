@@ -1,9 +1,12 @@
 {
   "plugins": {
     "metalsmith-collections-convention": {},
+    "metalsmith-move-up": {
+      "pattern": "content/**/*"
+    },
     "metalsmith-metadata": {
-      "config": "config.yaml",
-      "navigation": "navigation.yaml"
+      "config": "config/config.yaml",
+      "navigation": "config/navigation.yaml"
     },
     "metalsmith-markdown": {},
     "metalsmith-include": {},

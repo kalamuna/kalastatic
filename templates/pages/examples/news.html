@@ -1,0 +1,11 @@
+{% extends '../../layouts/html.html' %}
+
+{% block contents %}
+<article>
+<section id="news" class="news teasers listing">
+  {% for news in collections.news %}
+    {% include "../../partials/news-teaser.html" with news only %}
+  {% endfor %}
+</section>
+</article>
+{% endblock %}
