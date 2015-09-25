@@ -1,5 +1,5 @@
 ---
-pattern: team/*.md
+pattern: content/team/*.md
 sortBy: order
 ---
 

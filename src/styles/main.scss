@@ -8,7 +8,6 @@
 @import "base/mixins";
 @import "base/typography";
 @import "base/variables";
-
 @import "fontawesome";
 
 /*
@@ -18,11 +17,11 @@ The following are components that are built specifically for the site.
 
 Styleguide 10.0
 */
-@import "molecules/modal";
-@import "molecules/lede";
-@import "molecules/cta";
-@import "molecules/teasers";
-@import "molecules/listing";
+@import "../components/molecules/lede/lede";
+@import "../components/molecules/cta/cta";
+@import "../components/molecules/teaser/teaser";
+@import "../components/molecules/listing/listing";
+@import "../components/molecules/modal/modal";
 
 // header options here, we can comment out which ones we want.
 // also change the partial in templates/layouts/html.html
