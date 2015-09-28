@@ -40,7 +40,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.6"
   },
-  "extra": {
+  "config": {
     "repo": "kalamuna/kalastatic",
     "deploy": "ssh://codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5@codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5.drush.in:2222/~/repository.git",
     "branch": "master"
