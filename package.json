@@ -12,12 +12,13 @@
     "metalsmith-assets": "^0.1.0",
     "metalsmith-browserify": "RobLoach/metalsmith-browserify#update",
     "metalsmith-collections-convention": "^1.0.0",
+    "metalsmith-env": "^1.0.0",
     "metalsmith-include": "git://github.com/madeofpeople/metalsmith-include#includeWholeObject",
     "metalsmith-markdown": "~0.2.1",
     "metalsmith-metadata": "~0.0.1",
     "metalsmith-move-up": "^1.0.0",
     "metalsmith-permalinks": "~0.4.0",
-    "metalsmith-sass": "~1.3.0",
+    "metalsmith-sass": "s992/metalsmith-sass#master",
     "metalsmith-swig-helpers": "^1.3.0",
     "metalsmith-tags": "^0.11.0",
     "metalsmith-templates": "~0.7.0",
@@ -40,15 +41,6 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.6"
   },
-  "extra": {
-    "repo": "kalamuna/kalastatic",
-    "deploy": "ssh://codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5@codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5.drush.in:2222/~/repository.git",
-    "branch": "master"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kalamuna/kalastatic.git"
-  },
   "browser": {
     "bootstrap": "./assets/vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js",
     "matchheight": "./assets/vendor/matchHeight/jquery.matchHeight.js"
@@ -69,5 +61,18 @@
         "jquery:jQuery"
       ]
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kalamuna/kalastatic.git"
+  },
+  "config": {
+    "kstatic": {
+      "base": "/",
+      "drupalRemote": "/sites/all/themes/themeName/build/"
+    },
+    "repo": "kalamuna/kalastatic",
+    "deploy": "ssh://codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5@codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5.drush.in:2222/~/repository.git",
+    "branch": "master"
   }
 }

@@ -58,15 +58,15 @@ module.exports = function(grunt) {
       // GitHub Pages target: https://pages.github.com
       github: {
         options: {
-          remote: 'git@github.com:<%= pkg.extra.repo %>.git',
+          remote: 'git@github.com:<%= pkg.config.repo %>.git',
           branch: 'gh-pages'
         }
       },
       // The default deployment target, set in package.json.
       deploy: {
         options: {
-          remote: '<%= pkg.extra.deploy %>',
-          branch: '<%= pkg.extra.branch %>'
+          remote: '<%= pkg.config.deploy %>',
+          branch: '<%= pkg.config.branch %>'
         }
       }
     }
@@ -83,7 +83,7 @@ module.exports = function(grunt) {
   // Extract any keys from the environmental variables.
   if (process.env.GH_TOKEN) {
     // Update the remote git repository to use the GitHub token.
-    config.buildcontrol.github.options.remote = "https://" + process.env.GH_TOKEN + "@github.com/<%= pkg.extra.repo %>.git";
+    config.buildcontrol.github.options.remote = "https://" + process.env.GH_TOKEN + "@github.com/<%= pkg.config.repo %>.git";
   }
 
   // Initialize the configuration.
