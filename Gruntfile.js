@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     // https://www.npmjs.com/package/grunt-build-control
     buildcontrol: {
       options: {
-        dir: 'build/content', // Which directory to deploy
+        dir: 'build', // Which directory to deploy
         commit: true, // Only commit if code has changed
         push: true, // Push to remote
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
