@@ -4,11 +4,11 @@
 
   <article>
 
-    <div class="tab-content">
-      <section class="content investors tab-pane fade" id="investors">
-        {% include "../../src/components/atoms/copyblock/copyblock.html" with introCopy only%}
-      </section>
-    </div>
+    <h1>{{title|safe}}</h1>
+
+    {% include "../../src/components/atoms/copyblock/copyblock.html" with introCopy only%}
+
+    {{contents|safe}}
 
     <section class="cta-wrapper">
       {% include "../../src/components/molecules/cta/cta.html" with cta only %}

@@ -7,10 +7,9 @@ cta:
   cta: Contact us
   url: "/contact"
 ---
-
 Kalastatic is a prototyping framework.
 
-It can be (and has been) used to build beautifully crafted static sites at [Kalamuna](https://www.kalamuna.com).
+It can be (and has been) used to build beautifully crafted static sites at [Kalamuna](https://www.kalamuna.com)."
 
 However, its primary purpose is to put into practice [atomic web design](http://bradfrost.com/blog/post/atomic-web-design) principles to produce a [living styleguide](http://www.webdesignerdepot.com/2014/09/how-to-make-your-code-easily-maintainable-with-living-style-guides) that can be used to guide back-end implementations in a framework agnostic approach.
 
