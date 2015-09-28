@@ -40,15 +40,6 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.6"
   },
-  "extra": {
-    "repo": "kalamuna/kalastatic",
-    "deploy": "ssh://codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5@codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5.drush.in:2222/~/repository.git",
-    "branch": "master"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kalamuna/kalastatic.git"
-  },
   "browser": {
     "bootstrap": "./assets/vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js",
     "matchheight": "./assets/vendor/matchHeight/jquery.matchHeight.js"
@@ -70,10 +61,17 @@
       ]
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kalamuna/kalastatic.git"
+  },
   "config": {
     "kstatic": {
       "base": "/",
       "drupalRemote": "/sites/all/themes/themeName/build/"
-    }
+    },
+    "repo": "kalamuna/kalastatic",
+    "deploy": "ssh://codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5@codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5.drush.in:2222/~/repository.git",
+    "branch": "master"
   }
 }
