@@ -1,0 +1,50 @@
+.modal-backdrop {
+  opacity: .9;
+}
+
+.modal {
+
+  display: none;
+  perspective-origin: bottom;
+  perspective: 1200px;
+  text-color: #000;
+
+  .modal-header {
+    .close {
+      @extend .fa;
+      @extend .fa-close;
+      background-color: #000;
+      border-radius: 50%;
+      width: 1.5em;
+      height: 1.5em;
+      color: white;
+      margin-top: .75em;
+      &::before {
+        position: relative;
+        top: .2195em;
+        left: .335em;
+      }
+    }
+  }
+
+  .modal-dialog {
+    z-index: $zindex-modal+1;
+    transform: rotateY(90deg) translate3d( 0, 0, 0 ) !important;
+    top: 0;
+    transform-origin: center top;
+    transition-property: transform;
+    transition-duration: .275s !important;
+    @extend %easeOutQuad;
+    margin-bottom: 0;
+    padding-bottom: 2em;
+  }
+
+  &.in {
+    display: block;
+  }
+
+  &.in .modal-dialog {
+    transform: rotateY(0) translate3d( 0, 0, 0 ) !important;
+  }
+
+}

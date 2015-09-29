@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          base: 'build',
+          base: 'build/',
           open: true,
           livereload: true
         },

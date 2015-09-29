@@ -1,6 +1,0 @@
----
-pattern: articles/*.md
-sortBy: order
----
-
-This is the collection of articles.

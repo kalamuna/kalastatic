@@ -1,0 +1,23 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-{{id|slug}}">
+  Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="modal-{{id|slug}}" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <header class="modal-header">
+        <a class="close" data-dismiss="modal" aria-label="Close">
+          <span class="sr-only">Close</span>
+        </a>
+        <h2 class="modal-title fn" id="modal-{{id|slug}}">{% if modalTitle %}{{modalTitle}}{% else %}modalTitle{% endif %}</h2>
+      </header>
+      <section class="modal-body">
+        {% if modalContent %}{{modalContent|safe}}{% else %}modalContent{% endif %}
+      </section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

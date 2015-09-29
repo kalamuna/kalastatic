@@ -1,0 +1,8 @@
+<section class="lede">
+  <h2>{% if ledeTitle %}{{ledeTitle}}{% else %}ledeTitle{% endif %}</h2>
+  <div class="content">
+    <p>
+      {% if ledeContent %}{{ledeContent|safe}}{% else %}ledeContent{% endif %}
+    </p>
+  </div>
+</section>

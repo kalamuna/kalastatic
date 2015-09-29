@@ -1,0 +1,10 @@
+.cta {
+  @extend .clearfix;
+  background: #dedede;
+  text-align: center;
+  padding-bottom: 1em;
+  .button {
+    @extend .btn;
+    @extend .btn-default;
+  }
+}

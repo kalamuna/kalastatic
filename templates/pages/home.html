@@ -1,0 +1,12 @@
+{% extends '../layouts/html.html' %}
+
+{% block contents %}
+    <div class="container">
+      <header class=content-heading>
+        <h1 data-text="{{title|safe}}">{{title|safe}}</h1>
+      </header>
+      <div class="contents">
+      {{contents|safe}}
+      </div>
+    </div>
+{% endblock %}
