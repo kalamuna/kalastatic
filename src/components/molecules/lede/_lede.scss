@@ -1,0 +1,12 @@
+%lede.inversed {
+  p {
+
+  }
+}
+
+.lede {
+  @extend .jumboTron;
+  background: $body-bg;
+  padding: 2em;
+  margin-bottom: 2em;
+}

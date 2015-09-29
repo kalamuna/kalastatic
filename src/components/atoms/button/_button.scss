@@ -1,0 +1,11 @@
+%button {
+  @extend .btn;
+  @extend .btn-primary;
+  &:hover {
+    background-color: $btn-primary-hover-bg;
+  }
+}
+
+.button {
+  @extend %button;
+}

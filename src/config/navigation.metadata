@@ -1,0 +1,40 @@
+---
+primary:
+  - name: About
+    title: About Us
+    url: /about
+
+  - name: Team
+    title: Find out about our team
+    url: /team
+
+  - name: Style Guide
+    title: The Style Guide for Kalastatic
+    url: /styleguide
+
+  - name: Examples
+    title: Check out examples!
+    url: /examples
+
+footer:
+
+  - name: Contact
+    title: Contact us about anything at all!
+    url: /contact
+
+  - name: Docs
+    title: Kalastatic Documentation.
+    url: https://github.com/kalamuna/kalastatic/wiki
+
+  - name: Source
+    title: Kalastatic on Github.
+    url: https://github.com/kalamuna/kalastatic/
+
+  - name: MIT License
+    title: Kalastatic on Github.
+    url: https://tldrlegal.com/license/mit-license
+---
+This is the navigation for the site. There are two navs...
+
+1. The "primary" nav shows up at the top of each page.
+2. The "footer" nav shows up at the bottom.

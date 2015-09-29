@@ -1,6 +1,0 @@
----
-pattern: carouselItems/*.md
-sortBy: order
----
-
-A carousel example.

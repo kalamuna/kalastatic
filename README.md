@@ -44,6 +44,13 @@ demo site: http://test-kalastatic.at.kalamuna.com
 2. Visit the compiled `build` folder to see the built site
 
 
+### Deployment
+
+Deploy the site by running:
+  ```
+  npm run deploy
+  ```
+
 ### Development
 
 1. Run the following command to build, watch and serve the site:

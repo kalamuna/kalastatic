@@ -1,0 +1,6 @@
+---
+pattern: content/news/*.md
+sortBy: order
+---
+
+All news articles.

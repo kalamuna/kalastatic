@@ -1,7 +1,0 @@
----
-title: KalaStatic
-description: Static site framework for prototyping and building out CMS-less websites at Kalamuna.
-headerComponent: "partials/navigation_kalastatic_default.html"
-footerComponent: "partials/footer.html"
----
-This is the global configuration for the whole site.
