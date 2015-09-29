@@ -18,7 +18,7 @@
     "metalsmith-metadata": "~0.0.1",
     "metalsmith-move-up": "^1.0.0",
     "metalsmith-permalinks": "~0.4.0",
-    "metalsmith-sass": "s992/metalsmith-sass#master",
+    "metalsmith-sass": "^1.3.0",
     "metalsmith-swig-helpers": "^1.3.0",
     "metalsmith-tags": "^0.11.0",
     "metalsmith-templates": "~0.7.0",
