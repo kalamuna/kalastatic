@@ -1,31 +1,3 @@
 body.bootstrap_carousel {
   background: #333;
 }
-#carousel_example {
-  .carousel-control.left,
-  .carousel-control.right {
-    background-image: none !important;
-    &:hover,
-    &:active,
-    &:focus {
-      background-image: none !important;
-    }
-  }
-  .carousel-inner {
-    .item {
-      width: 100%;
-      height: 100%;
-      background: #333;
-      img {
-        display: block;
-        margin: 0 auto;
-        // width: 100% !important;
-        // height: 100% !important;
-      }
-    }
-  }
-  > .carousel {
-    width: 100%;
-    height: 100%;
-  }
-}

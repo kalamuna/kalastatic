@@ -22,12 +22,15 @@ Styleguide 10.0
 @import "../components/molecules/teaser/teaser";
 @import "../components/molecules/listing/listing";
 @import "../components/molecules/modal/modal";
+@import "../components/molecules/bootstrap_carousel_item/bootstrap_carousel_item";
+@import "../components/molecules/bootstrap_carousel_nav/bootstrap_carousel_nav";
 
 // header options here, we can comment out which ones we want.
 // also change the partial in config.yaml
 @import "../components/organisms/nav_kalastatic/nav_kalastatic";
 // @import "organisms/navigation_fixed_top";
 @import "../components/organisms/footer/footer";
+@import "../components/organisms/bootstrap_carousel/bootstrap_carousel";
 
 
 @import "pages/global";
