@@ -1,7 +1,9 @@
 ---
-template: pages/about.html
+template: layouts/article.html
 pageSlug: about
 title: About Kalastatic
+lede:
+  contents: "Hi Hello!"
 cta:
   title: Interested in learning more about us?
   cta: Contact us
