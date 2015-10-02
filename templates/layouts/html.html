@@ -23,6 +23,7 @@
   {% endblock %}
 
   {% block styles %}
+  {{drupalcss|safe}}
   <link rel="stylesheet" type="text/css" href="{{'/styles/main.css'|bustcache}}">
   {% endblock %}
 
