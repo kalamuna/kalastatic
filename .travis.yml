@@ -5,12 +5,9 @@ node_js:
 - '4'
 sudo: false
 after_success:
-# Automatically accept the host key authentication
 - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-# Set up git to know the user name
 - git config --global user.name $GIT_NAME
 - git config --global user.email $GIT_EMAIL
-# Deploy if it's a Pull Request or a commit to master.
 - if [[ $TRAVIS_PULL_REQUEST != 'false' || $TRAVIS_BRANCH == "master" ]] && [ $TRAVIS_REPO_SLUG == $GH_REPO ]; then npm run deploy; fi
 cache:
   directories:
@@ -19,16 +16,10 @@ notifications:
   email: false
 env:
   global:
-  - GIT_NAME: "Kala C. Bot"
+  - GIT_NAME: Kala C. Bot
   - GIT_EMAIL: kalacommitbot@kalamuna.com
-
-  # Encrypted Environment Variables
-  # GIT_NAME: The name of the git user to use.
-  # GIT_EMAIL: The email address for the git user.
-  # GH_TOKEN: The personal token from https://github.com/settings/tokens/new .
-  #
-  # gem install travis
-  # travis encrypt GIT_NAME="John Smith"
-  # travis encrypt GIT_EMAIL="john@smith.com"
-  # travis encrypt GH_TOKEN=fd0c12c7b959b423a18fa416a1d924f3fdf82824
   - secure: ZJBBX6XW3mnbVAS8zddDebDUw+CPmAfzmQGu/pb75ndvRM9WUAyWTq30eh513IcE0tqqRk075U6kYTs+tA2HNDsUXpnggIj2s1s1U26o+0k4Yqxg3Wme4AEyYhfzgMrAwAVJbpGHyGjuhBlNiMlym+w2dceDzCTpZahDxVstmv0=
+before_install:
+- openssl aes-256-cbc -K $encrypted_c8d2cd213f9d_key -iv $encrypted_c8d2cd213f9d_iv
+  -in deploy_key.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
