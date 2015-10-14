@@ -1,0 +1,42 @@
+  <style type="text/css" media="all">
+@import url("http://dev-panopoly-dev.at.kalamuna.com/modules/system/system.base.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/modules/system/system.messages.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/modules/system/system.theme.css?npdpiq");
+</style>
+<style type="text/css" media="all">
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/jquery_update/replace/ui/themes/base/jquery.ui.core.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/panopoly/panopoly_core/css/panopoly-jquery-ui-theme.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/jquery_update/replace/ui/themes/base/jquery.ui.accordion.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/navbar/css/navbar.menu.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/navbar/css/navbar.base.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/navbar/css/navbar.theme.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/navbar/css/navbar.icons.css?npdpiq");
+</style>
+<style type="text/css" media="all">
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/date/date_api/date.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/date/date_popup/themes/datepicker.1.7.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/modules/field/theme/field.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/modules/node/node.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/panopoly/panopoly_admin/panopoly-admin-navbar.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/panopoly/panopoly_core/css/panopoly-dropbutton.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/sites/all/modules/panopoly_demo/panopoly_demo.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/panopoly/panopoly_magic/css/panopoly-magic.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/panopoly/panopoly_theme/css/panopoly-featured.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/panopoly/panopoly_theme/css/panopoly-accordian.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/panopoly/panopoly_theme/css/panopoly-layouts.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/panopoly/panopoly_widgets/panopoly-widgets.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/panopoly/panopoly_wysiwyg/panopoly-wysiwyg.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/radix_layouts/radix_layouts.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/modules/search/search.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/modules/user/user.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/views/css/views.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/caption_filter/caption-filter.css?npdpiq");
+</style>
+<style type="text/css" media="all">
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/ctools/css/ctools.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/panels/css/panels.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/ctools/css/modal.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/panels/css/panels_dnd.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/panels/css/panels_admin.css?npdpiq");
+@import url("http://dev-panopoly-dev.at.kalamuna.com/profiles/panopoly/modules/contrib/panels/panels_ipe/css/panels_ipe.css?npdpiq");
+</style>
