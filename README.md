@@ -4,6 +4,10 @@ Command line interface for KalaStatic.
 
 ## Install
 
+### Dependencies
+
+- [node](https://nodejs.org) >= 4
+
 ### Globally
 
     $ npm install kalastatic-cli -g
