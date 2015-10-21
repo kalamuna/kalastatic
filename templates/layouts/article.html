@@ -1,12 +1,19 @@
-{% extends 'html.html' %}
+{% extends '../layouts/html.html' %}
 
-  {% block contents %}
+{% block contents %}
 
-  <main role="main">
-    <article>
-      <h1>{{ title }}</h1>
-      {{contents|safe}}
-    </article>
-  </main>
+  <article>
 
-  {% endblock %}
+    <h1>{{title|safe}}</h1>
+
+    {% include "../../src/components/molecules/lede/lede.html" with lede only%}
+
+    {{contents|safe}}
+
+    <section class="cta-wrapper">
+      {% include "../../src/components/molecules/cta/cta.html" with cta only %}
+    </section>
+
+  </article>
+
+{% endblock %}

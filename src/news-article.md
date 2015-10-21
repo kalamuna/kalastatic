@@ -1,5 +1,5 @@
 ---
-template: news-article.html
+template: layouts/news-article.html
 prismic:
   news:
     query: '[[:d = at(document.tags,["test"])]]'

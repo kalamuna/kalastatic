@@ -1,6 +1,0 @@
----
-pattern: news/*.md
-sortBy: order
----
-
-All news articles.

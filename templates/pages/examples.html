@@ -1,0 +1,26 @@
+{% extends '../layouts/html.html' %}
+
+{% block contents %}
+
+    <article>
+
+      <h1>{{title}}</h1>
+
+      {{contents|safe}}
+
+      <section class="examples">
+        <ul class="examples listing">
+          {% for example in collections.examples %}
+          <li>
+            <a href="/examples/{% if example.pageSlug %}{{example.pageSlug}}{% else %}{{example.title|slug}}{% endif %}/">
+              <h2>{{example.title}}</h2>
+              <p>{{example.teaser|safe}}</p>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+
+    </article>
+
+{% endblock %}

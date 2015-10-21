@@ -1,0 +1,15 @@
+<div id="carousel_{{carouselCollection}}" class="carousel slide" data-ride="carousel">
+
+  <div class="carousel-inner" role="listbox">
+    {% set carousel_collection = {
+        id: carouselCollection,
+        collection: collections[carouselCollection]
+    } %}
+    {% for key, item in carousel_collection.collection %}
+      {% include "../../molecules/bootstrap_carousel_item/bootstrap_carousel_item.html" %}
+    {% endfor %}
+  </div>
+
+  {% include "../../molecules/bootstrap_carousel_nav/bootstrap_carousel_nav.html" %}
+
+</div>

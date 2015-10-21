@@ -1,5 +1,5 @@
 ---
-template: news.html
+template: pages/news.html
 title: News
 pageSlug: news
 prismic:
