@@ -4,7 +4,7 @@ title: News
 pageSlug: news
 prismic:
   news:
-    query: '[[:d = at(document.tags,["test"])]]'
+    query: '[[:d = at(document.tags,["legit"])]]'
 ---
 
 This is news from [Prismic](https://kalastatic.prismic.io), a nifty online content data store.
