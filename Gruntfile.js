@@ -24,11 +24,25 @@ module.exports = function(grunt) {
         options: {
           base: 'build/',
           open: true,
-          livereload: true
+          livereload: false
         },
       },
     },
-
+    // BrowserSync Task
+    browserSync: {
+      bsFiles: {
+        src: [
+          "**/*.css",
+          "**/*.html"
+        ]
+      },
+      options: {
+        server: {
+          baseDir: "./build"
+        },
+        port: 8000
+      }
+    },
     // Watch files and run tasks when changed
     watch: {
       all: {
@@ -41,7 +55,7 @@ module.exports = function(grunt) {
         options: {
           spawn: false,
           interupt: true,
-          livereload: true
+          livereload: false
         },
       },
     },
@@ -91,8 +105,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-browser-sync');
 
   grunt.registerTask('build', ['exec:build']);
   grunt.registerTask('deploy', ['buildcontrol:deploy']);
-  grunt.registerTask('default', ['build', 'connect', 'watch']);
+  grunt.registerTask('default', ['build', 'browserSync', 'watch']);
 };
