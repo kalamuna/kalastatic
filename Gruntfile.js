@@ -72,12 +72,10 @@ module.exports = function(grunt) {
     }
   };
 
-  // Allow deploying to different multi-dev environments on Pantheon.
-  if (process.env.TRAVIS_PULL_REQUEST == 'false' && process.env.TRAVIS_BRANCH == 'master') {
+  // Deploy all branches to the same branch name. Pull Requests are already handled by this.
+  if (process.env.TRAVIS_PULL_REQUEST == 'false' && process.env.TRAVIS_BRANCH) {
+    // Branch switching is commented out until this is deployed.
     config.buildcontrol.deploy.options.branch = process.env.TRAVIS_BRANCH;
-  }
-  else if (process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST != 'false') {
-   config.buildcontrol.deploy.options.branch = 'pr-' + process.env.TRAVIS_PULL_REQUEST;
   }
 
   // Extract any keys from the environmental variables.
