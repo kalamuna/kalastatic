@@ -38,16 +38,16 @@
   6. Highlight #2 color
   7. Width (px)
   8. Height (px)
-  
+
   Stolen gratuitously from https://css-tricks.com/glitch-effect-text-images-svg/
 */
 
-@mixin textGlitch($name, $intensity, $textColor, $background, $highlightColor1, $highlightColor2, $width, $height) {
-  
+@mixin textGlitch($name, $intensity, $textColor, $background, $highlightColor1, $highlightColor2, $width, $height, $timing1: 3s, $timing2: 4s) {
+
   color: $textColor;
   position: relative;
   $steps: $intensity;
-  
+
   // Ensure the @keyframes are generated at the root level
   @at-root {
     // We need two different ones
@@ -74,17 +74,17 @@
     left: 0;
     width: 100%;
     background: $background;
-    clip: rect(0, 0, 0, 0); 
+    clip: rect(0, 0, 0, 0);
   }
   &:after {
     left: 2px;
     text-shadow: -1px 0 $highlightColor1;
-    animation: #{$name}-anim-1 2s infinite linear alternate-reverse;
+    animation: #{$name}-anim-1 $timing1 infinite linear alternate-reverse;
   }
   &:before {
     left: -2px;
-    text-shadow: 2px 0 $highlightColor2; 
-    animation: #{$name}-anim-2 3s infinite linear alternate-reverse;
+    text-shadow: 1px 0 $highlightColor2;
+    animation: #{$name}-anim-2 $timing2 infinite linear alternate-reverse;
   }
-  
+
 }
