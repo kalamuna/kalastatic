@@ -2,11 +2,11 @@
 primary:
   - name: About
     title: About Us
-    url: /about
+    url: about
 
   - name: Team
     title: Find out about our team
-    url: /team
+    url: team
 
   - name: News
     title: The latest from KalaStatic
@@ -14,17 +14,17 @@ primary:
 
   - name: Style Guide
     title: The Style Guide for Kalastatic
-    url: /styleguide
+    url: styleguide
 
   - name: Examples
     title: Check out examples!
-    url: /examples
+    url: examples
 
 footer:
 
   - name: Contact
     title: Contact us about anything at all!
-    url: /contact
+    url: contact
 
   - name: Docs
     title: Kalastatic Documentation.
