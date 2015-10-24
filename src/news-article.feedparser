@@ -1,0 +1,5 @@
+---
+template: layouts/news-article.html
+feedparser: http://live-kalastatic-d8-content.pantheon.io/rss.xml
+---
+This FeedParser file tells KalaStatic to download all the content.

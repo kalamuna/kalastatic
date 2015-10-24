@@ -1,12 +1,10 @@
 {
   "plugins": {
+    "metalsmith-feedparser": {},
     "metalsmith-collections-convention": {},
     "metalsmith-metadata-convention": {},
     "metalsmith-move-up": {
       "pattern": "content/**/*"
-    },
-    "metalsmith-prismic": {
-      "url": "http://kalastatic.prismic.io/api"
     },
     "metalsmith-env": {},
     "metalsmith-markdown": {},
