@@ -16,8 +16,8 @@ function getConfig (base, cb) {
         'options': 'node_modules'
       },
       {
-        // Load information from package.json.
-        'name': 'metalsmith-packagejson'
+        // Load information from the environment variables.
+        'name': 'metalsmith-env'
       },
       {
         // Add base, dir, ext, name, and href info to each file.
@@ -69,7 +69,6 @@ function getConfig (base, cb) {
 module.exports = function (base) {
   return new Promise(function (fulfill, reject) {
     getConfig(base, function (config) {
-
       var metalsmith = Metalsmith(base)
 
       for (var i in config.plugins) {

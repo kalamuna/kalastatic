@@ -12,12 +12,12 @@
     "metalsmith": "^2.1.0",
     "metalsmith-collections-convention": "^1.1.0",
     "metalsmith-concat-convention": "^0.2.1",
+    "metalsmith-env": "^2.0.0",
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-jstransformer": "^0.5.3",
     "metalsmith-jstransformer-layouts": "^0.3.2",
     "metalsmith-jstransformer-partials": "^1.0.0",
     "metalsmith-metadata-convention": "0.1.0",
-    "metalsmith-packagejson": "RobLoach/metalsmith-packagejson#mergelocalpackagejson",
     "metalsmith-paths": "^2.1.1",
     "promise": "^7.0.4"
   },

@@ -3,8 +3,7 @@
   "name": "kalastatic-mdl-blog",
   "private": true,
   "dependencies": {
-    "browserify-string": "^1.1.1",
-    "jstransformer-browserify": "^0.1.0",
+    "jstransformer-browserify": "^0.3.0",
     "jstransformer-scss": "^0.1.0",
     "kalastatic-cli": "../../",
     "material-design-lite": "^1.0.4-2"
