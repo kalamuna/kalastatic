@@ -4,4 +4,4 @@ title: Examples
 pageSlug: examples
 ---
 
-We'll be adding more soon ;)
+The following are examples of how content can look when leveraging parts of the prototype and its components.
