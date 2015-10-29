@@ -4,4 +4,4 @@ title: Examples
 pageSlug: examples
 ---
 
-The following are examples of how content can look when leveraging parts of the prototype and its components.
+In this section, we show how key site components (organisms) behave and demonstrate content displays.
