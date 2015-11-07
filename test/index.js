@@ -4,7 +4,7 @@ var execFile = require('child_process').execFile
 var fs = require('fs')
 var it = require('testit')
 
-function test (name) {
+function test (name, nconf) {
   it(name, function (done) {
     var testPath = 'test/fixtures/' + name
     KalaStatic(testPath).then(function () {

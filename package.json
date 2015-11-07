@@ -4,7 +4,13 @@
   "repository": "https://github.com/kalamuna/kalastatic-cli.git",
   "version": "0.0.1",
   "license": "MIT",
+  "files": [
+    "lib/build.js",
+    "index.js",
+    "bin/kalastatic"
+  ],
   "dependencies": {
+    "commander": "^2.9.0",
     "extend": "^3.0.0",
     "jstransformer-jade": "0.1.0",
     "jstransformer-marked": "1.0.1",
@@ -19,6 +25,8 @@
     "metalsmith-jstransformer-partials": "^1.0.0",
     "metalsmith-metadata-convention": "0.1.0",
     "metalsmith-paths": "^2.1.1",
+    "nconf": "^0.8.2",
+    "nconf-yaml": "^1.0.1",
     "promise": "^7.0.4"
   },
   "devDependencies": {
