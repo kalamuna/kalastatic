@@ -1,4 +1,4 @@
-// var assertDir = require('assert-dir-equal');
+var assertDir = require('assert-dir-equal');
 var KalaStatic = require('../');
 var execFile = require('child_process').execFile;
 var fs = require('fs');
@@ -12,21 +12,21 @@ function setupTest(name) {
       // Create the configuration for the test.
       var conf = new nconf.Provider();
 
-      // Find the source directory.
-      var dir = path.join('test', 'fixtures', name);
-      var opts = {
-        directory: path.join(dir, 'src'),
-        destination: path.join(dir, 'build')
-      };
-
       // Force the settings for the test.
-      conf.overrides(opts);
+      conf.overrides({
+        base: path.join('test', 'fixtures', name)
+      });
 
       // Create the environment.
       var kalastatic = new KalaStatic(conf);
       kalastatic.build().then(function () {
         // Make sure the build passes.
-        // assertDir(opts.destination, path.join(dir, 'expected'))
+        var base = kalastatic.nconf.get('base');
+        var build = path.join(base, kalastatic.nconf.get('destination'));
+        var expected = path.join(base, 'expected');
+        assertDir(build, expected);
+
+        // Continue the test suite.
         resolve();
       }, reject).catch(reject);
     });
@@ -47,7 +47,7 @@ test('cli', function (done) {
     if (stderr) {
       return done(stderr.toString());
     }
-    // assertDir('test/fixtures/basic/build', 'test/fixtures/basic/expected')
+    assertDir('test/fixtures/basic/build', 'test/fixtures/basic/expected');
     done();
   });
 });
