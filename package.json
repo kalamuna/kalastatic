@@ -11,7 +11,6 @@
   ],
   "dependencies": {
     "commander": "^2.9.0",
-    "extend": "^3.0.0",
     "for-each": "^0.3.2",
     "jstransformer-jade": "0.1.0",
     "jstransformer-marked": "1.0.1",
