@@ -29,7 +29,7 @@ program
   .action(function (configFile) {
     var conf = retrieveConfig(configFile);
     var kalastatic = new KalaStatic(conf);
-    kalastatic.build().done();
+    kalastatic.build();
   })
 
 if (!process.argv.slice(2).length) {

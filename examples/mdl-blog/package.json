@@ -9,6 +9,6 @@
     "material-design-lite": "^1.0.4-2"
   },
   "scripts": {
-    "test": "kalastatic"
+    "test": "kalastatic build"
   }
 }
