@@ -9,15 +9,23 @@ var nconf = require('nconf');
 function setupTest(name) {
   test(name, function () {
     return new Promise(function (resolve, reject) {
-      var dir = path.join('test', 'fixtures', name);
+      // Create the configuration for the test.
       var conf = new nconf.Provider();
+
+      // Find the source directory.
+      var dir = path.join('test', 'fixtures', name);
       var opts = {
         directory: path.join(dir, 'src'),
         destination: path.join(dir, 'build')
       };
-      conf.defaults(opts);
+
+      // Force the settings for the test.
+      conf.overrides(opts);
+
+      // Create the environment.
       var kalastatic = new KalaStatic(conf);
       kalastatic.build().then(function () {
+        // Make sure the build passes.
         // assertDir(opts.destination, path.join(dir, 'expected'))
         resolve();
       }, reject).catch(reject);
