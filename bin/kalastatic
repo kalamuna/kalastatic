@@ -6,7 +6,7 @@
 
 var KalaStatic = require('..');
 var program = require('commander');
-var nconf = require('nconf')
+var nconf = require('nconf');
 
 function retrieveConfig(configFile) {
   configFile = configFile || 'kalastatic.yaml';
@@ -29,7 +29,7 @@ program
   .action(function (configFile) {
     var conf = retrieveConfig(configFile);
     var kalastatic = new KalaStatic(conf);
-    kalastatic.build();
+    kalastatic.build().done();
   })
 
 if (!process.argv.slice(2).length) {
