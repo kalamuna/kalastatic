@@ -73,6 +73,13 @@ module.exports = function(grunt) {
   };
 
   // Deploy all branches to the same branch name. Pull Requests are already handled by this.
+  console.log('TRAVIS_PULL_REQUEST');
+  console.log(process.env.TRAVIS_PULL_REQUEST);
+  console.log('TRAVIS_BRANCH');
+  console.log(process.env.TRAVIS_BRANCH);
+  console.log('GH_TOKEN');
+  console.log(process.env.GH_TOKEN);
+
   if (process.env.TRAVIS_PULL_REQUEST == 'false' && process.env.TRAVIS_BRANCH) {
     // Branch switching is commented out until this is deployed.
     config.buildcontrol.deploy.options.branch = process.env.TRAVIS_BRANCH;
