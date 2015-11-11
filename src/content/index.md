@@ -1,9 +1,9 @@
 ---
 template: pages/home.html
-title: Kalastatic Test
+title: Kalastatic
 pageSlug: homepage
 ---
-A static site framework for quickly and effectively prototyping responsive sites, developing styleguides and designing in-browser. This is a test build.
+A static site framework for quickly and effectively prototyping responsive sites, developing styleguides and designing in-browser.
 
 
 Metalsmith, Grunt, Bootstrap and SASS.
