@@ -32,7 +32,7 @@
     },
     "metalsmith-sass": {
       "outputStyle": "nested",
-      "sourceComments": true,
+      "sourceComments": false,
       "sourceMap": true,
       "includePaths": [
         "assets/vendor",
