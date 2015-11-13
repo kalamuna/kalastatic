@@ -18,16 +18,6 @@ module.exports = function(grunt) {
       },
     },
 
-    // Local static web server
-    connect: {
-      server: {
-        options: {
-          base: 'build/',
-          open: true,
-          livereload: false
-        },
-      },
-    },
     // BrowserSync Task
     browserSync: {
       bsFiles: {
@@ -103,7 +93,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-build-control');
   grunt.loadNpmTasks('grunt-exec');
-  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
 
