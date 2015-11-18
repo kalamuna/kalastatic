@@ -10,7 +10,7 @@ primary:
 
   - name: Style Guide
     title: The Style Guide for Kalastatic
-    url: styleguide
+    url: styleguide/
 
   - name: Examples
     title: Check out examples!
