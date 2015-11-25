@@ -1,93 +1,64 @@
-var Metalsmith = require('metalsmith')
-var Promise = require('promise')
-var fs = require('fs')
-var path = require('path')
-var extend = require('extend')
+var assert = require('assert');
+var forEach = require('for-each');
+var Metalsmith = require('metalsmith');
 
-function getConfig (base, cb) {
-  if (!base) {
-    base = '.'
-  }
-  var config = {
-    plugins: [
-      {
-        // Initially ignore the node_modules directory.
-        'name': 'metalsmith-ignore',
-        'options': 'node_modules'
-      },
-      {
-        // Load information from the environment variables.
-        'name': 'metalsmith-env'
-      },
-      {
-        // Add base, dir, ext, name, and href info to each file.
-        'name': 'metalsmith-paths'
-      },
-      {
-        // Load metadata info the metalsmith metadata object.
-        'name': 'metalsmith-metadata-convention'
-      },
-      {
-        // Concatenate any needed files.
-        'name': 'metalsmith-concat-convention'
-      },
-      {
-        // Load all collections.
-        'name': 'metalsmith-collections-convention'
-      },
-      {
-        // Load all Partials.
-        'name': 'metalsmith-jstransformer-partials'
-      },
-      {
-        // Render all content with JSTransformers.
-        'name': 'metalsmith-jstransformer'
-      },
-      {
-        // Render all layouts with JSTransformers.
-        'name': 'metalsmith-jstransformer-layouts'
-      },
-      {
-        // Ignore all partials and layouts.
-        'name': 'metalsmith-ignore',
-        'options': '**/_*'
-      }
-    ]
-  }
-  var packageJson = path.join(base, 'package.json')
-  fs.readFile(packageJson, function (err, data) {
-    if (err) {
-      data = {}
-    } else {
-      data = JSON.parse(data)
+function KalaStatic(nconf) {
+  // Make sure there is an nconf configuration.
+  assert(nconf, 'An nconf configuration is required.');
+
+  // Set the default values.
+  nconf.defaults({
+    base: '.',
+    source: 'src',
+    destination: 'build',
+    plugins: {
+      // Load information from the environment variables.
+      'metalsmith-env': {},
+      // Add base, dir, ext, name, and href info to each file.
+      'metalsmith-paths': {},
+      // Load metadata info the metalsmith metadata object.
+      'metalsmith-metadata-convention': {},
+      // Concatenate any needed files.
+      'metalsmith-concat-convention': {},
+      // Load all collections.
+      'metalsmith-collections-convention': {},
+      // Load all Partials.
+      'metalsmith-jstransformer-partials': {},
+      // Render all content with JSTransformers.
+      'metalsmith-jstransformer': {},
+      // Render all layouts with JSTransformers.
+      'metalsmith-jstransformer-layouts': {},
+      // Ignore all partials and layouts.
+      'metalsmith-ignore': '**/_*'
     }
-    config = extend({}, data, config)
-    cb(config)
-  })
+  });
+
+  // Set the properties of the object.
+  this.nconf = nconf;
 }
 
-module.exports = function (base) {
-  return new Promise(function (fulfill, reject) {
-    getConfig(base, function (config) {
-      var metalsmith = Metalsmith(base)
+KalaStatic.prototype.build = function () {
+  var self = this;
+  return new Promise(function (resolve, reject) {
+    // Create the environment.
+    var metalsmith = new Metalsmith(self.nconf.get('base'));
 
-      for (var i in config.plugins) {
-        var pluginName = config.plugins[i].name
-        var pluginOptions = config.plugins[i].options || {}
-        var plugin = require(pluginName)
-        metalsmith.use(plugin(pluginOptions))
+    // Plugins.
+    forEach(self.nconf.get('plugins'), function (opts, name) {
+      var mod = require(name);
+      metalsmith.use(mod(opts));
+    });
+
+    metalsmith.source(self.nconf.get('source'));
+    metalsmith.destination(self.nconf.get('destination'));
+    metalsmith.build(function (err) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve();
       }
+    });
+  });
+};
 
-      if (config.source) {
-        metalsmith.source(config.source)
-      }
-
-      metalsmith.build(function (err) {
-        if (err) {
-          return reject(err)
-        }
-        fulfill()
-      })
-    })
-  })
-}
+module.exports = KalaStatic;

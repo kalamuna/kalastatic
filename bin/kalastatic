@@ -1,6 +1,40 @@
 #!/usr/bin/env node
 
-var KalaStatic = require('../')
+/**
+ * Module dependencies.
+ */
 
-// TODO: Allow passing arguments.
-KalaStatic(process.cwd()).done()
+var KalaStatic = require('..');
+var program = require('commander');
+var nconf = require('nconf');
+
+function retrieveConfig(configFile) {
+  configFile = configFile || 'kalastatic.yaml';
+  nconf.argv()
+   .env()
+   .file('kalastatic', {
+     file: configFile,
+     format: require('nconf-yaml')
+   })
+   .file('package', {
+     file: 'package.json'
+   })
+   return nconf;
+}
+
+program
+  .version(require('../package.json').version)
+  .command('build [configFile]')
+  .description('Build in the current working directory, using the given config file.')
+  .action(function (configFile) {
+    var conf = retrieveConfig(configFile);
+    var kalastatic = new KalaStatic(conf);
+    kalastatic.build();
+  })
+
+if (!process.argv.slice(2).length) {
+  program.outputHelp();
+}
+else {
+  program.parse(process.argv);
+}
