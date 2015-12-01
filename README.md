@@ -1,4 +1,4 @@
-# kalastatic-cli
+# kalastatic-cli [![Build Status](https://travis-ci.org/kalamuna/kalastatic-cli.svg?branch=master)](https://travis-ci.org/kalamuna/kalastatic-cli)
 
 Command line interface for KalaStatic.
 

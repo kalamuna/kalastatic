@@ -21,21 +21,20 @@
     "metalsmith-env": "^2.0.0",
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-jstransformer": "^0.5.3",
-    "metalsmith-jstransformer-layouts": "^0.3.2",
+    "metalsmith-jstransformer-layouts": "^0.4.0",
     "metalsmith-jstransformer-partials": "^1.0.0",
     "metalsmith-metadata-convention": "0.1.0",
     "metalsmith-paths": "^2.1.1",
     "nconf": "^0.8.2",
-    "nconf-yaml": "^1.0.1",
-    "promise": "^7.0.4"
+    "nconf-yaml": "^1.0.1"
   },
   "devDependencies": {
     "assert-dir-equal": "1.*",
-    "jstransformer-uglify-js": "1.0.0",
+    "jstransformer-uglify-js": "^1.1.1",
     "rimraf": "^2.4.3",
     "standard": "5.*",
     "testit": "^2.0.2",
-    "xo": "^0.10.1"
+    "xo": "^0.11.2"
   },
   "scripts": {
     "test": "node test && xo --space",
