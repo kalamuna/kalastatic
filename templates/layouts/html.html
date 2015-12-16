@@ -20,9 +20,25 @@
 
   {% block head %}
     <meta name="description" content="{{ config.description }}">
+
+    <!--
+    // scripts inherited from drupal
+    // see https://github.com/kalamuna/metalsmith-kalastatic-dot-module
+    -->
+    {{kstaticResources.scripts|safe}}
+    <!-- /end scriptsn inherited from drupal -->
+
   {% endblock %}
 
   {% block styles %}
+
+    <!--
+    // styles inherited from drupal
+    // see https://github.com/kalamuna/metalsmith-kalastatic-dot-module
+    -->
+    {{kstaticResources.styles|safe}}
+    <!-- /end styles inherited from drupal -->
+
     <link rel="stylesheet" type="text/css" href="{{'styles/kalastatic.css'|bustcache}}">
     <link rel="stylesheet" type="text/css" href="{{'styles/main.css'|bustcache}}">
   {% endblock %}
