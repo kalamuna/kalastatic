@@ -6,6 +6,10 @@
       "pattern": "content/**/*"
     },
     "metalsmith-env": {},
+    "metalsmith-kalastatic-dot-module": {
+      "stylesURL": "http://kalastatic-kalatheme.at.kalamuna.com/kalastatic/drupal-css",
+      "scriptsURL": "http://kalastatic-kalatheme.at.kalamuna.com/kalastatic/drupal-js"
+    },
     "metalsmith-markdown": {},
     "metalsmith-include": {},
     "metalsmith-permalinks": {
