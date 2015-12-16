@@ -6,6 +6,7 @@
       "pattern": "content/**/*"
     },
     "metalsmith-env": {},
+    "metalsmith-kalastatic-dot-module": {},
     "metalsmith-markdown": {},
     "metalsmith-include": {},
     "metalsmith-permalinks": {
