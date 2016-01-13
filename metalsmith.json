@@ -9,6 +9,10 @@
       "url": "http://kalastatic.prismic.io/api"
     },
     "metalsmith-env": {},
+    "metalsmith-kalastatic-dot-module": {
+      "stylesURL": "http://kalastatic-kalatheme.at.kalamuna.com/kalastatic/drupal-css",
+      "scriptsURL": "http://kalastatic-kalatheme.at.kalamuna.com/kalastatic/drupal-js"
+    },
     "metalsmith-markdown": {},
     "metalsmith-include": {},
     "metalsmith-permalinks": {
@@ -35,7 +39,7 @@
     },
     "metalsmith-sass": {
       "outputStyle": "nested",
-      "sourceComments": true,
+      "sourceComments": false,
       "sourceMap": true,
       "includePaths": [
         "assets/vendor",
