@@ -28,12 +28,13 @@
   },
   "scripts": {
     "build": "metalsmith build",
-    "postbuild": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json' && npm run a11y",
+    "postbuild": "npm run kss && npm run a11y",
     "test": "npm run build",
     "start": "grunt",
     "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",
     "deploy": "grunt deploy",
-    "a11y": "mkdir -p build/a11y && pa11y --level none --reporter html http://test-kalastatic.at.kalamuna.com > build/a11y/index.html"
+    "kss": "./node_modules/kss-bootstrap/node_modules/kss/bin/kss-node --config='kss-node.json'",
+    "a11y": "mkdir -p build/a11y && pa11y --level none --reporter html file://$(pwd)/build/index.html > build/a11y/index.html"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
