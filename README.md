@@ -61,3 +61,4 @@ Deploy the site by running:
 
 2. Visit [`0.0.0.0:8000`](http://0.0.0.0:8000) in your browser
 3. Visit [`0.0.0.0:8000/stylguide`](http://0.0.0.0:8000/styleguide) for the style guide
+4. Visit [`0.0.0.0:8000/a11y`](http://0.0.0.0:8000/a11y) for an accessibility report
