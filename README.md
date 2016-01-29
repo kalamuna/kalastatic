@@ -1,5 +1,4 @@
-kalastatic
-==========
+# kalastatic [![Build Status](https://travis-ci.org/kalamuna/kalastatic.svg?branch=master)](https://travis-ci.org/kalamuna/kalastatic)
 
 Static site framework for prototyping and building out CMS-less websites at Kalamuna.
 
