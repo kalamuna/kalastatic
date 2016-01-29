@@ -35,7 +35,8 @@
     "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",
     "deploy": "grunt deploy",
     "kss": "kss-node --config='kss-node.json'",
-    "a11y": "mkdir -p build/a11y && pa11y -c ./pa11y.json -r html -l none file://$(pwd)/build/index.html > build/a11y/index.html"
+    "prea11y": "mkdir -p build/a11y",
+    "a11y": "pa11y -c ./pa11y.json -r html -l none file://$(pwd)/build/index.html > build/a11y/index.html"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
