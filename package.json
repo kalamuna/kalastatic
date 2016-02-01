@@ -1,6 +1,6 @@
 {
   "name": "kalastatic",
-  "version": "0.6.1",
+  "version": "0.6.1-dev",
   "private": true,
   "dependencies": {
     "bower": "~1.4.1",
