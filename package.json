@@ -1,5 +1,6 @@
 {
   "name": "kalastatic",
+  "version": "0.6.1",
   "private": true,
   "dependencies": {
     "bower": "~1.4.1",
@@ -8,7 +9,7 @@
     "holderjs": "^2.8.0",
     "jquery": "^2.1.4",
     "kss": "^2.4.0",
-    "kss-bootstrap": "~0.4.9",
+    "kss-bootstrap": "~0.5.1",
     "metalsmith": "~1.7.0",
     "metalsmith-assets": "^0.1.0",
     "metalsmith-browserify": "RobLoach/metalsmith-browserify#update",
