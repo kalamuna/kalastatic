@@ -2,7 +2,8 @@
   "source": [
     "node_modules/kss-bootstrap/styleguide",
     "src/styles",
-    "src/components"
+    "src/components",
+    "node_modules/kss-font-awesome"
   ],
   "destination": "build/styleguide",
   "template": "node_modules/kss-bootstrap/bootstrap",
