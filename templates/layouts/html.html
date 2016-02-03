@@ -1,7 +1,6 @@
 <!doctype html>
 <html>
 <head>
-  <base href="{% if NODE_ENV == "drupal" %}{{ npm_package_config_kstatic_drupalRemote}}{% else %}{{ npm_package_config_kstatic_base}}{% endif %}" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +11,7 @@
   <!--[if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif]-->
   <!-- or, set /favicon.ico for IE10 win -->
   <meta name="msapplication-TileColor" content="#f00">
-  <meta name="msapplication-TileImage" content="/images/tileicon.png">
+  <meta name="msapplication-TileImage" content="images/tileicon.png">
 
   <title>
     {% block title %}{{config.title|title}}{% endblock %}
