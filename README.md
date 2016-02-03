@@ -42,6 +42,15 @@ demo site: http://test-kalastatic.at.kalamuna.com
 
 2. Visit the compiled `build` folder to see the built site
 
+### Configuration
+
+#### `basePath`
+
+You can change the webroot path of the static site by manipulating the `basePath` environment variable on compilation:
+
+```
+basePath=/sites/all/themes/mytheme/kalastatic/build/ npm test
+```
 
 ### Deployment
 
