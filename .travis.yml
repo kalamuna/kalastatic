@@ -16,6 +16,10 @@ notifications:
   email: false
 env:
   global:
+  # basePath - Defines what KalaStatic considers the webroot. Change this
+  # if you would like the KalaStatic build to live in a sub-folder.
+  # Defaults to "/".
+  #- basePath: /sites/all/themes/mytheme/kalastatic/build/
   - GIT_NAME: Kala C. Bot
   - GIT_EMAIL: kalacommitbot@kalamuna.com
   - GH_REPO: kalamuna/kalastatic
