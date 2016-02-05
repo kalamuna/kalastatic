@@ -52,13 +52,13 @@ You can change the webroot path of the static site by manipulating the `basePath
 basePath=/sites/all/themes/mytheme/kalastatic/build/ npm test
 ```
 
-From within the template, use the `basePath` variable when you want to link to a file from the webroot"
+From within the template, use the `basePath` variable when you want to link to a file from the webroot.
 
 ```
 <link rel="stylesheet" type="text/css" href="{{basePath}}styles/main.css'">
 ```
 
-The default of `basePath` is `/`.
+The default of `basePath` is `/`. This can also be set in [`.travis.yml`](.travis.yml).
 
 ### Deployment
 
