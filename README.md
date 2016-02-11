@@ -42,6 +42,7 @@ demo site: http://test-kalastatic.at.kalamuna.com
 
 2. Visit the compiled `build` folder to see the built site
 
+### Configuration
 
 #### `basePath`
 
