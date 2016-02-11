@@ -15,7 +15,7 @@
     "metalsmith-assets": "^0.1.0",
     "metalsmith-browserify": "RobLoach/metalsmith-browserify#update",
     "metalsmith-collections-convention": "^1.0.0",
-    "metalsmith-env": "^2.0.0",
+    "metalsmith-env": "^1.0.0",
     "metalsmith-include": "git://github.com/madeofpeople/metalsmith-include#includeWholeObject",
     "metalsmith-kalastatic-dot-module": "^0.2.7",
     "metalsmith-markdown": "~0.2.1",
@@ -76,6 +76,10 @@
     "url": "https://github.com/kalamuna/kalastatic.git"
   },
   "config": {
+    "kstatic": {
+      "base": "/",
+      "drupalRemote": "/sites/all/themes/themeName/build/"
+    },
     "repo": "kalamuna/kalastatic",
     "deploy": "ssh://codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5@codeserver.dev.99097056-c6bd-451e-a94b-fc8f7666fbe5.drush.in:2222/~/repository.git",
     "branch": "master"
