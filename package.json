@@ -9,7 +9,7 @@
     "holderjs": "^2.8.0",
     "jquery": "^2.1.4",
     "kss": "^2.4.0",
-    "kss-bootstrap": "~0.5.1",
+    "kss-bootstrap": "^0.6.0",
     "kss-font-awesome": "0.0.2",
     "metalsmith": "~1.7.0",
     "metalsmith-assets": "^0.1.0",
