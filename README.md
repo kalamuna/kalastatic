@@ -60,6 +60,10 @@ From within the template, use the `basePath` variable when you want to link to a
 
 The default of `basePath` is `/`. This can also be set in [`.travis.yml`](.travis.yml).
 
+#### `pa11y.json`
+
+Add pages that you would like the run accessibility checks on in the `pages` key of [`pa11y.json`](pa11y.json).
+
 ### Deployment
 
 Deploy the site by running:
