@@ -31,8 +31,9 @@
   },
   "scripts": {
     "build": "metalsmith build",
-    "postbuild": "npm run kss && npm run a11y",
+    "postbuild": "npm run kss",
     "test": "npm run build",
+    "posttest": "npm run a11y",
     "start": "grunt",
     "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",
     "deploy": "grunt deploy",
