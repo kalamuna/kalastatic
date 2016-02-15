@@ -11,7 +11,7 @@ var input = JSON.parse(require('fs').readFileSync('./pa11y.json', 'utf8'));
 var pages = input.pages;
 
 // Retrieve the current working directory.
-var cwd = require('process').cwd()
+var cwd = process.cwd()
 
 // Begin the index template, sharing the CSS style from the pa11y report.
 var output = '<!doctype html><html lang="en"><head><meta charset="utf-8"><body>'
