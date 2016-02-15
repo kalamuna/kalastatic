@@ -1,7 +1,6 @@
 {
   "standard": "WCAG2AA",
   "pages": [
-    "index.html",
-    "about/index.html"
+    "index.html"
   ]
 }

@@ -37,9 +37,8 @@
     "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",
     "deploy": "grunt deploy",
     "kss": "kss-node --config='kss-node.json'",
-    "multia11y": "./bin/kalastatic-pa11y.js",
     "prea11y": "mkdir -p build/a11y",
-    "a11y": "pa11y -c ./pa11y.json -r html -l none file://$(pwd)/build/index.html > build/a11y/index.html"
+    "a11y": "./bin/kalastatic-pa11y.js"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -49,7 +48,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.6",
     "pa11y": "^3.2.0",
-    "phantomjs-prebuilt": "^2.1.4"
+    "phantomjs-prebuilt": "^2.1.4",
+    "shell-escape": "^0.2.0"
   },
   "browser": {
     "bootstrap": "./assets/vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js",
@@ -71,9 +71,6 @@
         "jquery:jQuery"
       ]
     }
-  },
-  "bin": {
-    "kalastatic-pa11y": "./bin/kalastatic-pa11y.js"
   },
   "repository": {
     "type": "git",
