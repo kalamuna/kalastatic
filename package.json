@@ -31,24 +31,26 @@
   },
   "scripts": {
     "build": "metalsmith build",
-    "postbuild": "npm run kss && npm run a11y",
+    "postbuild": "npm run kss",
     "test": "npm run build",
+    "posttest": "npm run a11y",
     "start": "grunt",
     "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",
     "deploy": "grunt deploy",
     "kss": "kss-node --config='kss-node.json'",
     "prea11y": "mkdir -p build/a11y",
-    "a11y": "pa11y -c ./pa11y.json -r html -l none file://$(pwd)/build/index.html > build/a11y/index.html"
+    "a11y": "./bin/kalastatic-pa11y.js"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-browser-sync": "^2.2.0",
     "grunt-build-control": "^0.5.0",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.6",
     "pa11y": "^3.2.0",
-    "phantomjs": "^1.9.19",
-    "grunt-browser-sync": "^2.2.0"
+    "phantomjs-prebuilt": "^2.1.4",
+    "shell-escape": "^0.2.0"
   },
   "browser": {
     "bootstrap": "./assets/vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.js",

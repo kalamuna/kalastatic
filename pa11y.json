@@ -1,3 +1,6 @@
 {
-  "standard": "WCAG2AA"
+  "standard": "WCAG2AA",
+  "pages": [
+    "index.html"
+  ]
 }
