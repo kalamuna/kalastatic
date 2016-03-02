@@ -83,6 +83,16 @@ Deploy the site by running:
 3. Visit [`0.0.0.0:8000/stylguide`](http://0.0.0.0:8000/styleguide) for the style guide
 4. Visit [`0.0.0.0:8000/a11y`](http://0.0.0.0:8000/a11y) for an accessibility report
 
+#### Tasks
+
+- `npm install` - Install local dependencies
+- `npm run build` - Builds the site and the styleguide
+- `npm test` - Builds the site, styleguide, and runs reports (a11y)
+- `npm start` - Watches and serves the site for local development
+- `npm run deploy` - Deploys the site to what is defined in the "deploy" configuration
+- `npm run kss` - Builds the KSS styleguide
+- `npm run a11y` - Builds the pa11y reports
+
 ### Releases
 
 In order for a release to be made, the following workflows must be met:
