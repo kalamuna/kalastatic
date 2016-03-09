@@ -66,7 +66,7 @@ Add pages that you would like the run accessibility checks on in the `pages` key
 
 ### Deployment
 
-Deploy the site by running:
+To manually deploy the site, run:
   ```
   npm run deploy
   ```
@@ -89,7 +89,7 @@ Deploy the site by running:
 - `npm run build` - Builds the site and the styleguide
 - `npm test` - Builds the site, styleguide, and runs reports (a11y)
 - `npm start` - Watches and serves the site for local development
-- `npm run deploy` - Deploys the site to what is defined in the "deploy" configuration
+- `npm run deploy` - Manually deploys the site to what is defined in the "deploy" configuration, outside of automated deployment
 - `npm run kss` - Builds the KSS styleguide
 - `npm run a11y` - Builds the pa11y reports
 
