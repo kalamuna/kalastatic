@@ -47,3 +47,6 @@ $carousel-control-color:                      #fff;
 $carousel-control-width:                      10%;
 $carousel-control-opacity:                    .25;
 $carousel-control-font-size:                  20px;
+
+// ! Navbar
+$zindex-navbar-fixed:      999  !default; // Make sure it doesn't clash with ctools modals.
