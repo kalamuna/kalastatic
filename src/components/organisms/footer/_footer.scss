@@ -83,7 +83,7 @@ body {
 
   transition-property: width, height, margin-top;
   transition-duration: .25s;
-  @extend %easeOutOver;
+  @extend %easeOutQuad;
   margin-top: 0.0925em;
   width: 140px;
   height: 54px;
