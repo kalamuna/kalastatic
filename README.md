@@ -100,3 +100,10 @@ In order for a release to be made, the following workflows must be met:
 1. All merged Pull Requests to `master` are automatically pushed up to the [DEV environment on Pantheon](https://dashboard.pantheon.io/sites/99097056-c6bd-451e-a94b-fc8f7666fbe5#dev/code)
 2. Periodically, we will push DEV up to TEST, to ensure all functionality is there.
 3. When TEST passes QA, we will tag a KalaStatic release using [Semantic Versioning](http://semver.org/).
+4. To make a release:
+  ```
+  npm run changelog-minor
+  git commit -m "x.y.z"
+  git tag x.y.z
+  git push origin x.y.z
+  ```
