@@ -5,9 +5,9 @@ api_version: 1
 
 workflows:
 
-  # Code Deploys: Clear the cache
-  deploy:
+  # Code Sync: Clear the cache
+  sync_code:
     after:
       - type: webphp
-        description: post to slack after each code pushed
+        description: Clear the cache after code syncs
         script: private/scripts/clear-cache.php
