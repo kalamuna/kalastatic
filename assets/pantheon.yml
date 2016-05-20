@@ -1,0 +1,13 @@
+---
+# Quicksilver Pantheon
+# https://pantheon.io/docs/quicksilver/
+api_version: 1
+
+workflows:
+
+  # Code Deploys: Clear the cache
+  deploy:
+    after:
+      - type: webphp
+        description: post to slack after each code pushed
+        script: private/scripts/clear-cache.php
