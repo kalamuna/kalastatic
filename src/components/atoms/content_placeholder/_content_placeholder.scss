@@ -1,0 +1,9 @@
+%content-placeholder {
+  background-color: #ddd;
+  height: 4em;
+  margin-bottom: 2em;
+}
+
+.content-placeholder {
+  @extend %content-placeholder;
+}
