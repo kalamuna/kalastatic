@@ -1,3 +1,7 @@
+2016-05-20 - 0.6.4 (d660bd2)
+d660bd2 (HEAD -> kstat-288, tag: v0.6.3) 0.6.3
+
+
 2016-05-20 - 0.6.3 (adb058e)
 adb058e (HEAD -> kstat-288, origin/master, origin/HEAD, master) Merge pull request #298 from kalamuna/fix/rob/296--fix-easeOut-errors
 550a402 Merge pull request #297 from kalamuna/feature/derek/296--peg-node-sass-to-3-4-2

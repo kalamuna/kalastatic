@@ -1,6 +1,6 @@
 {
   "name": "kalastatic",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "private": true,
   "dependencies": {
     "bower": "~1.4.1",
@@ -40,7 +40,10 @@
     "kss": "kss-node --config='kss-node.json'",
     "prea11y": "mkdir -p build/a11y",
     "a11y": "./bin/kalastatic-pa11y.js",
-    "build-changelog": "build-changelog"
+    "changelog": "build-changelog",
+    "changelog-major": "build-changelog --major",
+    "changelog-minor": "build-changelog --minor",
+    "changelog-patch": "build-changelog --patch"
   },
   "devDependencies": {
     "build-changelog": "^2.1.2",
