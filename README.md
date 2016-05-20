@@ -103,6 +103,7 @@ In order for a release to be made, the following workflows must be met:
 4. To make a release:
   ```
   npm run changelog-minor
+  git add -A
   git commit -m "x.y.z"
   git tag x.y.z
   git push origin x.y.z
