@@ -1,8 +1,8 @@
-var assertDir = require('assert-dir-equal');
-var KalaStatic = require('../');
 var execFile = require('child_process').execFile;
 var fs = require('fs');
 var path = require('path');
+var assertDir = require('assert-dir-equal');
+var KalaStatic = require('..');
 var test = require('testit');
 var nconf = require('nconf');
 

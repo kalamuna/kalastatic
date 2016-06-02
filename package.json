@@ -2,7 +2,7 @@
   "name": "kalastatic-cli",
   "description": "Command line interface for KalaStatic",
   "repository": "https://github.com/kalamuna/kalastatic-cli.git",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "files": [
     "lib/build.js",
@@ -12,7 +12,7 @@
   "dependencies": {
     "commander": "^2.9.0",
     "for-each": "^0.3.2",
-    "jstransformer-jade": "0.1.0",
+    "jstransformer-jade": "0.1.1",
     "jstransformer-marked": "1.0.1",
     "jstransformer-swig": "^0.1.2",
     "metalsmith": "^2.1.0",
@@ -20,21 +20,19 @@
     "metalsmith-concat-convention": "^0.2.1",
     "metalsmith-env": "^2.0.0",
     "metalsmith-ignore": "^0.1.2",
-    "metalsmith-jstransformer": "^0.5.3",
-    "metalsmith-jstransformer-layouts": "^0.4.0",
-    "metalsmith-jstransformer-partials": "^1.0.0",
+    "metalsmith-jstransformer": "^0.7.0",
+    "metalsmith-jstransformer-partials": "^1.2.0",
     "metalsmith-metadata-convention": "0.1.0",
-    "metalsmith-paths": "^2.1.1",
-    "nconf": "^0.8.2",
-    "nconf-yaml": "^1.0.1"
+    "metalsmith-paths": "^2.1.2",
+    "nconf": "^0.8.4",
+    "nconf-yaml": "^1.0.2"
   },
   "devDependencies": {
     "assert-dir-equal": "1.*",
     "jstransformer-uglify-js": "^1.1.1",
-    "rimraf": "^2.4.3",
-    "standard": "5.*",
-    "testit": "^2.0.2",
-    "xo": "^0.11.2"
+    "rimraf": "^2.5.2",
+    "testit": "^2.0.5",
+    "xo": "^0.15.1"
   },
   "scripts": {
     "test": "node test && xo --space",

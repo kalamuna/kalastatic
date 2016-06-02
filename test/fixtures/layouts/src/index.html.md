@@ -1,5 +1,5 @@
 ---
 title: Jade
-layout: _layout.jade
+layout: layouts/default.jade
 ---
 This is an article.
