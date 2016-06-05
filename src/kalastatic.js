@@ -1,4 +1,6 @@
 var assert = require('assert');
+var fs = require('fs')
+var kss = require('kss/lib/cli');
 var forEach = require('for-each');
 var Metalsmith = require('metalsmith');
 
@@ -39,7 +41,8 @@ KalaStatic.prototype.build = function () {
   var self = this;
   return new Promise(function (resolve, reject) {
     // Create the environment.
-    var metalsmith = new Metalsmith(self.nconf.get('base'));
+    var base = self.nconf.get('base')
+    var metalsmith = new Metalsmith(base)
 
     // Plugins.
     forEach(self.nconf.get('plugins'), function (opts, name) {
@@ -47,13 +50,36 @@ KalaStatic.prototype.build = function () {
       metalsmith.use(mod(opts));
     });
 
-    metalsmith.source(self.nconf.get('source'));
-    metalsmith.destination(self.nconf.get('destination'));
+    // Retrieve configuration for the application.
+    var source = self.nconf.get('source')
+    var dest = self.nconf.get('destination')
+
+    // Set up Metalsmith.
+    metalsmith.source(source)
+    metalsmith.destination(dest)
+
+    // Build the application.
     metalsmith.build(function (err) {
       if (err) {
         reject(err);
       } else {
-        resolve();
+        // Now that it's complete, run KSS on it.
+        // TODO: Write some basic KSS to the source directory?
+        kss({
+          stdout: process.stdout,
+          stderr: process.stderr,
+          argv: [
+            'kss',
+            // Make sure we log everything.
+            '--verbose',
+            // Add KalaStatic's src directory, so that there is a good base.
+            '--source=' + __dirname,
+            // Scan the application directory.
+            '--source=' + base + '/' + source,
+            // Write to the build directory.
+            '--destination=' + base + '/' + dest + '/styleguide'
+          ]
+        }).then(resolve).catch(reject)
       }
     });
   });
