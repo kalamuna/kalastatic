@@ -36,7 +36,8 @@
     "xo": "^0.15.1"
   },
   "scripts": {
-    "test": "node test && xo --space",
+    "test": "node test",
+    "posttest": "xo --space bin src test/index.js",
     "examples": "cd examples/mdl-blog && npm i && npm test"
   },
   "bin": {
