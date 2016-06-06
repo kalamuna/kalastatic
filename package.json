@@ -6,7 +6,7 @@
   "license": "MIT",
   "files": [
     "src",
-    "bin/kalastatic"
+    "bin"
   ],
   "main": "src/kalastatic.js",
   "dependencies": {
