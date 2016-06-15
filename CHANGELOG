@@ -1,0 +1,168 @@
+2016-05-20 - 0.6.4 (d660bd2)
+d660bd2 (HEAD -> kstat-288, tag: v0.6.3) 0.6.3
+
+
+2016-05-20 - 0.6.3 (adb058e)
+adb058e (HEAD -> kstat-288, origin/master, origin/HEAD, master) Merge pull request #298 from kalamuna/fix/rob/296--fix-easeOut-errors
+550a402 Merge pull request #297 from kalamuna/feature/derek/296--peg-node-sass-to-3-4-2
+e601248 (origin/break) Merge pull request #290 from kalamuna/kcom-626
+1f90c54 (tag: 0.6.2) 0.6.2
+e11156c (tag: 0.6.1) Merge pull request #285 from kalamuna/kstat-279
+40c881e Merge pull request #281 from kalamuna/multiplea11y
+c937131 Merge pull request #280 from kalamuna/kss
+43bc3b3 Merge pull request #278 from kalamuna/fixbasepath
+a3f5be6 Merge pull request #274 from kalamuna/basePath
+04ba7a4 Merge pull request #271 from kalamuna/allaboutthatbase
+9149769 Merge pull request #272 from kalamuna/sprint
+77d8dbe Merge pull request #273 from kalamuna/kstat-74
+dc84df8 Merge pull request #261 from kalamuna/pa11y
+922e132 Add Travis Build Badge
+842e742 (tag: 0.6.0) Update README.md
+36b0009 Merge pull request #258 from kalamuna/kstatDotMod
+9efaa80 Merge pull request #82 from kalamuna/browsersync
+cccf6f5 Revert "metalsmith-kalastatic-dot-module"
+901d7b6 metalsmith-kalastatic-dot-module
+2419dcf Update KSS-Bootstrap
+52abe83 Merge pull request #238 from kalamuna/testbuild
+27fc98e Merge pull request #244 from kalamuna/237-kss-bootstrap
+d5a07c1 Merge pull request #231 from kalamuna/kalastaticcss
+c4430f6 (origin/josh-test) Merge pull request #240 from kalamuna/sourcemap
+6bf10b0 Update examples.md
+d6a7511 Add documentation around #224
+581a27b Merge pull request #207 from kalamuna/node-sass
+7d52878 Merge pull request #229 from kalamuna/update-about-copy
+1a56dd1 Merge pull request #228 from kalamuna/227-hihello
+3cf4a9a Merge pull request #226 from kalamuna/deploy
+75154e1 Merge pull request #223 from kalamuna/fixing-relative-paths
+df212e1 Merge pull request #222 from kalamuna/fixing-relative-paths
+09ad31e Merge pull request #216 from kalamuna/kstat-188
+fca0155 Update 404.md to test deployment
+96fad4b Update .travis.yml
+6901787 Merge pull request #213 from kalamuna/49-key
+4bec6ac Add Procfile for Heroku usage
+3dd6987 Merge pull request #210 from kalamuna/restructure
+1a77c87 Merge pull request #192 from kalamuna/metadata-convention
+4c061c1 Merge pull request #203 from kalamuna/test-the-things
+c56e640 Merge pull request #201 from kalamuna/restructure
+18e91f5 (tag: 0.5) Update README.md
+3f89360 Merge pull request #205 from kalamuna/config-kalastatic
+c84e427 Merge pull request #200 from kalamuna/update
+cc58d36 Merge pull request #195 from kalamuna/baseUrl
+e5252b3 update version of node supported
+4f455b2 Merge pull request #190 from kalamuna/noseizure
+2930c26 Merge pull request #193 from kalamuna/travis-docker
+449f7ff hotfix - kss namespace from 3.x to 4.x (bootstrap javascript is 3.x)
+b21af37 hotfix - moved kalastatic kss namespace to 10.x
+3ef000f hotfix : fontawesome kstatic namespacing to 3.x
+4ee55d3 Merge pull request #191 from kalamuna/update-the-things
+031f2b0 Update main.scss
+3620e8b Move Typography styleguide to KSS-Bootstrap
+7d9221a Merge pull request #186 from kalamuna/11-styleguide-headings
+146f490 space in readme
+3ab54d2 add demo site to the readme
+6067af5 Merge pull request #181 from kalamuna/deploy-branch
+7e360a3 Merge pull request #182 from kalamuna/175-breadcrumbs
+82b1d24 Merge pull request #183 from kalamuna/148-fontawesome
+5cf31ba Merge pull request #166 from kalamuna/navupdate
+95cc151 Merge pull request #177 from kalamuna/navupdate-update
+d9ef340 Merge pull request #173 from kalamuna/kstatic168
+9a0b45b Merge pull request #171 from kalamuna/aboutcontent
+2f111d8 footer responsive fix
+e3fc0fd Remove SLUG check on Travis
+35357f8 Merge pull request #164 from kalamuna/fixhomepagescroll
+6c932dd HOTFIX weird little homepage indent bug
+f320162 fixes typo on homepage
+4f9dfa0 Document grunt-build-control ala #2
+01ac06f Update README.md
+9b881aa Merge pull request #160 from kalamuna/team-page-improvements
+cf3023f Merge pull request #161 from kalamuna/fix-carousel
+b442696 Merge pull request #159 from kalamuna/news-permalinks
+40d4276 Merge pull request #155 from kalamuna/148
+e915c5e Merge pull request #157 from kalamuna/static
+4e97785 Merge pull request #158 from kalamuna/154
+70eb4ac Testing Travis cache clear
+7e38d40 Update README.md
+a7f02cc Fix Contact Form email
+3c35eaf Merge pull request #143 from kalamuna/collections
+fa89747 Merge pull request #142 from kalamuna/relative
+d20c48a Merge pull request #139 from kalamuna/browserify
+7a1824c Merge pull request #140 from kalamuna/homepage-content
+91cbeca Merge pull request #137 from kalamuna/examples-section
+c1da043 Merge pull request #110 from kalamuna/msmith-include
+6e66507 Merge pull request #129 from kalamuna/sourcesanspro
+3e2aae5 Merge pull request #132 from kalamuna/xorcrypt
+1661d8d Merge pull request #135 from kalamuna/footerlicense
+9cff3ea Updated Readme.md
+0d0aea1 Merge pull request #122 from kalamuna/news-teasers
+af315d2 Update README.md
+739a6cf Merge pull request #126 from kalamuna/styleguidejosh
+a911eed Merge pull request #128 from kalamuna/two-templates-oopsies
+37720a0 Merge pull request #123 from kalamuna/homepage-content
+e1770f4 Merge pull request #91 from kalamuna/contact
+cca1626 bumped version of metalsmith-swig-helpers
+2c94294 Merge pull request #119 from kalamuna/update-the-things
+d72d3ea removed nested IDs in selector
+240ff54 Merge branch 'master' of github.com:kalamuna/kalastatic
+86cda1e hotfix, metalsmith-swig-helpers version update
+800de69 Merge pull request #113 from kalamuna/deploy-branches
+458df41 Merge pull request #97 from kalamuna/95-multidev
+5b46b48 Merge pull request #109 from kalamuna/cachebust
+6a391b1 Merge pull request #106 from kalamuna/styleguide-nav-contrast
+0f3ab20 Merge pull request #103 from kalamuna/footerActiveClass
+0c89f71 Merge pull request #100 from kalamuna/styleguide-nav
+6fda70f Merge pull request #99 from kalamuna/update-metalsmith-sass
+a46c6bf (tag: 0.2.5) Delete about.js
+cb525be Update metalsmith.json
+b2566fa Merge pull request #93 from kalamuna/33
+ae0f624 Merge pull request #81 from kalamuna/favicon
+a7737f4 Merge pull request #90 from kalamuna/globals
+c7b938d Merge pull request #86 from kalamuna/scripts
+e2e36da Merge pull request #89 from kalamuna/metalsmithSwigHelperUpdae
+8cd590c Merge pull request #75 from kalamuna/assets
+4d20072 Merge pull request #80 from kalamuna/update-dependencies
+2bdb9a0 Merge pull request #83 from kalamuna/jsDoc
+366561f Merge pull request #79 from kalamuna/pageTemplateSlug
+cea2c47 Merge pull request #59 from kalamuna/404
+0381a52 Merge pull request #71 from kalamuna/viewport
+6e5164a Merge pull request #69 from kalamuna/fix-deployment
+1c6db38 Merge pull request #60 from kalamuna/carousel
+5ef6fa8 Merge branch 'master' of github.com:kalamuna/kalastatic
+dcafb18 hotfix- removing extra variable output on header
+5702098 Merge pull request #68 from kalamuna/navhighlighting
+6276cea Merge pull request #67 from kalamuna/jsAndVendorTwk
+dbd12a4 Merge pull request #64 from kalamuna/fix-metalsmith-sass
+11bf58d Merge pull request #63 from kalamuna/five-col-layout
+b4e9c47 Use the environment variables rather than hard coded
+43eeff6 Allow Travis to automatically accept unknown SSH hosts
+1c6323f Merge pull request #50 from kalamuna/RobLoach-patch-1
+d1247ba Add grunt-build-control
+b87e3cc Add npm deploy script
+270842b Merge pull request #48 from kalamuna/add-buildcontrol
+6fc46e9 Merge pull request #18 from kalamuna/kssmultisrc
+52fb55a Merge pull request #41 from kalamuna/revert-39-add-buildcontrol
+229ec7e Merge pull request #39 from kalamuna/add-buildcontrol
+6a1fb8e Merge pull request #21 from kalamuna/modularnav
+45f5c9a Added back in stuff that was reverted from 'fixing a few layout issues'
+6473e8f Merge pull request #19 from kalamuna/header-generify
+11897d3 Revert "fixing a few layout issues"
+c4c0b8a fixing a few layout issues
+19c4ea9 moved metalsmith-swigh-helpers source from github to npm package
+8cc9f09 Merge pull request #17 from kalamuna/travis-env
+8ebaafc HOTIFX — Fixes double HTTP in kss url
+f4d80f4 Merge pull request #9 from madeofpeople/master
+442b546 styling tweaks for grids and getting rid of vestigeous specificity
+d08953b updating content files to support partials and slug examples
+373ca97 groundwork for slugfix (metalsmith.json and update package.json)
+e1e4404 fixing metal smith maximum call time error.
+68f83d4 removing last comma from metalsmith collections array.
+bbde460 removing old implementation metal-collections and adding dummy articles one in metalsmith.json
+b8d5795 moving teaser.html template
+ceaf2ca having a crack at getting collections example working
+8c3b639 genericising the html template a bit further
+825c8c3 Updating readme with same from previous implementation
+eaba6bf Somehow managed to miss these two files from original clone
+0a9a9cc bash variable #3: Moving project specific variables out into their own spot at the top of the file for severe bash cleanliness.
+9f92319 Clone of an existing implementation with all the specifics pulled out. Tried to keep a few things around to serve as examples but I'm sure they're broken atm.
+aa76967 Initial commit
+
+
