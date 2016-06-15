@@ -1,0 +1,62 @@
+/*
+Layout 1
+
+
+Markup:
+<div class="layout-1">
+  <section class="hero">
+    <div class="content-placeholder"></div>
+  </section>
+  <div class="container">
+    <section class="row">
+      <div class="col-xs-12">
+        <div class="content-placeholder"></div>
+      </div>
+    </section>
+    <section class="row">
+      <div  class="col-sm-4">
+        <div class="content-placeholder"></div>
+      </div>
+      <div  class="col-sm-4">
+        <div class="content-placeholder"></div>
+      </div>
+      <div  class="col-sm-4">
+        <div class="content-placeholder"></div>
+      </div>
+    </section>
+    <section class="row">
+      <div  class="col-xs-12">
+        <div class="content-placeholder"></div>
+      </div>
+    </section>
+    <section class="row">
+      <div  class="col-sm-6">
+        <div class="content-placeholder"></div>
+      </div>
+      <div  class="col-sm-6">
+        <div class="content-placeholder"></div>
+      </div>
+    </section>
+    <section class="row">
+      <div  class="col-xs-12">
+        <div class="content-placeholder"></div>
+      </div>
+    </section>
+  </div>
+</div>
+<a href="/layouts/layout_1" class="btn btn-primary">Layout demo <i class="fa fa-chevron-right"></i></a>
+
+
+Styleguide layouts.layout_1
+*/
+
+.kss-styleguide {
+  .layout-1 {
+    .hero {
+      width: 100%;
+    }
+    .container {
+      width: auto;
+    }
+  }
+}

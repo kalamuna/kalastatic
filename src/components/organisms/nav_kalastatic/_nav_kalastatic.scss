@@ -55,7 +55,7 @@ $nav-bar-padding-shrunk: 1.5em;
 
         transition-property: padding-top, padding-bottom, font-size;
         transition-duration: .25s;
-        @extend %easeOutOver;
+        /*@extend %easeOutQuad;*/
 
         padding-top: $nav-bar-padding;
 
@@ -99,7 +99,7 @@ $nav-bar-padding-shrunk: 1.5em;
   @media screen and (min-width: $screen-sm) {
     transition-property: padding-top;
     transition-duration: .25s;
-    @extend %easeOutOver;
+    /*@extend %easeOutQuad;*/
 
     .shrunk & {
       padding-top: $nav-bar-padding-shrunk - $search-form-padding-offset;

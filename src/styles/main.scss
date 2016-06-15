@@ -17,6 +17,9 @@ The following are components that are built specifically for the site.
 
 Styleguide custom
 */
+@import "../components/atoms/content_placeholder/content_placeholder";
+
+
 @import "../components/molecules/lede/lede";
 @import "../components/molecules/cta/cta";
 @import "../components/molecules/teaser/teaser";
@@ -31,6 +34,16 @@ Styleguide custom
 // @import "organisms/navigation_fixed_top";
 @import "../components/organisms/footer/footer";
 @import "../components/organisms/bootstrap_carousel/bootstrap_carousel";
+
+/*
+Custom Layouts
+
+Demo Layouts
+
+Styleguide layouts
+*/
+@import "../components/layouts/layout_1/layout_1";
+@import "../components/layouts/layout_2/layout_2";
 
 @import "pages/team";
 @import "pages/bootstrap_carousel_example";
