@@ -1,6 +1,7 @@
 language: node_js
 node_js:
-- '4'
+# Use Node.js 5, since that comes with npm 3, which fixes peerDependencies.
+- '5'
 sudo: false
 after_success:
 - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
