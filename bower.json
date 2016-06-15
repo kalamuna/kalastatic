@@ -6,6 +6,7 @@
     "fontawesome": "~4.2.0",
     "matchHeight": "~0.5.2",
     "holderjs": "~2.4.0",
-    "fontface-source-sans-pro": "*"
+    "fontface-source-sans-pro": "*",
+    "jquery": "^2.0.0"
   }
 }
