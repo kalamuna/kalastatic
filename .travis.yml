@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-# Use Node.js 5, since that comes with npm 3, which fixes peerDependencies.
+- '4'
 - '5'
 sudo: false
 after_success:
