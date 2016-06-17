@@ -2,7 +2,7 @@
   "name": "kalastatic",
   "description": "Command line interface for KalaStatic",
   "repository": "https://github.com/kalamuna/kalastatic-cli.git",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "files": [
     "src",

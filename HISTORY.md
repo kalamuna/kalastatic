@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.4: 2016-06-17
+
+- Small fixes
+- KSS Styleguide
+
 ## 0.0.3: 2016-06-17
 
 - Publish the project
