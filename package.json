@@ -1,8 +1,8 @@
 {
-  "name": "kalastatic-cli",
+  "name": "kalastatic",
   "description": "Command line interface for KalaStatic",
   "repository": "https://github.com/kalamuna/kalastatic-cli.git",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "files": [
     "lib/build.js",
