@@ -5,16 +5,17 @@
   "version": "0.0.2",
   "license": "MIT",
   "files": [
-    "lib/build.js",
-    "index.js",
-    "bin/kalastatic"
+    "src",
+    "bin"
   ],
+  "main": "src/kalastatic.js",
   "dependencies": {
     "commander": "^2.9.0",
     "for-each": "^0.3.2",
     "jstransformer-jade": "0.1.1",
     "jstransformer-marked": "1.0.1",
     "jstransformer-swig": "^0.1.2",
+    "kss": "^3.0.0-beta.14",
     "metalsmith": "^2.1.0",
     "metalsmith-collections-convention": "^1.1.0",
     "metalsmith-concat-convention": "^0.2.1",
@@ -35,7 +36,8 @@
     "xo": "^0.15.1"
   },
   "scripts": {
-    "test": "node test && xo --space",
+    "test": "node test",
+    "posttest": "xo --space bin src test/index.js",
     "examples": "cd examples/mdl-blog && npm i && npm test"
   },
   "bin": {
