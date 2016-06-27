@@ -1,6 +1,6 @@
-# kalastatic-cli [![Build Status](https://travis-ci.org/kalamuna/kalastatic-cli.svg?branch=master)](https://travis-ci.org/kalamuna/kalastatic-cli)
+# kalastatic-cli [![Build Status](https://travis-ci.org/kalamuna/kalastatic2.svg?branch=master)](https://travis-ci.org/kalamuna/kalastatic2)
 
-Command line interface for KalaStatic.
+Static site application framework for prototyping and styleguiding.
 
 ## Install
 
@@ -10,13 +10,13 @@ Command line interface for KalaStatic.
 
 ### Globally
 
-    $ npm install kalastatic-cli -g
+    $ npm install kalastatic -g
 
 ### Project Dependency
 
 To install KalaStatic as a dependency in your project:
 
-    $ npm install kalstatic-cli --save
+    $ npm install kalstatic --save
 
 ## Usage
 
