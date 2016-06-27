@@ -12,8 +12,8 @@
   "dependencies": {
     "commander": "^2.9.0",
     "for-each": "^0.3.2",
-    "jstransformer-jade": "0.1.1",
-    "jstransformer-marked": "1.0.1",
+    "jstransformer-commonmark": "^0.2.0",
+    "jstransformer-pug": "^0.2.0",
     "jstransformer-swig": "^0.1.2",
     "kss": "^3.0.0-beta.14",
     "metalsmith": "^2.1.0",
@@ -33,7 +33,7 @@
     "jstransformer-uglify-js": "^1.1.1",
     "rimraf": "^2.5.2",
     "testit": "^2.0.5",
-    "xo": "^0.15.1"
+    "xo": "^0.16.0"
   },
   "scripts": {
     "test": "node test",
