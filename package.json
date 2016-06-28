@@ -1,8 +1,8 @@
 {
   "name": "kalastatic",
   "description": "Command line interface for KalaStatic",
-  "repository": "https://github.com/kalamuna/kalastatic-cli.git",
-  "version": "0.0.4",
+  "repository": "https://github.com/kalamuna/kalastatic-next.git",
+  "version": "0.0.5",
   "license": "MIT",
   "files": [
     "src",
@@ -13,7 +13,7 @@
     "commander": "^2.9.0",
     "for-each": "^0.3.2",
     "jstransformer-commonmark": "^0.2.0",
-    "jstransformer-pug": "^0.2.0",
+    "jstransformer-pug": "^0.2.1",
     "jstransformer-swig": "^0.1.2",
     "kss": "^3.0.0-beta.14",
     "metalsmith": "^2.1.0",

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.5: 2016-06-28
+
+- Update dependencies to fix tests
+
 ## 0.0.4: 2016-06-17
 
 - Small fixes
