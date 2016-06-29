@@ -35,6 +35,7 @@ function setupTest(name) {
 
 setupTest('basic');
 setupTest('layouts');
+setupTest('styles');
 
 test('cli', function (done) {
   var options = {

@@ -6,4 +6,13 @@ doctype html
 html(lang="en")
   head
     title= title
-  body!= contents
+  body
+    header
+      h1= title
+      ul
+        li
+          a(href="index.html") Home
+        li
+          a(href="about.html") About
+
+    article!= contents

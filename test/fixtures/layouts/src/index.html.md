@@ -1,5 +1,7 @@
 ---
-title: Jade
+title: Home
 layout: layouts/default.jade
 ---
-This is an article.
+# Welcome
+
+This is the homepage. This is using the Default layout.
