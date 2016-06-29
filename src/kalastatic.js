@@ -13,6 +13,7 @@ function KalaStatic(nconf) {
     base: '.',
     source: 'src',
     destination: 'build',
+    css: '../main.css',
     plugins: {
       // Load information from the environment variables.
       'metalsmith-env': {},
@@ -53,6 +54,7 @@ KalaStatic.prototype.build = function () {
     // Retrieve configuration for the application.
     var source = self.nconf.get('source');
     var dest = self.nconf.get('destination');
+    var css = self.nconf.get('css');
 
     // Set up Metalsmith.
     metalsmith.source(source);
@@ -63,6 +65,11 @@ KalaStatic.prototype.build = function () {
       if (err) {
         reject(err);
       } else {
+        // Find the KSS Twig builder.
+        var builder = require.resolve('kss')
+        builder = path.dirname(builder)
+        builder = path.join(builder, 'builder', 'twig')
+
         // Now that it's complete, run KSS on it.
         kss({
           stdout: process.stdout,
@@ -76,7 +83,11 @@ KalaStatic.prototype.build = function () {
             // Scan the application directory.
             '--source=' + path.join(base, source),
             // Write to the build directory.
-            '--destination=' + path.join(base, dest, 'styleguide')
+            '--destination=' + path.join(base, dest, 'styleguide'),
+            // Choose the Twig builder.
+            '--builder=' + builder,
+            // Load main.css
+            '--css=' + css
           ]
         }).then(resolve).catch(reject);
       }

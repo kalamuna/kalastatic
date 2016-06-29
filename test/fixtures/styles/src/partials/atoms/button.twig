@@ -1,0 +1,23 @@
+{% if not classes %}
+  {% set classes = [] %}
+{% endif %}
+
+{% set classes = classes|merge(['pure-button']) %}
+
+{% if disabled %}
+  {% set classes = classes|merge(['pure-button-disabled']) %}
+{% endif %}
+
+{% if primary %}
+  {% set classes = classes|merge(['pure-button-primary']) %}
+{% endif %}
+
+{% if active %}
+  {% set classes = classes|merge(['pure-button-active']) %}
+{% endif %}
+
+{% if href %}
+	<a class="{{ classes|join(' ') }}" href="{{ href }}">{{ title }}</a>
+{% else %}
+	<button class="{{ classes|join(' ') }}">{{ title }}</button>
+{% endif %}
