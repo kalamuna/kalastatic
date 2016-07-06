@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.6: 2016-07-06
+
+- Add Twig and SCSS engines
+
 ## 0.0.5: 2016-06-28
 
 - Update dependencies to fix tests
