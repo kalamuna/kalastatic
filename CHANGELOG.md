@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0: 2016-07-13
+
+- Moved into the [`kalamuna/kalastatic/2` branch](https://github.com/kalamuna/kalastatic/tree/2)
+
 ## 0.0.6: 2016-07-06
 
 - Add Twig and SCSS engines

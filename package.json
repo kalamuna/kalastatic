@@ -1,8 +1,8 @@
 {
   "name": "kalastatic",
-  "description": "Command line interface for KalaStatic",
-  "repository": "https://github.com/kalamuna/kalastatic-next.git",
-  "version": "0.0.6",
+  "description": "KalaStatic static-site prototyping framework",
+  "repository": "https://github.com/kalamuna/kalastatic.git",
+  "version": "2.0.0",
   "license": "MIT",
   "files": [
     "src",

@@ -1,4 +1,4 @@
-# kalastatic-cli [![Build Status](https://travis-ci.org/kalamuna/kalastatic2.svg?branch=master)](https://travis-ci.org/kalamuna/kalastatic2)
+# kalastatic [![Build Status](https://travis-ci.org/kalamuna/kalastatic.svg?branch=2)](https://travis-ci.org/kalamuna/kalastatic)
 
 Static site application framework for prototyping and styleguiding.
 
@@ -6,7 +6,7 @@ Static site application framework for prototyping and styleguiding.
 
 ### Dependencies
 
-- [node](https://nodejs.org) >= 4
+- [node](https://nodejs.org) 4, 5 or 6
 
 ### Globally
 
@@ -44,9 +44,9 @@ html(lang="en")
 
     $ kalastatic
 
-#### Project
+#### Project Dependency
 
-    $ node_modules/.bin/kalastatic
+    $ node_modules/.bin/kalastatic build
 
 ## API
 
