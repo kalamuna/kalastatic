@@ -1,6 +1,6 @@
 # kalastatic [![Build Status](https://travis-ci.org/kalamuna/kalastatic.svg?branch=master)](https://travis-ci.org/kalamuna/kalastatic)
 
-Static site framework for prototyping and building out CMS-less websites at Kalamuna.
+Static site framework for in-browser prototyping and also for building out CMS-less websites at Kalamuna.
 
 demo site: http://test-kalastatic.at.kalamuna.com
 
