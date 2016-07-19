@@ -12,7 +12,7 @@
   "dependencies": {
     "commander": "^2.9.0",
     "for-each": "^0.3.2",
-    "jstransformer-commonmark": "^0.2.0",
+    "jstransformer-commonmark": "^0.3.0",
     "jstransformer-precss": "0.0.1",
     "jstransformer-pug": "^0.2.1",
     "jstransformer-scss": "^0.1.3",
