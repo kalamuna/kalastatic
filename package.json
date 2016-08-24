@@ -19,7 +19,7 @@
     "jstransformer-swig": "^0.1.2",
     "jstransformer-twig": "^0.1.3",
     "kss": "^3.0.0-beta.14",
-    "metalsmith": "^2.1.0",
+    "metalsmith": "^2.2.0",
     "metalsmith-collections-convention": "^1.1.1",
     "metalsmith-concat-convention": "^1.0.0",
     "metalsmith-env": "^2.0.0",
@@ -35,8 +35,8 @@
     "assert-dir-equal": "1.*",
     "jstransformer-uglify-js": "^1.1.1",
     "purecss": "^0.6.0",
-    "rimraf": "^2.5.2",
-    "testit": "^2.0.5",
+    "rimraf": "^2.5.4",
+    "testit": "^2.1.2",
     "xo": "^0.16.0"
   },
   "scripts": {
