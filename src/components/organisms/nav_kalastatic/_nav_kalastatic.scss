@@ -68,7 +68,7 @@ $nav-bar-padding-shrunk: 1.5em;
     }
 
     &.active a,
-    a:hover, {
+    a:hover {
       background: $brand-primary;
       color: $gray-dark;
     }
