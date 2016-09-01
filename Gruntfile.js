@@ -51,6 +51,14 @@ module.exports = function(grunt) {
       },
     },
 
+    // Sass linter.
+    sasslint: {
+        options: {
+          configFile: '.sass-lint.yml',
+        },
+        target: ['src/**/*.scss']
+    },
+
     // The Build Control plugin:
     // https://www.npmjs.com/package/grunt-build-control
     buildcontrol: {
@@ -92,12 +100,13 @@ module.exports = function(grunt) {
   // Initialize the configuration.
   grunt.initConfig(config);
 
+  grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-build-control');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
 
-  grunt.registerTask('build', ['exec:build']);
+  grunt.registerTask('build', ['sasslint', 'exec:build']);
   grunt.registerTask('deploy', ['buildcontrol:deploy']);
   grunt.registerTask('default', ['build', 'browserSync', 'watch']);
 };
