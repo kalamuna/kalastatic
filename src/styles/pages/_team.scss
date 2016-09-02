@@ -12,4 +12,7 @@
   .teaser {
     @extend %tout-quadriptych;
   }
+  .wrapper {
+    @extend %responsive-item;
+  }
 }

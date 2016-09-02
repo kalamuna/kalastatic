@@ -32,13 +32,11 @@
   @extend .col-xs-6;
   @extend .col-sm-3;
   @extend .col-md-4;
-  @extend %responsive-item;
 }
 
 %tout-quadriptych {
   @extend .col-sm-6;
   @extend .col-md-3;
-  @extend %responsive-item;
 }
 
 
