@@ -29,29 +29,15 @@
 }
 
 %tout-triptych {
-  @include make-xs-column(6);
-  @include make-sm-column(3);
-  @include make-md-column(4);
-  @include make-lg-column(4);
-
+  @extend .col-xs-6;
+  @extend .col-sm-3;
+  @extend .col-md-4;
   @extend %responsive-item;
 }
 
 %tout-quadriptych {
-  @include make-xs-column(6);
-  @include make-sm-column(6);
-  @include make-md-column(3);
-  @include make-lg-column(3);
-
-  @extend %responsive-item;
-}
-
-%tout-pentaptych {
-  @include make-xs-column(12);
-  @include make-sm-column(2.4);
-  @include make-md-column(2.4);
-  @include make-lg-column(2.4);
-
+  @extend .col-sm-6;
+  @extend .col-md-3;
   @extend %responsive-item;
 }
 

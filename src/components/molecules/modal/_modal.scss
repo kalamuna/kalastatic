@@ -30,8 +30,8 @@
   }
 
   .modal-dialog {
-    z-index: $zindex-modal + 1;
     @extend %ease-out-quad;
+    z-index: $zindex-modal + 1;
     transform: rotateY(90deg) translate3d(0, 0, 0) !important;
     top: 0;
     transform-origin: center top;
