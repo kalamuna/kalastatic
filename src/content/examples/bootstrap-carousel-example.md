@@ -2,7 +2,7 @@
 template: pages/examples/carousel.html
 title: Bootstrap Carousel
 permalink: true
-pageSlug: page_bootstrap_carousel
+pageSlug: bootstrap-carousel-example
 order: 1
 teaser: A carousel using metalsmith collections.
 carouselCollection: carouselItems
