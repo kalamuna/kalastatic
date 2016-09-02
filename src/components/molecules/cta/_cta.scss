@@ -1,8 +1,9 @@
 .cta {
   @extend .clearfix;
-  background: #dedede;
+  background: $gray-light;
   text-align: center;
   padding-bottom: 1em;
+
   .button {
     @extend .btn;
     @extend .btn-default;

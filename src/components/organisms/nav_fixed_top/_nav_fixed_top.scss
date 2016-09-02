@@ -1,25 +1,30 @@
+$nav-bar-padding: 2.575em;
+$nav-bar-padding-shrunk: 1.5em;
+
+$search-form-padding-offset: 0.5em;
 
 .collapsing {
   transition-property: height;
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
-  transition-duration: .25s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 0.25s;
 }
 
 #header > .navbar {
   border: none;
   background-color: $gray-lighter;
-  box-shadow: 1px 1px 3px rgba(0,0,0,.25);
+  box-shadow: 1px 1px 3px $c-black-transparent-25;
 }
 
 .navbar-header .identity {
 
+  @extend %ease-out-quad;
+
   transition-property: width, height, margin-top;
-  transition-duration: .25s;
-  @extend %easeOutQuad;
+  transition-duration: 0.25s;
   margin-top: 0.065em;
   width: 231px;
   height: 89px;
-  background-image: url(../images/logo.png);
+  background-image: url('../images/logo.png');
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -28,15 +33,14 @@
   }
 
 }
-$nav-bar-padding: 2.575em;
-$nav-bar-padding-shrunk: 1.5em;
+
 #header .navbar-nav {
 
   float: right;
 
   li {
 
-    margin-right: .0875em;
+    margin-right: 0.0875em;
 
     a {
 
@@ -47,12 +51,11 @@ $nav-bar-padding-shrunk: 1.5em;
       padding-bottom: 1.25em;
       padding-left: 1em;
 
-      @media screen and (min-width: $screen-sm) {
+      @media (min-width: $screen-sm) {
 
+        @extend %ease-out-quad;
         transition-property: padding-top, padding-bottom, font-size;
-        transition-duration: .25s;
-        @extend %easeOutQuad;
-
+        transition-duration: 0.25s;
         padding-top: $nav-bar-padding;
 
         .shrunk & {
@@ -61,24 +64,21 @@ $nav-bar-padding-shrunk: 1.5em;
         }
       }
 
+      .active > &,
+      &:hover {
+        background: $brand-primary;
+        color: $gray-dark;
+      }
     }
 
-    &.active a,
-    a:hover {
-      background: $brand-primary;
-      color: $gray-dark;
-    }
+    &:last-child {
 
+      a {
+        padding-right: 2em;
+      }
+
+    }
   }
-
-  li:last-child {
-
-    a {
-      padding-right: 2em;
-    }
-
-  }
-
 }
 
 #navbar {
@@ -87,15 +87,16 @@ $nav-bar-padding-shrunk: 1.5em;
 }
 
 #search-form {
-  $search-form-padding-offset: 0.5em;
+
   @extend .col-sm-3;
   padding-top: $nav-bar-padding - $search-form-padding-offset;
   float: right;
 
   @media screen and (min-width: $screen-sm) {
+
+    @extend %ease-out-quad;
     transition-property: padding-top;
-    transition-duration: .25s;
-    @extend %easeOutQuad;
+    transition-duration: 0.25s;
 
     .shrunk & {
       padding-top: $nav-bar-padding-shrunk - $search-form-padding-offset;
@@ -105,11 +106,11 @@ $nav-bar-padding-shrunk: 1.5em;
 
 .navbar-toggle {
   margin-top: 2em;
-  margin-right: .5em;
+  margin-right: 0.5em;
   border: none;
   border-radius: 0;
   background-color: $text-color;
-  padding: 1em .75em;
-  top: 0em;
-  font-size: .875em;
+  padding: 1em 0.75em;
+  top: 0;
+  font-size: 0.875em;
 }

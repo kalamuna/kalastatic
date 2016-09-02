@@ -1,8 +1,13 @@
 .breadcrumb {
+
   margin-bottom: 0;
-  box-shadow: 2px 3px .5em rgba(0,0,0,.6);
-  >li::before {
-    // for some reason bootstrap is printing "/\\00a0"
-    content: "/ " !important;
+  box-shadow: 2px 3px 0.5em $c-black-transparent-50;
+
+  > li {
+
+    &::before {
+      // for some reason bootstrap is printing "/\\00a0"
+      content: '/ ' !important;
+    }
   }
 }

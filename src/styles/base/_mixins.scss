@@ -1,29 +1,10 @@
-@mixin font-face($font-family, $file-path, $weight: normal, $style: normal ) {
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
   @font-face {
     font-family: $font-family;
-    src:
-      url('#{$file-path}.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    src: url('#{$file-path}.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     font-weight: $weight;
     font-style: $style;
     font-stretch: none;
-  }
-}
-
-@mixin placeholder {
-  &::-webkit-input-placeholder {
-    @content;
-  }
-
-  &:-moz-placeholder { /* Firefox 18- */
-    @content;
-  }
-
-  &::-moz-placeholder {  /* Firefox 19+ */
-    @content;
-  }
-
-  &:-ms-input-placeholder {
-    @content;
   }
 }
 
@@ -42,9 +23,9 @@
   Stolen gratuitously from https://css-tricks.com/glitch-effect-text-images-svg/
 */
 
-@mixin textGlitch($name, $intensity, $textColor, $background, $highlightColor1, $highlightColor2, $width, $height, $timing1: 3s, $timing2: 4s) {
+@mixin text-glitch($name, $intensity, $text-color, $background, $highlight-color-1, $highlight-color-2, $width, $height, $timing1: 3s, $timing2: 4s) {
 
-  color: $textColor;
+  color: $text-color;
   position: relative;
   $steps: $intensity;
 
@@ -54,7 +35,7 @@
     @for $i from 1 through 2 {
       @keyframes #{$name}-anim-#{$i} {
         @for $i from 0 through $steps {
-          #{percentage($i*(1/$steps))} {
+          #{percentage($i * (1/$steps))} {
             clip: rect(
               random($height)+px,
               $width+px,
@@ -66,8 +47,9 @@
       }
     }
   }
-  &:before,
-  &:after {
+
+  &::before,
+  &::after {
     content: attr(data-text);
     position: absolute;
     top: 0;
@@ -76,14 +58,16 @@
     background: $background;
     clip: rect(0, 0, 0, 0);
   }
-  &:after {
+
+  &::after {
     left: 2px;
-    text-shadow: -1px 0 $highlightColor1;
+    text-shadow: -1px 0 $highlight-color-1;
     animation: #{$name}-anim-1 $timing1 infinite linear alternate-reverse;
   }
-  &:before {
+
+  &::before {
     left: -2px;
-    text-shadow: 1px 0 $highlightColor2;
+    text-shadow: 1px 0 $highlight-color-2;
     animation: #{$name}-anim-2 $timing2 infinite linear alternate-reverse;
   }
 

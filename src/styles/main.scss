@@ -1,14 +1,14 @@
 // BS Variable Overrides
 // Custom Bootstrap.
-@import "base/bsvars";
-@import "base/bootstrap_custom";
+@import 'base/bsvars';
+@import 'base/bootstrap_custom';
 
 // KalaStatic Extendables and Mixins
-@import "base/extendables";
-@import "base/mixins";
-@import "base/typography";
-@import "base/variables";
-@import "fontawesome";
+@import 'base/extendables';
+@import 'base/mixins';
+@import 'base/typography';
+@import 'base/variables';
+@import 'fontawesome';
 
 /*
 Custom Components
@@ -17,23 +17,23 @@ The following are components that are built specifically for the site.
 
 Styleguide custom
 */
-@import "../components/atoms/content_placeholder/content_placeholder";
+@import '../components/atoms/content_placeholder/content_placeholder';
 
 
-@import "../components/molecules/lede/lede";
-@import "../components/molecules/cta/cta";
-@import "../components/molecules/teaser/teaser";
-@import "../components/molecules/listing/listing";
-@import "../components/molecules/modal/modal";
-@import "../components/molecules/bootstrap_carousel_item/bootstrap_carousel_item";
-@import "../components/molecules/bootstrap_carousel_nav/bootstrap_carousel_nav";
+@import '../components/molecules/lede/lede';
+@import '../components/molecules/cta/cta';
+@import '../components/molecules/teaser/teaser';
+@import '../components/molecules/listing/listing';
+@import '../components/molecules/modal/modal';
+@import '../components/molecules/bootstrap_carousel_item/bootstrap_carousel_item';
+@import '../components/molecules/bootstrap_carousel_nav/bootstrap_carousel_nav';
 
 // header options here, we can comment out which ones we want.
 // also change the partial in config.yaml
-@import "../components/organisms/nav_kalastatic/nav_kalastatic";
-// @import "organisms/navigation_fixed_top";
-@import "../components/organisms/footer/footer";
-@import "../components/organisms/bootstrap_carousel/bootstrap_carousel";
+@import '../components/organisms/nav_kalastatic/nav_kalastatic';
+// @import 'organisms/navigation_fixed_top';
+@import '../components/organisms/footer/footer';
+@import '../components/organisms/bootstrap_carousel/bootstrap_carousel';
 
 /*
 Custom Layouts
@@ -42,9 +42,9 @@ Demo Layouts
 
 Styleguide layouts
 */
-@import "../components/layouts/layout_1/layout_1";
-@import "../components/layouts/layout_2/layout_2";
+@import '../components/layouts/layout_1/layout_1';
+@import '../components/layouts/layout_2/layout_2';
 
-@import "pages/team";
-@import "pages/bootstrap_carousel_example";
-@import "pages/homepage";
+@import 'pages/team';
+@import 'pages/bootstrap_carousel_example';
+@import 'pages/homepage';

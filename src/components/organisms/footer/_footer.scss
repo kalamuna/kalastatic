@@ -33,25 +33,28 @@ body {
 }
 
 .footer {
-  position: absolute;
   @extend .clearfix;
+  position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
   background-color: $gray-dark;
-}
-
-.footer {
 
   .navbar-nav {
-    padding-top: .375em;
+    padding-top: 0.375em;
+    padding-left: 1em;
+    background-color: $gray-dark;
+    margin: 0;
+    @media (min-width: $screen-sm) {
+      padding-left: 0;
+      background-color: transparent;
+    }
   }
 
   a {
-    color: white;
+    color: $c-white;
   }
-
 }
 
 /* Custom page CSS
@@ -68,12 +71,14 @@ body {
 }
 
 .addendum {
+
   .github,
   .copyright {
     @extend .navbar-text;
     @extend .text-muted;
     @extend .navbar-right;
   }
+
   .copyright {
     margin-right: 2em;
   }
@@ -81,13 +86,13 @@ body {
 
 .footer .identity {
 
+  @extend %ease-out-quad;
   transition-property: width, height, margin-top;
-  transition-duration: .25s;
-  @extend %easeOutQuad;
+  transition-duration: 0.25s;
   margin-top: 0.0925em;
   width: 140px;
   height: 54px;
-  background-image: url(../images/logo-reversed.png);
+  background-image: url('../images/logo-reversed.png');
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -96,17 +101,9 @@ body {
   }
 }
 
-li.active a {
-  background: $link-color;
-  color: $gray-dark;
-}
-
-.footer .navbar-nav {
- padding-left: 1em;
- background-color: $gray-dark;
- margin: 0;
- @media (min-width: $screen-sm) {
-   padding-left: 0;
-   background-color: transparent;
- }
+li {
+  &.active a {
+    background: $link-color;
+    color: $gray-dark;
+  }
 }
