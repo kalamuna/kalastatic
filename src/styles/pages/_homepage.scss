@@ -1,7 +1,7 @@
 .homepage {
 
   background-attachment: fixed;
-  background-image: url("../images/static.gif");
+  background-image: url('../images/static.gif');
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -15,12 +15,13 @@
 
     .contents {
       line-height: 1.425;
+
       p {
         display: inline;
         position: relative;
-        left: .5em;
-        background: #ddd;
-        box-shadow: .375em 0 0 #ddd, -.375em 0 0 #ddd;
+        left: 0.5em;
+        background: $gray-light;
+        box-shadow: 0.375em 0 0 $gray-light, -0.375em 0 0 $gray-light;
         box-decoration-break: clone;
       }
     }
@@ -28,12 +29,12 @@
     .content-heading {
       h1 {
         @media ( max-width: $screen-sm ){
+          @include text-glitch('heading', 32, $c-white, transparent, $c-white, $c-white, 480, 140);
           font-size: 2em;
-          @include textGlitch("heading", 32, #fff, transparent, #fff, #fff, 480, 140);
         }
         @media ( min-width: $screen-sm ){
+          @include text-glitch('heading', 48, $c-white, transparent, $c-white, $c-white, 1000, 200);
           font-size: 3em;
-          @include textGlitch("heading", 48, #fff, transparent, #fff, #fff, 1000, 200);
         }
       }
     }

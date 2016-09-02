@@ -1,4 +1,4 @@
-%responsive-image{
+%responsive-image {
   width: 100% !important;
   height: auto !important;
 }
@@ -6,51 +6,37 @@
 %center-h {
   position: relative;
   left: 50%;
-  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
 
-%panelShadow {
-  box-shadow: 1px 1px 5px rgba(#000,.5);
+%panel-shadow {
+  box-shadow: 1px 1px 5px $c-black-transparent-50;
 }
 
 %vertical-align {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
 %responsive-item {
   width: 100%;
   margin: 0 auto;
+
   img {
     @extend %responsive-image;
   }
 }
 
-%tout-triptych{
-  @include make-xs-column(6);
-  @include make-sm-column(3);
-  @include make-md-column(4);
-  @include make-lg-column(4);
-  @extend %responsive-item;
+%tout-triptych {
+  @extend .col-xs-6;
+  @extend .col-sm-3;
+  @extend .col-md-4;
 }
 
 %tout-quadriptych {
-  @include make-xs-column(6);
-  @include make-sm-column(6);
-  @include make-md-column(3);
-  @include make-lg-column(3);
-  @extend %responsive-item;
-}
-
-%tout-pentaptych {
-  @include make-xs-column(12);
-  @include make-sm-column(2.4);
-  @include make-md-column(2.4);
-  @include make-lg-column(2.4);
-  @extend %responsive-item;
+  @extend .col-sm-6;
+  @extend .col-md-3;
 }
 
 
@@ -59,93 +45,105 @@
 ////////////////////////////////////
 
 // Cubic
-%easeInCubic {
-  transition-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+%ease-in-cubic {
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-%easeOutCubic {
-  transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+%ease-out-cubic {
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-%easeInOutCubic {
-  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+%ease-in-out-cubic {
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 // Circ
-%easeInCirc {
-  transition-timing-function: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+%ease-in-circ {
+  transition-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
-%easeOutCirc {
-  transition-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+
+%ease-out-circ {
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-%easeInOutCirc {
-  transition-timing-function: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+%ease-in-out-circ {
+  transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 // Expo
-%easeInExpo {
-  transition-timing-function: cubic-bezier(0.950, 0.050, 0.795, 0.035);
+%ease-in-expo {
+  transition-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
-%easeOutExpo {
-  transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+
+%ease-out-expo {
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 }
-%easeInOutExpo {
-  transition-timing-function: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+
+%ease-in-out-expo {
+  transition-timing-function: cubic-bezier(1, 0, 0, 1);
 }
 
 // Quad
-%easeInQuad {
-  transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530);
+%ease-in-quad {
+  transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
-%easeOutQuad {
-  transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+
+%ease-out-quad {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-%easeInOutQuad {
-  transition-timing-function: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+
+%ease-in-out-quad {
+  transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 // Quart
-%easeInQuart {
-  transition-timing-function: cubic-bezier(0.895, 0.030, 0.685, 0.220);
+%ease-in-quart {
+  transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
 }
-%easeOutQuart {
-  transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+
+%ease-out-quart {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-%easeInOutQuart {
-  transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+
+%ease-in-out-quart {
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 // Quint
-%easeInQuint {
-  transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+%ease-in-quint {
+  transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
 }
-%easeOutQuint {
-  transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+
+%ease-out-quint {
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
 }
-%easeInOutQuint {
-  transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+
+%ease-in-out-quint {
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 // Sine
-%easeInSine {
-  transition-timing-function: cubic-bezier(0.470, 0.000, 0.745, 0.715);
+%ease-in-sine {
+  transition-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
 }
-%easeOutSine {
-  transition-timing-function: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+
+%ease-out-sine {
+  transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 }
-%easeInOutSine {
-  transition-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+
+%ease-in-out-sine {
+  transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 // Back
-%easeInBack {
-  transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+%ease-in-back {
+  transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
-%easeOutBack {
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+%ease-out-back {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-%easeInOutBack {
-  transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+%ease-in-out-back {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }

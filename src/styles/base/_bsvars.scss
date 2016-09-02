@@ -1,13 +1,21 @@
 /* bootstrap overrides */
 
 $body-bg: #f3f3f3;
+$gray-light: #ddd;
 $gray-dark: #444;
+
 $brand-primary: #0af;
 
-$font-family-sans-serif:  "Source Sans Pro", Helvetica, Arial, sans-serif;
-$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$c-white: #fff;
+$c-black: #000;
+
+$c-black-transparent-50: rgba($c-black, 0.5);
+$c-black-transparent-25: rgba($c-black, 0.25);
+
+$font-family-sans-serif:  'Source Sans Pro', Helvetica, Arial, sans-serif;
+$font-family-serif:       Georgia, 'Times New Roman', Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-monospace:   Menlo, Monaco, Consolas, 'Courier New', monospace !default;
 
 $font-size-base:          16px;
 
@@ -19,12 +27,12 @@ $font-size-h5:            $font-size-base * 1.125;
 $font-size-h6:            $font-size-base;
 
 //** By default, this inherits from the `<body>`.
-$headings-font-family:    "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headings-font-family:    'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-$navbar-inverse-bg:       rgba(0,0,0,.8);
+$navbar-inverse-bg:       rgba(0, 0, 0, 0.8);
 $navbar-inverse-border:   none;
-$navbar-inverse-link-color:                 #fff;
-$navbar-inverse-link-hover-color:           darken(#fff, 30%);
+$navbar-inverse-link-color:                 $c-white;
+$navbar-inverse-link-hover-color:           darken($c-white, 30%);
 
 $jumbotron-padding:       2em;
 $jumbotron-font-size:     1em;
@@ -43,9 +51,9 @@ $nav-tabs-active-link-hover-border-color:   transparent;
 //##
 $carousel-text-shadow:                        none;
 
-$carousel-control-color:                      #fff;
+$carousel-control-color:                      $c-white;
 $carousel-control-width:                      10%;
-$carousel-control-opacity:                    .25;
+$carousel-control-opacity:                    0.25;
 $carousel-control-font-size:                  20px;
 
 // ! Navbar

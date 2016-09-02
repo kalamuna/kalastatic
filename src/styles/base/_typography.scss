@@ -1,21 +1,15 @@
 // Source Sans Pro Vendor
-$SourceSansProFontsPath: "/vendor/fontface-source-sans-pro/fonts";
-@import "fontface-source-sans-pro/scss/source-sans-pro";
+$source-sans-pro-fonts-path: '/vendor/fontface-source-sans-pro/fonts';
 
-textarea,
-input {
-  @include placeholder {
-    line-height: 1.5;
-  }
-}
+@import 'fontface-source-sans-pro/scss/source-sans-pro';
 
 h1,
 h2,
 h3,
 h4 {
-  margin-bottom: .25em;
+  margin-bottom: 0.25em;
   line-height: 1.2;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
 }
 
 %h6 {

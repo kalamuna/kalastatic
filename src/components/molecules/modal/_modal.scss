@@ -1,5 +1,5 @@
 .modal-backdrop {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .modal {
@@ -7,34 +7,36 @@
   display: none;
   perspective-origin: bottom;
   perspective: 1200px;
-  text-color: #000;
+  color: $c-black;
 
   .modal-header {
+
     .close {
       @extend .fa;
       @extend .fa-close;
-      background-color: #000;
+      background-color: $c-black;
       border-radius: 50%;
       width: 1.5em;
       height: 1.5em;
-      color: white;
-      margin-top: .75em;
+      color: $c-white;
+      margin-top: 0.75em;
+
       &::before {
         position: relative;
-        top: .2195em;
-        left: .335em;
+        top: 0.2195em;
+        left: 0.335em;
       }
     }
   }
 
   .modal-dialog {
-    z-index: $zindex-modal+1;
-    transform: rotateY(90deg) translate3d( 0, 0, 0 ) !important;
+    @extend %ease-out-quad;
+    z-index: $zindex-modal + 1;
+    transform: rotateY(90deg) translate3d(0, 0, 0) !important;
     top: 0;
     transform-origin: center top;
     transition-property: transform;
-    transition-duration: .275s !important;
-    @extend %easeOutQuad;
+    transition-duration: 0.275s !important;
     margin-bottom: 0;
     padding-bottom: 2em;
   }
@@ -44,7 +46,7 @@
   }
 
   &.in .modal-dialog {
-    transform: rotateY(0) translate3d( 0, 0, 0 ) !important;
+    transform: rotateY(0) translate3d(0, 0, 0) !important;
   }
 
 }
