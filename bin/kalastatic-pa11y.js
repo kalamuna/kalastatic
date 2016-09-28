@@ -5,6 +5,7 @@
 var childProcess = require('child_process')
 var fs = require('fs')
 var shellEscape = require('shell-escape')
+var validUrl = require('valid-url').is_uri
 
 // Load the pages to parse on.
 var input = JSON.parse(require('fs').readFileSync('./pa11y.json', 'utf8'));
@@ -25,7 +26,12 @@ for (var i in pages) {
   args.push('-c', './pa11y.json')
   args.push('-r', 'html')
   args.push('-l', 'none')
-  args.push('file://' + cwd + '/build/' + pages[i])
+  if (validUrl(pages[i])) {
+    args.push(pages[i])
+  }
+  else {
+    args.push('file://' + cwd + '/build/' + pages[i])
+  }
   var cmd = shellEscape(args) + ' > build/a11y/' + i + '.html'
 
   // Run the command.
