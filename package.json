@@ -27,6 +27,7 @@
     "metalsmith-tags": "^0.11.0",
     "metalsmith-templates": "~0.7.0",
     "swig": "^1.4.2",
+    "valid-url": "^1.0.9",
     "xor-crypt": "~1.0.0"
   },
   "scripts": {
