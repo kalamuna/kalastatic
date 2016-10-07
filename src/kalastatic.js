@@ -12,6 +12,7 @@ function KalaStatic(nconf) {
   nconf.defaults({
     base: '.',
     source: 'src',
+    kssSource: [],
     destination: 'build',
     css: '../main.css',
     plugins: {
@@ -55,6 +56,7 @@ KalaStatic.prototype.build = function () {
     var source = self.nconf.get('source');
     var dest = self.nconf.get('destination');
     var css = self.nconf.get('css');
+    var kssSource = self.nconf.get('kssSource')
 
     // Set up Metalsmith.
     metalsmith.source(source);
@@ -69,26 +71,30 @@ KalaStatic.prototype.build = function () {
         var builder = require.resolve('kss')
         builder = path.dirname(builder)
         builder = path.join(builder, 'builder', 'twig')
+        var argv = [
+          'kss',
+          // Make sure we log everything.
+          '--verbose',
+          // Add KalaStatic's src directory, so that there is a good base.
+          '--source=' + path.resolve(__dirname),
+          // Scan the application directory.
+          '--source=' + path.join(base, source),
+          // Write to the build directory.
+          '--destination=' + path.join(base, dest, 'styleguide'),
+          // Choose the Twig builder.
+          '--builder=' + builder,
+          // Load main.css
+          '--css=' + css
+        ]
+        for (var dirIndex in kssSource) {
+          argv.push('--source=' + kssSource[dirIndex])
+        }
 
         // Now that it's complete, run KSS on it.
         kss({
           stdout: process.stdout,
           stderr: reject,
-          argv: [
-            'kss',
-            // Make sure we log everything.
-            '--verbose',
-            // Add KalaStatic's src directory, so that there is a good base.
-            '--source=' + path.resolve(__dirname),
-            // Scan the application directory.
-            '--source=' + path.join(base, source),
-            // Write to the build directory.
-            '--destination=' + path.join(base, dest, 'styleguide'),
-            // Choose the Twig builder.
-            '--builder=' + builder,
-            // Load main.css
-            '--css=' + css
-          ]
+          argv: argv
         }).then(resolve).catch(reject);
       }
     });
