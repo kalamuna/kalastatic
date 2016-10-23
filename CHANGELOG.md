@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1: 2016-10-07
+
+- Added a `kssSource` configuration
+
 ## 2.0.0: 2016-07-13
 
 - Moved into the [`kalamuna/kalastatic/2` branch](https://github.com/kalamuna/kalastatic/tree/2)
