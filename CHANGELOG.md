@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.1: 2016-11-01
+
+- Add some error handling
+
 ## 2.0.1: 2016-10-07
 
 - Added a `kssSource` configuration
