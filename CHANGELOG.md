@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.2: 2016-11-01
+
+- Update dependencies and add Asset Management
+
 ## 2.1.1: 2016-11-01
 
 - Add some error handling
