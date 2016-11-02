@@ -2,7 +2,7 @@
   "name": "kalastatic",
   "description": "KalaStatic static-site prototyping framework",
   "repository": "https://github.com/kalamuna/kalastatic.git",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "license": "MIT",
   "files": [
     "src",
@@ -26,7 +26,6 @@
     "metalsmith-env": "^2.0.0",
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-jstransformer": "^0.7.2",
-    "metalsmith-jstransformer-layouts": "^0.6.0",
     "metalsmith-jstransformer-partials": "^1.2.2",
     "metalsmith-metadata-convention": "1.0.0",
     "metalsmith-paths": "^2.1.2",

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.6: 2016-11-03
+
+- Fix `metalsmith-jstransformer-layouts`
+
 ## 2.1.5: 2016-11-02
 
 - Add `pluginOpts` config
