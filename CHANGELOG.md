@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.3: 2016-11-02
+
+- Split `plugins` config from `pluginsOpts`
+
 ## 2.1.2: 2016-11-01
 
 - Update dependencies and add Asset Management

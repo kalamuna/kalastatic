@@ -1,6 +1,7 @@
 ---
 includePaths:
   - node_modules/purecss/build
+  - test/fixtures/styles/src
 ---
 
 /**
@@ -11,4 +12,7 @@ includePaths:
 
 @import "pure";
 
+/**
+ * Custom
+ */
 @import "partials/atoms/button";

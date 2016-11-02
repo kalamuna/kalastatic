@@ -15,25 +15,29 @@ function KalaStatic(nconf) {
     kssSource: [],
     destination: 'build',
     css: '../main.css',
-    plugins: {
+    plugins: [
       // Load information from the environment variables.
-      'metalsmith-env': {},
+      'metalsmith-env',
       // Add base, dir, ext, name, and href info to each file.
-      'metalsmith-paths': {},
+      'metalsmith-paths',
       // Load metadata info the metalsmith metadata object.
-      'metalsmith-metadata-convention': {},
+      'metalsmith-metadata-convention',
       // Concatenate any needed files.
-      'metalsmith-concat-convention': {},
+      'metalsmith-concat-convention',
       // Load all collections.
-      'metalsmith-collections-convention': {},
+      'metalsmith-collections-convention',
       // Bring in static assets.
-      'metalsmith-assets-convention': {},
+      'metalsmith-assets-convention',
       // Ignore all partials and layouts.
-      'metalsmith-ignore': '**/_*',
+      'metalsmith-ignore',
       // Load all Partials.
-      'metalsmith-jstransformer-partials': {},
+      'metalsmith-jstransformer-partials',
       // Render all content with JSTransformers.
-      'metalsmith-jstransformer': {}
+      'metalsmith-jstransformer'
+    ],
+    pluginsOpts: {
+      // Ignore all partials and layouts.
+      'metalsmith-ignore': '**/_*'
     }
   });
 
@@ -47,12 +51,16 @@ KalaStatic.prototype.build = function () {
     // Create the environment.
     var base = self.nconf.get('base');
     var metalsmith = new Metalsmith(base);
+    var plugins = self.nconf.get('plugins')
+    var pluginsOpts = self.nconf.get('pluginsOpts')
 
     // Plugins.
-    forEach(self.nconf.get('plugins'), function (opts, name) {
-      var mod = require(name);
-      metalsmith.use(mod(opts));
-    });
+    for (var i in plugins) {
+      var name = plugins[i]
+      var mod = require(name)
+      var opts = pluginsOpts[name] || {}
+      metalsmith.use(mod(opts))
+    }
 
     // Retrieve configuration for the application.
     var source = self.nconf.get('source');
