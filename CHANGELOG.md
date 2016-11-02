@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.7: 2016-11-03
+
+- Update Twig
+
 ## 2.1.6: 2016-11-03
 
 - Fix `metalsmith-jstransformer-layouts`
