@@ -3,6 +3,7 @@ var path = require('path');
 var kss = require('kss/lib/cli');
 var forEach = require('for-each');
 var Metalsmith = require('metalsmith');
+var extend = require('extend-shallow')
 
 function KalaStatic(nconf) {
   // Make sure there is an nconf configuration.
@@ -37,10 +38,11 @@ function KalaStatic(nconf) {
       // Load all Layouts.
       'metalsmith-jstransformer-layouts'
     ],
-    pluginsOpts: {
+    pluginDefaults: {
       // Ignore all partials and layouts.
       'metalsmith-ignore': '**/_*'
-    }
+    },
+    pluginOpts: {}
   });
 
   // Set the properties of the object.
@@ -54,13 +56,15 @@ KalaStatic.prototype.build = function () {
     var base = self.nconf.get('base');
     var metalsmith = new Metalsmith(base);
     var plugins = self.nconf.get('plugins')
-    var pluginsOpts = self.nconf.get('pluginsOpts')
+    var pluginDefaults = self.nconf.get('pluginDefaults')
+    var pluginOpts = self.nconf.get('pluginOpts')
+    var options = extend(pluginDefaults, pluginOpts)
 
     // Plugins.
     for (var i in plugins) {
       var name = plugins[i]
       var mod = require(name)
-      var opts = pluginsOpts[name] || {}
+      var opts = options[name] || {}
       metalsmith.use(mod(opts))
     }
 

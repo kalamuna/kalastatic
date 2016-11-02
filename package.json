@@ -2,7 +2,7 @@
   "name": "kalastatic",
   "description": "KalaStatic static-site prototyping framework",
   "repository": "https://github.com/kalamuna/kalastatic.git",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "license": "MIT",
   "files": [
     "src",
@@ -11,6 +11,7 @@
   "main": "src/kalastatic.js",
   "dependencies": {
     "commander": "^2.9.0",
+    "extend-shallow": "^2.0.1",
     "for-each": "^0.3.2",
     "jstransformer-commonmark": "^0.3.0",
     "jstransformer-precss": "0.0.1",

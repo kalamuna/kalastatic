@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.5: 2016-11-02
+
+- Add `pluginOpts` config
+
 ## 2.1.4: 2016-11-02
 
 - Add [`metalsmith-jstransformer-layouts`](https://github.com/RobLoach/metalsmith-jstransformer-layouts)
