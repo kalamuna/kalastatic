@@ -20,7 +20,7 @@ To install KalaStatic as a dependency in your project:
 
 ## Usage
 
-### Write
+### Convention
 
 Construct your source files, using the template engine name in the file extension.
 
@@ -38,17 +38,43 @@ html(lang="en")
     h1 Jade - node template engine
 ```
 
+### Configuration
+
+KalaStatic can be configured through a `kalastatic.yml` file. The default options are as follows:
+
+``` yml
+# The base directory of where your package.json lives.
+base: '.',
+
+# The directory (from base), where the source content files live.
+source: 'src',
+
+# Additional sources to read for KSS documentation for the styleguide.
+kssSource: [],
+
+# Where to build out the files.
+destination: 'build',
+
+# Where the final CSS will be built out to. This is used for the Styleguide.
+css: '../main.css',
+
+# The options to pass off to the Metalsmith plugins when building, keyed by plugin name.
+pluginOpts: {}
+```
+
 ### Build
 
 #### Globally
 
-    $ kalastatic
+    $ kalastatic build
 
 #### Project Dependency
 
     $ node_modules/.bin/kalastatic build
 
 ## API
+
+KalaStatic can be used a JavaScript API. Calling `KalaStatic()` will build, and return a Promise.
 
 ``` javascript
 var KalaStatic = require('kalastatic')
