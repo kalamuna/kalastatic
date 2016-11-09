@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.9: 2016-11-09
+
+- Updated to `metalsmith@^2.3.0`
+- Updated to `metalsmith-jstransformer@^0.8.0`
+- Updated to `metalsmith-metadata-convention@^1.0.1`
+
 ## 2.1.8: 2016-11-03
 
 - Update Twig
