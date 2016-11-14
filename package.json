@@ -14,8 +14,8 @@
     "extend-shallow": "^2.0.1",
     "for-each": "^0.3.2",
     "jstransformer-commonmark": "^0.3.0",
-    "jstransformer-precss": "^0.0.1",
-    "jstransformer-pug": "^0.2.1",
+    "jstransformer-precss": "^0.1.0",
+    "jstransformer-pug": "^0.2.2",
     "jstransformer-scss": "^0.1.3",
     "jstransformer-twig": "^1.0.0",
     "kss": "^3.0.0-beta.16",
@@ -34,11 +34,12 @@
   },
   "devDependencies": {
     "assert-dir-equal": "1.*",
+    "jstransformer-twig": "^1.0.0",
     "jstransformer-uglify-js": "^1.1.1",
     "purecss": "^0.6.0",
     "rimraf": "^2.5.4",
     "testit": "^2.1.2",
-    "xo": "^0.17.0"
+    "xo": "^0.17.1"
   },
   "scripts": {
     "test": "node test",

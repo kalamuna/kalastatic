@@ -36,6 +36,7 @@ function setupTest(name) {
 setupTest('basic');
 setupTest('layouts');
 setupTest('styles');
+setupTest('twig-plugins');
 
 test('cli', function (done) {
   var options = {
