@@ -1,6 +1,6 @@
 ---
 title: Home
-layout: layouts/default.jade
+layout: layouts/default.pug
 ---
 # Welcome
 
