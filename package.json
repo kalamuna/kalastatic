@@ -37,7 +37,7 @@
     "jstransformer-uglify-js": "^1.1.1",
     "purecss": "^0.6.0",
     "rimraf": "^2.5.4",
-    "slugify": "^1.0.2",
+    "slug": "^0.9.1",
     "testit": "^2.1.2",
     "xo": "^0.17.1"
   },
