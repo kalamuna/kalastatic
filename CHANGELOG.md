@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.11: 2016-12-02
+
+- Updated dependencies
+
 ## 2.1.10: 2016-12-01
 
 - Updated dependencies
