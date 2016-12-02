@@ -5,7 +5,7 @@
   "dependencies": {
     "jstransformer-browserify": "^0.4.0",
     "jstransformer-scss": "^0.1.0",
-    "kalastatic-cli": "../../",
+    "kalastatic": "../../",
     "material-design-lite": "^1.0.4-2"
   },
   "scripts": {

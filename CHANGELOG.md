@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.10: 2016-12-01
+
+- Updated dependencies
+
 ## 2.1.9: 2016-11-09
 
 - Updated to `metalsmith@^2.3.0`
