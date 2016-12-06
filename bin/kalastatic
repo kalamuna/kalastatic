@@ -31,6 +31,7 @@ program
     var kalastatic = new KalaStatic(conf);
     kalastatic.build().catch(function (err) {
       console.error(err)
+      process.exitCode = 1
     })
   })
 

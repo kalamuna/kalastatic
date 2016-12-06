@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.12: 2016-12-05
+
+- Fix process exit code on error
+
 ## 2.1.11: 2016-12-02
 
 - Updated dependencies
