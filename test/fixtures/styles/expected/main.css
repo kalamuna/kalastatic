@@ -4,8 +4,8 @@
  * Styles for the test.
  */
 /*!
-Pure v0.6.0
-Copyright 2014 Yahoo! Inc. All rights reserved.
+Pure v0.6.1
+Copyright 2013 Yahoo!
 Licensed under the BSD License.
 https://github.com/yahoo/pure/blob/master/LICENSE.md
 */
@@ -13,11 +13,11 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
 normalize.css v^3.0 | MIT License | git.io/normalize
 Copyright (c) Nicolas Gallagher and Jonathan Neal
 */
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
  */
 html {
   font-family: sans-serif;
@@ -79,7 +79,7 @@ audio:not([controls]) {
 
 /**
  * Address `[hidden]` styling not present in IE 8/9/10.
- * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
  */
 [hidden],
 template {
@@ -94,7 +94,8 @@ a {
   background-color: transparent; }
 
 /**
- * Improve readability when focused and also mouse hovered in all browsers.
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
  */
 a:active,
 a:hover {
@@ -184,7 +185,6 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0; }
 
@@ -307,16 +307,13 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
- *    (include `-moz` to future-proof).
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
  */
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  /* 2 */
-  box-sizing: content-box; }
+  box-sizing: content-box;
+  /* 2 */ }
 
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
@@ -421,21 +418,23 @@ th {
     * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
     */
   font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
-  /*
-    Use flexbox when possible to avoid `letter-spacing` side-effects.
-
-    NOTE: Firefox (as of 25) does not currently support flex-wrap, so the
-    `-moz-` prefix version is omitted.
-    */
+  /* Use flexbox when possible to avoid `letter-spacing` side-effects. */
+  display: -webkit-box;
   display: -webkit-flex;
-  -webkit-flex-flow: row wrap;
-  /* IE10 uses display: flexbox */
   display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
   -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
   /* Prevents distributing space between rows */
-  -ms-align-content: flex-start;
   -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
   align-content: flex-start; }
+
+/* IE10 display: -ms-flexbox (and display: flex in IE 11) does not work inside a table; fall back to block and rely on font hack */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  table .pure-g {
+    display: block; } }
 
 /* Opera as of 12 on Windows needs word-spacing.
    The ".opera-only" selector is used to prevent actual prefocus styling
@@ -659,8 +658,6 @@ this the same font stack that Normalize.css sets for the `body`.
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 /* Firefox: Get rid of the inner focus border */
@@ -688,11 +685,10 @@ this the same font stack that Normalize.css sets for the `body`.
 .pure-button-hover,
 .pure-button:hover,
 .pure-button:focus {
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.1)));
+  /* csslint ignore:start */
+  filter: alpha(opacity=90);
+  /* csslint ignore:end */
   background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1));
-  background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1)); }
 
 .pure-button:focus {
@@ -710,21 +706,16 @@ this the same font stack that Normalize.css sets for the `body`.
 .pure-button-disabled:active {
   border: none;
   background-image: none;
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  /* csslint ignore:start */
   filter: alpha(opacity=40);
-  -khtml-opacity: 0.40;
-  -moz-opacity: 0.40;
+  /* csslint ignore:end */
   opacity: 0.40;
   cursor: not-allowed;
-  box-shadow: none; }
+  box-shadow: none;
+  pointer-events: none; }
 
 .pure-button-hidden {
   display: none; }
-
-/* Firefox: Get rid of the inner focus border */
-.pure-button::-moz-focus-inner {
-  padding: 0;
-  border: 0; }
 
 .pure-button-primary,
 .pure-button-selected,
@@ -762,8 +753,6 @@ so we can ignore the csslint warning.
   box-shadow: inset 0 1px 3px #ddd;
   border-radius: 4px;
   vertical-align: middle;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 /*
@@ -776,8 +765,6 @@ since IE8 won't execute CSS that contains a CSS3 selector.
   border: 1px solid #ccc;
   box-shadow: inset 0 1px 3px #ddd;
   border-radius: 4px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 /* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
@@ -1000,6 +987,9 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 .pure-form .pure-input-1 {
   width: 100%; }
 
+.pure-form .pure-input-3-4 {
+  width: 75%; }
+
 .pure-form .pure-input-2-3 {
   width: 66%; }
 
@@ -1083,8 +1073,6 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 
 /*csslint adjoining-classes: false, box-model:false*/
 .pure-menu {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 .pure-menu-fixed {

@@ -82,9 +82,12 @@ KalaStatic.prototype.build = function () {
         reject(err);
       } else {
         // Find the KSS Twig builder.
-        var builder = require.resolve('kss')
-        builder = path.dirname(builder)
-        builder = path.join(builder, 'builder', 'twig')
+        var kssBuilder = self.nconf.get('builder')
+        if (!kssBuilder) {
+          kssBuilder = require.resolve('kss')
+          kssBuilder = path.dirname(kssBuilder)
+          kssBuilder = path.join(kssBuilder, 'builder', 'twig')
+        }
         var argv = [
           'kss',
           // Make sure we log everything.
@@ -96,7 +99,7 @@ KalaStatic.prototype.build = function () {
           // Write to the build directory.
           '--destination=' + path.join(base, dest, 'styleguide'),
           // Choose the Twig builder.
-          '--builder=' + builder,
+          '--builder=' + kssBuilder,
           // Load main.css
           '--css=' + css
         ]

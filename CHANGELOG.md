@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.13: 2016-12-13
+
+- Allow using a custom KSS Builder
+
 ## 2.1.12: 2016-12-05
 
 - Fix process exit code on error

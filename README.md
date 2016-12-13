@@ -43,23 +43,26 @@ html(lang="en")
 KalaStatic can be configured through a `kalastatic.yml` file. The default options are as follows:
 
 ``` yml
-# The base directory of where your package.json lives.
+# The base directory of where the base KalaStatic lives.
 base: '.',
 
 # The directory (from base), where the source content files live.
 source: 'src',
 
-# Additional sources to read for KSS documentation for the styleguide.
-kssSource: [],
-
 # Where to build out the files.
 destination: 'build',
+
+# The options to pass off to the Metalsmith plugins when building, keyed by plugin name.
+pluginOpts: {}
 
 # Where the final CSS will be built out to. This is used for the Styleguide.
 css: '../main.css',
 
-# The options to pass off to the Metalsmith plugins when building, keyed by plugin name.
-pluginOpts: {}
+# Additional sources to read for KSS documentation for the styleguide.
+kssSource: [],
+
+# KSS Builder; Defaults to Twig.
+builder: false
 ```
 
 ### Build
