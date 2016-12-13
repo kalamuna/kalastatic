@@ -11,6 +11,7 @@
   "main": "src/kalastatic.js",
   "dependencies": {
     "commander": "^2.9.0",
+    "concurrently": "^3.1.0",
     "extend-shallow": "^2.0.1",
     "for-each": "^0.3.2",
     "jstransformer-commonmark": "^0.3.1",
@@ -44,7 +45,8 @@
   "scripts": {
     "test": "node test",
     "posttest": "xo --space bin src test/index.js",
-    "examples": "cd examples/mdl-blog && npm i && npm test"
+    "examples": "cd examples/mdl-blog && npm i && npm test",
+    "start": "./bin/kalastatic start"
   },
   "bin": {
     "kalastatic": "./bin/kalastatic"

@@ -4,16 +4,17 @@
  * Module dependencies.
  */
 
-var KalaStatic = require('..');
-var program = require('commander');
-var nconf = require('nconf');
+var KalaStatic = require('..')
+var program = require('commander')
+var nconf = require('nconf')
+var fs = require('fs')
+var path = require('path')
 
-function retrieveConfig(configFile) {
-  configFile = configFile || 'kalastatic.yaml';
+function retrieveConfig(options) {
   nconf.argv()
    .env()
    .file('kalastatic', {
-     file: configFile,
+     file: options.config || 'kalastatic.yaml',
      format: require('nconf-yaml')
    })
    .file('package', {
@@ -24,14 +25,41 @@ function retrieveConfig(configFile) {
 
 program
   .version(require('../package.json').version)
-  .command('build [configFile]')
+
+program
+  .command('build')
   .description('Build in the current working directory, using the given config file.')
-  .action(function (configFile) {
-    var conf = retrieveConfig(configFile);
+  .option('-c, --config <file>', 'set the configuration file, defaults to kalastatic.yaml')
+  .action(function (options) {
+    var conf = retrieveConfig(options);
     var kalastatic = new KalaStatic(conf);
     kalastatic.build().catch(function (err) {
       console.error(err)
       process.exitCode = 1
+    })
+  })
+
+program
+  .command('start')
+  .description('Watch and serve KalaStatic')
+  .option('-c, --config <file>', 'set the configuration file, defaults to kalastatic.yaml')
+  .action(function (options) {
+    var conf = retrieveConfig(options);
+    var kalastatic = new KalaStatic(conf);
+
+    var build = function () {
+      kalastatic.build().catch(function (err) {
+        console.error(err)
+      })
+    }
+
+    build();
+
+    var base = conf.get('base') || '.'
+    var source = conf.get('source') || 'src'
+    var finalSource = path.join(base, source)
+    fs.watch(finalSource, {recursive: true}, function () {
+      build();
     })
   })
 
