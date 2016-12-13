@@ -36,11 +36,12 @@
     "test": "npm run build",
     "posttest": "npm run a11y",
     "start": "grunt",
-    "postinstall": "bower install && find node_modules/ -name '*.info' -type f -delete",
+    "postinstall": "bower install --allow-root && find node_modules/ -name '*.info' -type f -delete",
     "deploy": "grunt deploy",
     "kss": "kss-node --config='kss-node.json'",
     "prea11y": "mkdir -p build/a11y",
-    "a11y": "./bin/kalastatic-pa11y.js"
+    "a11y": "./bin/kalastatic-pa11y.js",
+    "installstart": "npm i && npm start"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

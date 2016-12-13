@@ -1,0 +1,29 @@
+# Docker Compose
+# https://docs.docker.com/compose/
+# Install at https://beta.docker.com
+# Run using:
+#
+#     docker-compose up
+#
+
+# Web Server
+web:
+  # Build off of https://hub.docker.com/r/library/node/ .
+  image: node:4
+
+  # Expose port 80 to the outside world.
+  ports:
+    - "8000:80"
+
+  # Mount the current working directory to /app.
+  volumes:
+    - ./:/app
+
+  # Have npm install dependencies and start up when running.
+  command: npm run installstart
+
+  # State that we will start running from /app.
+  working_dir: /app
+
+  # Re-run "command" when restarting.
+  restart: always
