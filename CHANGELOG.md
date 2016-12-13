@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.15: 2016-12-13
+
+- Allow changing the KSS homepage
+
 ## 2.1.14: 2016-12-13
 
 - Allow changing the KSS title

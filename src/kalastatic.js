@@ -52,6 +52,7 @@ KalaStatic.prototype.build = function () {
   return new Promise(function (resolve, reject) {
     // Create the environment.
     var base = self.nconf.get('base');
+    var kssHomepage = self.nconf.get('kssHomepage');
     var kssTitle = self.nconf.get('kssTitle');
     var metalsmith = new Metalsmith(base);
     var plugins = self.nconf.get('plugins')
@@ -106,6 +107,9 @@ KalaStatic.prototype.build = function () {
         ]
         if (kssTitle) {
           argv.push('--title=' + kssTitle)
+        }
+        if (kssHomepage) {
+          argv.push('--homepage=' + kssHomepage)
         }
         for (var dirIndex in kssSource) {
           argv.push('--source=' + kssSource[dirIndex])
