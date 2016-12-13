@@ -7,7 +7,7 @@ cta:
   cta: Contact us
   url: "/contact"
 ---
-<h3 class="bg-primary">Kalastatic is a static framework for prototyping responsive sites, styleguides, and designing in-browser.</h3>
+<h3 class="bg-primary">KalaStatic is a static framework for prototyping responsive sites, styleguides, and designing in-browser.</h3>
 
 
 With Kalastatic we close the gap early between **visual design**, **content strategy** and **frontend development**.
