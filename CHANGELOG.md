@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.14: 2016-12-13
+
+- Allow changing the KSS title
+
 ## 2.1.13: 2016-12-13
 
 - Allow using a custom KSS Builder
