@@ -1,8 +1,8 @@
-var assert = require('assert');
-var path = require('path');
-var kss = require('kss/lib/cli');
-var forEach = require('for-each');
-var Metalsmith = require('metalsmith');
+var assert = require('assert')
+var path = require('path')
+var kss = require('kss/lib/cli')
+var forEach = require('for-each')
+var Metalsmith = require('metalsmith')
 var extend = require('extend-shallow')
 
 function KalaStatic(nconf) {
@@ -52,6 +52,7 @@ KalaStatic.prototype.build = function () {
   return new Promise(function (resolve, reject) {
     // Create the environment.
     var base = self.nconf.get('base');
+    var kssTitle = self.nconf.get('kssTitle');
     var metalsmith = new Metalsmith(base);
     var plugins = self.nconf.get('plugins')
     var pluginDefaults = self.nconf.get('pluginDefaults')
@@ -103,6 +104,9 @@ KalaStatic.prototype.build = function () {
           // Load main.css
           '--css=' + css
         ]
+        if (kssTitle) {
+          argv.push('--title=' + kssTitle)
+        }
         for (var dirIndex in kssSource) {
           argv.push('--source=' + kssSource[dirIndex])
         }
