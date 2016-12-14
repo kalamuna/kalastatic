@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.16: 2016-12-14
+
+- Use strict
+
 ## 2.1.15: 2016-12-13
 
 - Allow changing the KSS homepage
