@@ -1,5 +1,4 @@
 'use strict'
-
 var assert = require('assert')
 var path = require('path')
 var kss = require('kss/lib/cli')
@@ -15,9 +14,15 @@ function KalaStatic(nconf) {
   nconf.defaults({
     base: '.',
     source: 'src',
-    kssSource: [],
+    kss: {
+      source: [
+        'src',
+      ],
+      destination: 'build',
+      css: '../main.css',
+      homepage: 'homepage.md'
+    },
     destination: 'build',
-    css: '../main.css',
     plugins: [
       // Load information from the environment variables.
       'metalsmith-env',
@@ -50,16 +55,19 @@ function KalaStatic(nconf) {
 }
 
 KalaStatic.prototype.build = function () {
+
   var self = this;
+
   return new Promise(function (resolve, reject) {
+
     // Create the environment.
-    var base = self.nconf.get('base');
-    var kssHomepage = self.nconf.get('kssHomepage');
-    var kssTitle = self.nconf.get('kssTitle');
-    var metalsmith = new Metalsmith(base);
-    var plugins = self.nconf.get('plugins')
-    var pluginDefaults = self.nconf.get('pluginDefaults')
-    var pluginOpts = self.nconf.get('pluginOpts')
+    var config = self.nconf
+    var base = config.get('base')
+    var kssConf = config.get('kss')
+    var metalsmith = new Metalsmith(base)
+    var plugins = config.get('plugins')
+    var pluginDefaults = config.get('pluginDefaults')
+    var pluginOpts = config.get('pluginOpts')
     var options = extend(pluginDefaults, pluginOpts)
 
     // Plugins.
@@ -71,10 +79,9 @@ KalaStatic.prototype.build = function () {
     }
 
     // Retrieve configuration for the application.
-    var source = self.nconf.get('source');
-    var dest = self.nconf.get('destination');
-    var css = self.nconf.get('css');
-    var kssSource = self.nconf.get('kssSource')
+    var source = config.get('source');
+    var dest = kssConf.destination;
+    var css = kssConf.css;
 
     // Set up Metalsmith.
     metalsmith.source(source);
@@ -82,48 +89,66 @@ KalaStatic.prototype.build = function () {
 
     // Build the application.
     metalsmith.build(function (err) {
+
       if (err) {
+
         reject(err);
-      } else {
-        // Find the KSS Twig builder.
-        var kssBuilder = self.nconf.get('builder')
-        if (!kssBuilder) {
-          kssBuilder = require.resolve('kss')
-          kssBuilder = path.dirname(kssBuilder)
-          kssBuilder = path.join(kssBuilder, 'builder', 'twig')
+
+      } else if( !kssConf.config ){
+
+        // If none specified, find the default KSS Twig builder.
+        if( !kssConf.builder ) {
+          kssConf.builder = self.nconf.get('builder')
+          kssConf.builder = require.resolve('kss')
+          kssConf.builder = path.dirname(kssConf.builder)
+          kssConf.builder = path.join(kssConf.builder, 'builder', 'twig')
         }
+
+        console.log("» css »»»", css);
+
         var argv = [
           'kss',
           // Make sure we log everything.
           '--verbose',
           // Add KalaStatic's src directory, so that there is a good base.
           '--source=' + path.resolve(__dirname),
-          // Scan the application directory.
-          '--source=' + path.join(base, source),
           // Write to the build directory.
           '--destination=' + path.join(base, dest, 'styleguide'),
           // Choose the Twig builder.
-          '--builder=' + kssBuilder,
+          '--builder=' + kssConf.builder,
           // Load main.css
-          '--css=' + css
+          '--css=' + css,
         ]
-        if (kssTitle) {
-          argv.push('--title=' + kssTitle)
-        }
-        if (kssHomepage) {
-          argv.push('--homepage=' + kssHomepage)
-        }
-        for (var dirIndex in kssSource) {
-          argv.push('--source=' + kssSource[dirIndex])
+
+        if (kssConf.title) {
+          argv.push('--title=' + kssConf.title)
         }
 
-        // Now that it's complete, run KSS on it.
-        kss({
-          stdout: process.stdout,
-          stderr: reject,
-          argv: argv
-        }).then(resolve).catch(reject);
+        if (kssConf.homepage) {
+          argv.push('--homepage=' + kssConf.homepage)
+        }
+
+        for (var dirIndex in kssConf.source) {
+          argv.push('--source=' + path.join(base, kssConf.source[dirIndex]))
+        }
+
+        console.log('argv', argv);
+
+      } else {
+        // simple!
+        var argv = [
+          'kss',
+          '--config=' + kssConf.config
+        ]
       }
+
+      // Now that it's complete, run KSS on it.
+      kss({
+        stdout: process.stdout,
+        stderr: reject,
+        argv: argv
+      }).then(resolve).catch(reject);
+
     });
   });
 };
