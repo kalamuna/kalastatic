@@ -17,19 +17,19 @@ function setupTest(name) {
         base: path.join('test', 'fixtures', name)
       });
 
-      if (name === 'styles') {
-        conf.overrides({
-          base: path.join('test', 'fixtures', name),
-          kss: {
-            destination: 'build',
-            css: '../main.css',
-            homepage: 'homepage.md',
-            source: [
-              'test/fixtures/styles/src/'
-            ]
-          }
-        });
-      }
+      // if (name === 'styles') {
+      //   conf.overrides({
+      //     base: path.join('test', 'fixtures', name),
+      //     kss: {
+      //       destination: 'build',
+      //       css: '../main.css',
+      //       homepage: 'homepage.md',
+      //       source: [
+      //         'src/'
+      //       ]
+      //     }
+      //   });
+      // }
 
       // Create the environment.
       var kalastatic = new KalaStatic(conf);

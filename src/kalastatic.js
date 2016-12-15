@@ -15,7 +15,10 @@ function KalaStatic(nconf) {
     base: '.',
     source: 'src',
     kss: {
-      destination: "build",
+      source: [
+        'src',
+      ],
+      destination: 'build',
       css: '../main.css',
       homepage: 'homepage.md'
     },
@@ -126,7 +129,7 @@ KalaStatic.prototype.build = function () {
         }
 
         for (var dirIndex in kssConf.source) {
-          argv.push('--source=' + kssConf.source[dirIndex])
+          argv.push('--source=' + path.join(base, kssConf.source[dirIndex]))
         }
 
         console.log('argv', argv);
