@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.0: 2016-12-15
+
+- Introduces kalastatic.yaml kss->config file use
+  - From @thiagodemellobueno
+
 ## 2.1.16: 2016-12-14
 
 - Use strict

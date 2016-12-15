@@ -2,13 +2,12 @@
 var assert = require('assert')
 var path = require('path')
 var kss = require('kss/lib/cli')
-var forEach = require('for-each')
 var Metalsmith = require('metalsmith')
 var extend = require('extend-shallow')
 
 function KalaStatic(nconf) {
   // Make sure there is an nconf configuration.
-  assert(nconf, 'An nconf configuration is required.');
+  assert(nconf, 'An nconf configuration is required.')
 
   // Set the default values.
   nconf.defaults({
@@ -16,7 +15,7 @@ function KalaStatic(nconf) {
     source: 'src',
     kss: {
       source: [
-        'src',
+        'src'
       ],
       destination: 'build',
       css: '../main.css',
@@ -48,18 +47,15 @@ function KalaStatic(nconf) {
       'metalsmith-ignore': '**/_*'
     },
     pluginOpts: {}
-  });
+  })
 
   // Set the properties of the object.
-  this.nconf = nconf;
+  this.nconf = nconf
 }
 
 KalaStatic.prototype.build = function () {
-
-  var self = this;
-
+  var self = this
   return new Promise(function (resolve, reject) {
-
     // Create the environment.
     var config = self.nconf
     var base = config.get('base')
@@ -72,42 +68,45 @@ KalaStatic.prototype.build = function () {
 
     // Plugins.
     for (var i in plugins) {
-      var name = plugins[i]
-      var mod = require(name)
-      var opts = options[name] || {}
-      metalsmith.use(mod(opts))
+      if (plugins[i]) {
+        var name = plugins[i]
+        var mod = require(name)
+        var opts = options[name] || {}
+        metalsmith.use(mod(opts))
+      }
     }
 
     // Retrieve configuration for the application.
-    var source = config.get('source');
-    var dest = kssConf.destination;
-    var css = kssConf.css;
+    var source = config.get('source')
+    var dest = kssConf.destination
+    var css = kssConf.css
 
     // Set up Metalsmith.
-    metalsmith.source(source);
-    metalsmith.destination(dest);
+    metalsmith.source(source)
+    metalsmith.destination(dest)
 
     // Build the application.
     metalsmith.build(function (err) {
-
       if (err) {
+        return reject(err)
+      }
 
-        reject(err);
-
-      } else if( !kssConf.config ){
-
+      // Check if we're to build the KSS Config.
+      var argv = ['kss']
+      if (kssConf.config) {
+        // Use KSS's config file.
+        argv.push('--config=' + kssConf.config)
+      } else {
         // If none specified, find the default KSS Twig builder.
-        if( !kssConf.builder ) {
-          kssConf.builder = self.nconf.get('builder')
+        if (!kssConf.builder) {
+          kssConf.builder = config.get('builder')
           kssConf.builder = require.resolve('kss')
           kssConf.builder = path.dirname(kssConf.builder)
           kssConf.builder = path.join(kssConf.builder, 'builder', 'twig')
         }
 
-        console.log("» css »»»", css);
-
-        var argv = [
-          'kss',
+        // Build the KSS arguments.
+        argv.push(
           // Make sure we log everything.
           '--verbose',
           // Add KalaStatic's src directory, so that there is a good base.
@@ -117,29 +116,19 @@ KalaStatic.prototype.build = function () {
           // Choose the Twig builder.
           '--builder=' + kssConf.builder,
           // Load main.css
-          '--css=' + css,
-        ]
-
+          '--css=' + css
+        )
         if (kssConf.title) {
           argv.push('--title=' + kssConf.title)
         }
-
         if (kssConf.homepage) {
           argv.push('--homepage=' + kssConf.homepage)
         }
-
         for (var dirIndex in kssConf.source) {
-          argv.push('--source=' + path.join(base, kssConf.source[dirIndex]))
+          if (kssConf.source[dirIndex]) {
+            argv.push('--source=' + path.join(base, kssConf.source[dirIndex]))
+          }
         }
-
-        console.log('argv', argv);
-
-      } else {
-        // simple!
-        var argv = [
-          'kss',
-          '--config=' + kssConf.config
-        ]
       }
 
       // Now that it's complete, run KSS on it.
@@ -147,10 +136,9 @@ KalaStatic.prototype.build = function () {
         stdout: process.stdout,
         stderr: reject,
         argv: argv
-      }).then(resolve).catch(reject);
+      }).then(resolve).catch(reject)
+    })
+  })
+}
 
-    });
-  });
-};
-
-module.exports = KalaStatic;
+module.exports = KalaStatic

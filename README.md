@@ -55,14 +55,16 @@ destination: 'build',
 # The options to pass off to the Metalsmith plugins when building, keyed by plugin name.
 pluginOpts: {}
 
-# Where the final CSS will be built out to. This is used for the Styleguide.
-css: '../main.css',
-
-# Additional sources to read for KSS documentation for the styleguide.
-kssSource: [],
-
-# KSS Builder; Defaults to Twig.
-builder: false
+# KSS Styleguide Configuration
+kss:
+  # Set the path to a custom KSS Builder
+  builder: null
+  title: "Styleguide"
+  homepage: styles/homepage.md
+  css: ../styles/main.css
+  source:
+    - src/components/
+    - src/styles/
 ```
 
 ### Build
