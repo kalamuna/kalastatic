@@ -1,0 +1,10 @@
+{
+  "buttons": {
+    "Button One": {
+      "title": "The First Button"
+    },
+    "Button Two": {
+      "title": "The Second Button"
+    }
+  }
+}

@@ -66,6 +66,23 @@ KalaStatic.prototype.build = function () {
     var pluginOpts = config.get('pluginOpts')
     var options = extend(pluginDefaults, pluginOpts)
 
+    // Retrieve configuration for the application.
+    var source = config.get('source')
+    var dest = kssConf.destination
+    var css = kssConf.css
+
+    // Set up Metalsmith.
+    metalsmith.source(source)
+    metalsmith.destination(dest)
+
+    // Set the initial metadata.
+    metalsmith.metadata({
+      // TODO: Move this to JSTransformer Engine Options.
+      namespaces: {
+        kalastatic: path.join(base, source)
+      }
+    })
+
     // Plugins.
     for (var i in plugins) {
       if (plugins[i]) {
@@ -75,15 +92,6 @@ KalaStatic.prototype.build = function () {
         metalsmith.use(mod(opts))
       }
     }
-
-    // Retrieve configuration for the application.
-    var source = config.get('source')
-    var dest = kssConf.destination
-    var css = kssConf.css
-
-    // Set up Metalsmith.
-    metalsmith.source(source)
-    metalsmith.destination(dest)
 
     // Build the application.
     metalsmith.build(function (err) {
@@ -116,7 +124,9 @@ KalaStatic.prototype.build = function () {
           // Choose the Twig builder.
           '--builder=' + kssConf.builder,
           // Load main.css
-          '--css=' + css
+          '--css=' + css,
+          // Add the Twig Namespace.
+          '--namespace=' + 'kalastatic:' + path.join(base, source)
         )
         if (kssConf.title) {
           argv.push('--title=' + kssConf.title)
