@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.1: 2016-12-15
+
+- Adds Twig Namespace support for KSS
+
 ## 2.2.0: 2016-12-15
 
 - Introduces kalastatic.yaml kss->config file use
