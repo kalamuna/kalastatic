@@ -124,9 +124,9 @@ KalaStatic.prototype.build = function () {
         if (kssConf.homepage) {
           argv.push('--homepage=' + kssConf.homepage)
         }
-        for (var dirIndex in kssConf.source) {
+        for (var dirIndex in kssConf.js) {
           if (kssConf.source[dirIndex]) {
-            argv.push('--source=' + path.join(base, kssConf.source[dirIndex]))
+            argv.push('--js=' + path.join(base, kssConf.js[dirIndex]))
           }
         }
       }
