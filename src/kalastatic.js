@@ -14,9 +14,12 @@ function KalaStatic(nconf) {
   nconf.defaults({
     base: '.',
     source: 'src',
-    kssSource: [],
+    kss: {
+      destination: "build",
+      css: '../main.css',
+      homepage: 'homepage.md'
+    },
     destination: 'build',
-    css: '../main.css',
     plugins: [
       // Load information from the environment variables.
       'metalsmith-env',
@@ -49,16 +52,19 @@ function KalaStatic(nconf) {
 }
 
 KalaStatic.prototype.build = function () {
-  var self = this;
-  return new Promise(function (resolve, reject) {
-    // Create the environment.
-    var base = self.nconf.get('base');
-    var kssConf = self.nconf.get('kss');
 
+  var self = this;
+
+  return new Promise(function (resolve, reject) {
+
+    // Create the environment.
+    var config = self.nconf;
+    var base = config.get('base');
+    var kssConf = config.get('kss');
     var metalsmith = new Metalsmith(base);
-    var plugins = self.nconf.get('plugins')
-    var pluginDefaults = self.nconf.get('pluginDefaults')
-    var pluginOpts = self.nconf.get('pluginOpts')
+    var plugins = config.get('plugins')
+    var pluginDefaults = config.get('pluginDefaults')
+    var pluginOpts = config.get('pluginOpts')
     var options = extend(pluginDefaults, pluginOpts)
 
     // Plugins.
@@ -70,11 +76,9 @@ KalaStatic.prototype.build = function () {
     }
 
     // Retrieve configuration for the application.
-    var source = kssConf.source;
-    var dest = kssConf.destination || nconf.defaults.destination;
+    var source = config.get('source');
+    var dest = kssConf.destination;
     var css = kssConf.css;
-
-    var kssSource = kssConf.source;
 
     // Set up Metalsmith.
     metalsmith.source(source);
@@ -84,16 +88,20 @@ KalaStatic.prototype.build = function () {
     metalsmith.build(function (err) {
 
       if (err) {
+
         reject(err);
+
       } else if( !kssConf.config ){
 
-        // Find the default KSS Twig builder.
+        // If none specified, find the default KSS Twig builder.
         if( !kssConf.builder ) {
           kssConf.builder = self.nconf.get('builder')
           kssConf.builder = require.resolve('kss')
-          kssConf.builder = path.dirname(kssBuilder)
-          kssConf.builder = path.join(kssBuilder, 'builder', 'twig')
+          kssConf.builder = path.dirname(kssConf.builder)
+          kssConf.builder = path.join(kssConf.builder, 'builder', 'twig')
         }
+
+        console.log("» css »»»", css);
 
         var argv = [
           'kss',
@@ -101,27 +109,27 @@ KalaStatic.prototype.build = function () {
           '--verbose',
           // Add KalaStatic's src directory, so that there is a good base.
           '--source=' + path.resolve(__dirname),
-          // Scan the application directory.
-          '--source=' + path.join(base, kssConf.source ),
           // Write to the build directory.
           '--destination=' + path.join(base, dest, 'styleguide'),
           // Choose the Twig builder.
           '--builder=' + kssConf.builder,
           // Load main.css
-          '--css=' + css
+          '--css=' + css,
         ]
 
-        if (kssTitle) {
+        if (kssConf.title) {
           argv.push('--title=' + kssConf.title)
         }
 
-        if (kssHomepage) {
+        if (kssConf.homepage) {
           argv.push('--homepage=' + kssConf.homepage)
         }
-        
+
         for (var dirIndex in kssConf.source) {
           argv.push('--source=' + kssConf.source[dirIndex])
         }
+
+        console.log('argv', argv);
 
       } else {
         // simple!
