@@ -88,7 +88,7 @@ KalaStatic.prototype.build = function () {
       } else if( !kssConf.config ){
 
         // Find the default KSS Twig builder.
-        if( !kssConf.builder )
+        if( !kssConf.builder ) {
           kssConf.builder = self.nconf.get('builder')
           kssConf.builder = require.resolve('kss')
           kssConf.builder = path.dirname(kssBuilder)
@@ -114,9 +114,11 @@ KalaStatic.prototype.build = function () {
         if (kssTitle) {
           argv.push('--title=' + kssConf.title)
         }
+
         if (kssHomepage) {
           argv.push('--homepage=' + kssConf.homepage)
         }
+        
         for (var dirIndex in kssConf.source) {
           argv.push('--source=' + kssConf.source[dirIndex])
         }
