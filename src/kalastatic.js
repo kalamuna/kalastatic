@@ -61,10 +61,10 @@ KalaStatic.prototype.build = function () {
   return new Promise(function (resolve, reject) {
 
     // Create the environment.
-    var config = self.nconf;
-    var base = config.get('base');
-    var kssConf = config.get('kss');
-    var metalsmith = new Metalsmith(base);
+    var config = self.nconf
+    var base = config.get('base')
+    var kssConf = config.get('kss')
+    var metalsmith = new Metalsmith(base)
     var plugins = config.get('plugins')
     var pluginDefaults = config.get('pluginDefaults')
     var pluginOpts = config.get('pluginOpts')
