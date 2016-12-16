@@ -169,7 +169,6 @@ KalaStatic.prototype.build = function () {
         }
       }
 
-      console.log( argv )
       // Now that it's complete, run KSS on it.
       kss({
         stdout: process.stdout,
