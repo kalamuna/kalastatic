@@ -127,7 +127,7 @@ KalaStatic.prototype.build = function () {
           // Choose the Twig builder.
           '--builder=' + kssConf.builder,
           // Add the Twig Namespace.
-          '--namespace=' + 'kalastatic:' + kssConf.source
+          '--namespace=' + 'kalastatic:' + path.join(base, source)
         )
 
         if (kssConf.title) {
