@@ -13,9 +13,24 @@ function setupTest(name) {
       var conf = new nconf.Provider()
 
       // Force the settings for the test.
-      conf.overrides({
-        base: path.join('test', 'fixtures', name)
-      })
+
+      if(name === 'styles') {
+
+        conf.overrides({
+          base: path.join('test', 'fixtures', name),
+          kss: {
+            destination: path.join('test', 'fixtures', name, 'build/styleguide'),
+            css: '../styles/main.css',
+            source: path.join('test', 'fixtures', name, 'src/')
+          }
+        })
+
+      } else {
+
+        conf.overrides({
+          base: path.join('test', 'fixtures', name)
+        })
+      }
 
       // Create the environment.
       var kalastatic = new KalaStatic(conf)

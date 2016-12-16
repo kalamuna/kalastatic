@@ -14,12 +14,6 @@ function KalaStatic(nconf) {
   nconf.defaults({
     base: '.',
     source: 'src',
-    kss: {
-      destination: 'build',
-      css: '../styles/main.css',
-      homepage: 'homepage.md',
-      source: 'src'
-    },
     destination: 'build',
     plugins: [
       // Load information from the environment variables.
@@ -96,6 +90,12 @@ KalaStatic.prototype.build = function () {
         return reject(err)
       }
 
+      if( !kssConf ) {
+        // if there are no styles, lets not force things…
+        // msybe they aren't using the styleguide
+        return resolve();
+      }
+
       // Check if we're to build the KSS Config.
       var argv = ['kss']
 
@@ -169,6 +169,7 @@ KalaStatic.prototype.build = function () {
         }
       }
 
+      console.log( argv )
       // Now that it's complete, run KSS on it.
       kss({
         stdout: process.stdout,
