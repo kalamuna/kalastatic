@@ -3,7 +3,7 @@ var assert = require('assert')
 var path = require('path')
 var kss = require('kss/lib/cli')
 var Metalsmith = require('metalsmith')
-var extend = require('extend-shallow')
+var extend = require('extend')
 
 function KalaStatic(nconf) {
   // Make sure there is an nconf configuration.
@@ -42,10 +42,6 @@ function KalaStatic(nconf) {
       // Render all content with JSTransformers.
       'metalsmith-jstransformer'
     ],
-    pluginDefaults: {
-      // Ignore all partials and layouts.
-      'metalsmith-ignore': '**/_*'
-    },
     pluginOpts: {}
   })
 
@@ -61,15 +57,29 @@ KalaStatic.prototype.build = function () {
     var base = config.get('base')
     var kssConf = config.get('kss')
     var metalsmith = new Metalsmith(base)
-    var plugins = config.get('plugins')
-    var pluginDefaults = config.get('pluginDefaults')
-    var pluginOpts = config.get('pluginOpts')
-    var options = extend(pluginDefaults, pluginOpts)
 
     // Retrieve configuration for the application.
     var source = config.get('source')
     var dest = kssConf.destination
     var css = kssConf.css
+
+    // Retrieve the Plugin configuration.
+    var plugins = config.get('plugins')
+    var pluginDefaults = {
+      'metalsmith-jstransformer': {
+        engineOptions: {
+          twig: {
+            namespaces: {
+              'kalastatic': path.join(base, source)
+            }
+          }
+          // TODO: Add any other good engine options in here?
+        }
+      },
+      'metalsmith-ignore': '**/_*'
+    }
+    var pluginOpts = config.get('pluginOpts')
+    var options = extend(true, {}, pluginDefaults, pluginOpts)
 
     // Set up Metalsmith.
     metalsmith.source(source)
