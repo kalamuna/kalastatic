@@ -138,6 +138,8 @@ KalaStatic.prototype.build = function () {
           argv.push('--homepage=' + kssConf.homepage)
         }
 
+        // here we normalize css js and source so we can handle string or array
+
         if( typeof kssConf.css === 'string' ) {
           kssConf.css = [ kssConf.css ]
         }
@@ -150,6 +152,8 @@ KalaStatic.prototype.build = function () {
           kssConf.source = [ kssConf.source ]
         }
 
+        // load up css js and sources
+        
         for (var dirIndex in kssConf.css) {
           if (kssConf.css[dirIndex]) {
             argv.push('--css=' + kssConf.css[dirIndex])
