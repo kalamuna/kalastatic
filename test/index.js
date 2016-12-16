@@ -5,17 +5,20 @@ var assertDir = require('assert-dir-equal')
 var KalaStatic = require('..')
 var test = require('testit')
 var nconf = require('nconf')
+var extend = require('extend-shallow')
 
-function setupTest(name) {
+function setupTest(name, opts) {
   test(name, function () {
     return new Promise(function (resolve, reject) {
       // Create the configuration for the test.
       var conf = new nconf.Provider()
 
       // Force the settings for the test.
-      conf.overrides({
+      var testOpts = {
         base: path.join('test', 'fixtures', name)
-      })
+      }
+      extend(testOpts, opts)
+      conf.overrides(testOpts)
 
       // Create the environment.
       var kalastatic = new KalaStatic(conf)
@@ -36,7 +39,17 @@ function setupTest(name) {
 setupTest('basic')
 setupTest('layouts')
 setupTest('styles')
-setupTest('twig-filters')
+setupTest('twig-filters', {
+  pluginOpts: {
+    'metalsmith-jstransformer': {
+      engineLocals: {
+        twig: {
+          awesomeSauce: 'This Is The AwesomeSauce!'
+        }
+      }
+    }
+  }
+})
 
 test('cli', function (done) {
   var options = {
