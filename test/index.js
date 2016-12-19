@@ -38,7 +38,9 @@ function setupTest(name, opts) {
 
 setupTest('basic')
 setupTest('layouts')
-setupTest('styles')
+setupTest('styles', {
+  kss: true
+})
 setupTest('twig-filters', {
   pluginOpts: {
     'metalsmith-jstransformer': {
