@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.4: 2016-12-19
+
+- Update Twig
+
 ## 2.2.3: 2016-12-16
 
 - Used engineOptions for Twig namespaces
