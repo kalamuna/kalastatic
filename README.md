@@ -40,7 +40,7 @@ html(lang="en")
 
 ### Configuration
 
-KalaStatic can be configured through a `kalastatic.yml` file. The default options are as follows:
+KalaStatic can be configured through a `kalastatic.yaml` file. The default options are as follows:
 
 ``` yml
 # The base directory of where the base KalaStatic lives.
