@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.2.3: 2016-12-16
+
+- Used engineOptions for Twig namespaces
+
+## 2.2.2: 2016-12-16
+
+- Updated dependencies, with engine-specific options
+
 ## 2.2.1: 2016-12-15
 
 - Adds Twig Namespace support for KSS
