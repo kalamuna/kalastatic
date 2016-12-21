@@ -73,19 +73,19 @@ KalaStatic can be used as a command line interface. The following are some of it
 
 #### Build
 
-```
-kalastatic build --conf=<file>
-```
-
 Runs through the KalaStatic build tasks and outputs to the destination folder.
+
+```
+kalastatic build
+```
 
 #### Start
 
-```
-kalastatic start --conf=<file>
-```
-
 Starts up a development server through [BrowserSync](https://www.browsersync.io/) in order to watch and serve KalaStatic. Changes you make to the source will automatically reflect in the browser.
+
+```
+kalastatic start
+```
 
 ### API
 
