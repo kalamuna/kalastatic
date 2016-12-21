@@ -45,33 +45,44 @@ program
   .description('Watch and serve KalaStatic')
   .option('-c, --config <file>', 'set the configuration file, defaults to kalastatic.yaml')
   .action(function (options) {
+    // Build the KalaStatic application, and get the config for it.
     var kalastatic = new KalaStatic(retrieveConfig(options));
     var conf = kalastatic.nconf
-    var bs = browserSync.create('kalastatic')
-
-    var build = function () {
-      kalastatic.build(function () {
-        bs.reload()
-      }).catch(function (err) {
-        console.error(err)
-      })
-    }
-
-    build();
 
     var base = conf.get('base') || '.'
     var source = conf.get('source') || 'src'
     var destination = conf.get('destination') || 'build'
     var finalSource = path.join(base, source, '**')
     var finalDest = path.join(base, destination)
-    console.log(base, destination,source)
 
-    bs.init({
-      server: finalDest,
-      index: 'index.html',
-      serveStatic: ['.']
+    // Build KalaStatic to make sure it works first.
+    kalastatic.build().then(function () {
+      // Start up the BrowserSync server.
+      var bs = browserSync.create('kalastatic')
+
+      // Set up the server.
+      bs.init({
+        server: finalDest,
+        index: 'index.html',
+        serveStatic: ['.']
+      })
+
+      // Create a watch task.
+      bs.watch(finalSource).on('change', function () {
+        // Rebuild KalaStatic.
+        kalastatic.build().then(function () {
+          // When changes, reload the page.
+          bs.reload('*')
+        }).catch(function (err) {
+          // When errors occur, report them to the console.
+          console.error(err)
+        })
+      })
+    }).catch(function () {
+      // KalaStatic failed, so report it and exit out.
+      console.error(err)
+      process.exitCode = 1
     })
-    bs.watch(finalSource).on('change', build)
   })
 
 if (!process.argv.slice(2).length) {

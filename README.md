@@ -67,17 +67,27 @@ kss:
     - src/styles/
 ```
 
-### Build
+### CLI
 
-#### Globally
+KalaStatic can be used as a command line interface. The following are some of its commands:
 
-    $ kalastatic build
+#### Build
 
-#### Project Dependency
+```
+kalastatic build --conf=<file>
+```
 
-    $ node_modules/.bin/kalastatic build
+Runs through the KalaStatic build tasks and outputs to the destination folder.
 
-## API
+#### Start
+
+```
+kalastatic start --conf=<file>
+```
+
+Starts up a development server through [BrowserSync](https://www.browsersync.io/) in order to watch and serve KalaStatic. Changes you make to the source will automatically reflect in the browser.
+
+### API
 
 KalaStatic can be used a JavaScript API. Calling `KalaStatic()` will build, and return a Promise.
 
