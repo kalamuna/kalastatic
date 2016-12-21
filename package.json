@@ -10,6 +10,7 @@
   ],
   "main": "src/kalastatic.js",
   "dependencies": {
+    "browser-sync": "^2.18.5",
     "commander": "^2.9.0",
     "extend": "^3.0.0",
     "extend-shallow": "^2.0.1",
@@ -44,7 +45,8 @@
   "scripts": {
     "test": "node test",
     "posttest": "xo --space --no-semicolon test",
-    "examples": "cd examples/mdl-blog && npm i && npm test"
+    "examples": "cd examples/mdl-blog && npm i && npm test",
+    "start": "cd test/fixtures/start && ../../../bin/kalastatic start"
   },
   "bin": {
     "kalastatic": "./bin/kalastatic"
