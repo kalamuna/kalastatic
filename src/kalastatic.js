@@ -1,21 +1,19 @@
+'use strict'
 var assert = require('assert')
 var path = require('path')
 var kss = require('kss/lib/cli')
-var forEach = require('for-each')
 var Metalsmith = require('metalsmith')
-var extend = require('extend-shallow')
+var extend = require('extend')
 
 function KalaStatic(nconf) {
   // Make sure there is an nconf configuration.
-  assert(nconf, 'An nconf configuration is required.');
+  assert(nconf, 'An nconf configuration is required.')
 
   // Set the default values.
   nconf.defaults({
     base: '.',
     source: 'src',
-    kssSource: [],
     destination: 'build',
-    css: '../main.css',
     plugins: [
       // Load information from the environment variables.
       'metalsmith-env',
@@ -36,94 +34,148 @@ function KalaStatic(nconf) {
       // Render all content with JSTransformers.
       'metalsmith-jstransformer'
     ],
-    pluginDefaults: {
-      // Ignore all partials and layouts.
-      'metalsmith-ignore': '**/_*'
-    },
     pluginOpts: {}
-  });
+  })
 
   // Set the properties of the object.
-  this.nconf = nconf;
+  this.nconf = nconf
 }
 
 KalaStatic.prototype.build = function () {
-  var self = this;
+  var self = this
   return new Promise(function (resolve, reject) {
     // Create the environment.
-    var base = self.nconf.get('base');
-    var kssHomepage = self.nconf.get('kssHomepage');
-    var kssTitle = self.nconf.get('kssTitle');
-    var metalsmith = new Metalsmith(base);
-    var plugins = self.nconf.get('plugins')
-    var pluginDefaults = self.nconf.get('pluginDefaults')
-    var pluginOpts = self.nconf.get('pluginOpts')
-    var options = extend(pluginDefaults, pluginOpts)
+    var config = self.nconf
+    var base = config.get('base')
+    var metalsmith = new Metalsmith(base)
+    var source = config.get('source');
 
-    // Plugins.
-    for (var i in plugins) {
-      var name = plugins[i]
-      var mod = require(name)
-      var opts = options[name] || {}
-      metalsmith.use(mod(opts))
+    // Retrieve the Plugin configuration.
+    var plugins = config.get('plugins')
+    var pluginDefaults = {
+      'metalsmith-jstransformer': {
+        engineOptions: {
+          twig: {
+            namespaces: {
+              'kalastatic': path.join(base, source)
+            }
+          }
+          // TODO: Add any other good engine options in here?
+        }
+      },
+      'metalsmith-ignore': '**/_*'
     }
-
-    // Retrieve configuration for the application.
-    var source = self.nconf.get('source');
-    var dest = self.nconf.get('destination');
-    var css = self.nconf.get('css');
-    var kssSource = self.nconf.get('kssSource')
+    var pluginOpts = config.get('pluginOpts')
+    var options = extend(true, {}, pluginDefaults, pluginOpts)
 
     // Set up Metalsmith.
-    metalsmith.source(source);
-    metalsmith.destination(dest);
+    metalsmith.source(source)
+    metalsmith.destination(config.get('destination'))
+
+    // Load the Metalsmith Plugins.
+    for (var i in plugins) {
+      if (plugins[i]) {
+        var name = plugins[i]
+        var mod = require(name)
+        var opts = options[name] || {}
+        metalsmith.use(mod(opts))
+      }
+    }
 
     // Build the application.
     metalsmith.build(function (err) {
       if (err) {
-        reject(err);
+        return reject(err)
+      }
+
+      // Construct the default KSS options.
+      var kssDefaultConf = {
+        destination: 'styleguide',
+        builder: path.join(path.dirname(require.resolve('kss')), 'builder', 'twig'),
+        css: '../main.css'
+      }
+
+      // Retrieve the KSS config.
+      var kssConf = config.get('kss')
+      if (kssConf === true) {
+        kssConf = {}
+      } else if( !kssConf ) {
+        // If we don't set a "kss: true", don't build the styleguide.
+        return resolve();
+      }
+
+      // Check if we're to build the KSS Config.
+      var argv = ['kss']
+      if (kssConf.config) {
+        // Use KSS's config file.
+        argv.push('--config=' + kssConf.config)
       } else {
-        // Find the KSS Twig builder.
-        var kssBuilder = self.nconf.get('builder')
-        if (!kssBuilder) {
-          kssBuilder = require.resolve('kss')
-          kssBuilder = path.dirname(kssBuilder)
-          kssBuilder = path.join(kssBuilder, 'builder', 'twig')
-        }
-        var argv = [
-          'kss',
+        // Merge in the default KSS configuration.
+        kssConf = extend({}, kssDefaultConf, kssConf)
+
+        // Build the KSS arguments.
+        argv.push(
           // Make sure we log everything.
           '--verbose',
           // Add KalaStatic's src directory, so that there is a good base.
-          '--source=' + path.resolve(__dirname),
-          // Scan the application directory.
-          '--source=' + path.join(base, source),
-          // Write to the build directory.
-          '--destination=' + path.join(base, dest, 'styleguide'),
+          '--destination=' + path.join(base, config.get('destination'), kssConf.destination),
           // Choose the Twig builder.
-          '--builder=' + kssBuilder,
-          // Load main.css
-          '--css=' + css
-        ]
-        if (kssTitle) {
-          argv.push('--title=' + kssTitle)
+          '--builder=' + kssConf.builder,
+          // Add the Twig Namespace.
+          '--namespace=' + 'kalastatic:' + path.join(base, source)
+        )
+
+        // Add the optional configurations.
+        if (kssConf.title) {
+          argv.push('--title=' + kssConf.title)
         }
-        if (kssHomepage) {
-          argv.push('--homepage=' + kssHomepage)
-        }
-        for (var dirIndex in kssSource) {
-          argv.push('--source=' + kssSource[dirIndex])
+        if (kssConf.homepage) {
+          argv.push('--homepage=' + kssConf.homepage)
         }
 
-        // Now that it's complete, run KSS on it.
-        kss({
-          stdout: process.stdout,
-          stderr: reject,
-          argv: argv
-        }).then(resolve).catch(reject);
+        // Normalize the CSS and JavaScript sources so we can handle string or array.
+        if (typeof kssConf.css === 'string') {
+          kssConf.css = [kssConf.css]
+        }
+        if (typeof kssConf.js === 'string') {
+          kssConf.js = [kssConf.js]
+        }
+        if (typeof kssConf.source === 'string') {
+          kssConf.source = [kssConf.source]
+        } else if (!kssConf.source) {
+          kssConf.source = [path.join(base, source)]
+        }
+
+        // Load up the stylesheets.
+        for (var dirIndex in kssConf.css) {
+          if (kssConf.css[dirIndex]) {
+            argv.push('--css=' + kssConf.css[dirIndex])
+          }
+        }
+
+        // Load up the KSS sources.
+        for (var dirIndex in kssConf.source) {
+          if (kssConf.source[dirIndex]) {
+            argv.push('--source=' + kssConf.source[dirIndex])
+          }
+        }
+
+        // Load up the JavaScript.
+        for (var dirIndex in kssConf.js) {
+          if (kssConf.js[dirIndex]) {
+            argv.push('--js=' + kssConf.js[dirIndex])
+          }
+        }
       }
-    });
-  });
-};
 
-module.exports = KalaStatic;
+      // Now that it's complete, run KSS on it.
+      kss({
+        stdout: process.stdout,
+        stderr: reject,
+        argv: argv
+      }).then(resolve).catch(reject)
+    })
+  })
+}
+
+module.exports = KalaStatic

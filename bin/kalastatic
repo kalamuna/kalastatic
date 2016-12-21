@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict';
 
 /**
  * Module dependencies.
@@ -7,8 +8,8 @@
 var KalaStatic = require('..')
 var program = require('commander')
 var nconf = require('nconf')
-var fs = require('fs')
 var path = require('path')
+var browserSync = require('browser-sync')
 
 function retrieveConfig(options) {
   nconf.argv()
@@ -44,11 +45,14 @@ program
   .description('Watch and serve KalaStatic')
   .option('-c, --config <file>', 'set the configuration file, defaults to kalastatic.yaml')
   .action(function (options) {
-    var conf = retrieveConfig(options);
-    var kalastatic = new KalaStatic(conf);
+    var kalastatic = new KalaStatic(retrieveConfig(options));
+    var conf = kalastatic.nconf
+    var bs = browserSync.create('kalastatic')
 
     var build = function () {
-      kalastatic.build().catch(function (err) {
+      kalastatic.build(function () {
+        bs.reload()
+      }).catch(function (err) {
         console.error(err)
       })
     }
@@ -57,10 +61,17 @@ program
 
     var base = conf.get('base') || '.'
     var source = conf.get('source') || 'src'
-    var finalSource = path.join(base, source)
-    fs.watch(finalSource, {recursive: true}, function () {
-      build();
+    var destination = conf.get('destination') || 'build'
+    var finalSource = path.join(base, source, '**')
+    var finalDest = path.join(base, destination)
+    console.log(base, destination,source)
+
+    bs.init({
+      server: finalDest,
+      index: 'index.html',
+      serveStatic: ['.']
     })
+    bs.watch(finalSource).on('change', build)
   })
 
 if (!process.argv.slice(2).length) {
