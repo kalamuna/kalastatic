@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.0: 2016-12-21
+
+- Added `kalastatic start` to start a local development environment
+
 ## 2.2.4: 2016-12-19
 
 - Update Twig

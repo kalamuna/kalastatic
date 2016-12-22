@@ -48,7 +48,7 @@ KalaStatic.prototype.build = function () {
     var config = self.nconf
     var base = config.get('base')
     var metalsmith = new Metalsmith(base)
-    var source = config.get('source');
+    var source = config.get('source')
 
     // Retrieve the Plugin configuration.
     var plugins = config.get('plugins')
@@ -57,10 +57,9 @@ KalaStatic.prototype.build = function () {
         engineOptions: {
           twig: {
             namespaces: {
-              'kalastatic': path.join(base, source)
+              kalastatic: path.join(base, source)
             }
           }
-          // TODO: Add any other good engine options in here?
         }
       },
       'metalsmith-ignore': '**/_*'
@@ -76,7 +75,7 @@ KalaStatic.prototype.build = function () {
     for (var i in plugins) {
       if (plugins[i]) {
         var name = plugins[i]
-        var mod = require(name)
+        var mod = require(name) // eslint-disable-line import/no-dynamic-require
         var opts = options[name] || {}
         metalsmith.use(mod(opts))
       }
@@ -99,9 +98,9 @@ KalaStatic.prototype.build = function () {
       var kssConf = config.get('kss')
       if (kssConf === true) {
         kssConf = {}
-      } else if( !kssConf ) {
+      } else if (!kssConf) {
         // If we don't set a "kss: true", don't build the styleguide.
-        return resolve();
+        return resolve()
       }
 
       // Check if we're to build the KSS Config.
@@ -122,7 +121,7 @@ KalaStatic.prototype.build = function () {
           // Choose the Twig builder.
           '--builder=' + kssConf.builder,
           // Add the Twig Namespace.
-          '--namespace=' + 'kalastatic:' + path.join(base, source)
+          '--namespace=kalastatic:' + path.join(base, source)
         )
 
         // Add the optional configurations.
@@ -147,21 +146,22 @@ KalaStatic.prototype.build = function () {
         }
 
         // Load up the stylesheets.
-        for (var dirIndex in kssConf.css) {
+        var dirIndex = 0
+        for (dirIndex in kssConf.css) {
           if (kssConf.css[dirIndex]) {
             argv.push('--css=' + kssConf.css[dirIndex])
           }
         }
 
         // Load up the KSS sources.
-        for (var dirIndex in kssConf.source) {
+        for (dirIndex in kssConf.source) {
           if (kssConf.source[dirIndex]) {
             argv.push('--source=' + kssConf.source[dirIndex])
           }
         }
 
         // Load up the JavaScript.
-        for (var dirIndex in kssConf.js) {
+        for (dirIndex in kssConf.js) {
           if (kssConf.js[dirIndex]) {
             argv.push('--js=' + kssConf.js[dirIndex])
           }

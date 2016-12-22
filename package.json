@@ -2,7 +2,7 @@
   "name": "kalastatic",
   "description": "KalaStatic static-site prototyping framework",
   "repository": "https://github.com/kalamuna/kalastatic.git",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "license": "MIT",
   "files": [
     "src",
@@ -44,7 +44,7 @@
   },
   "scripts": {
     "test": "node test",
-    "posttest": "xo --space --no-semicolon test",
+    "posttest": "xo --space --no-semicolon",
     "examples": "cd examples/mdl-blog && npm i && npm test",
     "start": "cd test/fixtures/start && ../../../bin/kalastatic start"
   },

@@ -48,7 +48,6 @@ program
     // Build the KalaStatic application, and get the config for it.
     var kalastatic = new KalaStatic(retrieveConfig(options));
     var conf = kalastatic.nconf
-
     var base = conf.get('base') || '.'
     var source = conf.get('source') || 'src'
     var destination = conf.get('destination') || 'build'
