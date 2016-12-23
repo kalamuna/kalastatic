@@ -56,6 +56,11 @@ program
 
     // Build KalaStatic to make sure it works first.
     kalastatic.build().then(function () {
+      // Build an unhandled rejection error callback.
+      process.on('unhandledRejection', function (reason) {
+        console.error('Unhandled error: ' + reason)
+      });
+
       // Start up the BrowserSync server.
       var bs = browserSync.create('kalastatic')
 
@@ -77,7 +82,7 @@ program
           console.error(err)
         })
       })
-    }).catch(function () {
+    }).catch(function (err) {
       // KalaStatic failed, so report it and exit out.
       console.error(err)
       process.exitCode = 1
