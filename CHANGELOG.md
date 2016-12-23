@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.1: 2016-12-22
+
+- Added an unhandled Promise exception check in `kalastatic start`
+
 ## 2.3.0: 2016-12-21
 
 - Added `kalastatic start` to start a local development environment
