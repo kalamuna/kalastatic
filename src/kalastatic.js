@@ -25,14 +25,14 @@ function KalaStatic(nconf) {
       'metalsmith-concat-convention',
       // Load all collections.
       'metalsmith-collections-convention',
-      // Bring in static assets.
-      'metalsmith-assets-convention',
       // Ignore all partials and layouts.
       'metalsmith-ignore',
       // Load all Partials.
       'metalsmith-jstransformer-partials',
       // Render all content with JSTransformers.
-      'metalsmith-jstransformer'
+      'metalsmith-jstransformer',
+      // Bring in static assets.
+      'metalsmith-assets-convention'
     ],
     pluginOpts: {}
   })
