@@ -17,6 +17,8 @@ function KalaStatic(nconf) {
     plugins: [
       // Load information from the environment variables.
       'metalsmith-env',
+      // Add .json metadata to each file.
+      'metalsmith-metadata-files',
       // Add base, dir, ext, name, and href info to each file.
       'metalsmith-paths',
       // Load metadata info the metalsmith metadata object.
@@ -169,7 +171,7 @@ KalaStatic.prototype.build = function () {
       }
 
       // Now that it's complete, run KSS on it.
-      kss({
+      return kss({
         stdout: process.stdout,
         stderr: reject,
         argv: argv
