@@ -2,15 +2,11 @@
 
 Static site application framework for prototyping and styleguiding.
 
-## Install
-
-### Dependencies
+## Dependencies
 
 - [Node.js](https://nodejs.org) 4, 6 or 7
 
-### Project Dependency
-
-To install KalaStatic as a dependency in your project:
+## Install
 
     $ npm install kalstatic --save
 
@@ -18,7 +14,7 @@ To install KalaStatic as a dependency in your project:
 
 ### Convention
 
-Construct your source files, using the template engine name in the file extension.
+Construct your source files, using the template engine name in the file extension. The following example uses the [Pug](https://pugjs.org/) template engine, but others are available ([Twig](https://github.com/twigjs/twig.js), [Mustache](https://github.com/janl/mustache.js/), etc).
 
 #### src/index.html.pug
 ``` pug
@@ -40,13 +36,13 @@ KalaStatic can be configured through a `kalastatic.yaml` file. The default optio
 
 ``` yml
 # The base directory of where the base KalaStatic lives.
-base: '.',
+base: .
 
 # The directory (from base), where the source content files live.
-source: 'src',
+source: src
 
-# Where to build out the files.
-destination: 'build',
+# Where the files will be built out to.
+destination: build
 
 # The options to pass off to the Metalsmith plugins when building, keyed by plugin name.
 pluginOpts: {}
