@@ -1307,7 +1307,7 @@ Displays a button on the page.
 {% partial('button', {title: 'Hello World!'}) %}
 ```
 
-Markup: button-example.twig
+Markup: button.twig
 
 Styleguide kalastatic.button
 */
