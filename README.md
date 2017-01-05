@@ -6,11 +6,7 @@ Static site application framework for prototyping and styleguiding.
 
 ### Dependencies
 
-- [node](https://nodejs.org) 4, 5 or 6
-
-### Globally
-
-    $ npm install kalastatic -g
+- [Node.js](https://nodejs.org) 4, 6 or 7
 
 ### Project Dependency
 
@@ -24,18 +20,18 @@ To install KalaStatic as a dependency in your project:
 
 Construct your source files, using the template engine name in the file extension.
 
-#### src/index.html.jade
-``` jade
+#### src/index.html.pug
+``` pug
 ---
-youAreUsingJade: true
 pretty: true
+title: Hello World!
 ---
 doctype html
 html(lang="en")
   head
     title= title
   body
-    h1 Jade - node template engine
+    h1= title
 ```
 
 ### Configuration
