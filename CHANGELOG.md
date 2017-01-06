@@ -4,6 +4,7 @@
 
 - Added support for JSON content files in the prototype
 - Updated to `kss@^3.0.0-beta.17`
+- Added a global `build_path` variable
 
 ## 2.3.1: 2016-12-22
 

@@ -17,6 +17,8 @@ function KalaStatic(nconf) {
     plugins: [
       // Load information from the environment variables.
       'metalsmith-env',
+      // Define any global variables.
+      'metalsmith-define',
       // Add .json metadata to each file.
       'metalsmith-metadata-files',
       // Add base, dir, ext, name, and href info to each file.
@@ -51,10 +53,16 @@ KalaStatic.prototype.build = function () {
     var base = config.get('base')
     var metalsmith = new Metalsmith(base)
     var source = config.get('source')
+    var destination = config.get('destination')
 
     // Retrieve the Plugin configuration.
     var plugins = config.get('plugins')
     var pluginDefaults = {
+      'metalsmith-define': {
+        // Expose both a base_path and a build_path variables.
+        'base_path': '/', // eslint-disable-line quote-props
+        'build_path': '/' // eslint-disable-line quote-props
+      },
       'metalsmith-jstransformer': {
         engineOptions: {
           twig: {
@@ -71,7 +79,7 @@ KalaStatic.prototype.build = function () {
 
     // Set up Metalsmith.
     metalsmith.source(source)
-    metalsmith.destination(config.get('destination'))
+    metalsmith.destination(destination)
 
     // Load the Metalsmith Plugins.
     for (var i in plugins) {
@@ -119,7 +127,7 @@ KalaStatic.prototype.build = function () {
           // Make sure we log everything.
           '--verbose',
           // Add KalaStatic's src directory, so that there is a good base.
-          '--destination=' + path.join(base, config.get('destination'), kssConf.destination),
+          '--destination=' + path.join(base, destination, kssConf.destination),
           // Choose the Twig builder.
           '--builder=' + kssConf.builder,
           // Add the Twig Namespace.

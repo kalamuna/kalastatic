@@ -24,6 +24,7 @@
     "metalsmith-assets-convention": "^1.1.0",
     "metalsmith-collections-convention": "^1.1.1",
     "metalsmith-concat-convention": "^1.1.0",
+    "metalsmith-define": "^2.0.1",
     "metalsmith-env": "^2.0.0",
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-jstransformer": "^0.10.0",
