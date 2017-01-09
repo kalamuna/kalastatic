@@ -10,7 +10,7 @@
   ],
   "main": "src/kalastatic.js",
   "dependencies": {
-    "browser-sync": "^2.18.5",
+    "browser-sync": "^2.18.6",
     "commander": "^2.9.0",
     "extend": "^3.0.0",
     "extend-shallow": "^2.0.1",
@@ -30,7 +30,7 @@
     "metalsmith-jstransformer": "^0.10.0",
     "metalsmith-jstransformer-partials": "^1.2.3",
     "metalsmith-metadata-convention": "^1.0.1",
-    "metalsmith-metadata-files": "^1.0.0",
+    "metalsmith-metadata-files": "^2.0.0",
     "metalsmith-paths": "^3.0.1",
     "nconf": "^0.8.4",
     "nconf-yaml": "^1.0.2"
@@ -38,7 +38,7 @@
   "devDependencies": {
     "assert-dir-equal": "1.*",
     "jstransformer-uglify-js": "^1.1.1",
-    "purecss": "0.6.1",
+    "purecss": "0.6.2",
     "rimraf": "^2.5.4",
     "slug": "^0.9.1",
     "testit": "^2.1.3",
