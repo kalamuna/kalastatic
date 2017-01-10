@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.0.0: 2017-01-05
+## 3.0.0: 2017-01-10
 
 - Added support for JSON content files in the prototype
 - Updated to `kss@^3.0.0-beta.17`
