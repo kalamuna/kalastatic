@@ -1,3 +1,4 @@
 {
-  "description": "This is a metadata file that's injected into twig-test!"
+  "description": "This is a metadata file that's injected into twig-test!",
+  "person": "@kalastatic/person.json"
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.1: 2017-01-12
+
+- The `metalsmith-metadata-files` inherited files key is now `@kalastatic/`
+
 ## 3.0.0: 2017-01-10
 
 - Added support for JSON content files in the prototype
