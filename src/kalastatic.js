@@ -67,7 +67,7 @@ KalaStatic.prototype.build = function () {
         engineOptions: {
           twig: {
             namespaces: {
-              kalastatic: path.join(base, source)
+              kstat: path.join(base, source)
             }
           }
         }
@@ -134,7 +134,7 @@ KalaStatic.prototype.build = function () {
           // Choose the Twig builder.
           '--builder=' + kssConf.builder,
           // Add the Twig Namespace.
-          '--namespace=kalastatic:' + path.join(base, source)
+          '--namespace=kstat:' + path.join(base, source)
         )
 
         // Add the optional configurations.
