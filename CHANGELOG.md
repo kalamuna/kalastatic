@@ -2,7 +2,7 @@
 
 ## 3.0.1: 2017-01-12
 
-- The `metalsmith-metadata-files` inherited files key is now `@kalastatic/`
+- The `metalsmith-metadata-files` inherited files key is now `@kstat/`
 
 ## 3.0.0: 2017-01-10
 
