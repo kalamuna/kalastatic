@@ -74,7 +74,7 @@ KalaStatic.prototype.build = function () {
       },
       'metalsmith-ignore': '**/_*',
       'metalsmith-metadata-files': {
-        inheritFilePrefix: '@kalastatic/'
+        inheritFilePrefix: '@kstat/'
       }
     }
     var pluginOpts = config.get('pluginOpts')
