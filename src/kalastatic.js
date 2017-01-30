@@ -104,7 +104,8 @@ KalaStatic.prototype.build = function () {
       var kssDefaultConf = {
         destination: 'styleguide',
         builder: path.join(path.dirname(require.resolve('kss')), 'builder', 'twig'),
-        css: '../main.css'
+        css: '../main.css',
+        global: 'build_path:' + destination
       }
 
       // Retrieve the KSS config.
@@ -134,7 +135,8 @@ KalaStatic.prototype.build = function () {
           // Choose the Twig builder.
           '--builder=' + kssConf.builder,
           // Add the Twig Namespace.
-          '--namespace=kalastatic:' + path.join(base, source)
+          '--namespace=kalastatic:' + path.join(base, source),
+          '--global=' + kssConf.global
         )
 
         // Add the optional configurations.
