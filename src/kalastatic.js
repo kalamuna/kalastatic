@@ -59,9 +59,10 @@ KalaStatic.prototype.build = function () {
     var plugins = config.get('plugins')
     var pluginDefaults = {
       'metalsmith-define': {
-        // Expose both a base_path and a build_path variables.
+        // Expose a few global variables.
         'base_path': '/', // eslint-disable-line quote-props
-        'build_path': '/' // eslint-disable-line quote-props
+        'build_path': '/', // eslint-disable-line quote-props
+        'build_context': 'kalastatic' // eslint-disable-line quote-props
       },
       'metalsmith-jstransformer': {
         engineOptions: {
