@@ -61,7 +61,7 @@ kss:
 
 ### CLI
 
-KalaStatic can be used as a command line interface. It's recommended to set the following commands up as [npm scripts](https://docs.npmjs.com/misc/scripts) in your `package.json`. The following are some of its commands:
+KalaStatic can be used as a command line interface. The following are some of its commands:
 
 #### Build
 
@@ -77,6 +77,24 @@ Starts up a development server through [BrowserSync](https://www.browsersync.io/
 
 ```
 node_modules/.bin/kalastatic start
+```
+
+#### Scripts
+
+While you can run `kalastatic` as a CLI application, it is recommended to run the above commands through the use of [npm scripts](https://docs.npmjs.com/misc/scripts) in `package.json`:
+
+```
+"scripts": {
+  "test": "kalastatic build",
+  "start: "kalastatic start"
+}
+```
+
+Then you can simply run the following commands to interact with your project:
+
+```
+npm test
+npm start
 ```
 
 ### API
