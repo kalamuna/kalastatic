@@ -8,7 +8,7 @@ Static site application framework for prototyping and styleguiding.
 
 ## Install
 
-    $ npm install kalstatic --save
+    $ npm install kalastatic --save
 
 ## Usage
 
@@ -61,14 +61,14 @@ kss:
 
 ### CLI
 
-KalaStatic can be used as a command line interface. The following are some of its commands:
+KalaStatic can be used as a command line interface. It's recommended to set the following commands up as [npm scripts](https://docs.npmjs.com/misc/scripts) in your `package.json`. The following are some of its commands:
 
 #### Build
 
 Runs through the KalaStatic build tasks and outputs to the destination folder.
 
 ```
-kalastatic build
+node_modules/.bin/kalastatic build
 ```
 
 #### Start
@@ -76,7 +76,7 @@ kalastatic build
 Starts up a development server through [BrowserSync](https://www.browsersync.io/) in order to watch and serve KalaStatic. Changes you make to the source will automatically reflect in the browser.
 
 ```
-kalastatic start
+node_modules/.bin/kalastatic start
 ```
 
 ### API
