@@ -12,6 +12,8 @@ function KalaStatic(nconf) {
   // Set the default values.
   nconf.defaults({
     base: '.',
+    bsIndex: 'index.html',
+    bsBrowser: false,
     source: 'src',
     destination: 'build',
     plugins: [

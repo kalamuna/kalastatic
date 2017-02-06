@@ -38,6 +38,16 @@ KalaStatic can be configured through a `kalastatic.yaml` file. The default optio
 # The base directory of where the base KalaStatic lives.
 base: .
 
+# What BrowserSync should consider the index page.
+bsIndex: 'index.html'
+
+# What BrowserSync should consider the webroot when running KalaStatic.
+# Defaults to the KalaStatic destination directory.
+bsWebroot: ''
+
+# Whether or not to open the browser when initially running Kalastatic.
+bsBrowser: false
+
 # The directory (from base), where the source content files live.
 source: src
 
