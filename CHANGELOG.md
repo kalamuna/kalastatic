@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.1.0: 2017-02-08
+
+- Added three new BrowserSync options:
+  - `bsIndex`
+  - `bsWebroot`
+  - `bsBrowser`
+
 ## 3.0.1: 2017-01-12
 
 - The `metalsmith-metadata-files` inherited files key is now `@kalastatic/`
