@@ -48,11 +48,14 @@ program
     // Build the KalaStatic application, and get the config for it.
     var kalastatic = new KalaStatic(retrieveConfig(options));
     var conf = kalastatic.nconf
-    var base = conf.get('base') || '.'
-    var source = conf.get('source') || 'src'
-    var destination = conf.get('destination') || 'build'
+    var bsIndex = conf.get('bsIndex')
+    var bsBrowser = conf.get('bsBrowser')
+    var base = conf.get('base')
+    var source = conf.get('source')
+    var destination = conf.get('destination')
     var finalSource = path.join(base, source, '**')
     var finalDest = path.join(base, destination)
+    var bsWebroot = conf.get('bsWebroot')
 
     // Build KalaStatic to make sure it works first.
     kalastatic.build().then(function () {
@@ -66,9 +69,9 @@ program
 
       // Set up the server.
       bs.init({
-        server: finalDest,
-        index: 'index.html',
-        serveStatic: ['.']
+        server: bsWebroot || finalDest,
+        browser: bsBrowser,
+        index: bsIndex
       })
 
       // Create a watch task.
