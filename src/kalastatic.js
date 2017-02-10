@@ -105,7 +105,7 @@ KalaStatic.prototype.build = function () {
       // Construct the default KSS options.
       var kssDefaultConf = {
         destination: 'styleguide',
-        builder: path.join(path.dirname(require.resolve('kss')), 'builder', 'twig'),
+        builder: path.dirname(require.resolve('kstat-kss-builder')),
         css: '../main.css'
       }
 
