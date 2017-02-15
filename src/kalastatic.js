@@ -106,7 +106,8 @@ KalaStatic.prototype.build = function () {
       var kssDefaultConf = {
         destination: 'styleguide',
         builder: path.dirname(require.resolve('kstat-kss-builder')),
-        css: '../main.css'
+        css: '../main.css',
+        homepage: 'kss-homepage.md'
       }
 
       // Retrieve the KSS config.
@@ -157,7 +158,10 @@ KalaStatic.prototype.build = function () {
         if (typeof kssConf.source === 'string') {
           kssConf.source = [kssConf.source]
         } else if (!kssConf.source) {
-          kssConf.source = [path.join(base, source)]
+          kssConf.source = [
+            path.join(base, source),
+            __dirname
+          ]
         }
 
         // Load up the stylesheets.
