@@ -107,7 +107,7 @@ KalaStatic.prototype.build = function () {
         destination: 'styleguide',
         builder: path.dirname(require.resolve('kstat-kss-builder')),
         css: '../main.css',
-        homepage: 'kss-homepage.md'
+        homepage: 'kalastatic-kss-homepage.md'
       }
 
       // Retrieve the KSS config.
