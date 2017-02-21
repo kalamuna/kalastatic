@@ -69,7 +69,10 @@ KalaStatic.prototype.build = function () {
         engineOptions: {
           twig: {
             namespaces: {
-              kalastatic: path.join(base, source)
+              kalastatic: path.join(base, source),
+              atoms: path.join(base, source, 'components', 'atoms'),
+              molecules: path.join(base, source, 'components', 'molecules'),
+              organisms: path.join(base, source, 'components', 'organisms')
             }
           }
         }
@@ -135,8 +138,11 @@ KalaStatic.prototype.build = function () {
           '--destination=' + path.join(base, destination, kssConf.destination),
           // Choose the Twig builder.
           '--builder=' + kssConf.builder,
-          // Add the Twig Namespace.
-          '--namespace=kalastatic:' + path.join(base, source)
+          // Add the Twig Namespaces.
+          '--namespace=kalastatic:' + path.join(base, source),
+          '--namespace=atoms:' + path.join(base, source, 'components', 'atoms'),
+          '--namespace=molecules:' + path.join(base, source, 'components', 'molecules'),
+          '--namespace=organisms:' + path.join(base, source, 'components', 'organisms')
         )
 
         // Add the optional configurations.
