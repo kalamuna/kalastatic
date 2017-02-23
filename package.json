@@ -2,7 +2,7 @@
   "name": "kalastatic",
   "description": "KalaStatic static-site prototyping framework",
   "repository": "https://github.com/kalamuna/kalastatic.git",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "license": "MIT",
   "files": [
     "src",
