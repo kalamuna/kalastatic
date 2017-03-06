@@ -10,6 +10,23 @@ var program = require('commander')
 var nconf = require('nconf')
 var path = require('path')
 var browserSync = require('browser-sync')
+var fs = require('fs')
+var mkdirp = require('mkdirp')
+
+function createFile(filename) {
+  fs.open(filename,'r',function(err, fd){
+    if (err) {
+      fs.writeFile(filename, '', function(err) {
+          if(err) {
+              console.log(err);
+          }
+          console.log("The file was saved!");
+      });
+    } else {
+      console.log("The file exists!");
+    }
+  });
+}
 
 function retrieveConfig(options) {
   nconf.argv()
@@ -92,9 +109,44 @@ program
     })
   })
 
+program
+  .command('create')
+  .alias('cc')
+  .description('Automates the creation of… things')
+  .option('-c, --config <file>', 'set the configuration file, defaults to kalastatic.yaml')
+  .action(function(options) {
+
+    var kalastatic = new KalaStatic(retrieveConfig(options))
+    var conf = kalastatic.nconf
+    var source = conf.get('source') || 'src'
+    var component, scssFile, jsonFile, twigFile, jsFile;
+
+    if(process.argv[2] == "cc" || (process.argv[2] == "create" && process.argv[3] == "component")) {
+
+      if(process.argv[2] == "cc" ) {
+        var component = process.argv[3].split("/");
+      } else {
+        var component = process.argv[4].split("/");
+      }
+
+      var basePath = path.join(source,'components',component[0],component[1])
+
+      mkdirp(basePath, function(){
+        var basePath = path.join(source,'components',component[0],component[1])
+        var scssFile = path.join(basePath,"_"+component[1]+'.scss')
+        var jsonFile = path.join(basePath,component[1]+'.json')
+        var twigFile = path.join(basePath,component[1]+'.twig')
+        createFile(scssFile)
+        createFile(jsonFile)
+        createFile(twigFile)
+      });
+
+    }
+  })
+
 if (!process.argv.slice(2).length) {
-  program.outputHelp();
+  program.outputHelp()
 }
 else {
-  program.parse(process.argv);
+  program.parse(process.argv)
 }
