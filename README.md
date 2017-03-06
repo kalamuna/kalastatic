@@ -5,6 +5,7 @@ Static site application framework for prototyping and styleguiding.
 ## Dependencies
 
 - [Node.js](https://nodejs.org) 4, 6 or 7
+  - Through [nvm](https://github.com/creationix/nvm), run `nvm use`
 
 ## Install
 
