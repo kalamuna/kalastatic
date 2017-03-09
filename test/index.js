@@ -6,6 +6,7 @@ var KalaStatic = require('..')
 var test = require('testit')
 var nconf = require('nconf')
 var extend = require('extend-shallow')
+var cmd = require('node-cmd')
 
 function setupTest(name, opts) {
   test(name, function () {
@@ -66,5 +67,19 @@ test('cli', function (done) {
     }
     assertDir('test/fixtures/basic/build', 'test/fixtures/basic/expected')
     done()
+  })
+})
+
+test('createcomponent', function (done) {
+  var options = {
+    cwd: 'test/fixtures/createcomponent'
+  }
+
+  var cdcmd = 'cd ' + options.cwd
+  cmd.get(cdcmd, function() {
+    cmd.get('kalastatic cc atoms/link', function () {
+      assertDir('test/fixtures/createcomponent/output', 'test/fixtures/createcomponent/expected')
+      done()
+    })
   })
 })

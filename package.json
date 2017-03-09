@@ -32,12 +32,14 @@
     "metalsmith-metadata-convention": "^1.0.1",
     "metalsmith-metadata-files": "^2.2.0",
     "metalsmith-paths": "^3.0.1",
+    "mkdirp": "^0.5.1",
     "nconf": "^0.8.4",
     "nconf-yaml": "^1.0.2"
   },
   "devDependencies": {
     "assert-dir-equal": "1.*",
     "jstransformer-uglify-js": "^1.1.1",
+    "node-cmd": "^2.0.0",
     "purecss": "0.6.2",
     "rimraf": "^2.6.1",
     "slug": "^0.9.1",
