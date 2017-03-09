@@ -10,6 +10,8 @@ var program = require('commander')
 var nconf = require('nconf')
 var path = require('path')
 var browserSync = require('browser-sync')
+var fs = require('fs')
+var mkdirp = require('mkdirp')
 
 function retrieveConfig(options) {
   nconf.argv()
@@ -90,6 +92,51 @@ program
       console.error(err)
       process.exitCode = 1
     })
+  })
+
+function createFile(filename) {
+  fs.open(filename,'r',function(err, fd){
+    if (err) {
+      fs.writeFile(filename, '', function(err) {
+        if(err) {
+          console.log(err);
+        }
+        console.log("The file was saved!");
+      });
+    } else {
+      console.log("The file exists!");
+    }
+  });
+}
+
+function createComponent(dir,objectToCreate) {
+  var component = objectToCreate.split("/")
+  var basePath = path.join(dir, 'components', component[0], component[1])
+  mkdirp(basePath, function(){
+    var scssFile = path.join(basePath, "_"+component[1]+'.scss')
+    var jsonFile = path.join(basePath, component[1]+'.json')
+    var twigFile = path.join(basePath, component[1]+'.twig')
+    createFile(scssFile)
+    createFile(jsonFile)
+    createFile(twigFile)
+  })
+
+}
+program
+  .command('create-component <objectToCreate> [otherObjects...]')
+  .alias('cc')
+  .description('Automates the creation of… things')
+  .option('-d, --directory <path>', 'where to run')
+  .parse(process.argv)
+  .action( function(objectToCreate, otherObjects, options) {
+    console.log("kalastatic creating component »»", objectToCreate)
+    var dir = options.directory || "src"
+    createComponent(dir,objectToCreate)
+    if(otherObjects.length > 0) {
+      otherObjects.forEach( function(element){
+        createComponent(dir,element)
+      })
+    }
   })
 
 if (!process.argv.slice(2).length) {
