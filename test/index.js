@@ -76,7 +76,7 @@ test('createcomponent', function (done) {
     cwd: '.'
   }
   rimraf.sync('test/fixtures/createcomponent/build/components')
-  exec('bin/kalastatic cc --directory=test/fixtures/createcomponent/build atoms/links', options, function (err, stdout, stderr) {
+  exec('bin/kalastatic cc --directory=test/fixtures/createcomponent/build/components atoms/links', options, function (err, stdout, stderr) {
     if (err) {
       return done(err)
     }

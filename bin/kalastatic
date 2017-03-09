@@ -111,7 +111,7 @@ function createFile(filename) {
 
 function createComponent(dir,objectToCreate) {
   var component = objectToCreate.split("/")
-  var basePath = path.join(dir, 'components', component[0], component[1])
+  var basePath = path.join(dir, component[0], component[1])
   mkdirp(basePath, function(){
     var scssFile = path.join(basePath, "_"+component[1]+'.scss')
     var jsonFile = path.join(basePath, component[1]+'.json')
@@ -130,7 +130,7 @@ program
   .parse(process.argv)
   .action( function(objectToCreate, otherObjects, options) {
     console.log("kalastatic creating component »»", objectToCreate)
-    var dir = options.directory || "src"
+    var dir = options.directory || "."
     createComponent(dir,objectToCreate)
     if(otherObjects.length > 0) {
       otherObjects.forEach( function(element){
