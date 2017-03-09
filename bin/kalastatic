@@ -130,7 +130,7 @@ program
   .parse(process.argv)
   .action( function(objectToCreate, otherObjects, options) {
     console.log("kalastatic creating component »»", objectToCreate)
-    var dir = options.directory || "."
+    var dir = options.directory || "src/components/"
     createComponent(dir,objectToCreate)
     if(otherObjects.length > 0) {
       otherObjects.forEach( function(element){
