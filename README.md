@@ -118,3 +118,5 @@ KalaStatic('path/to/site').then(function() {
   // Site built
 })
 ```
+
+For more in depth documentation go to http://kalastatic.readthedocs.io/en/stable/
