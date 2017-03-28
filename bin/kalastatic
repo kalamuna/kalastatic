@@ -10,6 +10,8 @@ var program = require('commander')
 var nconf = require('nconf')
 var path = require('path')
 var browserSync = require('browser-sync')
+var fs = require('fs')
+var mkdirp = require('mkdirp').sync
 
 function retrieveConfig(options) {
   nconf.argv()
@@ -90,6 +92,52 @@ program
       console.error(err)
       process.exitCode = 1
     })
+  })
+
+/**
+ * Creates a file if it doesn't already exist.
+ */
+function createFile(filename, contents) {
+  contents = contents || ''
+  if (fs.existsSync(filename)) {
+    console.log('The file exists!')
+    return
+  }
+
+  fs.writeFileSync(filename, contents)
+  console.log('The file was saved!')
+}
+
+/**
+ * Creates the base files for a component.
+ */
+function createComponent(dir, objectToCreate) {
+  var component = objectToCreate.split("/")
+  var basePath = path.join(dir, component[0], component[1])
+  mkdirp(basePath)
+  var scssFile = path.join(basePath, "_"+component[1]+'.scss')
+  var jsonFile = path.join(basePath, component[1]+'.json')
+  var twigFile = path.join(basePath, component[1]+'.twig')
+  fs.writeFileSync(scssFile, '')
+  fs.writeFileSync(jsonFile, '')
+  fs.writeFileSync(twigFile, '')
+}
+
+program
+  .command('create-component <objectToCreate> [otherObjects...]')
+  .alias('cc')
+  .description('Automates the creation of… things')
+  .option('-d, --directory <path>', 'where to run')
+  .parse(process.argv)
+  .action(function (objectToCreate, otherObjects, options) {
+    console.log("kalastatic creating component »»", objectToCreate)
+    var dir = options.directory || "src/components/"
+    createComponent(dir,objectToCreate)
+    if(otherObjects.length > 0) {
+      otherObjects.forEach( function(element){
+        createComponent(dir,element)
+      })
+    }
   })
 
 if (!process.argv.slice(2).length) {
