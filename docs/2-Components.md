@@ -73,7 +73,7 @@ Your component's Twig file contains the markup and variables/logic needed to dis
 ```
 
 ### Component json
-The component's json file contains json data that isue used to populate the variables in the Twig file. The top level keys should match the variable names in the Twig template. The Kalastatic build will fail if your json is not valid. Note that when you change json data, you need to stop and restart Kalastatic to see the changes come through in the browser. This is a known quirk that will get fixed in future versions.
+The component's json file contains json data that is used to populate the variables in the Twig file. The top level keys should match the variable names in the Twig template. The Kalastatic build will fail if your json is not valid. Note that when you change json data, you need to stop and restart Kalastatic to see the changes come through in the browser. This is a known quirk that will get fixed in future versions.
 
 ```
 {
