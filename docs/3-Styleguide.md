@@ -1,6 +1,10 @@
 # Styleguide
 ## Why Styleguides?
 ## Custom KSS builder
+## KSS basics
+### What is it?
+### Anatomy of KSS comments
+### Links to KSS docs
 ## How do I document colors 
 ### Naming conventions
 ## How do I document type
