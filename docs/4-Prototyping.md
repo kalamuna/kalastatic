@@ -15,7 +15,7 @@ Meta-Data is general data that helps describe the content you're presenting. Dep
 Add YAML front-matter to files to append properties to the file.
 
 *example.html*
-```
+``` html
 ---
 name: Linus Torvalds
 languages:
@@ -27,7 +27,7 @@ languages:
 ```
 
 *output*
-```
+``` html
 <h1>Linux Torvalds</h1>
 ```
 
@@ -36,7 +36,7 @@ languages:
 You can add global meta-data through the use of the [metalsmith-metadata-convention](https://www.npmjs.com/package/metalsmith-metadata-convention) plugin and `.metadata` files.
 
 *authors.metadata*
-```
+``` yaml
 ---
 Stephen King:
   birthdate: 1947
@@ -56,7 +56,7 @@ This list of authors is loaded into a global metadata variable named "authors".
 Naming a file by a [JSTransformer](https://github.com/jstransformers/jstransformer) name will have it process with the engine. The following is an example of using [Twig](http://twig.sensiolabs.org):
 
 *example.html.twig*
-```
+``` twig
 ---
 name: Linus Torvalds
 ---
@@ -64,7 +64,7 @@ name: Linus Torvalds
 ```
 
 *output*
-```
+``` html
 <h1>Linus Torvalds</h1>
 ```
 
@@ -82,14 +82,14 @@ See [JSTransformers](https://github.com/jstransformers) for a list of available 
 The [metalsmith-metadata-files](https://github.com/kalamuna/metalsmith-metadata-files) plugin will inject sister JSON files into the main file.
 
 *example.html.json*
-```
+``` json
 {
   "name": "Linus Torvalds"
 }
 ```
 
 *example.html.twig*
-```
+``` twig
 <h1>{{ name }}</h1>
 ```
 
@@ -105,7 +105,7 @@ The [metalsmith-metadata-files](https://github.com/kalamuna/metalsmith-metadata-
 
 The [metalsmith-assets-convention](https://github.com/robloach/metalsmith-assets-convention) plugin will deploy any local assets you would like to copy out through the use of `.assets` files:
 
-```
+``` yaml
 ---
 source: public
 destination: .
