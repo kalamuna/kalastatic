@@ -8,11 +8,11 @@ The following features and conventions come together to allow the creation of a 
 
 ### Meta-Data
 
-Meta-Data is general data that helps describe the content you're presenting. Depending on the scope, meta-data can exist almost anywhere.
+Meta-Data is general data that helps describe the content you're presenting. Depending on the defining method, meta-data can exist almost anywhere.
 
-#### Local
+#### Local Front-Matter
 
-Add YAML front-matter to files to append properties to the file.
+Use this if you just want a local variables. These are good for simple page properties. Add YAML front-matter to files to append properties to the file.
 
 *example.html*
 ``` html
@@ -28,6 +28,27 @@ languages:
 
 *output*
 ``` html
+<h1>Linux Torvalds</h1>
+```
+
+#### Meta-Data JSON Files
+
+In some cases, YAML Front-Matter can sometimes cause conflicts with the template engine that's being used to process the content. Twig, for example, does not support YAML Front-Matter. In this case, you will want to introduce a meta-data JSON file. Having The [metalsmith-metadata-files](https://github.com/kalamuna/metalsmith-metadata-files) plugin will inject sister JSON files into the main file.
+
+*example.html.json*
+``` json
+{
+  "name": "Linus Torvalds"
+}
+```
+
+*example.html.twig*
+``` twig
+<h1>{{ name }}</h1>
+```
+
+*output*
+```
 <h1>Linux Torvalds</h1>
 ```
 
@@ -51,9 +72,9 @@ Nora Roberts:
 This list of authors is loaded into a global metadata variable named "authors".
 ```
 
-### Transformers
+### Template Engines
 
-Naming a file by a [JSTransformer](https://github.com/jstransformers/jstransformer) name will have it process with the engine. The following is an example of using [Twig](http://twig.sensiolabs.org):
+There are many different template engines out there, and Kalastatic has the ability to use them all through the use of [JSTransformers](https://github.com/jstransformers/jstransformer). Naming a file by the template engine's extension will have it process with the given engine. The following is an example of using [Twig](http://twig.sensiolabs.org):
 
 *example.html.twig*
 ``` twig
@@ -76,34 +97,11 @@ See [JSTransformers](https://github.com/jstransformers) for a list of available 
 - [scss](http://npm.im/jstransformer-scss)
 - [md](http://npm.im/jstransformer-commonmark)
 
-### Passing in environment variables
-### Meta-Data Files
-
-The [metalsmith-metadata-files](https://github.com/kalamuna/metalsmith-metadata-files) plugin will inject sister JSON files into the main file.
-
-*example.html.json*
-``` json
-{
-  "name": "Linus Torvalds"
-}
-```
-
-*example.html.twig*
-``` twig
-<h1>{{ name }}</h1>
-```
-
-*output*
-```
-<h1>Linux Torvalds</h1>
-```
-
-### Globals
-- kalastatic.yml
-
 ### Assets
 
-The [metalsmith-assets-convention](https://github.com/robloach/metalsmith-assets-convention) plugin will deploy any local assets you would like to copy out through the use of `.assets` files:
+Bundle static assets, like images, icons, third-party vendor libraries, and configuration files, with the [metalsmith-assets-convention](https://github.com/robloach/metalsmith-assets-convention) plugin. It will deploy any local assets you name in `.assets` files:
+
+^1 [see more](http://dfsfads.com)
 
 ``` yaml
 ---
@@ -115,7 +113,7 @@ Copy all the public files into the build directory.
 
 ### Concatenating Files
 
-In some cases, you'll want to concatenate files. This is handy if you want to bundle some JavaScript together. There are a few different ways to do this.
+Concatenating files allows you to put a whole bunch of files together, potentially saving HTTP requests. This is handy if you want to bundle some JavaScript or CSS together. There are a few different ways to do this:
 
 #### .concat files
 
