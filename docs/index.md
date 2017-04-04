@@ -71,7 +71,7 @@ Prototyping is most useful to consider the components with layouts, side by site
 
 #### Version Strategy
 
-Kalastatic supports version compatibility through a MAJOR.MINOR.PATCH strategy with [Semantic Versioning](http://semver.org).
+In order to not break existing installs and uses of Kalastatic, Kalastatic uses a MAJOR.MINOR.PATCH version strategy through [Semantic Versioning](http://semver.org).
 
 - MAJOR version when you make incompatible API changes
 - MINOR version when you add functionality in a backwards-compatible manner
