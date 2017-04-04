@@ -55,9 +55,11 @@ An example of this would be in your theme's `page.html.twig` file. To include a 
 {% include "@kalastatic/components/molecules/button/button.twig" with {title: page.title} only %}
 ```
 
+See the [Components section](3-components.md) for more information on using components.
+
 ### Drupal Filters
 
-Drupal 8 comes with a few handy Twig filters. While these are not provided by default in KalaStatic, you can make them available to the protoype.
+[Twig Filters](http://twig.sensiolabs.org/doc/2.x/filters/index.html) allow modifying the variables before they're output to the page. The [Drupal 8 Twig Filters](https://www.drupal.org/docs/8/theming/twig/filters-modifying-variables-in-twig-templates) add a few more Drupal-specific filters. While these are not provided by default in KalaStatic, you can make them available to the prototype.
 
 1. Install [Twig.js Drupal Extensions](https://github.com/kalamuna/twig-drupal-filters)
 
