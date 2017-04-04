@@ -83,6 +83,17 @@ The component's json file contains json data that is used to populate the variab
 ```
 
 ## How do you include another component?
+Some components are made up of a collection of other components. Acheiving this in Twig is easy with the [include directive](http://twig.sensiolabs.org/doc/2.x/tags/include.html). 
+
+```
+{% include 'template.html' with {'foo': 'bar'} %}
+
+```
+
+
 ### When do you use only and why?
+In order to save memory, builds faster
+self contained components
+
 ## Extending components
 ## Ingesting external components from packages
