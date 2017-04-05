@@ -91,7 +91,7 @@ npm install kalastatic --save
 
 To update Kalastatic, make sure to target the latest of your selected MAJOR release (`3`), bringing in the latest MINOR release. To upgrade to a MAJOR release of Kalastatic (`4`), make sure to read through the [CHANGELOG.md](https://github.com/kalamuna/kalastatic/blob/master/CHANGELOG.md) to understand what changes you should be aware of.
 
-Read more about [semantic versioning in npm](https://semver.npmjs.com/) to see how better you can target different versions of Kalastatic.
+Read more about [semantic versioning in npm](https://docs.npmjs.com/getting-started/semantic-versioning) to see how to better target different versions of Kalastatic.
 
 #### Node
 #### Metalsmith
