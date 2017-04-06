@@ -66,38 +66,3 @@ The hope is to both house a component library while also providing a decent bran
 To provide working, responsive prototypes, we use [metalsmith](metalsmith.io) and a bevvy of [other tools](https://github.com/kalamuna/kalastatic/blob/master/package.json)
 
 Prototyping is most useful to consider the components with layouts, side by site with other elements. Where the styleguide documents components in isolation, prototyping helps us see all the bits in context, and even develop behaviors (js) and other integrations, before we dive into CMSs and app-frameworks.
-
-### Technology
-
-#### Version Strategy
-
-Kalastatic supports version compatibility through a MAJOR.MINOR.PATCH strategy with [Semantic Versioning](http://semver.org).
-
-- MAJOR version when you make incompatible API changes
-- MINOR version when you add functionality in a backwards-compatible manner
-- PATCH version when you make backwards-compatible bug fixes
-
-When installing, use the latest available version of Kalastatic:
-
-```
-npm install kalastatic --save
-```
-
-```
-"dependencies": {
-  "kalastatic": "^3.1.0"
-}
-```
-
-To update Kalastatic, make sure to target the latest of your selected MAJOR release (`3`), bringing in the latest MINOR release. To upgrade to a MAJOR release of Kalastatic (`4`), make sure to read through the [CHANGELOG.md](https://github.com/kalamuna/kalastatic/blob/master/CHANGELOG.md) to understand what changes you should be aware of.
-
-Read more about [semantic versioning in npm](https://semver.npmjs.com/) to see how better you can target different versions of Kalastatic.
-
-#### Node
-#### Metalsmith
-#### KSS
-#### Twig? (maybe not because we're supposedly engine agnostic)
-#### Browsersync
-#### … flesh out
-### Decoupled front-end dev with livereload
-### Use whatever you want - unopinionated, agnostic
