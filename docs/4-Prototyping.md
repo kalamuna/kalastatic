@@ -12,10 +12,10 @@ Meta-Data is general data that helps describe the content you're presenting. Dep
 
 #### Local Front-Matter
 
-Use this if you just want a local variables. These are good for simple page properties. Add YAML front-matter to files to append properties to the file.
+Introduce [YAML](http://yaml.org) Front-Matter to define local variables. These are useful when you would like to output some dynamic data. The YAML is wrapped in `---` to distinguish it from the file's content.
 
-*example.html*
-``` html
+*example.html.twig*
+``` twig
 ---
 name: Linus Torvalds
 languages:
@@ -23,7 +23,7 @@ languages:
 - Perl
 - Python
 ---
-<h1>Linus Torvalds</h1>
+<h1>{{ name }}</h1>
 ```
 
 *output*
