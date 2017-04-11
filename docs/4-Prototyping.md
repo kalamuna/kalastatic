@@ -156,17 +156,74 @@ This is the collection of articles that will become available through the global
 ## Adding Page
 - Assigning layout
 
-## Exposing json mock data from KSS as a json key
-- Issue about updating this convention here: https://github.com/kalamuna/kalastatic/issues/398
-
 #### Fonts
   - Font face helper mixin?
 #### Images
 	- Pathing issue
-### Twig filters
-- Bustcache
-- Slug
-- limit?
-- Drupal filters
-## Loading components from npm or composer packages
+  
+## Extending
 
+While KalaStatic comes with a common set of functionality, it is possible to add new features to it, depending on what you want to add. This section will touch on how to extend it.
+
+### Twig
+
+You can [extend Twig](https://twig.sensiolabs.org/doc/2.x/advanced.html) to add new filters and functions. In the following example, we add a few filters from the [twig-drupal-filters package](https://github.com/kalamuna/twig-drupal-filters).
+
+1. Add the Node.js package
+
+```
+npm i twig-drupal-filter --save
+```
+
+2. Add the twig filter mappings to `kalastatic.yml`
+
+```
+# Allows changing some of the plugin options.
+pluginOpts:
+  # The layouts will live in the templates directory.
+  metalsmith-jstransformer:
+    # Options that are applied to just specific engines.
+    engineOptions:
+      # Extending Twig
+      twig:
+        filters:
+          clean_id: twig-drupal-filters/filters/clean_id
+```
+
+3. Use the new filter in Twig
+
+```
+{{name|clean_id}}
+```
+
+## SASS
+
+Third-party SASS components can be brought into the styleguide and prototype by:
+
+1. Install the component through a package manager
+
+```
+npm i bootstrap-sass --save
+```
+
+2. Include the component path in kalastatic.yaml
+
+```
+# Allows changing some of the plugin options.
+pluginOpts:
+  # The layouts will live in the templates directory.
+  metalsmith-jstransformer:
+    # Options that are applied to just specific engines.
+    engineOptions:
+      # SASS settings.
+      scss:
+        includePaths: [
+          "node_modules/bootstrap-sass/assets/stylesheets",
+        ]
+```
+
+3. Use the new components in a SASS file
+
+```
+@import "bootstrap/buttons";
+```
