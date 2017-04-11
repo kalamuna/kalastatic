@@ -92,8 +92,19 @@ Some components are made up of a collection of other components. Acheiving this 
 
 
 ### When do you use only and why?
-In order to save memory, builds faster
-self contained components
+When including templates within other templates it's advisable to use the `only` declaration for passing variables.
+
+```
+{% include 'template.html' with var only %}
+
+```
+
+This is a form of dependecy injection that has a number of benefits: 
+- It saves memory
+- Makes builds faster
+- Keeps components self contained and therefore portable/reusable.
+
+When the `only` directive is not used, the entire variable scope is passed to the template. While this may be needed/desirable in some cases it's generally considered bad practice.
 
 ## Extending components
-## Ingesting external components from packages
+A component can also use the Twig `extends` directive to extend a Twig `block`. For more information see the [Twig extends documentation](https://twig.sensiolabs.org/doc/2.x/tags/extends.html).
