@@ -7,7 +7,7 @@
 ### Kalastatic.module
 - Where does kalastatic live?
 - Including of Drupal assests
-- Serving KS through drupal
+- Serving KalaStatic assets through Drupal
 	- Permissions for styleguide/prototype
 
 ## Drupal 7
@@ -27,11 +27,14 @@
 
 ## Drupal 8
 
-While KalaStatic is a standalone application, you can integrate it quite well with Drupal 8. To have Drupal 8 use templates and components from KalaStatic, consider the following...
+While KalaStatic is a standalone application, it can be integrated with Drupal 8. This allows the use of KalaStatic templates and components from Drupal, giving a Drupal site a living prototype and styleguide. To have Drupal 8 use templates and components from KalaStatic, consider the following...
 
-### Components module
+### Components Module
 
-The [Components module](https://www.drupal.org/project/components) will allow Drupal and Twig to share the same `@kalastatic` namespace. Once the module is installed, add the following to your theme's `.info.yml` file:
+The [Components module](https://www.drupal.org/project/components) will allow Drupal and Twig to share the same `@kalastatic` namespace, making including KalaStatic Twig templates a lot easier.
+
+1. Install the Components module
+2. Add the following to your theme's `.info.yml` file:
 
 ```
 component-libraries:
@@ -40,7 +43,8 @@ component-libraries:
       - path/to/kalastatic/src
 ```
 
-This will allow the theme to reference Twig templates like:
+3. Teference Twig templates from KalaStatic using `@kalastatic`:
+
 ```
 {% include "@kalastatic/components/molecules/button/button.twig" %}
 ```
