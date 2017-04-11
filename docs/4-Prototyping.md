@@ -8,7 +8,7 @@ The following features and conventions come together to allow the creation of a 
 
 ### Meta-Data
 
-Meta-Data is general data that helps describe the content you're presenting. Depending on the defining method, meta-data can exist almost anywhere.
+Meta-Data is way to give files generic data that helps describe the content you're presenting. Depending on the defining method, meta-data can exist almost anywhere. The following are a few ways to introduce meta-data.
 
 #### Local Front-Matter
 
@@ -99,9 +99,7 @@ See [JSTransformers](https://github.com/jstransformers) for a list of available 
 
 ### Assets
 
-Bundle static assets, like images, icons, third-party vendor libraries, and configuration files, with the [metalsmith-assets-convention](https://github.com/robloach/metalsmith-assets-convention) plugin. It will deploy any local assets you name in `.assets` files:
-
-^1 [see more](http://dfsfads.com)
+Third-party vendor libraries and assets can be bundled as static assets through the [metalsmith-assets-convention](https://github.com/robloach/metalsmith-assets-convention) plugin. It will deploy any local assets you name in `.assets` files:
 
 ``` yaml
 ---
@@ -132,7 +130,7 @@ insertNewLine: false
 
 #### Browserify
 
-[Browserify](http://browserify.org/) is also available to bundle dependencies:
+[Browserify](http://browserify.org/) is a JavaScript package that lets you `require('modules')` in the browser. To use Browserify in KalaStatic, use the `.browserify` file extension:
 
 *src/scripts.js.browserify*
 ```
