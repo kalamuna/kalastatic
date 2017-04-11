@@ -66,13 +66,3 @@ The hope is to both house a component library while also providing a decent bran
 To provide working, responsive prototypes, we use [metalsmith](metalsmith.io) and a bevvy of [other tools](https://github.com/kalamuna/kalastatic/blob/master/package.json)
 
 Prototyping is most useful to consider the components with layouts, side by site with other elements. Where the styleguide documents components in isolation, prototyping helps us see all the bits in context, and even develop behaviors (js) and other integrations, before we dive into CMSs and app-frameworks.
-
-### Tech
-#### Node
-#### Metalsmith
-#### KSS
-#### Twig? (maybe not because we're supposedly engine agnostic)
-#### Browsersync
-#### … flesh out
-### Decoupled front-end dev with livereload
-### Use whatever you want - unopinionated, agnostic
