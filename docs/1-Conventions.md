@@ -8,9 +8,11 @@ Twig, pug, Mustache?
 
 ### Conventions
 It's easier to collaborate if we share a vocabulary.
-Here are some conventions we've found useful for maintaining parallel development.
+Here are some conventions we've found useful for maintaining parallel development, and ensuring that the prototype work dovetails neatly into the production code with minimal—if any—refactoring.
 
 #### Text nodes
+
+Anything that would be a text node in html.
 
 ```
   "text": "A text node"
@@ -18,11 +20,16 @@ Here are some conventions we've found useful for maintaining parallel developmen
 
 #### Head tags
 
+All those H's
+
 ```
   "title": "Água Viva"
 ```
 
 #### Links
+
+A simple link, anchor tags illustrate the use of "text", we use "url" for most urls (aside from src in images).
+
 ```
   "link": {
     "text": "Água Viva, by Clarice Lispector",
@@ -32,7 +39,7 @@ Here are some conventions we've found useful for maintaining parallel developmen
 
 ##### Iterables
 
-A series of Links
+When we create collections of things, we like to wrap them in an array named "items," the less guesswork the better.
 
 ```
 "items": [
