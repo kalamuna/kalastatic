@@ -1,5 +1,16 @@
 #Introduction
 
+Kalastatic is a prototyping framework.
+
+It can be (and has been) used to build beautifully crafted static sites at [Kalamuna](http://www.kalamuna.com).
+
+However, its primary purpose is to put into practice atomic web design principles to produce a living styleguide/component library that can be used to guide back-end implementations in a framework agnostic approach.
+
+Kalastatic integrates tightly with Drupal 7 and 8, effectively sharing twig templates between the styleguide and the CMS.
+
+It serves as a point of convergence between front-end development, back-end development, and content strategy. Ultimately it facilitates putting design first, and this in front users for testing, and stakeholders for meaningful and timely feedback.
+
+
 ## Overview
 
 ## Benefits
