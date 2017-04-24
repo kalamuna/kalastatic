@@ -2,10 +2,9 @@
 files:
 - script.js
 # Put additional JavaScript in "files".
-mangle: true
 ---
 
-// This is scripts.js.uglify-js.concat
+// This is from scripts.js.concat .
 var name = 'World'
 var message = 'Hello ,' + name + '!'
 console.log(message)

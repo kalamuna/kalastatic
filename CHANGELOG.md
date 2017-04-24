@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.1.2: 2017-02-23
+
+- Updated to `kss@^3.0.0-beta.18`
+
+## 3.1.1: 2017-02-23
+
+- Added `@molecules`, `@atoms` and `@organisms` twig namespaces
+
 ## 3.1.0: 2017-02-08
 
 - Added three new BrowserSync options:

@@ -1,4 +1,5 @@
 var execFile = require('child_process').execFile
+var exec = require('child_process').exec
 var fs = require('fs')
 var path = require('path')
 var assertDir = require('assert-dir-equal')
@@ -6,6 +7,7 @@ var KalaStatic = require('..')
 var test = require('testit')
 var nconf = require('nconf')
 var extend = require('extend-shallow')
+var rimraf = require('rimraf')
 
 function setupTest(name, opts) {
   test(name, function () {
@@ -65,6 +67,23 @@ test('cli', function (done) {
       return done(stderr.toString())
     }
     assertDir('test/fixtures/basic/build', 'test/fixtures/basic/expected')
+    done()
+  })
+})
+
+test('createcomponent', function (done) {
+  var options = {
+    cwd: '.'
+  }
+  rimraf.sync('test/fixtures/createcomponent/build/components')
+  exec('bin/kalastatic cc --directory=test/fixtures/createcomponent/build/components atoms/links', options, function (err, stdout, stderr) {
+    if (err) {
+      return done(err)
+    }
+    if (stderr) {
+      return done(stderr.toString())
+    }
+    assertDir('test/fixtures/createcomponent/build', 'test/fixtures/createcomponent/expected')
     done()
   })
 })
