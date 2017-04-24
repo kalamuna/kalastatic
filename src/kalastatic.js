@@ -18,9 +18,9 @@ function KalaStatic(nconf) {
     source: 'src',
     destination: 'build',
     plugins: [
-      // Load information from the environment letiables.
+      // Load information from the environment variables.
       'metalsmith-env',
-      // Define any global letiables.
+      // Define any global variables.
       'metalsmith-define',
       // Add .json metadata to each file.
       'metalsmith-metadata-files',
@@ -62,7 +62,7 @@ KalaStatic.prototype.build = function () {
     const plugins = config.get('plugins')
     const pluginDefaults = {
       'metalsmith-define': {
-        // Expose both a base_path and a build_path letiables.
+        // Expose both a base_path and a build_path variables.
         'base_path': '/', // eslint-disable-line quote-props
         'build_path': '/' // eslint-disable-line quote-props
       },
