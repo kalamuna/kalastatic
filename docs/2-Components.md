@@ -1,8 +1,8 @@
 # Components
-## What is a component?
+
 Component based approaches to web development have been around for some time, however more formalized systems like [Brad Frost's Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) have become more popular recently. Thinking about a web page as a system of discrete components enable us to approach building more granularly and maintain consistency across a whole project. The components are the building blocks that we craft sites with and maintiaining this approach allows us to use Kalastatic to quickly build out prototype pages and automagically generate a styleguide for your project.
 
-In Kalastatic a component consists of a folder containing: 
+In Kalastatic a component consists of a folder containing:
 
 - **A Sass file**
 	- All the styles that apply to this component.
@@ -14,10 +14,10 @@ In Kalastatic a component consists of a folder containing:
 	- Can also be used to hold non-dummy static data like strings of text or images that won't get dynamically populated by other methods. TODO: link to section on json mock data.
 
 ## How to add a new component
-We suggest sorting your components into folders that demarkate their complexity based on [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). However Kalastatic doesn't enforce this. 
+We suggest sorting your components into folders that demarkate their complexity based on [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). However Kalastatic doesn't enforce this.
 
-To create a new component, make a new folder inside the `components` directory. Let's use 'button' as an example. 
-Inside the `button` folder create three new files: 
+To create a new component, make a new folder inside the `components` directory. Let's use 'button' as an example.
+Inside the `button` folder create three new files:
 
 - `button.scss`
 - `button.html.twig`
@@ -51,13 +51,13 @@ Add styles that are specific to this button component. We suggest using the fugl
   color: #fff;
   border-radius: 20px;
  }
- 
+
  a.button,
  button,
  input[type=submit] {
    @extend %button;
  }
-  
+
 ```
 
 Now that our component's Sass file exists, it's now a good idea to include it from your `main.scss` so it's styles get included in the build.
@@ -83,7 +83,7 @@ The component's json file contains json data that is used to populate the variab
 ```
 
 ## How do you include another component?
-Some components are made up of a collection of other components. Acheiving this in Twig is easy with the [include directive](http://twig.sensiolabs.org/doc/2.x/tags/include.html). 
+Some components are made up of a collection of other components. Acheiving this in Twig is easy with the [include directive](http://twig.sensiolabs.org/doc/2.x/tags/include.html).
 
 ```
 {% include 'template.html' with {'foo': 'bar'} %}
@@ -99,7 +99,7 @@ When including templates within other templates it's advisable to use the `only`
 
 ```
 
-This is a form of dependecy injection that has a number of benefits: 
+This is a form of dependecy injection that has a number of benefits:
 - It saves memory
 - Makes builds faster
 - Keeps components self contained and therefore portable/reusable.

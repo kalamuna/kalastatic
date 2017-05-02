@@ -1,16 +1,21 @@
 # Integrations
+
+KalaStatic can integrate with multiple frameworks and platforms.
+
+<!--
 ## Wordpress (or other integrations)
-## Drupal
-### Loading components from npm or composer packages
-### How do I use the json mock data to populate a component? Check out this example gist.
-### How to write Drupal behavior friendly js and have it work in kalastatic styleguides and prototypes.
+-->
+
+## Drupal 7
+
+<!--
 ### Kalastatic.module
 - Where does kalastatic live?
 - Including of Drupal assests
 - Serving KalaStatic assets through Drupal
-	- Permissions for styleguide/prototype
+  - Permissions for styleguide/prototype
+-->
 
-## Drupal 7
 ### Using Twig in D7
 
 [Twigshim](https://github.com/kalamuna/twigshim) is a small helper [module](https://www.drupal.org/docs/7/extending-drupal-7/installing-contributed-modules) for [Drupal 7](https://www.drupal.org/drupal-7.0) that pulls in [Symfony](https://symfony.com/)'s [Twig](http://twig.sensiolabs.org/) library via [Composer](https://getcomposer.org/). It is an "API module", which means it doesn't do anything on its own; it just exposes a `twigshim_render()` function that accepts a Twig template file path and an array of template variables. Developers can use this function to bypass Drupal's standard render pipeline and leverage Twig templates instead. There are various ways you can hook into the render pipeline and override it. The most common way is to define or override a [theme implementation](https://api.drupal.org/api/drupal/includes%21theme.inc/function/theme/7.x) at the level of nodes, fields, blocks, or anything else.
