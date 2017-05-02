@@ -1,4 +1,4 @@
-#Introduction
+# Kalastatic
 
 Kalastatic is a prototyping framework.
 
@@ -47,8 +47,6 @@ It serves as a point of convergence between front-end development, back-end deve
 - Component Documentation
 - Json mock data tells me what needs to be made available to templates
 
-#### Devops
-- ???
 
 ## Features
 

@@ -1,9 +1,7 @@
 # Styleguide
 
-
-## Why Styleguides?
 Styleguiding allows you to both have a broad overview of the vocabulary that comprises your project's design language, while at the same time allowing you to gather information about each component in an isolated setting. It facilitates conversations between stakeholders, designers, and developers while ensuring consistency between brand, design and code.
- 
+
 ## KSS basics
 
 In essence KSS is a system for documenting site components.
