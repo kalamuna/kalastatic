@@ -162,36 +162,36 @@ The following is an example of using grunt-build-control with Circle:
 1. Install grunt-build-control with `npm i grunt-build-control --save`
 
 2. Add Circle deployment defintion to circle.yml:
-  ```
-  machine:
-    node:
-      version: 6.1.0
-  deployment:
-    examplehost:
-      # Deploy only when:
-      #   1. The branch isn't a feature branch (no /).
-      #   2. The branch name is less then or equal to 11 characters long.
-      branch: /^[^./A-Z]{0,11}$/
-      commands:
-        - git config --global user.name "Kala C. Bot"
-        - git config --global user.email "kalacommitbot@kalamuna.com"
-        - echo -e "Host *drush.in\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-        - npm run deploy
-  ```
+```
+machine:
+  node:
+    version: 6.1.0
+deployment:
+  examplehost:
+    # Deploy only when:
+    #   1. The branch isn't a feature branch (no /).
+    #   2. The branch name is less then or equal to 11 characters long.
+    branch: /^[^./A-Z]{0,11}$/
+    commands:
+      - git config --global user.name "Kala C. Bot"
+      - git config --global user.email "kalacommitbot@kalamuna.com"
+      - echo -e "Host *drush.in\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+      - npm run deploy
+```
 
 3. Create a deployment .gitignore-deploy file
 
-  ```
-  node_modules
-  ```
+```
+node_modules
+```
 
 4. Add the package.json deployment script:
 
-  ```
-  "deploy": "npm run deploy:gitignore && git add -A && npm run deploy:push",
-  "deploy:gitignore": "cp -f .gitignore-deploy .gitignore",
-  "deploy:push": "grunt buildcontrol:deploy"
-  ```
+```
+"deploy": "npm run deploy:gitignore && git add -A && npm run deploy:push",
+"deploy:gitignore": "cp -f .gitignore-deploy .gitignore",
+"deploy:push": "grunt buildcontrol:deploy"
+```
 
 5. [Add your project to CircleCI](https://circleci.com/docs/2.0/first-steps/#adding-projects)
 
