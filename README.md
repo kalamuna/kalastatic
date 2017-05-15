@@ -1,5 +1,7 @@
 # kalastatic [![Build Status](https://travis-ci.org/kalamuna/kalastatic.svg?branch=2)](https://travis-ci.org/kalamuna/kalastatic)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kalamuna/kalastatic.svg)](https://greenkeeper.io/)
+
 Static site application framework for prototyping and styleguiding.
 
 ## Dependencies
