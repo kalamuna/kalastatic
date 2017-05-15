@@ -119,4 +119,4 @@ KalaStatic('path/to/site').then(function() {
 })
 ```
 
-For more in depth documentation go to http://kalastatic.readthedocs.io/en/stable/
+For more in depth documentation go to http://kalastatic.readthedocs.io
