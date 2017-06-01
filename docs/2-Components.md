@@ -23,10 +23,44 @@ Inside the `button` folder create three new files:
 - `button.html.twig`
 - `button.json`
 
+### Create Component
+We provide a handy command ```create-component``` or ```cc``` that takes care of some of generating these files (and soon providing boilerplate content for valid json, and pre-configured kss headers).
+
+
+#### Command
+
+```kalastatic create-component <objectToCreate> [otherObjects...]```
+
+##### Alias
+```cc```
+
+##### Options
+```kalastatic cc --directory=path/to/where/you/want/``` defaults to ```src/components```
+
+##### Usage
+```kalastatic cc atoms/links```
+or ```kalastatic cc atoms/link```
+or ```kalastatic cc --directory=path/you/want/the/files/to/go atoms/link atoms/button molecules/article-teaser```
+
+or FTW
+
+```kalastatic cc --directory=path/you/want/the/files/to/go `cat components.txt ```
+assuming the contents of components.txt is:
+
+```
+atoms/links
+
+atoms/buttons
+
+molecules/cta
+
+molecules/tout
+```
+
 ### Component Sass
 Adding a KSS comment to the top of your component's Sass file will enable KSS to build out the styleguide including our new component.
 
-```
+``
 /*
 
 Button
