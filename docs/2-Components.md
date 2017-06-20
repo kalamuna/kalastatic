@@ -106,6 +106,10 @@ Your component's Twig file contains the markup and variables/logic needed to dis
 <a href="{{ url }}" class="button {{ classes|join(" ") }}">{{ text }}</a>
 ```
 
+#### Template Engine Extensions
+
+The extension of the file determines what template engine to use. If the file extension is `.twig`, it will use Twig. If you use `.html`, it will see that the HTML is already processed, and will not use any template engine. Using `.html.twig` as the file extension will process the file with Twig as usual, but give an added benefit of allow the component to be consumed by the Drupal theme layer.
+
 ### Component json
 The component's json file contains json data that is used to populate the variables in the Twig file. The top level keys should match the variable names in the Twig template. The Kalastatic build will fail if your json is not valid. Note that when you change json data, you need to stop and restart Kalastatic to see the changes come through in the browser. This is a known quirk that will get fixed in future versions.
 
