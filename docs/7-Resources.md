@@ -15,3 +15,7 @@ A list of links and further readings for KalaStatic-related developments.
 ## SASS
 
 - http://sass-lang.com
+
+## JavaScript
+
+- https://es6.io/
