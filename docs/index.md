@@ -1,14 +1,31 @@
 # Kalastatic
 
-Kalastatic is a prototyping framework.
+Kalastatic is a prototyping framework and static site generator.
 
-It can be (and has been) used to build beautifully crafted static sites at [Kalamuna](http://www.kalamuna.com).
+### Featuring:
+- Easy installation, with minimal dependencies
+- Produces documented component library
+- Output production ready styles that can be ingested by other systems
+- Browsersync:
+  - Built in webserver
+  - Live reload - saving files reloads the browser
+  - Remote device access - load your local on a mobile device!
+- Node:
+  - Automated download of front end frameworks and other dependencies
+  - Automated Deployments
+- Twig, or your template engine of choice:
+  - Easy creation of extendable template variations with inheritance
+- Convenience Utilities
+  - Cache busting
+  - Deep linking (url fragments)
+  - Character limit filters
+  - Splits CSS files for IE compatibility
 
-However, its primary purpose is to put into practice atomic web design principles to produce a living styleguide/component library that can be used to guide back-end implementations in a framework agnostic approach.
+At Kalamuna we use Kalastatic to put into practice atomic web design principles to produce a living styleguide/component library that can be used to guide back-end implementations in a framework agnostic approach.
 
-Kalastatic integrates tightly with Drupal 7 and 8, effectively sharing twig templates between the styleguide and the CMS.
+It integrates tightly with Drupal 7 and 8, effectively sharing twig templates between the styleguide, prototype and the CMS.
 
-It serves as a point of convergence between front-end development, back-end development, and content strategy. Ultimately it facilitates putting design first, and this in front users for testing, and stakeholders for meaningful and timely feedback.
+Kalastatic serves as a point of convergence between front-end development, back-end development, and content strategy. Ultimately it facilitates putting design first, and this in front users for testing, and stakeholders for meaningful and timely feedback.
 
 
 ## Overview
