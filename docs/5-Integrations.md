@@ -100,11 +100,12 @@ component-libraries:
       - path/to/kalastatic/src
 ```
 
-3. Teference Twig templates from KalaStatic using `@kalastatic`:
+3. Reference Twig templates from KalaStatic using `@kalastatic`:
 
 ```
 {% include "@kalastatic/components/molecules/button/button.twig" %}
 ```
+
 
 ### Template Inclusion
 
@@ -117,6 +118,14 @@ An example of this would be in your theme's `page.html.twig` file. To include a 
 ```
 
 See the [Components section](3-components.md) for more information on using components.
+
+### Debugging
+
+Use [Twig's `dump()`](https://twig.sensiolabs.org/doc/2.x/functions/dump.html) function to help map variables from Drupal:
+
+```
+{{ dump() }}
+```
 
 ### Drupal Filters
 
