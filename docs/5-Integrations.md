@@ -74,11 +74,11 @@ Now let's throw one more wrinkle of complexity into this swirling vortex of fun.
 
 Kalagraphs takes care of mapping these basic Drupal fields to their template counterparts:
 
--   title
--   text
--   image.src
--   link.text
--   link.url
+-   `title`
+-   `text`
+-   `image.src`
+-   `link.text`
+-   `link.url`
 
 Kalaponents also provides a few hooks if you need to make adjustments along the way. Implement `hook_kalaponents_data_alter()` if you want to modify the template variables before they're passed on to Twig. And implement `hook_kalaponents_markup_alter()` if you want to adjust the markup returned from Twig (e.g., to wrap the output in a section).
 
@@ -100,7 +100,7 @@ component-libraries:
       - path/to/kalastatic/src
 ```
 
-3. Teference Twig templates from KalaStatic using `@kalastatic`:
+3. Reference Twig templates from KalaStatic using `@kalastatic`:
 
 ```
 {% include "@kalastatic/components/molecules/button/button.twig" %}
@@ -123,9 +123,9 @@ See the [Components section](3-components.md) for more information on using comp
 [Twig Filters](http://twig.sensiolabs.org/doc/2.x/filters/index.html) allow modifying the variables before they're output to the page. The [Drupal 8 Twig Filters](https://www.drupal.org/docs/8/theming/twig/filters-modifying-variables-in-twig-templates) add a few more Drupal-specific filters. While these are not provided by default in KalaStatic, you can make them available to the prototype.
 
 1. Install [Twig.js Drupal Extensions](https://github.com/kalamuna/twig-drupal-filters)
-
-    npm i twig-drupal-filters --save
-
+```
+npm i twig-drupal-filters --save
+```
 2. Add the filter definitions you need to `kalastatic.yml`
 
 ```
