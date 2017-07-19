@@ -4,17 +4,17 @@ Component based approaches to web development have been around for some time, ho
 
 In Kalastatic a component consists of a folder containing:
 
-- **A Sass file**
+- **A SASS file**
 	- All the styles that apply to this component.
 - **A Twig template**
 	- All the markup needed for the component
 	- Twig logic and/or placeholder variables that will get populated with content on build.
 - **A json file**
 	- Dummy data used to populate the Twig template for the styleguide.
-	- Can also be used to hold non-dummy static data like strings of text or images that won't get dynamically populated by other methods. TODO: link to section on json mock data.
+	- Can also be used to hold non-dummy static data like strings of text or images that won't get dynamically populated by other methods.
 
 ## How to add a new component
-We suggest sorting your components into folders that demarkate their complexity based on [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). However Kalastatic doesn't enforce this.
+We suggest sorting your components into folders that demarcate their complexity based on [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). However Kalastatic doesn't enforce this.
 
 To create a new component, make a new folder inside the `components` directory. Let's use 'button' as an example.
 Inside the `button` folder create three new files:
@@ -24,28 +24,28 @@ Inside the `button` folder create three new files:
 - `button.json`
 
 ### Create Component
-We provide a handy command ```create-component``` or ```cc``` that takes care of some of generating these files (and soon providing boilerplate content for valid json, and pre-configured kss headers).
+We provide a handy command `create-component` or `cc` that takes care of some of generating these files (and soon providing boilerplate content for valid json, and pre-configured kss headers).
 
 
 #### Command
 
-```kalastatic create-component <objectToCreate> [otherObjects...]```
+`kalastatic create-component <objectToCreate> [otherObjects...]`
 
 ##### Alias
 ```cc```
 
 ##### Options
-```kalastatic cc --directory=path/to/where/you/want/``` defaults to ```src/components```
+`kalastatic cc --directory=path/to/where/you/want/` defaults to `src/components`
 
 ##### Usage
-```kalastatic cc atoms/links```
-or ```kalastatic cc atoms/link```
-or ```kalastatic cc --directory=path/you/want/the/files/to/go atoms/link atoms/button molecules/article-teaser```
+`kalastatic cc atoms/links`
+or `kalastatic cc atoms/link`
+or `kalastatic cc --directory=path/you/want/the/files/to/go atoms/link atoms/button molecules/article-teaser`
 
 or FTW
 
-```kalastatic cc --directory=path/you/want/the/files/to/go `cat components.txt ```
-assuming the contents of components.txt is:
+`kalastatic cc --directory=path/you/want/the/files/to/go 'cat components.txt '`
+assuming the contents of `components.txt` is:
 
 ```
 atoms/links
@@ -60,7 +60,7 @@ molecules/tout
 ### Component Sass
 Adding a KSS comment to the top of your component's Sass file will enable KSS to build out the styleguide including our new component.
 
-``
+```
 /*
 
 Button
@@ -91,12 +91,13 @@ Add styles that are specific to this button component. We suggest using the fugl
  input[type=submit] {
    @extend %button;
  }
-
 ```
 
 Now that our component's Sass file exists, it's now a good idea to include it from your `main.scss` so it's styles get included in the build.
 
-`@import '../components/atoms/button/button';`
+```
+@import '../components/atoms/button/button';
+```
 
 ### Component Twig
 
