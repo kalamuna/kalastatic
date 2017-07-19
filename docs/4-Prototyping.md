@@ -153,6 +153,32 @@ This is the collection of articles that will become available through the global
 ```
 
 ## Namespaces
+
+Register different paths as [Twig Namespaces](http://symfony.com/doc/current/templating/namespaced_paths.html) to allow easy referencing when using [Twig's `include` function](https://twig.symfony.com/doc/2.x/tags/include.html).
+
+Use a Twig namespace through `include()`, prefixing the name of the namespace with a `@`:
+
+``` twig
+{% include '@kalastatic/path/to/template.html' with {'foo': 'bar'} %}
+```
+
+The default KalaStatic namespaces are as follows:
+
+- `@kalastatic` - The path to the KalaStatic src directory
+- `@atoms` - src/components/atoms
+- `@molecules` - src/components/molecules
+- `@organisms` - src/components/organisms
+
+To introduce additional namespaces, add the definitions to your kalastatic.yaml file:
+``` yaml
+pluginOpts:
+  metalsmith-jstransformer:
+    engineOptions:
+      twig:
+        namespaces:
+          customNamespace: path/to/namespacedir
+```
+
 ## Adding Page
 - Assigning layout
 
