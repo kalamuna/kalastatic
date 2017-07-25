@@ -28,19 +28,31 @@ Inside the `button` folder create three new files:
 
 We provide a handy command `create-component` or `cc` that takes care of some of generating these files (and soon providing boilerplate content for valid json, and pre-configured kss headers).
 
-- Command: `kalastatic create-component <objectToCreate> [otherObjects...]`
-- Alias: `kalastatic cc ...`
-- Options: `kalastatic cc --directory=path/to/where/you/want/`
+- Command
+    ```
+    kalastatic create-component <objectToCreate> [otherObjects...]
+    ```
+- Alias
+    ```
+    kalastatic cc ...
+    ```
+- Options
+    ```
+    kalastatic cc --directory=path/to/where/you/want/
+    ```
 
 #### Usage
 
 ```
 kalastatic cc atoms/links
 kalastatic cc atoms/link
-kalastatic cc --directory=path/you/want/the/files/to/go atoms/link atoms/button molecules/article-teaser
+kalastatic cc --directory=path/you/want/the/files/to/go atoms/link
+kalastatic cc atoms/button molecules/article-teaser organisms/anotherone
 ```
 
-You can mass-produce components by using `cat`:
+##### Mass Add Components
+
+You can add multiple components from a text file by using `cat`:
 
 1. Add the following to a `components.txt` file:
     ```
