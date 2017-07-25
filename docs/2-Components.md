@@ -14,6 +14,7 @@ In Kalastatic a component consists of a folder containing:
 	- Can also be used to hold non-dummy static data like strings of text or images that won't get dynamically populated by other methods.
 
 ## How to add a new component
+
 We suggest sorting your components into folders that demarcate their complexity based on [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). However Kalastatic doesn't enforce this.
 
 To create a new component, make a new folder inside the `components` directory. Let's use 'button' as an example.
@@ -24,40 +25,38 @@ Inside the `button` folder create three new files:
 - `button.json`
 
 ### Create Component
+
 We provide a handy command `create-component` or `cc` that takes care of some of generating these files (and soon providing boilerplate content for valid json, and pre-configured kss headers).
 
+- Command: `kalastatic create-component <objectToCreate> [otherObjects...]`
+- Alias: `kalastatic cc ...`
+- Options: `kalastatic cc --directory=path/to/where/you/want/`
 
-#### Command
-
-`kalastatic create-component <objectToCreate> [otherObjects...]`
-
-##### Alias
-```cc```
-
-##### Options
-`kalastatic cc --directory=path/to/where/you/want/` defaults to `src/components`
-
-##### Usage
-`kalastatic cc atoms/links`
-or `kalastatic cc atoms/link`
-or `kalastatic cc --directory=path/you/want/the/files/to/go atoms/link atoms/button molecules/article-teaser`
-
-or FTW
-
-`kalastatic cc --directory=path/you/want/the/files/to/go 'cat components.txt '`
-assuming the contents of `components.txt` is:
+#### Usage
 
 ```
-atoms/links
-
-atoms/buttons
-
-molecules/cta
-
-molecules/tout
+kalastatic cc atoms/links
+kalastatic cc atoms/link
+kalastatic cc --directory=path/you/want/the/files/to/go atoms/link atoms/button molecules/article-teaser
 ```
+
+You can mass-produce components by using `cat`:
+
+1. Add the following to a `components.txt` file:
+    ```
+    atoms/links
+    atoms/buttons
+    molecules/cta
+    molecules/tout
+    ```
+
+2. Execute the following command:
+    ```
+    kalastatic cc --directory=path/you/want/the/files/to/go 'cat components.txt '
+    ```
 
 ### Component Sass
+
 Adding a KSS comment to the top of your component's Sass file will enable KSS to build out the styleguide including our new component.
 
 ```
