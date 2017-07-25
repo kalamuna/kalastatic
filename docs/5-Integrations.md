@@ -106,6 +106,7 @@ component-libraries:
 {% include "@kalastatic/components/molecules/button/button.twig" %}
 ```
 
+
 ### Template Inclusion
 
 Once the Components module is set up, you can start including templates from KalaStatic in your Drupal theme. In some cases, components may require special naming for the variables. In this case you would use the [`include with` keyword](http://twig.sensiolabs.org/doc/2.x/tags/include.html).
@@ -117,6 +118,14 @@ An example of this would be in your theme's `page.html.twig` file. To include a 
 ```
 
 See the [Components section](3-components.md) for more information on using components.
+
+### Debugging
+
+Use [Twig's `dump()`](https://twig.sensiolabs.org/doc/2.x/functions/dump.html) function to help map variables from Drupal:
+
+```
+{{ dump() }}
+```
 
 ### Drupal Filters
 
