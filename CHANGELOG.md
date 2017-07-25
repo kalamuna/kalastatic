@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.2.0: 2017-05-31
+
+- Added the Drupal 8 Twig extensions to KSS
+- Added documentation
+- Updated code standards to ES6
+- Added a `create-component` command
+
 ## 3.1.2: 2017-02-23
 
 - Updated to `kss@^3.0.0-beta.18`
