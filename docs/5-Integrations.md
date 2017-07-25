@@ -74,11 +74,11 @@ Now let's throw one more wrinkle of complexity into this swirling vortex of fun.
 
 Kalagraphs takes care of mapping these basic Drupal fields to their template counterparts:
 
--   title
--   text
--   image.src
--   link.text
--   link.url
+-   `title`
+-   `text`
+-   `image.src`
+-   `link.text`
+-   `link.url`
 
 Kalaponents also provides a few hooks if you need to make adjustments along the way. Implement `hook_kalaponents_data_alter()` if you want to modify the template variables before they're passed on to Twig. And implement `hook_kalaponents_markup_alter()` if you want to adjust the markup returned from Twig (e.g., to wrap the output in a section).
 
@@ -100,11 +100,12 @@ component-libraries:
       - path/to/kalastatic/src
 ```
 
-3. Teference Twig templates from KalaStatic using `@kalastatic`:
+3. Reference Twig templates from KalaStatic using `@kalastatic`:
 
 ```
 {% include "@kalastatic/components/molecules/button/button.twig" %}
 ```
+
 
 ### Template Inclusion
 
@@ -116,16 +117,24 @@ An example of this would be in your theme's `page.html.twig` file. To include a 
 {% include "@kalastatic/components/molecules/button/button.twig" with {title: page.title} only %}
 ```
 
-See the [Components section](3-components.md) for more information on using components.
+See the Components section for more information on using components.
+
+### Debugging
+
+Use [Twig's `dump()`](https://twig.sensiolabs.org/doc/2.x/functions/dump.html) function to help map variables from Drupal:
+
+```
+{{ dump() }}
+```
 
 ### Drupal Filters
 
 [Twig Filters](http://twig.sensiolabs.org/doc/2.x/filters/index.html) allow modifying the variables before they're output to the page. The [Drupal 8 Twig Filters](https://www.drupal.org/docs/8/theming/twig/filters-modifying-variables-in-twig-templates) add a few more Drupal-specific filters. While these are not provided by default in KalaStatic, you can make them available to the prototype.
 
 1. Install [Twig.js Drupal Extensions](https://github.com/kalamuna/twig-drupal-filters)
-
-    npm i twig-drupal-filters --save
-
+```
+npm i twig-drupal-filters --save
+```
 2. Add the filter definitions you need to `kalastatic.yml`
 
 ```
@@ -162,36 +171,36 @@ The following is an example of using grunt-build-control with Circle:
 1. Install grunt-build-control with `npm i grunt-build-control --save`
 
 2. Add Circle deployment defintion to circle.yml:
-  ```
-  machine:
-    node:
-      version: 6.1.0
-  deployment:
-    examplehost:
-      # Deploy only when:
-      #   1. The branch isn't a feature branch (no /).
-      #   2. The branch name is less then or equal to 11 characters long.
-      branch: /^[^./A-Z]{0,11}$/
-      commands:
-        - git config --global user.name "Kala C. Bot"
-        - git config --global user.email "kalacommitbot@kalamuna.com"
-        - echo -e "Host *drush.in\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-        - npm run deploy
-  ```
+```
+machine:
+  node:
+    version: 6.1.0
+deployment:
+  examplehost:
+    # Deploy only when:
+    #   1. The branch isn't a feature branch (no /).
+    #   2. The branch name is less then or equal to 11 characters long.
+    branch: /^[^./A-Z]{0,11}$/
+    commands:
+      - git config --global user.name "Kala C. Bot"
+      - git config --global user.email "kalacommitbot@kalamuna.com"
+      - echo -e "Host *drush.in\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+      - npm run deploy
+```
 
 3. Create a deployment .gitignore-deploy file
 
-  ```
-  node_modules
-  ```
+```
+node_modules
+```
 
 4. Add the package.json deployment script:
 
-  ```
-  "deploy": "npm run deploy:gitignore && git add -A && npm run deploy:push",
-  "deploy:gitignore": "cp -f .gitignore-deploy .gitignore",
-  "deploy:push": "grunt buildcontrol:deploy"
-  ```
+```
+"deploy": "npm run deploy:gitignore && git add -A && npm run deploy:push",
+"deploy:gitignore": "cp -f .gitignore-deploy .gitignore",
+"deploy:push": "grunt buildcontrol:deploy"
+```
 
 5. [Add your project to CircleCI](https://circleci.com/docs/2.0/first-steps/#adding-projects)
 

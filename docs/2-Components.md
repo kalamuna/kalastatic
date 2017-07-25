@@ -4,17 +4,17 @@ Component based approaches to web development have been around for some time, ho
 
 In Kalastatic a component consists of a folder containing:
 
-- **A Sass file**
+- **A SASS file**
 	- All the styles that apply to this component.
 - **A Twig template**
 	- All the markup needed for the component
 	- Twig logic and/or placeholder variables that will get populated with content on build.
 - **A json file**
 	- Dummy data used to populate the Twig template for the styleguide.
-	- Can also be used to hold non-dummy static data like strings of text or images that won't get dynamically populated by other methods. TODO: link to section on json mock data.
+	- Can also be used to hold non-dummy static data like strings of text or images that won't get dynamically populated by other methods.
 
 ## How to add a new component
-We suggest sorting your components into folders that demarkate their complexity based on [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). However Kalastatic doesn't enforce this.
+We suggest sorting your components into folders that demarcate their complexity based on [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). However Kalastatic doesn't enforce this.
 
 To create a new component, make a new folder inside the `components` directory. Let's use 'button' as an example.
 Inside the `button` folder create three new files:
@@ -22,6 +22,40 @@ Inside the `button` folder create three new files:
 - `button.scss`
 - `button.html.twig`
 - `button.json`
+
+### Create Component
+We provide a handy command `create-component` or `cc` that takes care of some of generating these files (and soon providing boilerplate content for valid json, and pre-configured kss headers).
+
+
+#### Command
+
+`kalastatic create-component <objectToCreate> [otherObjects...]`
+
+##### Alias
+```cc```
+
+##### Options
+`kalastatic cc --directory=path/to/where/you/want/` defaults to `src/components`
+
+##### Usage
+`kalastatic cc atoms/links`
+or `kalastatic cc atoms/link`
+or `kalastatic cc --directory=path/you/want/the/files/to/go atoms/link atoms/button molecules/article-teaser`
+
+or FTW
+
+`kalastatic cc --directory=path/you/want/the/files/to/go 'cat components.txt '`
+assuming the contents of `components.txt` is:
+
+```
+atoms/links
+
+atoms/buttons
+
+molecules/cta
+
+molecules/tout
+```
 
 ### Component Sass
 Adding a KSS comment to the top of your component's Sass file will enable KSS to build out the styleguide including our new component.
@@ -57,12 +91,13 @@ Add styles that are specific to this button component. We suggest using the fugl
  input[type=submit] {
    @extend %button;
  }
-
 ```
 
 Now that our component's Sass file exists, it's now a good idea to include it from your `main.scss` so it's styles get included in the build.
 
-`@import '../components/atoms/button/button';`
+```
+@import '../components/atoms/button/button';
+```
 
 ### Component Twig
 
@@ -71,6 +106,10 @@ Your component's Twig file contains the markup and variables/logic needed to dis
 ```
 <a href="{{ url }}" class="button {{ classes|join(" ") }}">{{ text }}</a>
 ```
+
+#### Template Engine Extensions
+
+The extension of the file determines what template engine to use. If the file extension is `.twig`, it will use Twig. If you use `.html`, it will see that the HTML is already processed, and will not use any template engine. Using `.html.twig` as the file extension will process the file with Twig as usual, but give an added benefit of allow the component to be consumed by the Drupal theme layer.
 
 ### Component json
 The component's json file contains json data that is used to populate the variables in the Twig file. The top level keys should match the variable names in the Twig template. The Kalastatic build will fail if your json is not valid. Note that when you change json data, you need to stop and restart Kalastatic to see the changes come through in the browser. This is a known quirk that will get fixed in future versions.
