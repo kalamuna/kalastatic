@@ -117,7 +117,7 @@ An example of this would be in your theme's `page.html.twig` file. To include a 
 {% include "@kalastatic/components/molecules/button/button.twig" with {title: page.title} only %}
 ```
 
-See the [Components section](3-components.md) for more information on using components.
+See the Components section for more information on using components.
 
 ### Debugging
 
