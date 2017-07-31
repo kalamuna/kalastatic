@@ -2,7 +2,7 @@
 
 ## 4.0.0: 2017-xx-xx
 
-- Switch to KSTAT-KSS-Builder for the Styleguide
+- Switch to [KSTAT-KSS-Builder](https://github.com/kalamuna/kstat-kss-builder) for the Styleguide
 
 ## 3.2.0: 2017-05-31
 
