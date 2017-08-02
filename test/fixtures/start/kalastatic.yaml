@@ -3,3 +3,6 @@ bsWebroot: .
 
 # Have it load the custom redirect file as the index page.
 bsIndex: index-redirect.html
+
+# Enable the Styleguide.
+kss: true
