@@ -55,6 +55,7 @@ kalastatic cc atoms/button molecules/article-teaser organisms/anotherone
 You can add multiple components from a text file by using `cat`:
 
 1. Add the following to a `components.txt` file:
+
     ```
     atoms/links
     atoms/buttons
