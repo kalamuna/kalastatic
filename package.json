@@ -13,7 +13,7 @@
     "browser-sync": "^2.18.8",
     "commander": "^2.9.0",
     "extend": "^3.0.0",
-    "extend-shallow": "^2.0.1",
+    "extend-shallow": "^3.0.0",
     "jstransformer-commonmark": "^0.3.1",
     "jstransformer-precss": "^0.2.0",
     "jstransformer-pug": "^0.2.3",
