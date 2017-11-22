@@ -135,7 +135,7 @@ kss:
   css:
     - "../styles/main.css"
     - "../styles/styleguide.css"
-  builder: "node_modules/kstat-kss-builder"
+  builder: "path/to/custom-kss-builder"
   js:
     - "../vendor/matchHeight/dist/jquery.matchHeight-min.js"
     - "../vendor/jquery-once/jquery.once.js"
