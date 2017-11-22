@@ -142,6 +142,7 @@ KalaStatic.prototype.build = function () {
           '--builder=' + kssConf.builder,
           // Add the Twig extensions.
           '--extend-drupal8',
+          '--extend-custom=kalastatic-twig-filters',
           '--namespace=kalastatic:' + path.join(base, source),
           '--namespace=atoms:' + path.join(base, source, 'components', 'atoms'),
           '--namespace=molecules:' + path.join(base, source, 'components', 'molecules'),
