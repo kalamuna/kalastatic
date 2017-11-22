@@ -111,7 +111,8 @@ KalaStatic.prototype.build = function () {
         destination: 'styleguide',
         builder: path.dirname(require.resolve('kstat-kss-builder')),
         css: '../main.css',
-        homepage: 'kalastatic-kss-homepage.md'
+        homepage: 'kalastatic-kss-homepage.md',
+        twig: true
       }
 
       // Retrieve the KSS config.
@@ -139,14 +140,19 @@ KalaStatic.prototype.build = function () {
           // Add KalaStatic's src directory, so that there is a good base.
           '--destination=' + path.join(base, destination, kssConf.destination),
           // Choose the Twig builder.
-          '--builder=' + kssConf.builder,
-          // Add the Twig extensions.
-          '--extend-drupal8',
-          '--namespace=kalastatic:' + path.join(base, source),
-          '--namespace=atoms:' + path.join(base, source, 'components', 'atoms'),
-          '--namespace=molecules:' + path.join(base, source, 'components', 'molecules'),
-          '--namespace=organisms:' + path.join(base, source, 'components', 'organisms')
+          '--builder=' + kssConf.builder
         )
+
+        // Add the Twig extensions.
+        if (kssConf.twig) {
+          argv.push(
+            '--extend-drupal8',
+            '--namespace=kalastatic:' + path.join(base, source),
+            '--namespace=atoms:' + path.join(base, source, 'components', 'atoms'),
+            '--namespace=molecules:' + path.join(base, source, 'components', 'molecules'),
+            '--namespace=organisms:' + path.join(base, source, 'components', 'organisms')
+          )
+        }
 
         // Add the optional configurations.
         if (kssConf.title) {
