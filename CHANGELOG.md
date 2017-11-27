@@ -3,6 +3,7 @@
 ## 4.0.0: 2017-xx-xx
 
 - Switch to [KSTAT-KSS-Builder](https://github.com/kalamuna/kstat-kss-builder) for the Styleguide
+- Add Clean URLs
 
 ## 3.2.0: 2017-05-31
 
