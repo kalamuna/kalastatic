@@ -39,7 +39,9 @@ function KalaStatic(nconf) {
       // Load all Partials.
       'metalsmith-jstransformer-partials',
       // Render all content with JSTransformers.
-      'metalsmith-jstransformer'
+      'metalsmith-jstransformer',
+      // Clean URLs.
+      'metalsmith-clean-urls'
     ],
     pluginOpts: {}
   })
