@@ -117,8 +117,13 @@ function createComponent(dir, objectToCreate) {
   mkdirp(basePath)
   var scssFile = path.join(basePath, "_"+component[1]+'.scss')
   var jsonFile = path.join(basePath, component[1]+'.json')
-  var twigFile = path.join(basePath, component[1]+'.twig')
-  fs.writeFileSync(scssFile, '// Component')
+  var twigFile = path.join(basePath, component[1]+'.html.twig')
+  fs.writeFileSync(scssFile, `/*
+${component[1]}
+Description
+Markup: ${component[1]}.html.twig
+Styleguide ${component[0]}.${component[1]}
+*/`)
   fs.writeFileSync(jsonFile, '{}')
   fs.writeFileSync(twigFile, '{# Component #}')
 }
