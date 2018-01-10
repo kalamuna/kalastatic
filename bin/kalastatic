@@ -52,6 +52,7 @@ program
     var conf = kalastatic.nconf
     var bsIndex = conf.get('bsIndex')
     var bsBrowser = conf.get('bsBrowser')
+    var bsStartPath = conf.get('bsStartPath')
     var base = conf.get('base')
     var source = conf.get('source')
     var destination = conf.get('destination')
@@ -73,7 +74,7 @@ program
       bs.init({
         server: bsWebroot || finalDest,
         browser: bsBrowser,
-        startPath: bsStartPath,
+        startPath: bsStartPath || bsIndex,
         index: bsIndex
       })
 
