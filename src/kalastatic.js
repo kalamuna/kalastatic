@@ -14,6 +14,7 @@ function KalaStatic(nconf) {
   nconf.defaults({
     base: '.',
     bsIndex: 'index.html',
+    bsStartPath: '/kalastatic/',
     bsBrowser: false,
     source: 'src',
     destination: 'build',
