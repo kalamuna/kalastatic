@@ -73,6 +73,7 @@ program
       bs.init({
         server: bsWebroot || finalDest,
         browser: bsBrowser,
+        startPath: bsStartPath,
         index: bsIndex
       })
 
