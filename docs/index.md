@@ -3,23 +3,23 @@
 Kalastatic is a prototyping framework and static site generator.
 
 ### Featuring:
-- Easy installation, with minimal dependencies
-- Produces documented component library
-- Output production ready styles that can be ingested by other systems
-- Browsersync:
-  - Built in webserver
-  - Live reload - saving files reloads the browser
-  - Remote device access - load your local on a mobile device!
-- Node:
-  - Automated download of front end frameworks and other dependencies
-  - Automated Deployments
-- Twig, or your template engine of choice:
-  - Easy creation of extendable template variations with inheritance
-- Convenience Utilities
-  - Cache busting
-  - Deep linking (url fragments)
-  - Character limit filters
-  - Splits CSS files for IE compatibility
+* Easy installation, with minimal dependencies
+* Produces documented component library
+* Output production ready styles that can be ingested by other systems
+* **Browsersync:**
+    - Built in webserver
+    - Live reload - saving files reloads the browser
+    - Remote device access - load your local on a mobile device!
+* **Node:**
+    - Automated download of front end fxrameworks and other dependencies
+    - Automated Deployments
+* **Twig, or your template engine of choice:**
+    - Easy creation of extendable template variations with inheritance
+* **Convenience Utilities:**
+    - Cache busting
+    - Deep linking (url fragments)
+    - Character limit filters
+    - Splits CSS files for IE compatibility
 
 At Kalamuna we use Kalastatic to put into practice atomic web design principles to produce a living styleguide/component library that can be used to guide back-end implementations in a framework-agnostic approach.
 
