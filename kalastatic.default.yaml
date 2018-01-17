@@ -1,0 +1,36 @@
+# The base directory of where the base KalaStatic lives.
+base: .
+
+# What BrowserSync should consider the index page.
+bsIndex: 'index.html'
+
+# What BrowserSync should consider the webroot when running KalaStatic.
+# Defaults to the KalaStatic destination directory.
+bsWebroot: ''
+
+bsStartPath: /build/index.html
+
+bsIndex: index.html
+
+# Whether or not to open the browser when initially running Kalastatic.
+bsBrowser: false
+
+# The directory (from base), where the source content files live.
+source: src
+
+# Where the files will be built out to.
+destination: build
+
+# The options to pass off to the Metalsmith plugins when building, keyed by plugin name.
+pluginOpts: {}
+
+# KSS Styleguide Configuration
+kss:
+  # Set the path to a custom KSS Builder
+  builder: null
+  title: "Styleguide"
+  homepage: styles/homepage.md
+  css: ../styles/main.css
+  source:
+    - src/components/
+    - src/styles/
