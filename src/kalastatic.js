@@ -65,20 +65,6 @@ KalaStatic.prototype.build = function () {
     // Retrieve the Plugin configuration.
     const plugins = config.get('plugins')
     const pluginDefaults = {
-      'metalsmith-gathercontent': {
-        authPath: '_auth.json',
-        projectId: 152172,
-        mappings: {
-          id: 'id',
-          slug: '_name',
-          title: 'Content_Title',
-          'hero-image': 'Content_HeroImage',
-          tier: 'tier',
-          summary: 'Content_Summary',
-          contents: 'Content_Content',
-          parentId: '_parent_id'
-        }    
-      },
       'metalsmith-define': {
         // Expose both a base_path and a build_path variables.
         'base_path': '/', // eslint-disable-line quote-props
