@@ -44,11 +44,11 @@
     "purecss": "1.0.0",
     "rimraf": "^2.6.1",
     "testit": "^3.0.0",
-    "xo": "^0.18.2"
+    "xo": "*"
   },
   "scripts": {
     "test": "node test",
-    "posttest": "xo --space --no-semicolon",
+    "posttest": "xo --space=2 --no-semicolon",
     "examples": "cd examples/mdl-blog && npm i && npm test",
     "start": "cd test/fixtures/start && ../../../bin/kalastatic start"
   },
