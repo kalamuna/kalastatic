@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.0.0: Unreleased
+
+- Switched from Twig.js to [Twing](https://github.com/ericmorand/twing)
+
 ## 4.0.0-alpha1: 2017-12-12
 
 - Switch to [KSTAT-KSS-Builder](https://github.com/kalamuna/kstat-kss-builder) for the Styleguide
