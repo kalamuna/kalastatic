@@ -18,7 +18,7 @@
     "jstransformer-precss": "^0.3.0",
     "jstransformer-pug": "^0.3.0",
     "jstransformer-scss": "^1.0.0",
-    "jstransformer-twing": "0.0.1",
+    "jstransformer-twing": "~0.1.0",
     "kss": "^3.0.0-beta.18",
     "kstat-kss-builder": "^0.13.5",
     "metalsmith": "^2.3.0",
