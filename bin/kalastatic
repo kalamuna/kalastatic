@@ -70,10 +70,21 @@ program
       var bs = browserSync.create('kalastatic')
 
       // Set up the server.
+      var serverConfig = {
+        // Configure the base directory.
+        baseDir: bsWebroot || finalDest
+      }
+      // Allow switching the BrowserSync index.
+      if (bsIndex) {
+        serverConfig.index = bsIndex
+      }
+      else {
+        // If no index is set, allow browsing by directories.
+        serverConfig.directory = true
+      }
       bs.init({
-        server: bsWebroot || finalDest,
-        browser: bsBrowser,
-        index: bsIndex
+        server: serverConfig,
+        browser: bsBrowser
       })
 
       // Create a watch task.
