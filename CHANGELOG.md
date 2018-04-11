@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.0.0-alpha2: 2018-03-11
+
+- Enabled the BrowserSync directory index
+- Documentation
+- Updated dependencies
+  - `jstransformer-pug@0.3.0`
+  - `nconf@0.10.0`
+  - `metalsmith-jstransformer@0.13.0`
+- Fixed tests in Node.js 9
+
 ## 4.0.0-alpha1: 2017-12-12
 
 - Switch to [KSTAT-KSS-Builder](https://github.com/kalamuna/kstat-kss-builder) for the Styleguide
