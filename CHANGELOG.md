@@ -15,11 +15,6 @@
 - Switch to [KSTAT-KSS-Builder](https://github.com/kalamuna/kstat-kss-builder) for the Styleguide
 - Add Clean URLs
 
-## 4.0.0-alpha1: 2017-12-12
-
-- Switch to [KSTAT-KSS-Builder](https://github.com/kalamuna/kstat-kss-builder) for the Styleguide
-- Add Clean URLs
-
 ## 3.2.0: 2017-05-31
 
 - Added the Drupal 8 Twig extensions to KSS
