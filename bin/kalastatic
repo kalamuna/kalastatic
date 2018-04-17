@@ -84,7 +84,8 @@ program
       }
       bs.init({
         server: serverConfig,
-        browser: bsBrowser
+        browser: bsBrowser,
+        open: false
       })
 
       // Create a watch task.
