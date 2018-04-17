@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.0.0-alpha3: 2018-04-17
+
+- BrowserSync: Disable opening the window automatically
+
 ## 4.0.0-alpha2: 2018-03-11
 
 - Enabled the BrowserSync directory index
