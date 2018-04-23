@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.0.0-alpha4: 2018-04-23
+
+- KSS: Target specific KSS version to keep tests in check
+
 ## 4.0.0-alpha3: 2018-04-17
 
 - BrowserSync: Disable opening the window automatically
