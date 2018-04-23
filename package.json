@@ -19,7 +19,7 @@
     "jstransformer-pug": "^0.3.0",
     "jstransformer-scss": "^1.0.0",
     "jstransformer-twig": "^1.3.0",
-    "kss": "3.0.0-beta.18",
+    "kss": "3.0.0-beta.19",
     "kstat-kss-builder": "^0.13.5",
     "metalsmith": "^2.3.0",
     "metalsmith-assets-convention": "^1.1.0",
