@@ -1,7 +1,7 @@
 'use strict'
 
-const execFile = require('child_process').execFile
-const exec = require('child_process').exec
+const execFile = require('child_process').execFile // eslint-disable-line prefer-destructuring
+const exec = require('child_process').exec // eslint-disable-line prefer-destructuring
 const fs = require('fs')
 const path = require('path')
 const assertDir = require('assert-dir-equal')
