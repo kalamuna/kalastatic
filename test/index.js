@@ -2,7 +2,6 @@
 
 const execFile = require('child_process').execFile // eslint-disable-line prefer-destructuring
 const exec = require('child_process').exec // eslint-disable-line prefer-destructuring
-const fs = require('fs')
 const path = require('path')
 const assertDir = require('assert-dir-equal')
 const KalaStatic = require('..')
@@ -61,7 +60,8 @@ test('cli', done => {
   const options = {
     cwd: 'test/fixtures/basic'
   }
-  execFile(fs.realpathSync('bin/kalastatic'), [], options, (err, stdout, stderr) => {
+  const binkstat = path.join(__dirname, '..', 'bin', 'kalastatic')
+  execFile(binkstat, [], options, (err, stdout, stderr) => {
     if (err) {
       return done(err)
     }
