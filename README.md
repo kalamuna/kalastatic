@@ -100,7 +100,7 @@ While you can run `kalastatic` as a CLI application, it is recommended to run th
 ```
 "scripts": {
   "test": "kalastatic build",
-  "start: "kalastatic start"
+  "start": "kalastatic start"
 }
 ```
 
