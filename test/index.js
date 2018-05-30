@@ -56,6 +56,20 @@ setupTest('twig-filters', {
   }
 })
 
+setupTest('namespaces', {
+  pluginOpts: {
+    'metalsmith-jstransformer': {
+      engineOptions: {
+        twig: {
+          namespaces: {
+            icons: '/images/icons/'
+          }
+        }
+      }
+    }
+  }
+})
+
 test('cli', done => {
   const options = {
     cwd: 'test/fixtures/basic'

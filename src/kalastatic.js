@@ -87,7 +87,6 @@ KalaStatic.prototype.build = function () {
     }
     const pluginOpts = config.get('pluginOpts')
     const options = extend(true, {}, pluginDefaults, pluginOpts)
-
     // Set up Metalsmith.
     metalsmith.source(source)
     metalsmith.destination(destination)
