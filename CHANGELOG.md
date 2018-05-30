@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.0.0-alpha.5: 2018-05-30
+
+- Twig: Add `extend` fix ([#559](https://github.com/twigjs/twig.js/pull/559))
+
 ## 4.0.0-alpha4: 2018-04-23
 
 - KSS: Target specific KSS version to keep tests in check
