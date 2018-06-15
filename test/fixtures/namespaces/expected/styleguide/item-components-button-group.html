@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <title> KSS Style Guide</title>
+
+  <meta name="description" content="">
+  <meta name="generator" content="kss-node">
+  <meta name="viewport" content="width=device-width">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vex-js/3.0.0/css/vex.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vex-js/3.0.0/css/vex-theme-plain.min.css">
+  <link rel="stylesheet" href="kss-assets/kss.css">
+
+  <link rel="stylesheet" href="../main.css">
+
+
+  <!-- script inclusion configurable through kss-config.json -->
+  
+  <!-- style inclusion configurable through kss-config.json -->
+  
+</head>
+
+<body id="kss-node">
+
+<main role="main" class="kss-main">
+
+                            <section id="kssref-components-button-group" class="kss-section kss-section--depth-2">
+  <div class="kss-style">
+
+    <div class="title-block">
+
+  <a class="kss-title__permalink" href="#kssref-components-button-group">
+    <span class="kss-title__ref">
+      1.2
+      <span class="kss-title__permalink-hash">
+        Components.Button Group
+      </span>
+    </span>
+  </a>
+
+    <h2 class="kss-title kss-title--level-2">
+    Button Group
+  </h2>
+
+</div>
+          <div class="kss-description">
+        <p>This is a group of buttons.</p>
+
+      </div>
+    
+    
+            </div>
+
+  <div class="component_details">
+    
+  <div class="kss-default__example">
+    	<ul>
+					<li><button type="button" class="button">This</button>
+</li>
+					<li><button type="button" class="button">Is</button>
+</li>
+					<li><button type="button" class="button">A</button>
+</li>
+					<li><button type="button" class="button">Button</button>
+</li>
+					<li><button type="button" class="button">Group</button>
+</li>
+			</ul>
+
+  </div>
+
+  
+      <div class="kss-markup kss-style">
+  <h3>Markup for Button Group</h3>
+  <pre class="prettyprint linenums lang-html"><code data-language="html">{% if buttons %}
+	&lt;ul&gt;
+		{% for button in buttons %}
+			&lt;li&gt;{% include &quot;@molecules/button/button.twig&quot; with button only %}&lt;/li&gt;
+		{% endfor %}
+	&lt;/ul&gt;
+{% endif %}
+</code></pre>
+</div>
+  
+  <div class="controls">
+              <a class="markup_toggle" href="#">Markup</a>
+      </div>
+
+
+  </div>
+
+  </section>
+                  
+  <a class="sidebar-toggle" href="#"><span>☰</span></a>
+  <aside class="kss-sidebar kss-style">
+
+  <header class="kss-header">
+  <h1 class="kss-doc-title page__heading">
+    KSS Style Guide
+  </h1>
+</header>
+
+  <nav class="kss-nav">
+
+    <ul class="kss-nav__menu">
+
+      <li class="kss-nav__menu-item">
+        <a class="kss-nav__menu-link" href="./index.html">
+          <span class="kss-nav__name">Overview</span>
+        </a>
+      </li>
+
+              <li class="kss-nav__menu-item  " data-section="Components">
+          <a class="kss-nav__menu-link" href="section-components.html">
+            <span class="kss-nav__name">Components</span>
+                        <span class="kss-nav__menu-child-actuator">☰</span>
+                      </a>
+
+                      <ul class="kss-nav__menu-child">
+                          <li class="kss-nav__menu-item ">
+                <a class="kss-nav__menu-link" href="section-components.html#kssref-components-button">
+                  <span class="kss-nav__name">Button</span>
+                </a>
+              </li>
+                          <li class="kss-nav__menu-item active">
+                <a class="kss-nav__menu-link" href="section-components.html#kssref-components-button-group">
+                  <span class="kss-nav__name">Button Group</span>
+                </a>
+              </li>
+                        </ul>
+          
+        </li>
+              <li class="kss-nav__menu-item  " data-section="KalaStatic">
+          <a class="kss-nav__menu-link" href="section-kalastatic.html">
+            <span class="kss-nav__name">KalaStatic</span>
+                      </a>
+
+          
+        </li>
+          </ul>
+  </nav>
+</aside>
+
+</main>
+
+<!-- SCRIPTS -->
+<script src="kss-assets/kss.js"></script>
+<script src="kss-assets/scrollspy.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vex-js/3.0.0/js/vex.min.js"></script>
+<script src="kss-assets/prettify.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="kss-assets/kstat-kss.js"></script>
+
+<!-- script inclusion configurable through kss-config.json -->
+
+<script>
+  prettyPrint();
+  var spy = new ScrollSpy('#kss-node', {
+    nav: '.kss-nav__menu-item.active .kss-nav__menu-child > li > a',
+    className: 'is-in-viewport'
+  });
+</script>
+
+
+
+
+<!-- Automatically built using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->
+</body>
+</html>
