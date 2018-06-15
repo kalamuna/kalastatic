@@ -72,10 +72,10 @@ KalaStatic.prototype.build = function () {
         engineOptions: {
           twig: {
             namespaces: {
-              kalastatic: path.join(base, source),
-              atoms: path.join(base, source, 'components', 'atoms'),
-              molecules: path.join(base, source, 'components', 'molecules'),
-              organisms: path.join(base, source, 'components', 'organisms')
+              kalastatic: path.join(source),
+              atoms: path.join(source, 'components', 'atoms'),
+              molecules: path.join(source, 'components', 'molecules'),
+              organisms: path.join(source, 'components', 'organisms')
             }
           }
         }
@@ -87,6 +87,13 @@ KalaStatic.prototype.build = function () {
     }
     const pluginOpts = config.get('pluginOpts')
     const options = extend(true, {}, pluginDefaults, pluginOpts)
+
+    // Prepend the base to all namespaces.
+    for (const namespaceName in options['metalsmith-jstransformer'].engineOptions.twig.namespaces) {
+      if (options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName]) {
+        options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName] = path.join(base, options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName])
+      }
+    }
 
     // Set up Metalsmith.
     metalsmith.source(source)
@@ -147,13 +154,17 @@ KalaStatic.prototype.build = function () {
 
         // Add the Twig extensions.
         if (kssConf.twig) {
-          argv.push(
-            '--extend-drupal8',
-            '--namespace=kalastatic:' + path.join(base, source),
-            '--namespace=atoms:' + path.join(base, source, 'components', 'atoms'),
-            '--namespace=molecules:' + path.join(base, source, 'components', 'molecules'),
-            '--namespace=organisms:' + path.join(base, source, 'components', 'organisms')
-          )
+          argv.push('--extend-drupal8')
+          var kssNamespaces = {
+            'kalastatic': source,
+            'atoms': path.join(source, 'components', 'atoms'),
+            'molecules': path.join(source, 'components', 'molecules'),
+            'organisms': path.join(source, 'components', 'organisms')
+          }
+          extend(kssNamespaces, kssConf.namespaces)
+          for (var kssNamespaceName in kssNamespaces) {
+            argv.push('--namespace=' + kssNamespaceName + ':' + path.join(base, kssNamespaces[kssNamespaceName]))
+          }
         }
 
         // Add the optional configurations.

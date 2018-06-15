@@ -24,6 +24,8 @@ function setupTest(name, opts) {
       conf.overrides(testOpts)
 
       // Create the environment.
+      console.log('Name: ', name)
+      console.log('Options: ', opts)
       const kalastatic = new KalaStatic(conf)
       kalastatic.build().then(() => {
         // Make sure the build passes.
@@ -42,7 +44,7 @@ function setupTest(name, opts) {
 setupTest('basic')
 setupTest('layouts')
 setupTest('styles', {
-  kss: true
+  kss: false
 })
 setupTest('twig-filters', {
   pluginOpts: {
@@ -56,7 +58,22 @@ setupTest('twig-filters', {
   }
 })
 setupTest('namespaces', {
-  kss: true
+  pluginOpts: {
+    'metalsmith-jstransformer': {
+      engineOptions: {
+        twig: {
+          namespaces: {
+            custom: 'src/components/custom'
+          }
+        }
+      }
+    }
+  },
+  kss: {
+    namespaces: {
+      'custom': 'src/components/custom'
+    }
+  }
 })
 
 test('cli', done => {
