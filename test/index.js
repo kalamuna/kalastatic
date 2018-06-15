@@ -55,6 +55,9 @@ setupTest('twig-filters', {
     }
   }
 })
+setupTest('namespaces', {
+  kss: true
+})
 
 test('cli', done => {
   const options = {

@@ -1,0 +1,16 @@
+/**
+ * Button
+ *
+ * This is a simple button component.
+ *
+ * .shiny - This is a big shiny button.
+ *
+ * Markup: button.html
+ *
+ * Styleguide: Components.Button
+ */
+button {
+  &.button {
+  	font-size: 4em;
+  }
+}
