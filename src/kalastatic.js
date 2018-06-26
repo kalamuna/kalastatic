@@ -34,10 +34,8 @@ function KalaStatic(nconf) {
       'metalsmith-collections-convention',
       // Bring in static assets.
       'metalsmith-assets-convention',
-      // Ignore all partials and layouts.
+      // Allow ignoring files.
       'metalsmith-ignore',
-      // Load all Partials.
-      'metalsmith-jstransformer-partials',
       // Render all content with JSTransformers.
       'metalsmith-jstransformer',
       // Clean URLs.
@@ -72,10 +70,10 @@ KalaStatic.prototype.build = function () {
         engineOptions: {
           twig: {
             namespaces: {
-              kalastatic: path.join(source),
-              atoms: path.join(source, 'components', 'atoms'),
-              molecules: path.join(source, 'components', 'molecules'),
-              organisms: path.join(source, 'components', 'organisms')
+              kalastatic: '.',
+              atoms: path.join('components', 'atoms'),
+              molecules: path.join('components', 'molecules'),
+              organisms: path.join('components', 'organisms')
             }
           }
         }
@@ -91,7 +89,7 @@ KalaStatic.prototype.build = function () {
     // Prepend the base to all namespaces.
     for (const namespaceName in options['metalsmith-jstransformer'].engineOptions.twig.namespaces) {
       if (options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName]) {
-        options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName] = path.join(base, options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName])
+        options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName] = path.join(base, source, options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName])
       }
     }
 
@@ -108,13 +106,18 @@ KalaStatic.prototype.build = function () {
         metalsmith.use(mod(opts))
       }
     }
+    console.log('---------\nTwig Options')
+      console.log(options['metalsmith-jstransformer'].engineOptions.twig);
 
     // Build the application.
     metalsmith.build(err => {
+      console.log('Done KSTAT')
       if (err) {
         return reject(err)
       }
 
+
+      console.log('KSS TIME! --------')
       // Construct the default KSS options.
       const kssDefaultConf = {
         destination: 'styleguide',

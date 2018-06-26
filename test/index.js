@@ -63,7 +63,7 @@ setupTest('namespaces', {
       engineOptions: {
         twig: {
           namespaces: {
-            custom: 'src/components/custom'
+            custom: 'components/custom'
           }
         }
       }
@@ -71,7 +71,7 @@ setupTest('namespaces', {
   },
   kss: {
     namespaces: {
-      'custom': 'src/components/custom'
+      'custom': 'components/custom'
     }
   }
 })
