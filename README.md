@@ -1,13 +1,13 @@
 # kalastatic
 
-[![Build Status](https://travis-ci.org/kalamuna/kalastatic.svg?branch=2)](https://travis-ci.org/kalamuna/kalastatic)
+[![Build Status](https://travis-ci.org/kalamuna/kalastatic.svg?branch=master)](https://travis-ci.org/kalamuna/kalastatic)
 [![Greenkeeper badge](https://badges.greenkeeper.io/kalamuna/kalastatic.svg)](https://greenkeeper.io/)
 
 Static site application framework for prototyping and styleguiding.
 
 ## Dependencies
 
-- [Node.js](https://nodejs.org) 4, 6, 7 or 8
+- [Node.js](https://nodejs.org) 7, 8, 9, 10
   - Through [nvm](https://github.com/creationix/nvm), run `nvm use`
 
 ## Install

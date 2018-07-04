@@ -137,8 +137,7 @@ The component's json file contains json data that is used to populate the variab
 Some components are made up of a collection of other components. Acheiving this in Twig is easy with the [include directive](http://twig.sensiolabs.org/doc/2.x/tags/include.html).
 
 ```
-{% include 'template.html' with {'foo': 'bar'} %}
-
+{% include '@kalastatic/path/to/template.html' with {'foo': 'bar'} %}
 ```
 
 
@@ -146,7 +145,7 @@ Some components are made up of a collection of other components. Acheiving this 
 When including templates within other templates it's advisable to use the `only` declaration for passing variables.
 
 ```
-{% include 'template.html' with var only %}
+{% include '@kalastatic/path/to/template.html' with var only %}
 
 ```
 
@@ -156,6 +155,11 @@ This is a form of dependecy injection that has a number of benefits:
 - Keeps components self contained and therefore portable/reusable.
 
 When the `only` directive is not used, the entire variable scope is passed to the template. While this may be needed/desirable in some cases it's generally considered bad practice.
+
+
+### Namespaces and Relative Paths
+
+Relative paths can sometimes break in Twig. It's recommended to use namespaces so that the paths are referenced correctly. For more information about the Twig namespaces, visit [Prototyping](4-Prototyping.md).
 
 ## Extending components
 A component can also use the Twig `extends` directive to extend a Twig `block`. For more information see the [Twig extends documentation](https://twig.sensiolabs.org/doc/2.x/tags/extends.html).

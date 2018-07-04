@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.1.0-alpha.1: 2018-07-04
+
+- Update Twig with namespace fixes
+
 ## 4.0.0-alpha.5: 2018-05-30
 
 - Twig: Add `extend` fix ([#559](https://github.com/twigjs/twig.js/pull/559))
