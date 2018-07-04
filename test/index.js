@@ -42,7 +42,7 @@ function setupTest(name, opts) {
 setupTest('basic')
 setupTest('layouts')
 setupTest('styles', {
-  kss: true
+  kss: false
 })
 setupTest('twig-filters', {
   pluginOpts: {
@@ -52,6 +52,24 @@ setupTest('twig-filters', {
           awesomeSauce: 'This Is The AwesomeSauce!'
         }
       }
+    }
+  }
+})
+setupTest('namespaces', {
+  pluginOpts: {
+    'metalsmith-jstransformer': {
+      engineOptions: {
+        twig: {
+          namespaces: {
+            custom: 'components/custom'
+          }
+        }
+      }
+    }
+  },
+  kss: {
+    namespaces: {
+      custom: 'components/custom'
     }
   }
 })
