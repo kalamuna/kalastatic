@@ -106,18 +106,13 @@ KalaStatic.prototype.build = function () {
         metalsmith.use(mod(opts))
       }
     }
-    console.log('---------\nTwig Options')
-      console.log(options['metalsmith-jstransformer'].engineOptions.twig);
 
     // Build the application.
     metalsmith.build(err => {
-      console.log('Done KSTAT')
       if (err) {
         return reject(err)
       }
 
-
-      console.log('KSS TIME! --------')
       // Construct the default KSS options.
       const kssDefaultConf = {
         destination: 'styleguide',
@@ -158,15 +153,17 @@ KalaStatic.prototype.build = function () {
         // Add the Twig extensions.
         if (kssConf.twig) {
           argv.push('--extend-drupal8')
-          var kssNamespaces = {
-            'kalastatic': source,
-            'atoms': path.join(source, 'components', 'atoms'),
-            'molecules': path.join(source, 'components', 'molecules'),
-            'organisms': path.join(source, 'components', 'organisms')
+          const kssNamespaces = {
+            kalastatic: source,
+            atoms: path.join(source, 'components', 'atoms'),
+            molecules: path.join(source, 'components', 'molecules'),
+            organisms: path.join(source, 'components', 'organisms')
           }
           extend(kssNamespaces, kssConf.namespaces)
-          for (var kssNamespaceName in kssNamespaces) {
-            argv.push('--namespace=' + kssNamespaceName + ':' + path.join(base, kssNamespaces[kssNamespaceName]))
+          for (const kssNamespaceName in kssNamespaces) {
+            if (kssNamespaces[kssNamespaceName]) {
+              argv.push('--namespace=' + kssNamespaceName + ':' + path.join(base, source, kssNamespaces[kssNamespaceName]))
+            }
           }
         }
 
