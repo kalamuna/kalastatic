@@ -154,10 +154,10 @@ KalaStatic.prototype.build = function () {
         if (kssConf.twig) {
           argv.push('--extend-drupal8')
           const kssNamespaces = {
-            kalastatic: source,
-            atoms: path.join(source, 'components', 'atoms'),
-            molecules: path.join(source, 'components', 'molecules'),
-            organisms: path.join(source, 'components', 'organisms')
+            kalastatic: '.',
+            atoms: path.join('components', 'atoms'),
+            molecules: path.join('components', 'molecules'),
+            organisms: path.join('components', 'organisms')
           }
           extend(kssNamespaces, kssConf.namespaces)
           for (const kssNamespaceName in kssNamespaces) {
