@@ -3,6 +3,7 @@
 ## 4.1.0-alpha.1: 2018-07-04
 
 - Update Twig with namespace fixes
+  - Namespace definitions are now relative to the source directory
 
 ## 4.0.0-alpha.5: 2018-05-30
 
