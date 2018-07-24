@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+<h1>{{ title }}</h1>
+<p>{{ description }}</p>
+
+{% include "@custom/buttongroup/_buttongroup.twig" with { buttons: thebuttons } only %}
+
+</body>
+</html>

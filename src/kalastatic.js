@@ -37,10 +37,8 @@ function KalaStatic(nconf) {
       'metalsmith-collections-convention',
       // Bring in static assets.
       'metalsmith-assets-convention',
-      // Ignore all partials and layouts.
+      // Allow ignoring files.
       'metalsmith-ignore',
-      // Load all Partials.
-      'metalsmith-jstransformer-partials',
       // Render all content with JSTransformers.
       'metalsmith-jstransformer',
       // Clean URLs.
@@ -74,10 +72,10 @@ KalaStatic.prototype.build = function () {
         engineOptions: {
           twig: {
             namespaces: {
-              kalastatic: path.join(base, source),
-              atoms: path.join(base, source, 'components', 'atoms'),
-              molecules: path.join(base, source, 'components', 'molecules'),
-              organisms: path.join(base, source, 'components', 'organisms')
+              kalastatic: '.',
+              atoms: path.join('components', 'atoms'),
+              molecules: path.join('components', 'molecules'),
+              organisms: path.join('components', 'organisms')
             }
           }
         }
@@ -89,6 +87,12 @@ KalaStatic.prototype.build = function () {
     }
     const pluginOpts = config.get('pluginOpts')
     const options = extend(true, {}, pluginDefaults, pluginOpts)
+    // Prepend the base to all namespaces.
+    for (const namespaceName in options['metalsmith-jstransformer'].engineOptions.twig.namespaces) {
+      if (options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName]) {
+        options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName] = path.join(base, source, options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName])
+      }
+    }
     // Set up Metalsmith.
     metalsmith.source(source)
     metalsmith.destination(destination)
@@ -150,13 +154,19 @@ KalaStatic.prototype.build = function () {
         )
         // Add the Twig extensions.
         if (kssConf.twig) {
-          argv.push(
-            '--extend-drupal8',
-            '--namespace=kalastatic:' + path.join(base, source),
-            '--namespace=atoms:' + path.join(base, source, 'components', 'atoms'),
-            '--namespace=molecules:' + path.join(base, source, 'components', 'molecules'),
-            '--namespace=organisms:' + path.join(base, source, 'components', 'organisms')
-          )
+          argv.push('--extend-drupal8')
+          const kssNamespaces = {
+            kalastatic: '.',
+            atoms: path.join('components', 'atoms'),
+            molecules: path.join('components', 'molecules'),
+            organisms: path.join('components', 'organisms')
+          }
+          extend(kssNamespaces, kssConf.namespaces)
+          for (const kssNamespaceName in kssNamespaces) {
+            if (kssNamespaces[kssNamespaceName]) {
+              argv.push('--namespace=' + kssNamespaceName + ':' + path.join(base, source, kssNamespaces[kssNamespaceName]))
+            }
+          }
         }
         // Add the optional configurations.
         if (kssConf.title) {

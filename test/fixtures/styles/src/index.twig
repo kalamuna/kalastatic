@@ -5,17 +5,13 @@ pageTitle: Hello World!
 
 <h2>{{ pageTitle }}</h2>
 
-{{ partial('button', {primary: true, title: 'Hello!', active: false })|raw }}
+{% include "@kalastatic/components/custom/atoms/button.twig" with { primary: true, title: 'Hello!', active: false } only %}
 
 <h2>Using Include with namespace</h2>
-{% include "@kalastatic/partials/atoms/button.twig" with { title: 'Hello World!' } only %}
+{% include "@kalastatic/components/custom/atoms/button.twig" with { title: 'Hello World!' } only %}
 
 <h2>Button Group</h2>
-{% include "@kalastatic/partials/molecules/button-group.twig" with { buttons: {one: {title: 'Button One'}, two: {title: 'Button Two'}} } only %}
+{% include "@kalastatic/components/custom/molecules/button-group.twig" with { buttons: {one: {title: 'Button One'}, two: {title: 'Button Two'}} } only %}
 
 <h2>Link</h2>
-
-{% include "@atoms/link.twig" with {
-  url: "http://example.com",
-  title: "Example Link"
-} only %}
+{% include "@kalastatic/components/atoms/link.twig" with { url: "http://example.com", title: "Example Link" } %}

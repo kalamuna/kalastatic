@@ -697,7 +697,7 @@ this the same font stack that Normalize.css sets for the `body`.
   /* rgba supported */
   border: 1px solid #999;
   /*IE 6/7/8*/
-  border: none transparent;
+  border: none rgba(0, 0, 0, 0);
   /*IE9 + everything else*/
   background-color: #E6E6E6;
   text-decoration: none;

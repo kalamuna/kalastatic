@@ -28,16 +28,16 @@
 
 <main role="main" class="kss-main">
 
-                            <section id="kssref-kalastatic-button" class="kss-section kss-section--depth-2">
+                            <section id="kssref-components-button" class="kss-section kss-section--depth-2">
   <div class="kss-style">
 
     <div class="title-block">
 
-  <a class="kss-title__permalink" href="#kssref-kalastatic-button">
+  <a class="kss-title__permalink" href="#kssref-components-button">
     <span class="kss-title__ref">
       1.1
       <span class="kss-title__permalink-hash">
-        kalastatic.button
+        Components.Button
       </span>
     </span>
   </a>
@@ -48,20 +48,7 @@
 
 </div>
           <div class="kss-description">
-        <p>Displays a button on the page.</p>
-<h4 id="parameters">Parameters</h4>
-<ul>
-<li><code>title</code> The text to display in the button.</li>
-<li><code>href</code> The link to point the button to.</li>
-<li><code>active</code> Whether or not the button will be the Active state.</li>
-</ul>
-<h4 id="usage">Usage</h4>
-<pre><code class="lang-twig">{# Twig #}
-{% include &#39;path/to/button.twig&#39; with { title: &#39;Hello World!&#39; } %}
-
-{# Partials #}
-{% partial(&#39;button&#39;, {title: &#39;Hello World!&#39;}) %}
-</code></pre>
+        <p>This is a simple button component.</p>
 
       </div>
     
@@ -71,45 +58,32 @@
   <div class="component_details">
     
   <div class="kss-default__example">
-      
-
-
-  
-  
-	<button class="pure-button pure-button-primary pure-button-active">Hello World!</button>
-
+    <button type="button" class="button">Hello World!</button>
   </div>
 
+      <div class="kss-modifier__wrapper">
+  
+  <h3>Modifiers for Button</h3>
+
+  <div class="kss-modifiers-list">
+          <div class="kss-modifier__name kss-style">
+        .shiny
+      </div>
+      <div class="kss-modifier__description kss-style">
+        This is a big shiny button.
+      </div>
+      <div class="kss-modifier__example"><button type="button" class="button">Hello World!</button></div>
+      </div>
+
+  </div>
   
       <div class="kss-markup kss-style">
   <h3>Markup for Button</h3>
-  <pre class="prettyprint linenums lang-html"><code data-language="html">{% if not classes %}
-  {% set classes = [] %}
-{% endif %}
-
-{% set classes = classes|merge([&#039;pure-button&#039;]) %}
-
-{% if disabled %}
-  {% set classes = classes|merge([&#039;pure-button-disabled&#039;]) %}
-{% endif %}
-
-{% if primary %}
-  {% set classes = classes|merge([&#039;pure-button-primary&#039;]) %}
-{% endif %}
-
-{% if active %}
-  {% set classes = classes|merge([&#039;pure-button-active&#039;]) %}
-{% endif %}
-
-{% if href %}
-	&lt;a class=&quot;{{ classes|join(&#039; &#039;) }}&quot; href=&quot;{{ href }}&quot;&gt;{{ title }}&lt;/a&gt;
-{% else %}
-	&lt;button class=&quot;{{ classes|join(&#039; &#039;) }}&quot;&gt;{{ title }}&lt;/button&gt;
-{% endif %}
-</code></pre>
+  <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;button type=&quot;button&quot; class=&quot;button&quot;&gt;Hello World!&lt;/button&gt;</code></pre>
 </div>
   
   <div class="controls">
+          <a class="modifiers_toggle" href="#">Modifiers</a>
               <a class="markup_toggle" href="#">Markup</a>
       </div>
 
@@ -137,24 +111,31 @@
         </a>
       </li>
 
-              <li class="kss-nav__menu-item  " data-section="KalaStatic">
-          <a class="kss-nav__menu-link" href="section-kalastatic.html">
-            <span class="kss-nav__name">KalaStatic</span>
+              <li class="kss-nav__menu-item  " data-section="Components">
+          <a class="kss-nav__menu-link" href="section-components.html">
+            <span class="kss-nav__name">Components</span>
                         <span class="kss-nav__menu-child-actuator">☰</span>
                       </a>
 
                       <ul class="kss-nav__menu-child">
                           <li class="kss-nav__menu-item active">
-                <a class="kss-nav__menu-link" href="section-kalastatic.html#kssref-kalastatic-button">
+                <a class="kss-nav__menu-link" href="section-components.html#kssref-components-button">
                   <span class="kss-nav__name">Button</span>
                 </a>
               </li>
                           <li class="kss-nav__menu-item ">
-                <a class="kss-nav__menu-link" href="section-kalastatic.html#kssref-kalastatic-button-group">
+                <a class="kss-nav__menu-link" href="section-components.html#kssref-components-button-group">
                   <span class="kss-nav__name">Button Group</span>
                 </a>
               </li>
                         </ul>
+          
+        </li>
+              <li class="kss-nav__menu-item  " data-section="KalaStatic">
+          <a class="kss-nav__menu-link" href="section-kalastatic.html">
+            <span class="kss-nav__name">KalaStatic</span>
+                      </a>
+
           
         </li>
           </ul>
