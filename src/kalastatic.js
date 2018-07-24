@@ -19,8 +19,6 @@ function KalaStatic(nconf) {
     source: 'src',
     destination: 'build',
     plugins: [
-      // Bring in data from gathercontent
-      'metalsmith-gathercontent',
       // Load information from the environment variables.
       'metalsmith-env',
       // Define any global variables.
