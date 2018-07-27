@@ -24,7 +24,6 @@ function setupTest(name, opts) {
       conf.overrides(testOpts)
 
       // Create the environment.
-      console.log('setuptest', name)
       const kalastatic = new KalaStatic(conf)
       kalastatic.build().then(() => {
         // Make sure the build passes.
