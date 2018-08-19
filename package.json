@@ -47,7 +47,7 @@
   },
   "scripts": {
     "test": "node test",
-    "posttest": "xo --space=2 --no-semicolon",
+    "posttest": "xo --space=2 --no-semicolon src",
     "examples": "cd examples/mdl-blog && npm i && npm test",
     "start": "cd test/fixtures/start && ../../../bin/kalastatic start"
   },
