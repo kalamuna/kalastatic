@@ -10,7 +10,6 @@
   <meta name="generator" content="kss-node">
   <meta name="viewport" content="width=device-width">
 
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vex-js/3.0.0/css/vex.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vex-js/3.0.0/css/vex-theme-plain.min.css">
   <link rel="stylesheet" href="kss-assets/kss.css">
@@ -24,11 +23,11 @@
   
 </head>
 
-<body id="kss-node">
+<body id="kss-node" class="kss-fullscreen-mode">
 
 <main role="main" class="kss-main">
 
-                            <section id="kssref-components-button" class="kss-section kss-section--depth-2">
+                            <section id="kssref-components-button" class="kss-section kss-section--depth-2 is-fullscreen">
   <div class="kss-style">
 
     <div class="title-block">
@@ -47,6 +46,7 @@
   </h2>
 
 </div>
+
           <div class="kss-description">
         <p>This is a simple button component.</p>
 
@@ -73,13 +73,22 @@
         This is a big shiny button.
       </div>
       <div class="kss-modifier__example"><button type="button" class="button">Hello World!</button></div>
+      <div class="kss-modifier__example-footer"></div>
+          <div class="kss-modifier__name kss-style">
+        .rusty
+      </div>
+      <div class="kss-modifier__description kss-style">
+        This is a rusty button.
+      </div>
+      <div class="kss-modifier__example"><button type="button" class="button">Hello World!</button></div>
+      <div class="kss-modifier__example-footer"></div>
       </div>
 
   </div>
   
       <div class="kss-markup kss-style">
   <h3>Markup for Button</h3>
-  <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;button type=&quot;button&quot; class=&quot;button&quot;&gt;Hello World!&lt;/button&gt;</code></pre>
+  <pre class="hljs"><code class="language-twig"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button"</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></code></pre>
 </div>
   
   <div class="controls">
@@ -147,19 +156,34 @@
 <!-- SCRIPTS -->
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
+<script src="kss-assets/kss-fullscreen.js"></script>
+<script src="kss-assets/kss-guides.js"></script>
+<script src="kss-assets/kss-markup.js"></script>
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vex-js/3.0.0/js/vex.min.js"></script>
-<script src="kss-assets/prettify.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="kss-assets/kstat-kss.js"></script>
 
 <!-- script inclusion configurable through kss-config.json -->
 
 <script>
-  prettyPrint();
   var spy = new ScrollSpy('#kss-node', {
     nav: '.kss-nav__menu-item.active .kss-nav__menu-child > li > a',
     className: 'is-in-viewport'
+  });
+  var kssFullScreen = new KssFullScreen({
+    idPrefix: 'kss-fullscreen-',
+    bodyClass: 'kss-fullscreen-mode',
+    elementClass: 'is-fullscreen'
+  });
+  var kssGuides = new KssGuides({
+    bodyClass: 'kss-guides-mode'
+  });
+  var kssMarkup = new KssMarkup({
+    bodyClass: 'kss-markup-mode',
+    detailsClass: 'kss-markup'
   });
 </script>
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.1.0-alpha.2: 2018-08-29
+
+- Update to [`kstat-kss-builder@2.0.0`](https://github.com/kalamuna/kstat-kss-builder)
+- Update developer dependencies
+
 ## 4.1.0-alpha.1: 2018-07-04
 
 - Update Twig with namespace fixes
