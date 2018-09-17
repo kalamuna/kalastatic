@@ -1,5 +1,37 @@
 # Changelog
 
+## 4.1.0-alpha.2: 2018-08-29
+
+- Update to [`kstat-kss-builder@2.0.0`](https://github.com/kalamuna/kstat-kss-builder)
+- Update developer dependencies
+
+## 4.1.0-alpha.1: 2018-07-04
+
+- Update Twig with namespace fixes
+  - Namespace definitions are now relative to the source directory
+
+## 4.0.0-alpha.5: 2018-05-30
+
+- Twig: Add `extend` fix ([#559](https://github.com/twigjs/twig.js/pull/559))
+
+## 4.0.0-alpha4: 2018-04-23
+
+- KSS: Target specific KSS version to keep tests in check
+
+## 4.0.0-alpha3: 2018-04-17
+
+- BrowserSync: Disable opening the window automatically
+
+## 4.0.0-alpha2: 2018-03-11
+
+- Enabled the BrowserSync directory index
+- Documentation
+- Updated dependencies
+  - `jstransformer-pug@0.3.0`
+  - `nconf@0.10.0`
+  - `metalsmith-jstransformer@0.13.0`
+- Fixed tests in Node.js 9
+
 ## 4.0.0-alpha1: 2017-12-12
 
 - Switch to [KSTAT-KSS-Builder](https://github.com/kalamuna/kstat-kss-builder) for the Styleguide

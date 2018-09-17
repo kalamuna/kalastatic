@@ -33,7 +33,7 @@ for (var key in Drupal.behaviors) {
     });
 
     // When you click outside the sidebar, the sidebar should close.
-    $(document.body).on("click", function(e) {
+    $(document.body).on("click", ".nav-active", function(e) {
       if ( $(e.target).closest('.kss-sidebar').length < 1 && $(e.target).closest('.sidebar-toggle').length < 1) {
         e.preventDefault();
         kstatKSS.closeSidebar();

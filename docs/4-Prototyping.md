@@ -162,12 +162,12 @@ Use a Twig namespace through `include()`, prefixing the name of the namespace wi
 {% include '@kalastatic/path/to/template.html' with {'foo': 'bar'} %}
 ```
 
-The default KalaStatic namespaces are as follows:
+The default namespaces are as follows, which are relative to KalaStatic's `src` directory:
 
-- `@kalastatic` - The path to the KalaStatic src directory
-- `@atoms` - src/components/atoms
-- `@molecules` - src/components/molecules
-- `@organisms` - src/components/organisms
+- `@kalastatic` - `.`
+- `@atoms` - `components/atoms`
+- `@molecules` - `components/molecules`
+- `@organisms` - `components/organisms`
 
 To introduce additional namespaces, add the definitions to your kalastatic.yaml file:
 ``` yaml
@@ -176,7 +176,10 @@ pluginOpts:
     engineOptions:
       twig:
         namespaces:
-          customNamespace: path/to/namespacedir
+          customNamespace: components/customNamespace
+kss:
+  namespaces:
+    customNamespace: components/customNamespace
 ```
 
 ## Adding Page
@@ -186,7 +189,7 @@ pluginOpts:
   - Font face helper mixin?
 #### Images
 	- Pathing issue
-  
+
 ## Extending
 
 While KalaStatic comes with a common set of functionality, it is possible to add new features to it, depending on what you want to add. This section will touch on how to extend it.

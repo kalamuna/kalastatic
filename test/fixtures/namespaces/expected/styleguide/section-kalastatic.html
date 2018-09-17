@@ -10,7 +10,6 @@
   <meta name="generator" content="kss-node">
   <meta name="viewport" content="width=device-width">
 
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vex-js/3.0.0/css/vex.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vex-js/3.0.0/css/vex-theme-plain.min.css">
   <link rel="stylesheet" href="kss-assets/kss.css">
@@ -24,7 +23,7 @@
   
 </head>
 
-<body id="kss-node">
+<body id="kss-node" >
 
 <main role="main" class="kss-main">
 
@@ -35,7 +34,7 @@
 
   <a class="kss-title__permalink" href="#kssref-kalastatic">
     <span class="kss-title__ref">
-      1
+      2
       <span class="kss-title__permalink-hash">
         kalastatic
       </span>
@@ -77,24 +76,31 @@
         </a>
       </li>
 
-              <li class="kss-nav__menu-item  active" data-section="KalaStatic">
-          <a class="kss-nav__menu-link" href="section-kalastatic.html">
-            <span class="kss-nav__name">KalaStatic</span>
+              <li class="kss-nav__menu-item  " data-section="Components">
+          <a class="kss-nav__menu-link" href="section-components.html">
+            <span class="kss-nav__name">Components</span>
                         <span class="kss-nav__menu-child-actuator">☰</span>
                       </a>
 
                       <ul class="kss-nav__menu-child">
                           <li class="kss-nav__menu-item ">
-                <a class="kss-nav__menu-link" href="section-kalastatic.html#kssref-kalastatic-button">
+                <a class="kss-nav__menu-link" href="section-components.html#kssref-components-button">
                   <span class="kss-nav__name">Button</span>
                 </a>
               </li>
                           <li class="kss-nav__menu-item ">
-                <a class="kss-nav__menu-link" href="section-kalastatic.html#kssref-kalastatic-button-group">
+                <a class="kss-nav__menu-link" href="section-components.html#kssref-components-button-group">
                   <span class="kss-nav__name">Button Group</span>
                 </a>
               </li>
                         </ul>
+          
+        </li>
+              <li class="kss-nav__menu-item  active" data-section="KalaStatic">
+          <a class="kss-nav__menu-link" href="section-kalastatic.html">
+            <span class="kss-nav__name">KalaStatic</span>
+                      </a>
+
           
         </li>
           </ul>
@@ -106,19 +112,34 @@
 <!-- SCRIPTS -->
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
+<script src="kss-assets/kss-fullscreen.js"></script>
+<script src="kss-assets/kss-guides.js"></script>
+<script src="kss-assets/kss-markup.js"></script>
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vex-js/3.0.0/js/vex.min.js"></script>
-<script src="kss-assets/prettify.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="kss-assets/kstat-kss.js"></script>
 
 <!-- script inclusion configurable through kss-config.json -->
 
 <script>
-  prettyPrint();
   var spy = new ScrollSpy('#kss-node', {
     nav: '.kss-nav__menu-item.active .kss-nav__menu-child > li > a',
     className: 'is-in-viewport'
+  });
+  var kssFullScreen = new KssFullScreen({
+    idPrefix: 'kss-fullscreen-',
+    bodyClass: 'kss-fullscreen-mode',
+    elementClass: 'is-fullscreen'
+  });
+  var kssGuides = new KssGuides({
+    bodyClass: 'kss-guides-mode'
+  });
+  var kssMarkup = new KssMarkup({
+    bodyClass: 'kss-markup-mode',
+    detailsClass: 'kss-markup'
   });
 </script>
 

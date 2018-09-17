@@ -71,11 +71,24 @@ program
       var bs = browserSync.create('kalastatic')
 
       // Set up the server.
+      var serverConfig = {
+        // Configure the base directory.
+        baseDir: bsWebroot || finalDest
+      }
+      // Allow switching the BrowserSync index.
+      if (bsIndex) {
+        serverConfig.index = bsIndex
+      }
+      else {
+        // If no index is set, allow browsing by directories.
+        serverConfig.directory = true
+      }
       bs.init({
-        server: bsWebroot || finalDest,
+        server: serverConfig,
         browser: bsBrowser,
         startPath: bsStartPath || bsIndex,
-        index: bsIndex
+        index: bsIndex,
+        open: false
       })
 
       // Create a watch task.
@@ -114,10 +127,10 @@ function createFile(filename, contents) {
  * Creates the base files for a component.
  */
 function createComponent(dir, objectToCreate) {
-  var component = objectToCreate.split("/")
+  var component = objectToCreate.split('/')
   var basePath = path.join(dir, component[0], component[1])
   mkdirp(basePath)
-  var scssFile = path.join(basePath, "_"+component[1]+'.scss')
+  var scssFile = path.join(basePath, '_'+component[1]+'.scss')
   var jsonFile = path.join(basePath, component[1]+'.html.json')
   var twigFile = path.join(basePath, component[1]+'.html.twig')
   fs.writeFileSync(scssFile, `/*
@@ -137,8 +150,7 @@ program
   .option('-d, --directory <path>', 'where to run')
   .parse(process.argv)
   .action(function (objectToCreate, otherObjects, options) {
-    console.log("kalastatic creating component »»", objectToCreate)
-    var dir = options.directory || "src/components/"
+    var dir = options.directory || 'src/components/'
     createComponent(dir,objectToCreate)
     if(otherObjects.length > 0) {
       otherObjects.forEach( function(element){

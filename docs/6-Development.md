@@ -45,7 +45,6 @@ The following is a list of Metalsmith plugins that KalaStatic makes use of:
 - [metalsmith-env](http://npm.im/metalsmith-env)
 - [metalsmith-ignore](http://npm.im/metalsmith-ignore)
 - [metalsmith-jstransformer](http://npm.im/metalsmith-jstransformer)
-- [metalsmith-jstransformer-partials](http://npm.im/metalsmith-jstransformer-partials)
 - [metalsmith-metadata-convention](http://npm.im/metalsmith-metadata-convention)
 - [metalsmith-metadata-files)](http://npm.im/metalsmith-metadata-files)
 - [metalsmith-paths](http://npm.im/metalsmith-paths)
