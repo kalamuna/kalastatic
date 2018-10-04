@@ -106,7 +106,10 @@ KalaStatic.prototype.build = function () {
           opts = options[plugin] || {}
         } else {
           mod = plugin.plugin
-          opts = options[plugin.name] || {}
+          if (typeof mod === 'string') {
+            mod = require(mod)
+          }
+          opts = plugin.options || options[plugin.name] || {}
         }
         metalsmith.use(mod(opts))
       }
