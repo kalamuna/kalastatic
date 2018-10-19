@@ -40,6 +40,7 @@ program
   .option('-c, --config <file>', 'set the configuration file, defaults to kalastatic.yaml')
   .action(function (options) {
     var conf = retrieveConfig(options);
+    console.log(conf)
     var kalastatic = new KalaStatic(conf);
     kalastatic.build().catch(function (err) {
       console.error(err)
