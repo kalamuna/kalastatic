@@ -70,6 +70,12 @@ kss:
     - src/styles/
 ```
 
+Environmental configuration can be used with...
+
+`kalastatic.develop.yaml`
+
+Where `develop` is the `BRANCH` environment variable.
+
 ### CLI
 
 KalaStatic can be used as a command line interface. The following are some of its commands:

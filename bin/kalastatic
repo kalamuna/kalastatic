@@ -12,16 +12,21 @@ var path = require('path')
 var browserSync = require('browser-sync')
 var fs = require('fs')
 var mkdirp = require('mkdirp').sync
+var nconfyaml = require('nconf-yaml')
 
 function retrieveConfig(options) {
   nconf.argv()
    .env()
    .file('kalastatic', {
      file: options.config || 'kalastatic.yaml',
-     format: require('nconf-yaml')
+     format: nconfyaml
    })
    .file('package', {
      file: 'package.json'
+   })
+   .file('kalastatic.env', {
+     file: 'kalastatic.' + process.env.BRANCH + '.yaml',
+     format: nconfyaml
    })
    return nconf;
 }
