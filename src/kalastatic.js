@@ -111,6 +111,7 @@ KalaStatic.prototype.build = function () {
         metalsmith.use(mod(opts))
       }
     }
+    console.log(options)
 
     // Build the application.
     metalsmith.build(err => {
