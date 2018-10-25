@@ -74,7 +74,7 @@ Environmental configuration can be used with...
 
 `kalastatic.develop.yaml`
 
-Where `develop` is the `BRANCH` environment variable.
+Where `develop` is the `BRANCH` environment variable. This environment variable name can be chaned by setting the `KSTAT_CONFIG_ENVIRONMENT_VARIABLE` environment variable.
 
 ### CLI
 
