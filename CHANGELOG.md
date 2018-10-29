@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.1.0-alpha.3: 2018-10-29
+
+- Environment overrides
+
 ## 4.1.0-alpha.2: 2018-08-29
 
 - Update to [`kstat-kss-builder@2.0.0`](https://github.com/kalamuna/kstat-kss-builder)
