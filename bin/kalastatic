@@ -16,6 +16,8 @@ var nconfyaml = require('nconf-yaml')
 
 function retrieveConfig(options) {
   var environmentalconfigindex = process.env.KSTAT_CONFIG_ENVIRONMENT_VARIABLE || 'BRANCH'
+  var confname = process.env[environmentalconfigindex]
+  console.log('Config Name: ', confname)
   nconf.argv()
    .env()
    .file('kalastatic', {
@@ -26,7 +28,7 @@ function retrieveConfig(options) {
      file: 'package.json'
    })
    .file('kalastatic.env', {
-     file: 'kalastatic.' + process.env[environmentalconfigindex] + '.yaml',
+     file: 'kalastatic.' + confname + '.yaml',
      format: nconfyaml
    })
    return nconf;
