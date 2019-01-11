@@ -19,7 +19,7 @@
     "jstransformer-pug": "^0.3.0",
     "jstransformer-scss": "^1.0.0",
     "jstransformer-twig": "~1.6.0",
-    "kss": "kss-node/kss-node#disable-autoescape",
+    "kss": "3.0.0-beta.25",
     "kstat-kss-builder": "~2.1.0",
     "metalsmith": "^2.3.0",
     "metalsmith-assets-convention": "^1.2.0",
