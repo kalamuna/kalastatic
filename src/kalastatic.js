@@ -91,6 +91,7 @@ KalaStatic.prototype.build = function () {
         options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName] = path.join(base, source, options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName])
       }
     }
+
     // Set up Metalsmith.
     metalsmith.source(source)
     metalsmith.destination(destination)
@@ -102,15 +103,17 @@ KalaStatic.prototype.build = function () {
         let mod = ''
         let opts = {}
         if (typeof plugin === 'string') {
-          mod = require(plugin) // eslint-disable-line import/no-dynamic-require
+          mod = require(plugin)
           opts = options[plugin] || {}
         } else {
           mod = plugin.plugin
           if (typeof mod === 'string') {
             mod = require(mod)
           }
+
           opts = plugin.options || options[plugin.name] || {}
         }
+
         metalsmith.use(mod(opts))
       }
     }
@@ -120,6 +123,7 @@ KalaStatic.prototype.build = function () {
       if (err) {
         return reject(err)
       }
+
       // Construct the default KSS options.
       const kssDefaultConf = {
         destination: 'styleguide',
@@ -128,6 +132,7 @@ KalaStatic.prototype.build = function () {
         homepage: 'kalastatic-kss-homepage.md',
         twig: true
       }
+
       // Retrieve the KSS config.
       let kssConf = config.get('kss')
       if (kssConf === true) {
@@ -136,6 +141,7 @@ KalaStatic.prototype.build = function () {
         // If we don't set a "kss: true", don't build the styleguide.
         return resolve()
       }
+
       // Check if we're to build the KSS Config.
       const argv = ['kss']
       if (kssConf.config) {
@@ -153,6 +159,7 @@ KalaStatic.prototype.build = function () {
           // Choose the Twig builder.
           '--builder=' + kssConf.builder
         )
+
         // Add the Twig extensions.
         if (kssConf.twig) {
           argv.push('--extend-drupal8')
@@ -169,10 +176,12 @@ KalaStatic.prototype.build = function () {
             }
           }
         }
+
         // Add the optional configurations.
         if (kssConf.title) {
           argv.push('--title=' + kssConf.title)
         }
+
         if (kssConf.homepage) {
           argv.push('--homepage=' + kssConf.homepage)
         }
@@ -181,9 +190,11 @@ KalaStatic.prototype.build = function () {
         if (typeof kssConf.css === 'string') {
           kssConf.css = [kssConf.css]
         }
+
         if (typeof kssConf.js === 'string') {
           kssConf.js = [kssConf.js]
         }
+
         if (typeof kssConf.source === 'string') {
           kssConf.source = [kssConf.source]
         } else if (!kssConf.source) {
@@ -192,6 +203,7 @@ KalaStatic.prototype.build = function () {
             __dirname
           ]
         }
+
         // Load up the stylesheets.
         let dirIndex = 0
         for (dirIndex in kssConf.css) {
@@ -199,12 +211,14 @@ KalaStatic.prototype.build = function () {
             argv.push('--css=' + kssConf.css[dirIndex])
           }
         }
+
         // Load up the KSS sources.
         for (dirIndex in kssConf.source) {
           if (kssConf.source[dirIndex]) {
             argv.push('--source=' + kssConf.source[dirIndex])
           }
         }
+
         // Load up the JavaScript.
         for (dirIndex in kssConf.js) {
           if (kssConf.js[dirIndex]) {
@@ -212,6 +226,7 @@ KalaStatic.prototype.build = function () {
           }
         }
       }
+
       // Now that it's complete, run KSS on it.
       const kssOpts = {
         stdout: process.stdout,
