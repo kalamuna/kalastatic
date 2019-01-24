@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.0: 2019-01-24
+
+- Update to `kss@3.0.0-beta.25`
+- Remove debugging logs
+- Allow injecting plugin options
+
 ## 4.1.0-alpha.3: 2018-10-29
 
 - Environment overrides
