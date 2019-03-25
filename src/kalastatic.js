@@ -95,6 +95,7 @@ KalaStatic.prototype.build = function () {
     // Set up Metalsmith.
     metalsmith.source(source)
     metalsmith.destination(destination)
+    metalsmith.clean(config.get('cleanBuild'))
 
     // Load the Metalsmith Plugins.
     for (const i in plugins) {
