@@ -92,10 +92,12 @@ KalaStatic.prototype.build = function () {
       }
     }
 
+    const cleanBuild = config.get('cleanBuild') || false
+
     // Set up Metalsmith.
     metalsmith.source(source)
     metalsmith.destination(destination)
-    metalsmith.clean(config.get('cleanBuild'))
+    metalsmith.clean(cleanBuild)
 
     // Load the Metalsmith Plugins.
     for (const i in plugins) {
