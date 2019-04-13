@@ -14,7 +14,7 @@
     "commander": "^2.19.0",
     "extend": "^3.0.2",
     "extend-shallow": "^3.0.2",
-    "jstransformer-commonmark": "^0.3.1",
+    "jstransformer-commonmark": "^1.0.0",
     "jstransformer-precss": "^0.3.0",
     "jstransformer-pug": "^0.3.0",
     "jstransformer-scss": "^1.0.0",
