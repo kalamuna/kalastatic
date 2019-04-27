@@ -3,12 +3,14 @@
   "name": "kalastatic-mdl-blog",
   "private": true,
   "dependencies": {
-    "jstransformer-browserify": "^0.4.0",
-    "jstransformer-scss": "^0.1.0",
+    "jstransformer-browserify": "^0.7.2",
+    "jstransformer-scss": "^1.0.0",
+    "jstransformer-swig": "^1.0.0",
     "kalastatic": "../../",
     "material-design-lite": "^1.0.4-2"
   },
   "scripts": {
-    "test": "kalastatic build"
+    "test": "kalastatic build",
+    "start": "kalastatic start"
   }
 }
