@@ -58,6 +58,9 @@ source: src
 # Where the files will be built out to.
 destination: build
 
+# Whether or not the build directory should be cleaned before building.
+cleanBuild: false
+
 # The options to pass off to the Metalsmith plugins when building, keyed by plugin name.
 pluginOpts: {}
 
