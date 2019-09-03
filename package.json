@@ -41,7 +41,7 @@
     "assert-dir-equal": "1.*",
     "kalastatic-twig-filters": "^1.0.0",
     "purecss": "1.0.0",
-    "rimraf": "^2.6.3",
+    "rimraf": "^3.0.0",
     "testit": "^3.0.0",
     "xo": "*"
   },
