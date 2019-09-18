@@ -201,7 +201,7 @@ You can [extend Twig](https://twig.sensiolabs.org/doc/2.x/advanced.html) to add 
 1. Add the Node.js package
 
 ```
-npm i twig-drupal-filter --save
+npm i twig-drupal-filters --save
 ```
 
 2. Add the twig filter mappings to `kalastatic.yml`
