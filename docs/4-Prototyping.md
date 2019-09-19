@@ -196,7 +196,7 @@ While KalaStatic comes with a common set of functionality, it is possible to add
 
 ### Twig
 
-You can [extend Twig](https://twig.sensiolabs.org/doc/2.x/advanced.html) to add new filters and functions. In the following example, we add a few filters from the [twig-drupal-filters package](https://github.com/kalamuna/twig-drupal-filters).
+You can [extend Twig](https://twig.sensiolabs.org/doc/2.x/advanced.html) to add new filters and functions. In the following example, we add clean_id (a filter) and attach_library (a function) from the [twig-drupal-filters package](https://github.com/kalamuna/twig-drupal-filters).
 
 1. Add the Node.js package
 
@@ -204,7 +204,7 @@ You can [extend Twig](https://twig.sensiolabs.org/doc/2.x/advanced.html) to add 
 npm i twig-drupal-filters --save
 ```
 
-2. Add the twig filter mappings to `kalastatic.yml`
+2. Add the twig filter and function mappings to `kalastatic.yml`
 
 ```
 # Allows changing some of the plugin options.
@@ -217,12 +217,15 @@ pluginOpts:
       twig:
         filters:
           clean_id: twig-drupal-filters/filters/clean_id
+        functions:
+          attach_library: twig-drupal-filters/functions/attach_library
 ```
 
-3. Use the new filter in Twig
+3. Use the new filter/function in Twig
 
 ```
 {{name|clean_id}}
+{{ attach_library('mytheme/mylibrary') }}
 ```
 
 ## SASS
