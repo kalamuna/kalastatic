@@ -11,7 +11,7 @@ Kalastatic is a prototyping framework and static site generator.
     - Live reload - saving files reloads the browser
     - Remote device access - load your local on a mobile device!
 * **Node:**
-    - Automated download of front end fxrameworks and other dependencies
+    - Automated download of front end frameworks and other dependencies
     - Automated Deployments
 * **Twig, or your template engine of choice:**
     - Easy creation of extendable template variations with inheritance
@@ -76,7 +76,7 @@ The pattern portfolio expresses every component and layout structures throughout
 It articulates the atomic design structure, and is used to illustrate the project’s shared vocabulary.
 
 #### The Kalastatic Styleguide
-Website styleguides serving both as pattern library, but can also be serve as brand styleguide, to ensure consistency and conformancy in the use of brand assets. The styleguide not only ensures that new front end development can follow established patterns, but also facilitates the creation of on brand ancillary digital properties. Its compiled CSS and JS assets can be referenced and cosumed by third party services as well to create harmonious expressions across multiple systems.
+Website styleguides serving both as pattern library, but can also be serve as brand styleguide, to ensure consistency and conformity in the use of brand assets. The styleguide not only ensures that new front end development can follow established patterns, but also facilitates the creation of on brand ancillary digital properties. Its compiled CSS and JS assets can be referenced and consumed by third party services as well to create harmonious expressions across multiple systems.
 
 Kalastatic uses [kss-node](https://github.com/kss-node/kss-node) as the basis for its styleguide.
 
