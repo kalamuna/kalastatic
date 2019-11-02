@@ -11,7 +11,7 @@
   "main": "src/kalastatic.js",
   "dependencies": {
     "browser-sync": "^2.26.3",
-    "commander": "^3.0.0",
+    "commander": "^4.0.0",
     "extend": "^3.0.2",
     "extend-shallow": "^3.0.2",
     "jstransformer-commonmark": "^1.0.0",
