@@ -1,8 +1,7 @@
-# Overview
+# KalaStatic
 
 Kalastatic is a prototyping framework and static site generator.
 
-### Featuring:
 * Easy installation, with minimal dependencies
 * Produces documented component library
 * Output production ready styles that can be ingested by other systems
@@ -27,38 +26,37 @@ It integrates tightly with Drupal 7 and 8, effectively sharing twig templates be
 
 Kalastatic serves as a point of convergence between front-end development, back-end development, and content strategy. Ultimately it facilitates putting design first, and this in front users for testing, and stakeholders for meaningful and timely feedback.
 
-
-## Overview
-
 ## Benefits
-### Stakeholders
-#### Clients
+
+Kalastatic brings a few benefits from clients, agencies, user experience experts, frontend and backend developers, and content strategists.
+
+### Clients
 - Small uncertainties in communication get ironed out much earlier.
 - Real, demonstrable progress happens early.
 - Many concerns can be addressed during the project, instead of waiting for certain milestones.
 - The whole process becomes more participatory.
 
-#### Agency, PMs, Account Managers
+### Agency, PMs, Account Managers
 - The client never sees a barebones generic site during demos.
 - From first contact, their branding, typography and colors are in place. This avoids uncertainty, stress and education.
 - Specific client feedback happens earlier on assets that are cheaper to fix as a prototype than a back-end build.
 
-#### User Experience
+### User Experience
 - We can test assumptions with stakeholders earlier.
 - We can "show not tell" more effectively.
 - It's easier to communicate with stakeholders about abstractions when we are looking at something concrete.
 
-#### Frontend Dev
+### Frontend Dev
 - Can work in tools commonly used in the trade.
 - Now in control of markup, as opposed to working around it.
 - Can be involved earlier, and stick around later in the process.
 - We begin working through responsive issues as soon as we begin styleguiding, this results in more successful first passes, less suprises, and better decisions about our responsive/adaptive patterns.
 
-#### Content Strategist
+### Content Strategist
 - Doesn't have to wait for the CMS to be in place to see content in-situ.
 - Integrations with third party content staging systems like [prismic](https://prismic.io) [gathercontent](https://gathercontent.com)
 
-#### Backend developers
+### Backend developers
 - Documented components can clarify implementation needs in code conversation with the front-end team.
 - Json mock data tells me what needs to be made available to templates.
 
