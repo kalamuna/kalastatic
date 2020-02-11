@@ -1,4 +1,4 @@
-# Kalastatic
+# Overview
 
 Kalastatic is a prototyping framework and static site generator.
 
@@ -86,7 +86,7 @@ Kalastatic uses the [KSTAT-KSS-Builder](https://github.com/kalamuna/kstat-kss-bu
 
 ### Prototype
 
-To provide working, responsive prototypes, we use [metalsmith](metalsmith.io) and a bevvy of [other tools](https://github.com/kalamuna/kalastatic/blob/master/package.json)
+To provide working, responsive prototypes, we use [metalsmith](https://metalsmith.io) and a bevvy of [other tools](https://github.com/kalamuna/kalastatic/blob/master/package.json)
 
 Prototyping is most useful to consider the components with layouts, side by side with other elements. Where the styleguide documents components in isolation, prototyping helps us see all the bits in context, and even develop behaviors (js) and other integrations, before we dive into CMSs and app-frameworks.
 
