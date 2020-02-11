@@ -6,11 +6,9 @@ relative_links:
   collections: true
 
 include:
-  - CONTRIBUTING.md
   - README.md
-  - LICENSE.md
-  - COPYING.md
-  - CODE_OF_CONDUCT.md
-  - CONTRIBUTING.md
-  - ISSUE_TEMPLATE.md
-  - PULL_REQUEST_TEMPLATE.md
+  - 1-Getting-Started.md
+  - 2-Components.md
+  - 3-Styleguide.md
+  - 4-Prototyping.md
+  - 5-Integrations.md
