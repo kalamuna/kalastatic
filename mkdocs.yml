@@ -1,6 +1,0 @@
-site_name: KalaStatic
-site_description: Facilitate the front-end experience through Styleguides and Prototypes with KalaStatic.
-site_author: Kalamuna
-repo_url: https://github.com/kalamuna/kalastatic
-theme:
-  name: material
