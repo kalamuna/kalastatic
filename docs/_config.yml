@@ -1,6 +1,0 @@
-theme: jekyll-theme-cayman
-name: KalaStatic
-description: Facilitate the front-end experience through Styleguides and Prototypes.
-url: http://kalamuna.github.io/kalastatic
-markdown: kramdown
-highlighter: rouge
