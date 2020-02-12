@@ -1,5 +1,9 @@
 # Changelog
 
+## Next Release
+
+- Moved documentation to https://kalamuna.github.io/kalastatic/
+
 ## 4.2.0: 2019-01-24
 
 - Update to `kss@3.0.0-beta.25`

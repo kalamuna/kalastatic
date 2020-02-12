@@ -125,4 +125,4 @@ KalaStatic('path/to/site').then(function() {
 })
 ```
 
-For more in depth documentation go to http://kalastatic.readthedocs.io
+For more in depth documentation, visit https://kalamuna.github.io/kalastatic/
