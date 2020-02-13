@@ -44,7 +44,7 @@
     "purecss": "1.0.0",
     "rimraf": "^3.0.0",
     "testit": "^3.0.0",
-    "xo": "*"
+    "xo": "0.25.4"
   },
   "scripts": {
     "test": "node test",
