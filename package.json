@@ -29,7 +29,7 @@
     "metalsmith-define": "^2.0.1",
     "metalsmith-env": "^2.1.1",
     "metalsmith-ignore": "^1.0.0",
-    "metalsmith-jstransformer": "^0.13.2",
+    "metalsmith-jstransformer": "^1.0.0",
     "metalsmith-metadata-convention": "^1.0.1",
     "metalsmith-metadata-files": "^2.2.0",
     "metalsmith-paths": "^3.0.1",
