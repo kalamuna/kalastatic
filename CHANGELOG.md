@@ -1,8 +1,9 @@
 # Changelog
 
-## Next Release
+## 4.2.1: xxxx-xx-xx
 
 - Moved documentation to https://kalamuna.github.io/kalastatic/
+- Updated dependencies
 
 ## 4.2.0: 2019-01-24
 
