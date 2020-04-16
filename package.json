@@ -18,7 +18,7 @@
     "jstransformer-precss": "^0.3.0",
     "jstransformer-pug": "^0.3.0",
     "jstransformer-scss": "^1.0.0",
-    "jstransformer-twig": "~1.6.1",
+    "jstransformer-twig": "~1.6.2",
     "kss": "3.0.0",
     "kstat-kss-builder": "~2.2.0",
     "metalsmith": "^2.3.0",
@@ -33,7 +33,7 @@
     "metalsmith-metadata-convention": "^1.0.2",
     "metalsmith-metadata-files": "^2.2.1",
     "metalsmith-paths": "^3.0.1",
-    "mkdirp": "^1.0.3",
+    "mkdirp": "^1.0.4",
     "nconf": "^0.10.0",
     "nconf-yaml": "^1.0.2"
   },

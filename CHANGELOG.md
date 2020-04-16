@@ -1,6 +1,6 @@
 # Changelog
 
-## 4.2.1: xxxx-xx-xx
+## 4.2.1: 2020-04-16
 
 - Moved documentation to https://kalamuna.github.io/kalastatic/
 - Updated dependencies
