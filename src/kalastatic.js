@@ -83,8 +83,8 @@ KalaStatic.prototype.build = function () {
         inheritFilePrefix: '@kalastatic/'
       }
     }
-    const pluginOpts = config.get('pluginOpts')
-    const options = extend(true, {}, pluginDefaults, pluginOpts)
+    const pluginOptions = config.get('pluginOpts')
+    const options = extend(true, {}, pluginDefaults, pluginOptions)
     // Prepend the base to all namespaces.
     for (const namespaceName in options['metalsmith-jstransformer'].engineOptions.twig.namespaces) {
       if (options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName]) {
@@ -104,20 +104,20 @@ KalaStatic.prototype.build = function () {
       if (plugins[i]) {
         const plugin = plugins[i]
         let mod = ''
-        let opts = {}
+        let options_ = {}
         if (typeof plugin === 'string') {
           mod = require(plugin)
-          opts = options[plugin] || {}
+          options_ = options[plugin] || {}
         } else {
           mod = plugin.plugin
           if (typeof mod === 'string') {
             mod = require(mod)
           }
 
-          opts = plugin.options || options[plugin.name] || {}
+          options_ = plugin.options || options[plugin.name] || {}
         }
 
-        metalsmith.use(mod(opts))
+        metalsmith.use(mod(options_))
       }
     }
 
@@ -231,12 +231,12 @@ KalaStatic.prototype.build = function () {
       }
 
       // Now that it's complete, run KSS on it.
-      const kssOpts = {
+      const kssOptions = {
         stdout: process.stdout,
         stderr: reject,
         argv
       }
-      return kss(kssOpts).then(resolve).catch(reject)
+      return kss(kssOptions).then(resolve).catch(reject)
     })
   })
 }
