@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.2.2: 2020-04-16
+
+- Unlock version dependency on `kss`
+
 ## 4.2.1: 2020-04-16
 
 - Moved documentation to https://kalamuna.github.io/kalastatic/
