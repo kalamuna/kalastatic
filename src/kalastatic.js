@@ -78,7 +78,7 @@ KalaStatic.prototype.build = function () {
           }
         }
       },
-      'metalsmith-ignore': '**/_*',
+      'metalsmith-ignore': '{_*,**/_*}',
       'metalsmith-metadata-files': {
         inheritFilePrefix: '@kalastatic/'
       }
