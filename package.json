@@ -41,7 +41,7 @@
     "assert-dir-equal": "1.*",
     "docsify-cli": "^4.4.0",
     "kalastatic-twig-filters": "^1.0.0",
-    "purecss": "1.0.1",
+    "purecss": "2.0.0",
     "rimraf": "^3.0.2",
     "testit": "^3.1.0",
     "xo": "*"
