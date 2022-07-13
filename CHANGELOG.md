@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.0.0-alpha1: 2022-06-12
+
+- Unlock version dependency on `kss`
+
 ## 4.2.2: 2020-04-16
 
 - Unlock version dependency on `kss`
