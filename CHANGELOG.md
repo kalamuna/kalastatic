@@ -2,7 +2,7 @@
 
 ## 5.0.0-alpha1: 2022-06-12
 
-- Unlock version dependency on `kss`
+- Move from node-sass to normal sass
 
 ## 4.2.2: 2020-04-16
 
