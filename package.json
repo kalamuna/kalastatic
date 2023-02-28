@@ -1,0 +1,12 @@
+{
+  "name": "kstat_test",
+  "version": "1.0.0",
+  "description": "A test case for the new version of Kalastatic.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalamuna/kstat_test.git"
+  },
+  "dependencies": {
+    "sass": "^1.58.3"
+  }
+}
