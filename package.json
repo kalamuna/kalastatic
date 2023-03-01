@@ -5,7 +5,8 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "build": "node main.js"
+    "build": "node main.js",
+    "prebuild": "mkdir -p build"
   },
   "repository": {
     "type": "git",
