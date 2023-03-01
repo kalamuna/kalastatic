@@ -2,11 +2,19 @@
   "name": "kstat_test",
   "version": "1.0.0",
   "description": "A test case for the new version of Kalastatic.",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "build": "node main.js",
+    "prebuild": "mkdir -p build/some"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kalamuna/kstat_test.git"
   },
   "dependencies": {
+    "twig": "^1.16.0",
+    "drupal-twig-extensions": "^1.0.0-beta.4",
     "sass": "^1.58.3"
   }
 }
