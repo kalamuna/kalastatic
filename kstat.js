@@ -1,4 +1,4 @@
-// This script would exist within the node module and doesn't need invoking during a real project
+// This script would exist within the node module and doesn't need to be invoked during a real project
 import {
   promises as fs
 } from 'fs';
@@ -7,6 +7,8 @@ import Twig from "twig";
 import {
   addDrupalExtensions
 } from 'drupal-twig-extensions/twig';
+
+import config from "./package.json" assert { type: "json" };
 
 addDrupalExtensions(Twig);
 
@@ -44,7 +46,7 @@ export const compileTwig = async (directory, twigFile) => {
     data: twigFileStream,
     allowInlineIncludes: true,
     path: directory,
-    namespaces: { 'templates': 'templates', 'components': 'components' }
+    namespaces: config.kalastatic.namespaces,
   }).render();
 
   return compiledTwig;
@@ -54,8 +56,11 @@ export const compileTwig = async (directory, twigFile) => {
 export const writeHtml = async (path, html) => {
   console.log(`Writing ${path}`);
 
-  fs.writeFile(path, html)
-  //fs.mkdir(path.split("/").pop().join("/"), { recursive: true });
+  const pathPieces = path.split("/");
+  pathPieces.pop();
+
+  await fs.mkdir(pathPieces.join("/"), { recursive: true });
+  fs.writeFile(path, html);
 };
 
 // Executes the other functions of Kstat
@@ -67,6 +72,4 @@ export const kstat = async (directory) => {
 
     writeHtml(`build/${page.replace(`${directory}/`, "").replace(".twig", "")}`, compiledHtml);
   }
-
-  // console.log(pages);
 };

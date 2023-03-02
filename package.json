@@ -5,11 +5,7 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "build": "node main.js ",
-    "prebuild": "npm run clean && npm run page_dirs && npm run assets",
-    "clean": "rm -rf $npm_package_kalastatic_build_directory",
-    "page_dirs": "(cd $npm_package_kalastatic_pages_directory; find . -type d -exec mkdir -p -- ../$npm_package_kalastatic_build_directory/{} \\;)",
-    "assets": "cp -R $npm_package_kalastatic_assets_directory $npm_package_kalastatic_build_directory/"
+    "build": "node main.js && cp -R assets/ build/"
   },
   "kalastatic": {
     "build_directory": "build",

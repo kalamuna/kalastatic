@@ -1,4 +1,6 @@
-// This script would exist within the node module and doesn't need invoking during a real project
-import { kstat } from "./kstat-twig-loader.js";
+// This script would exist within the node module and doesn't need to be invoked during a real project
+import { kstat } from "./kstat.js";
 
-kstat(process.env.npm_package_kalastatic_pages_directory);
+import config from "./package.json" assert { type: "json" };
+
+kstat(config.kalastatic.pages_directory);
