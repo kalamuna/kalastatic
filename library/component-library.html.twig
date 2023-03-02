@@ -1,13 +1,22 @@
 
-{% set components = [
-    'section',
-    'section--text'
+{# These files will be provided as a global variable sometime soon. #}
+{% set component_files = [
+    'region--header.html.twig',
+    'region--header.sample.twig',
+    'section.html.twig',
+    'section.sample.twig',
+    'section--text.html.twig',
+    'section--text.sample.twig',
+    'section--text.scss'
   ]
 %}
 
-{# Iterate through all of the examples found in the components directory. #}
-{% for component in components %}
-  {% embed  "@components/" ~ component ~ ".sample.twig" %}{% endembed %}
+{# Iterate through all of the component files and output the samples on in the library. #}
+{% for filename in component_files %}
+  {% if '.sample.twig' in filename %}
+    {% set file_root = filename|replace({'.sample.twig': ''}) %}
+    {% embed  "@components/" ~ filename %}{% endembed %}
+  {% endif %}
 {% endfor %}
 
 {# Embed the css for now, until we figure out the proper way to manage it for the library. #}
