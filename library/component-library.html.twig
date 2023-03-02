@@ -1,0 +1,13 @@
+
+{% set components = [
+    'section',
+    'section--text'
+  ]
+%}
+
+{# Iterate through all of the examples found in the components directory. #}
+{% for component in components %}
+
+  {% embed  "@components/" ~ component ~ ".example.twig" %}{% endembed %}
+
+{% endfor %}

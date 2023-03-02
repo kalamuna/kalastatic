@@ -1,0 +1,43 @@
+
+<section id="{{ component }}" class="component-library-example">
+
+  <h2>{{ name }} </h2>
+
+  {% if description %}
+    <p>{{ description }}</p>
+  {% endif %}
+
+    <details open>
+      <summary>Example</summary>
+      <div class="details-content">
+        {% block example %}
+        {% endblock example %}
+      </div>
+    </details>
+
+    <details>
+      <summary>Twig</summary>
+      <div class="details-content">
+        <pre>{{ source("@components/" ~ component ~ ".html.twig")|escape('html') }}</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>SCSS</summary>
+      <div class="details-content">
+        <pre>{{ source("@components/" ~ component ~ ".scss") }}</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>JS</summary>
+      <div class="details-content">
+        <pre>{{ source("@components/" ~ component ~ ".js") }}</pre>
+      </div>
+    </details>
+
+</section>
+
+<style>
+  {{ source("@library/component-library-example.css") }}
+</style>
