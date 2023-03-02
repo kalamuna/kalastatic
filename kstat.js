@@ -8,7 +8,7 @@ import {
   addDrupalExtensions
 } from 'drupal-twig-extensions/twig';
 
-import config from "./package.json" assert { type: "json" };
+const config = JSON.parse(await fs.readFile('./package.json'));
 
 addDrupalExtensions(Twig);
 
