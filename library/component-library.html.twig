@@ -7,7 +7,10 @@
 
 {# Iterate through all of the examples found in the components directory. #}
 {% for component in components %}
-
-  {% embed  "@components/" ~ component ~ ".example.twig" %}{% endembed %}
-
+  {% embed  "@components/" ~ component ~ ".sample.twig" %}{% endembed %}
 {% endfor %}
+
+{# Embed the css for now, until we figure out the proper way to manage it for the library. #}
+<style>
+  {{ source("@library/component-library.css") }}
+</style>
