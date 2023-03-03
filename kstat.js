@@ -37,8 +37,8 @@ export const findTwigPages = async (directory) => {
 };
 
 // Returns an array of objects containing files in the component directory and a path to where they live
-const getComponentFiles = async (directory) => {
-  let componentFiles = [];
+const getFilesForTwig = async (directory) => {
+  let resultFiles = [];
 
   await fs.readdir(`${directory}`)
     .then(async (files) => {
@@ -46,20 +46,18 @@ const getComponentFiles = async (directory) => {
         await fs.stat(`${directory}/${file}`)
           .then(async (entry) => {
             if (entry.isDirectory()) {
-              const files = await getComponentFiles(`${directory}/${file}`);
+              const files = await getFilesForTwig(`${directory}/${file}`);
               for (const file of files) {
-                componentFiles.push(file);
+                resultFiles.push({ "name": file.name, "path": file.path });
               }
             } else {
-              componentFiles.push(file);
+              resultFiles.push({ "name": file, "path": `${directory}/${file}` });
             }
           })
       }
     });
 
-  console.log(componentFiles); // TODO Add Name & Path
-
-  return componentFiles;
+  return resultFiles;
 };
 
 // Compiles a twig file and returns HTML
@@ -89,11 +87,29 @@ export const writeHtml = async (path, html) => {
   fs.writeFile(path, html);
 };
 
+export const moveFiles = async (directory, targetDirectory) => {
+  await fs.readdir(`${directory}`)
+    .then(async (files) => {
+      for (const file of files) {
+        await fs.stat(`${directory}/${file}`)
+          .then(async (entry) => {
+            if (entry.isDirectory()) {
+              await moveFiles(`${directory}/${file}`, targetDirectory);
+            } else {
+              await fs.mkdir(`${targetDirectory}/${directory}/`, { recursive: true });
+              fs.copyFile(`${directory}/${file}`, `${targetDirectory}/${directory}/${file}`);
+            }
+          })
+      }
+    });
+};
+
 // Executes the other functions of Kstat
-export const kstat = async (directory) => {
+export const kstat = async () => {
+  const directory = config.kalastatic.pages_directory;
   const pages = await findTwigPages(directory);
 
-  const componentFiles = await getComponentFiles(config.kalastatic.namespaces.components);
+  const componentFiles = await getFilesForTwig(config.kalastatic.namespaces.components);
 
   const renderData = { "component_files": componentFiles };
 
@@ -102,4 +118,6 @@ export const kstat = async (directory) => {
 
     writeHtml(`build/${page.replace(`${directory}/`, "").replace(".twig", "")}`, compiledHtml);
   }
+
+  await moveFiles(config.kalastatic.assets_directory, config.kalastatic.build_directory);
 };
