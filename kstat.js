@@ -29,15 +29,41 @@ export const findTwigPages = async (directory) => {
             } else if (file.endsWith('.twig')) {
               twigFiles.push(`${directory}/${file}`);
             }
-          })
+          });
       }
     });
 
   return twigFiles;
 };
 
+// Returns an array of objects containing files in the component directory and a path to where they live
+const getComponentFiles = async (directory) => {
+  let componentFiles = [];
+
+  await fs.readdir(`${directory}`)
+    .then(async (files) => {
+      for (const file of files) {
+        await fs.stat(`${directory}/${file}`)
+          .then(async (entry) => {
+            if (entry.isDirectory()) {
+              const files = await getComponentFiles(`${directory}/${file}`);
+              for (const file of files) {
+                componentFiles.push(file);
+              }
+            } else {
+              componentFiles.push(file);
+            }
+          })
+      }
+    });
+
+  console.log(componentFiles); // TODO Add Name & Path
+
+  return componentFiles;
+};
+
 // Compiles a twig file and returns HTML
-export const compileTwig = async (directory, twigFile) => {
+export const compileTwig = async (directory, twigFile, renderData) => {
   console.log(`Compiling Twig File: ${twigFile}`);
 
   const twigFileStream = await fs.readFile(`${twigFile}`, { encoding: 'utf8' });
@@ -47,7 +73,7 @@ export const compileTwig = async (directory, twigFile) => {
     allowInlineIncludes: true,
     path: directory,
     namespaces: config.kalastatic.namespaces,
-  }).render();
+  }).render(renderData);
 
   return compiledTwig;
 };
@@ -67,8 +93,12 @@ export const writeHtml = async (path, html) => {
 export const kstat = async (directory) => {
   const pages = await findTwigPages(directory);
 
+  const componentFiles = await getComponentFiles(config.kalastatic.namespaces.components);
+
+  const renderData = { "component_files": componentFiles };
+
   for (const page of pages) {
-    const compiledHtml = await compileTwig(directory, page).catch(err => console.log(err.message));
+    const compiledHtml = await compileTwig(directory, page, renderData).catch(err => console.log(err.message));
 
     writeHtml(`build/${page.replace(`${directory}/`, "").replace(".twig", "")}`, compiledHtml);
   }
