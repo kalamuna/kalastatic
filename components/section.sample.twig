@@ -4,11 +4,11 @@
 {% set name = "Section" %}
 {% set description = "A general section pattern with a section tag, h2 heading, and content." %}
 
-{% block example %}
+{% block sample %}
   {% embed "section--text.html.twig" %}
     {% set heading = "What is lorem ipsum?" %}
     {% block content %}
       Content here
     {% endblock content %}
   {% endembed %}
-{% endblock example %}
+{% endblock sample %}
