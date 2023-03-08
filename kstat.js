@@ -36,29 +36,47 @@ export const findTwigPages = async (directory) => {
   return twigFiles;
 };
 
-// Returns an array of objects containing files in the component directory and a path to where they live
-const getFilesForTwig = async (directory) => {
-  let resultFiles = [];
-
-  await fs.readdir(`${directory}`)
-    .then(async (files) => {
-      for (const file of files) {
-        await fs.stat(`${directory}/${file}`)
-          .then(async (entry) => {
-            if (entry.isDirectory()) {
-              const files = await getFilesForTwig(`${directory}/${file}`);
-              for (const file of files) {
-                resultFiles.push({ "name": file.name, "path": file.path });
-              }
-            } else {
-              resultFiles.push({ "name": file, "path": `${directory}/${file}` });
-            }
-          })
-      }
-    });
-
-  return resultFiles;
+// Returns an array of namespaces with an array of files in each.
+const getNamespaceFiles = async (namespaces) => {
+  let namespaceFiles = [];
+  for (const namespace in namespaces) {
+    namespaceFiles[namespace] = [];
+    // Get the files in the namespace directory.
+    const files = await getDirectoryFiles(`${namespaces[namespace]}`);
+    // Add the namespace to the beginning of the filenames.
+    for (const file of files) {
+      namespaceFiles[namespace].push(`@${namespace}/${file}`);
+    }
+  };
+  return namespaceFiles;
 };
+
+// Recursively get the files in a directory, omitting the root directory of the namespace from the resulting path.
+const getDirectoryFiles = async (rootDirectory, subDirectory = false) => {
+  // If there is a subdirectory, combine it with the root directory to get the directory we are looking at.
+  const directory = subDirectory ? `${rootDirectory}/${subDirectory}` : rootDirectory;
+  let resultFiles = [];
+  // Read all the files in the directory and then iterate over each one.
+  await fs.readdir(`${directory}`).then(async (files) => {
+    for (const file of files) {
+      // Go through each file, and check if it is a subdirectory.
+      await fs.stat(`${directory}/${file}`).then(async (entry) => {
+        if (entry.isDirectory()) {
+          // If this is a directory, recursively get the contents of taht.
+          const files = await getDirectoryFiles(`${directory}`, file);
+          // If we are looking through a subdirectoy, prepend that to the file path.
+          for (const file of files) {
+            resultFiles.push(subDirectory ? `${subDirectory}/${file}` : file);
+          }
+        } else {
+          // If this is a non-directory file, append it to the list, with the subdirectory appended if needed.
+          resultFiles.push(subDirectory ? `${subDirectory}/${file}` : file);
+        }
+      })
+    }
+  });
+  return resultFiles;
+}
 
 // Compiles a twig file and returns HTML
 export const compileTwig = async (directory, twigFile, renderData) => {
@@ -109,9 +127,9 @@ export const kstat = async () => {
   const directory = config.kalastatic.pages_directory;
   const pages = await findTwigPages(directory);
 
-  const componentFiles = await getFilesForTwig(config.kalastatic.namespaces.components);
+  const namespaceFiles = await getNamespaceFiles(config.kalastatic.namespaces);
 
-  const renderData = { "component_files": componentFiles };
+  const renderData = { "namespaceFiles": namespaceFiles };
 
   for (const page of pages) {
     const compiledHtml = await compileTwig(directory, page, renderData).catch(err => console.log(err.message));

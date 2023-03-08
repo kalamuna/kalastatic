@@ -1,21 +1,9 @@
 
-{# These files will be provided as a global variable sometime soon. #}
-{% set component_files = [
-    'region--header.html.twig',
-    'region--header.sample.twig',
-    'section.html.twig',
-    'section.sample.twig',
-    'section--text.html.twig',
-    'section--text.sample.twig',
-    'section--text.scss'
-  ]
-%}
-
 {# Iterate through all of the component files and output the samples on in the library. #}
-{% for filename in component_files %}
-  {% if '.sample.twig' in filename %}
-    {% set file_root = filename|replace({'.sample.twig': ''}) %}
-    {% embed  "@components/" ~ filename %}{% endembed %}
+{% for file in namespaceFiles['components'] %}
+  {% if '.sample.twig' in file %}
+    {% set file_root = file|replace({'.sample.twig': ''}) %}
+    {% embed file with {'namespace': 'components', 'file_root': file_root} %}{% endembed %}
   {% endif %}
 {% endfor %}
 

@@ -16,37 +16,37 @@
     </details>
 
     <details>
-      <summary>Twig Usage</summary>
+      <summary>Usage</summary>
       <div class="details-content">
-        {% set sample_source = source("@components/" ~ file_root ~ ".sample.twig") %}
+        {% set sample_source = source(file_root ~ ".sample.twig") %}
         {# Display the contents of the sample.twig file, and remove everything outside of the sample block. #}
         <pre>{{ sample_source|split("{% block sample %}")[1]|split("{% endblock sample %}")[0]|escape('html') }}</pre>
       </div>
     </details>
 
-    {% if file_root ~ ".html.twig" in component_files %}
+    {% if file_root ~ ".html.twig" in namespaceFiles[namespace] %}
       <details>
-        <summary>Twig Code</summary>
+        <summary>Twig</summary>
         <div class="details-content">
           <pre>{{ source("@components/" ~ file_root ~ ".html.twig")|escape('html') }}</pre>
         </div>
       </details>
     {% endif %}
 
-    {% if file_root ~ ".scss" in component_files %}
+    {% if file_root ~ ".scss" in namespaceFiles[namespace] %}
       <details>
         <summary>SCSS Code</summary>
         <div class="details-content">
-          <pre>{{ source("@components/" ~ file_root ~ ".scss") }}</pre>
+          <pre>{{ source( file_root ~ ".scss") }}</pre>
         </div>
       </details>
     {% endif %}
 
-    {% if file_root ~ ".js" in component_files %}
+    {% if file_root ~ ".js" in namespaceFiles[namespace] %}
       <details>
         <summary>JS Code</summary>
         <div class="details-content">
-          <pre>{{ source("@components/" ~ file_root ~ ".js") }}</pre>
+          <pre>{{ source( file_root ~ ".js") }}</pre>
         </div>
       </details>
     {% endif %}
