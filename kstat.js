@@ -122,10 +122,21 @@ export const moveFiles = async (directory, targetDirectory) => {
     });
 };
 
+// Delete the destination directories associated with a list of sources.
+export const clearDestinations = async (sources) => {
+  for (const source in sources) {
+    console.log(`Clearing destination directory: ${sources[source]}`);
+    await fs.rmdir(sources[source], { recursive: true, force: true });
+  }
+};
+
+
+
 // Executes the other functions of Kstat
 export const kstat = async () => {
 
-  // TODO: Delete all the destination files/directories in each source and assets so we don't get orphans.
+  // Delete all the destination files/directories in each source and assets so we don't get orphans.
+  await clearDestinations({...config.kalastatic.sources, ...config.kalastatic.assets});
 
   // Get the list of files in each namespace so they will be availble when rendering pages.
   const renderData = {};
