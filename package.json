@@ -12,9 +12,12 @@
     "serve": "serve build"
   },
   "kalastatic": {
-    "build_directory": "build",
-    "pages_directory": "pages",
-    "assets_directory": "assets",
+    "sources": {
+      "pages": "build"
+    },
+    "assets": {
+      "assets": "build/assets"
+    },
     "namespaces": {
       "templates": "templates",
       "components": "components",

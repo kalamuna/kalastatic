@@ -114,8 +114,8 @@ export const moveFiles = async (directory, targetDirectory) => {
             if (entry.isDirectory()) {
               await moveFiles(`${directory}/${file}`, targetDirectory);
             } else {
-              await fs.mkdir(`${targetDirectory}/${directory}/`, { recursive: true });
-              fs.copyFile(`${directory}/${file}`, `${targetDirectory}/${directory}/${file}`);
+              await fs.mkdir(`${targetDirectory}/`, { recursive: true });
+              fs.copyFile(`${directory}/${file}`, `${targetDirectory}/${file}`);
             }
           })
       }
@@ -124,18 +124,28 @@ export const moveFiles = async (directory, targetDirectory) => {
 
 // Executes the other functions of Kstat
 export const kstat = async () => {
-  const directory = config.kalastatic.pages_directory;
-  const pages = await findTwigPages(directory);
 
-  const namespaceFiles = await getNamespaceFiles(config.kalastatic.namespaces);
+  // TODO: Delete all the destination files/directories in each source and assets so we don't get orphans.
 
-  const renderData = { "namespaceFiles": namespaceFiles };
-
-  for (const page of pages) {
-    const compiledHtml = await compileTwig(directory, page, renderData).catch(err => console.log(err.message));
-
-    writeHtml(`build/${page.replace(`${directory}/`, "").replace(".twig", "")}`, compiledHtml);
+  // Get the list of files in each namespace so they will be availble when rendering pages.
+  const renderData = {};
+  if (config.kalastatic.namespaces) {
+    const namespaceFiles = await getNamespaceFiles(config.kalastatic.namespaces);
+    renderData.namespaceFiles = namespaceFiles;
   }
 
-  await moveFiles(config.kalastatic.assets_directory, config.kalastatic.build_directory);
+  // Process each source into its corresponding destination.
+  for (const source in config.kalastatic.sources) {
+    const destination = config.kalastatic.sources[source];
+    const pages = await findTwigPages(source);
+    for (const page of pages) {
+      const compiledHtml = await compileTwig(source, page, renderData).catch(err => console.log(err.message));
+      writeHtml(`${destination}/${page.replace(`${source}/`, "").replace(".twig", "")}`, compiledHtml);
+    }
+  }
+
+  // Move the assets to the proper directory.
+  for (const source in config.kalastatic.assets) {
+    await moveFiles(source, config.kalastatic.assets[source]);
+  }
 };
