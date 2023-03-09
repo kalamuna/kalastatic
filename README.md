@@ -16,3 +16,12 @@ Iterate through the twig files in the pages directory, parse the twig into html,
 - Twig embeds
 - Twig embed using with for variables (optional)
 - Outputting html
+
+## Usage
+
+Run Kalastatic locally by using...
+
+```
+npm install
+npm start
+```

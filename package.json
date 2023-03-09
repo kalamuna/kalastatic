@@ -6,7 +6,10 @@
   "type": "module",
   "scripts": {
     "build": "node main.js",
-    "watch": "nodemon -e twig,scss,css,js --watch components --watch library --watch pages --watch templates serve.js"
+    "watch": "nodemon -e twig,scss,css,js --watch components --watch library --watch pages --watch templates --exec npm run build",
+    "test": "npm run build",
+    "start": "npm run watch & npm run serve",
+    "serve": "serve build"
   },
   "kalastatic": {
     "build_directory": "build",
@@ -20,9 +23,11 @@
   },
   "dependencies": {
     "drupal-twig-extensions": "^1.0.0-beta.4",
-    "nodemon": "^2.0.21",
     "sass": "^1.58.3",
-    "serve": "^14.2.0",
     "twig": "^1.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21",
+    "serve": "^14.2.0"
   }
 }
