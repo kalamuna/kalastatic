@@ -1,9 +1,9 @@
 
 .region--header {
-  background: var(--color-grey-90);
   padding: var(--container-padding);
   &, a {
     color: var(--color-grey-10);
+    text-decoration: none;
   }
 
   &, &__text {
@@ -11,8 +11,12 @@
     flex-wrap: wrap;
     gap: var(--gap-width);
     align-items: center;
-    h2 {
-      margin: 0;
+  }
+
+  &__logo {
+    img {
+      width: 6rem;
+      height: 6rem;
     }
   }
 
@@ -21,11 +25,16 @@
     flex-grow: 1;
   }
 
+  &__site-title {
+    font-size: var(--font-size-100);
+  }
+
   .menu--main {
     h2 {
       display: none; // Need to get visually-hidden mixin.
     }
     ul {
+      margin: 0;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
@@ -35,11 +44,8 @@
       li {
         margin: 0;
         padding: 0;
-        a {
-          text-decoration: none;
-          &:hover {
-            text-decoration: underline;
-          }
+        a:hover {
+          text-decoration: underline;
         }
       }
     }

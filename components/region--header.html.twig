@@ -1,9 +1,11 @@
 <header class="region--header">
-  <a href="/"><img src="/assets/logo.svg" aria-label="Lorem Ipsum" width="100" height="100"/></a>
+  <div class="region--header__logo">
+    <a href="/"><img src="/assets/logo.svg" aria-label="Lorem Ipsum"/></a>
+  </div>
 
   {# The site name and menu, which are shown side-by-side when there is room. #}
   <div class="region--header__text">
-    <h2>Kalastatic</h2>
+    <div class="region--header__site-title"><a href="/">Kalastatic</a></div>
 
     {% embed "@components/menus/menu--main.html.twig" %}{% endembed %}
 </header>

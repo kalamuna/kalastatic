@@ -1,5 +1,6 @@
 
 main > h1 {
-  margin-left: var(--container-padding);
-  margin-right: var(--container-padding);
+  padding: 1em var(--container-padding);
+  margin: 0;
+  background: var(--color-white);
 }

@@ -1,7 +1,17 @@
 
-<section id="{{ component }}" class="component-library-sample {{ add_padding ? 'component-library-sample--add-padding' : '' }}">
+{% extends "@components/section.html.twig" %}
 
-  <h2>{{ name }} </h2>
+{# Set the class for this component. #}
+{% set classes = [
+    'component-library-sample',
+    add_padding ? 'component-library-sample--add-padding' : ''
+  ]
+%}
+
+{# Set the class for this component. #}
+{% set heading = name %}
+
+{% block content %}
 
   {% if description %}
     <p>{{ description }}</p>
@@ -51,4 +61,4 @@
       </details>
     {% endif %}
 
-</section>
+{% endblock content %}
