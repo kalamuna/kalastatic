@@ -1,13 +1,25 @@
 
-{# Iterate through all of the component files and output the samples on in the library. #}
-{% for file in namespaceFiles['components'] %}
-  {% if '.sample.twig' in file %}
-    {% set file_root = file|replace({'.sample.twig': ''}) %}
-    {% embed file with {'namespace': 'components', 'file_root': file_root} %}{% endembed %}
-  {% endif %}
-{% endfor %}
+{# Search through the files in a namespace to create a section for each sample.twig file. #}
+{% macro findSamples(namespace) %}
 
-{# Embed the css for now, until we figure out the proper way to manage it for the library. #}
-<style>
-  {{ source("@library/component-library.css") }}
-</style>
+  {# Iterate through all of the component files and output the samples on in the library. #}
+  {% set sampleRoots = [] %}
+  {% for file in namespaceFiles[namespace] %}
+    {% if '.sample.twig' in file %}
+      {% set sampleRoots = [file|replace({'.sample.twig': ''})]|merge(sampleRoots) %}
+    {% endif %}
+  {% endfor %}
+
+  {# Sort the samples based on their root (since base components with periods would otherwise end up after dash dash variants.) #}
+  {% for file_root in sampleRoots|sort %}
+      {% embed file_root ~ '.sample.twig' with {'namespace': namespace, 'file_root': file_root} %}{% endembed %}
+  {% endfor %}
+{% endmacro %}
+
+{# Create the component library by finding sample files in each of the namespaces. #}
+<div class="component-library">
+  {% import _self as myPage %}
+  {% for namespace in namespaceFiles|keys %}
+    {{ myPage.findSamples(namespace) }}
+  {% endfor %}
+</div>

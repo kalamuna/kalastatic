@@ -19,10 +19,11 @@
       "assets": "build/assets"
     },
     "namespaces": {
-      "templates": "templates",
+      "styles": "styles",
       "components": "components",
-      "library": "library",
-      "pages": "pages"
+      "templates": "templates",
+      "pages": "pages",
+      "library": "library"
     },
     "styles": {
       "styles/styles.scss": "build/styles.css"
