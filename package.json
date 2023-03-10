@@ -21,7 +21,8 @@
     "namespaces": {
       "templates": "templates",
       "components": "components",
-      "library": "library"
+      "library": "library",
+      "pages": "pages"
     }
   },
   "dependencies": {
