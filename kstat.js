@@ -130,7 +130,7 @@ export const moveFiles = async (directory, targetDirectory) => {
 export const clearDestinations = async (sources) => {
   for (const source in sources) {
     console.log(`Clearing destination directory: ${sources[source]}`);
-    await fs.rmdir(sources[source], { recursive: true, force: true });
+    await fs.rm(sources[source], { recursive: true, force: true });
   }
 };
 
