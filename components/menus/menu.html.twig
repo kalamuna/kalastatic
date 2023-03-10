@@ -1,0 +1,17 @@
+{# For some reason the classes array is not coming in as a proper array and is messing up the merge below. #}
+{% set classes = [classes|join(" ")] %}
+
+{# Set the class for this component, including any classes set by variants. #}
+{% set classes = [
+    'menu'
+  ]|merge(classes ? classes : [])
+%}
+
+<nav class="{{ classes|join(" ") }}">
+  <h2>{{ menu_title }}</h2>
+  <ul>
+    {% for item in menu_items %}
+      <li><a href="{{ item.href }}">{{ item.title }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>

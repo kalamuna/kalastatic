@@ -1,21 +1,9 @@
 <header class="region--header">
   <a href="/"><img src="/assets/logo.svg" aria-label="Lorem Ipsum" width="100" height="100"/></a>
 
-  <h2>kalastatic</h2>
+  {# The site name and menu, which are shown side-by-side when there is room. #}
+  <div class="region--header__text">
+    <h2>Kalastatic</h2>
 
-  {# Get the url for each section, which is the directory without the pages namespace and index.html.twig. #}
-  {% set sections = [] %}
-  {% for file in namespaceFiles['pages'] %}
-    {% if 'index.html.twig' in file %}
-      {% set sections = [file|replace({'@pages': '', 'index.html.twig': ''})]|merge(sections) %}
-    {% endif %}
-  {% endfor %}
-
-  {# Iterate through all of the component files and output the samples on in the library. #}
-  {% for section in sections|sort %}
-      {% import '@pages' ~ section ~ 'index.html.twig' as page %}
-      {% if page.menu_title is defined %}
-        <a href="{{ section }}">{{ page.menu_title() }}</a>
-      {% endif %}
-  {% endfor %}
+    {% embed "@components/menus/menu--main.html.twig" %}{% endembed %}
 </header>

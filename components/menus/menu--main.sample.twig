@@ -1,0 +1,14 @@
+{% extends "@library/component-library-sample.html.twig" %}
+
+{% set name = "Menu: Main Menu" %}
+{% set description = "The main menu for the site which is dynamically created by iterating through all of the twig files in the pages namespace." %}
+
+{% set add_padding = true %}
+
+{% block sample %}
+
+  {# Just let it do its magic. #}
+  {% embed "@components/menus/menu--main.html.twig" %}
+  {% endembed %}
+
+{% endblock sample %}

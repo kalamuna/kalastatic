@@ -1,0 +1,25 @@
+{% extends "@library/component-library-sample.html.twig" %}
+
+{% set name = "Menu" %}
+{% set description = "A generic menu, with an unordered list of links wrapped in a nav element." %}
+
+{% set add_padding = true %}
+
+{% block sample %}
+  {% embed "@components/menus/menu.html.twig" %}
+
+    {# Set the title for this menu (even though it will be visually hidden). #}
+    {% set menu_title = "Sample Menu" %}
+
+    {# Create some generic links that don't go anywhere. #}
+    {% set menu_items = [
+        { 'href': "#", 'title': "Menu Link 1" },
+        { 'href': "#", 'title': "Menu Link 2" },
+        { 'href': "#", 'title': "Menu Link 3" },
+        { 'href': "#", 'title': "Menu Link 4" },
+        { 'href': "#", 'title': "Menu Link 5" },
+        { 'href': "#", 'title': "Menu Link 6" },
+      ]
+    %}
+  {% endembed %}
+{% endblock sample %}

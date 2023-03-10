@@ -5,4 +5,43 @@
   &, a {
     color: var(--color-grey-10);
   }
+
+  &, &__text {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-width);
+    align-items: center;
+    h2 {
+      margin: 0;
+    }
+  }
+
+  &__text {
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  .menu--main {
+    h2 {
+      display: none; // Need to get visually-hidden mixin.
+    }
+    ul {
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      font-size: var(--font-size-400);
+      gap: 1em;
+      list-style: none;
+      li {
+        margin: 0;
+        padding: 0;
+        a {
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }
