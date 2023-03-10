@@ -8,6 +8,10 @@ import {
   addDrupalExtensions
 } from 'drupal-twig-extensions/twig';
 
+import sass from "sass";
+import { promisify } from "util";
+const sassRenderPromise = promisify(sass.render);
+
 const config = JSON.parse(await fs.readFile('./package.json'));
 
 addDrupalExtensions(Twig);
@@ -130,6 +134,18 @@ export const clearDestinations = async (sources) => {
   }
 };
 
+// Compile scss source files into destination css.
+export const compileCSS = async (source, destination) => {
+  console.log(`Compiling ${source} to ${destination}.`);
+  const styleResult = await sassRenderPromise({
+    file: source,
+    outFile: destination,
+    sourceMap: true,
+    sourceMapContents: true
+  });
+  await fs.writeFile(destination, styleResult.css, "utf8");
+  await fs.writeFile(`${destination}.map`, styleResult.map, "utf8");
+};
 
 
 // Executes the other functions of Kstat
@@ -153,6 +169,11 @@ export const kstat = async () => {
       const compiledHtml = await compileTwig(source, page, renderData).catch(err => console.log(err.message));
       writeHtml(`${destination}/${page.replace(`${source}/`, "").replace(".twig", "")}`, compiledHtml);
     }
+  }
+
+  // Compile the SCSS into CSS.
+  for (const source in config.kalastatic.styles) {
+    await compileCSS(source, config.kalastatic.styles[source]);
   }
 
   // Move the assets to the proper directory.

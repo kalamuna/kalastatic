@@ -23,6 +23,9 @@
       "components": "components",
       "library": "library",
       "pages": "pages"
+    },
+    "styles": {
+      "styles/styles.scss": "build/styles.css"
     }
   },
   "dependencies": {
