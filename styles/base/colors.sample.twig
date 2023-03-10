@@ -1,0 +1,17 @@
+{% extends "@library/component-library-sample.html.twig" %}
+
+{% set name = "Colors" %}
+{% set description = "The palette of colors that are used throughout this site." %}
+
+{% set add_padding = true %}
+
+{% block sample %}
+<div style="padding: .5em 1em; margin: 1em 0; color: var(--color-grey-90); background: var(--color-grey-10);">
+  --color-grey-10: #333333;
+</div>
+
+<div style="padding: .5em 1em; margin: 1em 0; color: var(--color-grey-10); background: var(--color-grey-90);">
+  --color-grey-90: #f9f9f9;
+</div>
+
+{% endblock sample %}

@@ -2,8 +2,11 @@
 {% extends "@templates/html.html.twig" %}
 
 {% block body %}
+
   {% include "@components/region--header.html.twig" %}
-  <h1>{{ title }}</h1>
-  {% block content %}
-  {% endblock content %}
+  <main>
+    <h1>{{ title }}</h1>
+    {% block content %}
+    {% endblock content %}
+  </main>
 {% endblock body %}

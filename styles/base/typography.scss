@@ -1,0 +1,51 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root {
+  // Common styles across all the headings.
+  --heading-font-family: "Source Sans Pro", sans-serif;
+  --heading-line-height: 1.2;
+  --heading-font-weight: bold;
+
+  // The font size for the actual page content is usually larger.
+  --paragraph-font-family: "Source Sans Pro", sans-serif;
+  --paragraph-font-size: var(--font-size-500); // 18px
+  --paragraph-line-height: 1.5;
+
+  // The standard font sizes that are used throughout the site.
+  --font-size-100: 2.625rem;  // 42px
+  --font-size-200: 2rem;      // 32px
+  --font-size-300: 1.625rem;  // 26px
+  --font-size-400: 1.25rem;   // 20px
+  --font-size-500: 1.125rem;   // 18px
+  --font-size-600: 1rem;      // 16px
+  --font-size-700: .8rem;     // 12.8px
+}
+
+// Set the default document font to the paragraph text.
+body {
+  font-family: var(--paragraph-font-family);
+}
+
+// Common spacing and styles for all headings.
+h1, h2, h3, h4, h5, h6 {
+  margin: 1em 0 .5em;
+  font-family: var(--heading-font-family);
+  line-height: var(--heading-line-height);
+  font-weight: var(--heading-font-weight);
+}
+
+// Sizes of the different heading levels.
+h1 { font-size: var(--font-size-100); }
+h2 { font-size: var(--font-size-200); }
+h3 { font-size: var(--font-size-300); }
+h4 { font-size: var(--font-size-400); }
+h5 { font-size: var(--font-size-500); }
+h6 { font-size: var(--font-size-600); }
+
+
+// Set the size all paragraphs and long-text content.
+p {
+  font-size: var(--paragraph-font-size);
+  line-height: var(--paragraph-line-height);
+}

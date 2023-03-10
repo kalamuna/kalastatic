@@ -1,6 +1,7 @@
 
 .region--header {
   background: var(--color-grey-90);
+  padding: var(--container-padding);
   &, a {
     color: var(--color-grey-10);
   }

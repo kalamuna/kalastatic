@@ -1,0 +1,21 @@
+
+.component-library-sample {
+  margin: 3rem var(--container-padding);
+  details {
+    border: 1px solid #ccc;
+    margin: 1rem 0;
+    summary {
+      background: #ccc;
+      padding: .5em 1em;
+    }
+    pre {
+      padding: var(--container-padding);
+    }
+  }
+  // Add padding to the rendered sample if the variable is set.
+  &--add-padding {
+    .details-content {
+      padding: var(--container-padding);
+    }
+  }
+}

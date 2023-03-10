@@ -1,0 +1,13 @@
+:root {
+
+  // The horizontal (and sometimes vertical) space between adjacent items.
+  --gap-width: 1.5rem;
+
+  // The padding between a container and the edge of the screen.
+  --container-padding: var(--gap-width);
+}
+
+// Use border box sizing by default.
+*, *::before, *::after {
+  box-sizing: border-box;
+}

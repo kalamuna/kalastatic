@@ -1,6 +1,12 @@
 
 {% extends "@components/section.html.twig" %}
 
+{# Set the class for this component, including any classes set by variants. #}
+{% set classes = [
+    'section--text'
+  ]|merge(classes ?: [])
+%}
+
 {# Allow a block of text to be placed in the content. #}
 {% block content %}
   {% block text %}
