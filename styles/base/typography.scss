@@ -11,6 +11,7 @@
   --paragraph-font-family: "Source Sans Pro", sans-serif;
   --paragraph-font-size: var(--font-size-500); // 18px
   --paragraph-line-height: 1.5;
+  --paragraph-margin: 1em;
 
   // The standard font sizes that are used throughout the site.
   --font-size-100: 2.625rem;  // 42px
@@ -48,4 +49,5 @@ h6 { font-size: var(--font-size-600); }
 p {
   font-size: var(--paragraph-font-size);
   line-height: var(--paragraph-line-height);
+  margin: var(--paragraph-margin) 0;
 }

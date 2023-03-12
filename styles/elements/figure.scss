@@ -1,0 +1,24 @@
+
+// By default, give figures the same font size and margin as a paragraph.
+figure {
+  font-size: var(--paragraph-font-size);
+  line-height: var(--paragraph-line-height);
+  margin: 2em 0;
+
+  // The caption text that describes the figure.
+  figcaption {
+    font-size: .9em;
+    font-style: italic;
+    padding: .5em 1em;
+
+    // If someone wraps the figcaption text in paragraphs, ensure there isn't too much space at the top and bottom.
+    > *:first-child {
+      margin-top: 0;
+    }
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+}

@@ -1,4 +1,6 @@
 
 .section--text {
-
+  > * {
+    max-width: 60rem;
+  }
 }

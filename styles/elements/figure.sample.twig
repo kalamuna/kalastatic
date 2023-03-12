@@ -1,0 +1,15 @@
+{% extends "@library/component-library-sample.html.twig" %}
+
+{% set name = "Figure" %}
+{% set description = "A figure tag which can contain things like images and blocks of code." %}
+
+{% set add_padding = true %}
+
+{% block sample %}
+
+<figure>
+  <img src="/assets/logo.svg" width="300" height="300" />
+  <figcaption>The Kalastatic site logo.</figcaption>
+</figure>
+
+{% endblock sample %}

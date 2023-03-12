@@ -1,0 +1,22 @@
+{% extends "@library/component-library-sample.html.twig" %}
+
+{% set name = "Inline Code and Code Blocks" %}
+{% set description = "The code tag that is used to format code both within paragraph text and as a block within a figure tag." %}
+
+{% set add_padding = true %}
+
+{% block sample %}
+
+<p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using <code>Content here, content here</code>, making it look like readable English.</p>
+
+<figure>
+  <code>
+    &lt;p>The point of using Lorem Ipsum is that it has a more-or-less normal
+      distribution of letters, as opposed to using &lt;code>Content here, content
+      here&lt;/code>, making it look like readable English.
+    &lt;/p>
+  </code>
+  <figcaption>A block of code or markup.</figcaption>
+</figure>
+
+{% endblock sample %}
