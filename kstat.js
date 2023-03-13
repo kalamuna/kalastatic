@@ -168,7 +168,7 @@ export const kstat = async () => {
   }
 
   // Add the base url if set by the environmetn and / otherwise.
-  renderData.base_url = process.env.BASE_URL || "";
+  renderData.base_url = process.env.base_url || "";
 
   // Process each source into its corresponding destination.
   for (const source in config.kalastatic.sources) {

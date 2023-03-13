@@ -177,6 +177,54 @@ npm create kalastatic
 
 
   {# Add a section to the page. #}
+  {% embed "@components/sections/section--text.html.twig" with { 'heading': "Github Pages and base_url" } %}
+    {% block text %}
+      <p>
+        Kalastatic can be easily deployed to Github pages for hosting the
+        compiled static files. Here is the workflow that this site uses:
+      </p>
+      <figure>
+        <code>
+name: Build and Deploy a Branch to GH Pages
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: npm Install
+        env:
+          base_url: '/kstat_test'
+        run: |
+          npm install
+          npm run build
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+          # Remove previous build files
+          clean: true
+        </code>
+        <figcaption>
+          The contents of our <code>gh-pages.yml</code> file that deployes that
+          compiles the pages for this site and deploys them to Github Pages.
+        </figcaption>
+      </figure>
+      <p>
+        When hosting your site in an environment like Github Page, the site
+        root may have a base path in front of it, so Kalastatic looks for a
+        <code>base_url</code> environment variable, which you can then prepend
+        to any links, image sources, or styleguide and script includes.
+      </p>
+    {% endblock text %}
+  {% endembed %}
+
+
+  {# Add a section to the page. #}
   {% embed "@components/sections/section--text.html.twig" with { 'heading': "Namespace files" } %}
     {% block text %}
       <p>
