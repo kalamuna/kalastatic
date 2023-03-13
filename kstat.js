@@ -52,6 +52,12 @@ const getNamespaceFiles = async (namespaces) => {
       namespaceFiles[namespace].push(`@${namespace}/${file}`);
     }
   };
+  // Sort the resulting files so that periods are sorted above hyphens.
+  for (const namespace in namespaces) {
+    namespaceFiles[namespace] = namespaceFiles[namespace].sort(function(a, b) {
+      return a.replace('.', ' ') > b.replace('.', ' ') ? 1 : -1;
+    });
+  }
   return namespaceFiles;
 };
 

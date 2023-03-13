@@ -6,14 +6,10 @@
   {% set sampleRoots = [] %}
   {% for file in namespaceFiles[namespace] %}
     {% if '.sample.twig' in file %}
-      {% set sampleRoots = [file|replace({'.sample.twig': ''})]|merge(sampleRoots) %}
+      {% embed file with {'namespace': namespace, 'file_root': file|replace({'.sample.twig': ''}) } %}{% endembed %}
     {% endif %}
   {% endfor %}
 
-  {# Sort the samples based on their root (since base components with periods would otherwise end up after dash dash variants.) #}
-  {% for file_root in sampleRoots|sort %}
-      {% embed file_root ~ '.sample.twig' with {'namespace': namespace, 'file_root': file_root} %}{% endembed %}
-  {% endfor %}
 {% endmacro %}
 
 {# Create the styleguide and component library by finding sample files in each of the namespaces. #}

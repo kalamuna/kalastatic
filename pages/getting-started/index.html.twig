@@ -234,23 +234,16 @@ npm create kalastatic
   <strong>{% set sampleRoots = [] %}
   {% for file in namespaceFiles[namespace] %}
     {% if '.sample.twig' in file %}
-      {% set sampleRoots = [file|replace({'.sample.twig': ''})]|merge(sampleRoots) %}
+      {% embed file with {'namespace': namespace, 'file_root': file|replace({'.sample.twig': ''}) } %}{% endembed %}
     {% endif %}
-  {% endfor %}</strong>
-
-  {# Sort the samples based on their root (since base components with periods would otherwise end up after dash dash variants.) #}
-  <strong>{% for file_root in sampleRoots|sort %}
-      {% embed file_root ~ '.sample.twig' with {'namespace': namespace, 'file_root': file_root} %}{% endembed %}
   {% endfor %}
+
 {% endmacro %}</strong>
         {% endverbatim %}</code>
         <figcaption>
           A twig macro that accepts a namespace name, looks through the
           nested directories for sample twig files, and then embeds them on the
-          current page. (Note that this is more complicated that it otherwise
-          needs to be due to the fact that <code>xxx.html.twig</code> files are
-          placed after <code>xxx--variant.html.twig</code> files by default when
-          in alphabetic order.)
+          current page.
         </figcaption>
       </figure>
       <p>
