@@ -1,0 +1,265 @@
+
+{% extends "@templates/page.html.twig" %}
+
+{# Set the page title. #}
+{% set title = "Getting Started" %}
+
+{# The menu title that will be imported into the header pattern. #}
+{% macro menu_title() %}Getting Started{% endmacro %}
+
+{# The page content. #}
+{% block content %}
+
+  {# Add a section to the page. #}
+  {% embed "@components/sections/section--text.html.twig" with { 'heading': "Installing Kalastatic" } %}
+    {% block text %}
+      <p>
+        Once Kalastatic is published, it is easy to include it into your project
+        as a node module:
+      </p>
+      <figure>
+        <code>
+npm require kalastatic
+        </code>
+      </figure>
+      <p>
+        However, if you are looking for some demo content to help get you
+        started, you can use the npm create command:
+      </p>
+      <figure>
+        <code>
+npm create kalastatic
+        </code>
+      </figure>
+      <p>
+        When running the create command, you will be prompted with questions
+        about which types of demo content that you'd like to start with,
+        including pages, components, styleguide, and drupal theme integration.
+      </p>
+    {% endblock text %}
+  {% endembed %}
+
+  {# Add a section to the page. #}
+  {% embed "@components/sections/section--text.html.twig" with { 'heading': "Configuring Kalastatic" } %}
+    {% block text %}
+      <p>
+        Since Kalastatic is a very simple system, its configuration is also
+        very simple. Simply create a <code>kalastatic</code> key in your
+        <code>package.json</code> to store the settings:
+      </p>
+      <figure>
+        <code>
+"kalastatic": {
+}
+        </code>
+      </figure>
+
+
+      <h3>sources</h3>
+      <p>
+        The first configuration item is the <code>sources</code> item, which
+        contains an array of directories that Kalastatic should look in for
+        <code>html.twig</code> files to process, along with the destination that
+        the resulting <code>html</code> files should be placed in:
+      </p>
+      <figure>
+        <code>
+"kalastatic": {
+  <strong>"sources": {
+    "pages": "build"
+  }</strong>
+}
+        </code>
+      </figure>
+
+      <h3>namespaces</h3>
+      <p>
+        The second configuration item is the <code>namespaces</code> item, which
+        contains an array of directories that should be used for twig
+        namespaces, with each item mapping a namespace name to a corresponding
+        directory:
+      </p>
+      <figure>
+        <code>
+"kalastatic": {
+  "sources": {
+    "pages": "build"
+  },
+  <strong>"namespaces": {
+    "components": "components",
+    "templates": "templates",
+    "pages": "pages"
+  }</strong>
+}
+        </code>
+      </figure>
+      <p>
+        Having these namespaces will allow for things like pages extending
+        templates in the <code>@templates/</code> namespace and embedding
+        components using the <code>@components/</code> namespace. In addition,
+        Kalastatic will generate a list of files in each namespace, and pass
+        the list to the twig files in a <code>namespaceFiles</code> variable.
+        See the <strong>Namespace Files</strong> section below for more info.
+      </p>
+      <p>
+        These namespaces are just common ones that we tend to use, but they
+        can be named and organized in whatever way that makes sense for your
+        project, along with adding additional items. For example, if you are
+        buiding a styleguide, there may also be a <code>@styles/</code>
+        namespace to contain sample twig files with example code and a
+        <code>@styleguide/</code> namespace to contain styleguide-specific
+        templates.
+      </p>
+
+      <h3>assets</h3>
+      <p>
+        If you have files that you would like to deploy without any processing
+        needed to be done, such as image files, you can add a
+        <code>assets</code> configuration item with an array of destination and
+        source directories or individual files, and the files will be simply
+        copied from one to the other during the build process.
+      </p>
+      <figure>
+        <code>
+"kalastatic": {
+  "sources": {
+    "pages": "build"
+  },
+  "namespaces": {
+    "components": "components",
+    "templates": "templates",
+    "pages": "pages"
+  },<strong>
+  "assets": {
+    "assets": "build/assets"
+  }</strong>
+}
+        </code>
+      </figure>
+
+      <h3>styles</h3>
+      <p>
+        If you have scss files that need to be processed into css files, you
+        can include a <code>styles</code> array with individual source and
+        destination filenames (wildcard patterns have not actually been tested
+        yet), and Kalatatic will use the node <code>sass</code> library to
+        process those files:
+      </p>
+      <figure>
+        <code>
+"kalastatic": {
+  "sources": {
+    "pages": "build"
+  },
+  "namespaces": {
+    "components": "components",
+    "templates": "templates",
+    "pages": "pages"
+  },
+  "assets": {
+    "assets": "build/assets"
+  },
+  <strong>"styles": {
+    "styles/styles.scss": "build/styles.css"
+  }</strong>
+}
+        </code>
+      </figure>
+      <p>
+        Note that beyond the files to compile, there is no configuration
+        available for changing how the scss is processed, so if you have a more
+        complicated compilation process, you can just leave out this
+        configuration item and set up your own process with the compilier and
+        settings of your choice.
+      </p>
+    {% endblock text %}
+  {% endembed %}
+
+
+  {# Add a section to the page. #}
+  {% embed "@components/sections/section--text.html.twig" with { 'heading': "Namespace files" } %}
+    {% block text %}
+      <p>
+        While Twig contains many helpful files for inclding content from
+        other files, such as
+        <a href="https://twig.symfony.com/doc/3.x/tags/embed.html">embed</a>
+        and <a href="https://twig.symfony.com/doc/3.x/functions/source.html">source</a>,
+        one limitation is that Twig doesn't know what files exist without
+        explicity declaring them in the code.
+      </p>
+      <p>
+        In order for Kalastatic to create things like styleguide pages that are
+        dynamically generated based on whatever files are present, Kalastatic
+        provides a <code>namespaceFiles</code> variable to Twig templates when
+        processing them, so that the templates can iterate over the available
+        files and take whatever action is needed.
+      </p>
+      <p>This is the general structure of the data that is passed inside of the
+        <code>namespaceFiles</code> variable:
+      </p>
+      <figure>
+        <code>
+{
+  "components": {
+    "@components/sections/section--text.html.twig",
+    "@components/sections/section--text.sample.twig",
+    "@components/sections/section--text.scss",
+    "@components/sections/section.html.twig",
+    "@components/sections/section.sample.twig",
+    "@components/sections/section.scss"
+  },
+  "templates": {
+    "@templates/html.html.twig",
+    "@templates/page.html.twig",
+    "@templates/page.scss"
+  }
+}
+
+        </code>
+        <figcaption>
+          Example values of the <code>namespaceFiles</code> variable which
+          contains an array key for each namespace, along with all of the files
+          contained within.
+        </figcaption
+      </figure>
+      <p>
+        For reference, here is the code that the Kalastatic demo styleguide uses
+        to look for <code>.sample.twig</code> files to include in the styleguide:
+      <figure>
+        <code>{% verbatim %}
+{# Search through the files in a namespace to create a section for each sample.twig file. #}
+<strong>{% macro findSamples(namespace) %}</strong>
+
+  {# Iterate through all of the component files and output the samples on in the styleguide. #}
+  <strong>{% set sampleRoots = [] %}
+  {% for file in namespaceFiles[namespace] %}
+    {% if '.sample.twig' in file %}
+      {% set sampleRoots = [file|replace({'.sample.twig': ''})]|merge(sampleRoots) %}
+    {% endif %}
+  {% endfor %}</strong>
+
+  {# Sort the samples based on their root (since base components with periods would otherwise end up after dash dash variants.) #}
+  <strong>{% for file_root in sampleRoots|sort %}
+      {% embed file_root ~ '.sample.twig' with {'namespace': namespace, 'file_root': file_root} %}{% endembed %}
+  {% endfor %}
+{% endmacro %}</strong>
+        {% endverbatim %}</code>
+        <figcaption>
+          A twig macro that accepts a namespace name, looks through the
+          nested directories for sample twig files, and then embeds them on the
+          current page. (Note that this is more complicated that it otherwise
+          needs to be due to the fact that <code>xxx.html.twig</code> files are
+          placed after <code>xxx--variant.html.twig</code> files by default when
+          in alphabetic order.)
+        </figcaption>
+      </figure>
+      <p>
+        Note that the filenames within the <code>namespaceFiles</code> arrays
+        start with the namespaces themselves, and are ready to be plugged
+        directly into Twig tags and functions without any processing.
+    {% endblock text %}
+  {% endembed %}
+
+
+
+{% endblock content %}
