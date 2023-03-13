@@ -11,7 +11,7 @@
   <h2>{{ menu_title }}</h2>
   <ul>
     {% for item in menu_items %}
-      <li><a href="{{ item.href }}">{{ item.title }}</a></li>
+      <li><a href="{{ base_url }}{{ item.href }}">{{ item.title }}</a></li>
     {% endfor %}
   </ul>
 </nav>

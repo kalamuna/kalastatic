@@ -167,6 +167,9 @@ export const kstat = async () => {
     renderData.namespaceFiles = namespaceFiles;
   }
 
+  // Add the base url if set by the environmetn and / otherwise.
+  renderData.base_url = process.env.BASE_URL || "/";
+
   // Process each source into its corresponding destination.
   for (const source in config.kalastatic.sources) {
     const destination = config.kalastatic.sources[source];

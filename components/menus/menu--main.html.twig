@@ -10,14 +10,14 @@
 {% set sections = [] %}
 {% for file in namespaceFiles['pages'] %}
   {% if 'index.html.twig' in file %}
-    {% set sections = [file|replace({'@pages': '', 'index.html.twig': ''})]|merge(sections) %}
+    {% set sections = [file|replace({'@pages/': '', 'index.html.twig': ''})]|merge(sections) %}
   {% endif %}
 {% endfor %}
 
 {# Iterate through all of the component files and output the pages as menu items. #}
 {% set menu_items = [] %}
 {% for section in sections|sort %}
-    {% import '@pages' ~ section ~ 'index.html.twig' as page %}
+    {% import '@pages/' ~ section ~ 'index.html.twig' as page %}
     {% if page.menu_title is defined %}
       {% set menu_items = menu_items|merge([{ 'href': section, 'title': page.menu_title() }]) %}
     {% endif %}
