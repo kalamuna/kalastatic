@@ -1,0 +1,30 @@
+# GitHub Pages
+# https://pages.github.com/
+#
+# This workflow will build and deploy the `gh-pages` branch when `main` is pushed up to.
+
+name: GitHub Pages Build and Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm test
+    - run: npm run deploy
