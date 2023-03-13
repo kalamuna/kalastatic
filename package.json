@@ -9,9 +9,7 @@
     "watch": "nodemon -e twig,scss,css,js --watch components --watch styles --watch styleguide --watch pages --watch templates --exec npm run build",
     "test": "npm run build",
     "start": "npm run watch & npm run serve",
-    "serve": "serve build",
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build"
+    "serve": "serve build"
   },
   "kalastatic": {
     "sources": {
@@ -37,7 +35,6 @@
     "twig": "^1.16.0"
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0",
     "nodemon": "^2.0.21",
     "serve": "^14.2.0"
   }

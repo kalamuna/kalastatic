@@ -25,14 +25,3 @@ Run Kalastatic locally by using...
 npm install
 npm start
 ```
-
-### Deployment
-
-Deploying the build to [GitHub Pages](https://pages.github.com) uses the [`gh-pages` npm package](https://www.npmjs.com/package/gh-pages). To publish the build to GitHub Pages, use...
-
-```
-npm i
-npm run deploy
-```
-
-This will push the `build` directory to the `gh-pages` branch, which is what GitHub Pages uses.
