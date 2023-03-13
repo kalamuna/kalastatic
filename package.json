@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "node main.js",
-    "watch": "nodemon -e twig,scss,css,js --watch components --watch library --watch pages --watch templates --exec npm run build",
+    "watch": "nodemon -e twig,scss,css,js --watch components --watch styles --watch styleguide --watch pages --watch templates --exec npm run build",
     "test": "npm run build",
     "start": "npm run watch & npm run serve",
     "serve": "serve build"
@@ -23,7 +23,7 @@
       "components": "components",
       "templates": "templates",
       "pages": "pages",
-      "library": "library"
+      "styleguide": "styleguide"
     },
     "styles": {
       "styles/styles.scss": "build/styles.css"

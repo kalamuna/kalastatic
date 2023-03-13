@@ -14,7 +14,7 @@
   {% endif %}
 {% endfor %}
 
-{# Iterate through all of the component files and output the samples on in the library. #}
+{# Iterate through all of the component files and output the pages as menu items. #}
 {% set menu_items = [] %}
 {% for section in sections|sort %}
     {% import '@pages' ~ section ~ 'index.html.twig' as page %}

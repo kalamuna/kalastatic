@@ -2,7 +2,7 @@
 {# Search through the files in a namespace to create a section for each sample.twig file. #}
 {% macro findSamples(namespace) %}
 
-  {# Iterate through all of the component files and output the samples on in the library. #}
+  {# Iterate through all of the component files and output the samples on in the styleguide. #}
   {% set sampleRoots = [] %}
   {% for file in namespaceFiles[namespace] %}
     {% if '.sample.twig' in file %}
@@ -16,8 +16,8 @@
   {% endfor %}
 {% endmacro %}
 
-{# Create the component library by finding sample files in each of the namespaces. #}
-<div class="component-library">
+{# Create the styleguide and component library by finding sample files in each of the namespaces. #}
+<div class="styleguide">
   {% import _self as myPage %}
   {% for namespace in namespaceFiles|keys %}
     {{ myPage.findSamples(namespace) }}
