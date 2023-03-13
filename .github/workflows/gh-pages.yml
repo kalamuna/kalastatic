@@ -25,6 +25,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - env:
+        BASE_URL: '/'
     - run: npm ci
     - run: npm test
     - run: npm run deploy
