@@ -6,7 +6,7 @@
 {% set add_padding = true %}
 
 {% block sample %}
-  {% embed "@components/menus/menu.html.twig" %}
+  {% embed "@components/menus/menu.html.twig" only %}
 
     {# Set the title for this menu (even though it will be visually hidden). #}
     {% set menu_title = "Sample Menu" %}

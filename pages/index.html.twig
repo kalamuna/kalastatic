@@ -11,7 +11,7 @@
 {% block content %}
 
   {# Add a section to the page. #}
-  {% embed "@components/section--text.html.twig" with { 'heading': "What is Kalastatic?" } %}
+  {% embed "@components/sections/section--text.html.twig" with { 'heading': "What is Kalastatic?" } %}
     {% block text %}
       <p>
         Kalastatic is a super-simple static site generator, powered by the magic
@@ -23,7 +23,7 @@
   {% endembed %}
 
   {# Add a second section to the page. #}
-  {% embed "@components/section--text.html.twig" with { 'heading': "Why use Twig?" } %}
+  {% embed "@components/sections/section--text.html.twig" with { 'heading': "Why use Twig?" } %}
     {% block text %}
       <p>
         Twig is a very powerful templating system that was created for
@@ -49,7 +49,7 @@
   {% endembed %}
 
   {# Add a second section to the page. #}
-  {% embed "@components/section--text.html.twig" with { 'heading': "Why no Markdown or YML files?" } %}
+  {% embed "@components/sections/section--text.html.twig" with { 'heading': "Why no Markdown or YML files?" } %}
     {% block text %}
       <p>
         Most static site generators store content in a separate format from the
@@ -79,7 +79,7 @@
   {% endembed %}
 
   {# Add a second section to the page. #}
-  {% embed "@components/section--text.html.twig" with { 'heading': "What does content creation in twig look like?" } %}
+  {% embed "@components/sections/section--text.html.twig" with { 'heading': "What does content creation in twig look like?" } %}
     {% block text %}
       <p>
         By creating page templates and then extending them, you quickly and
@@ -123,7 +123,7 @@
 {# This block contains your page content. #}
 {% block content %}
 <strong>
-  {% embed "@components/section--text.html.twig" with { 'heading': "What is Kalastatic?" } %}
+  {% embed "@components/sections/section--text.html.twig" with { 'heading': "What is Kalastatic?" } %}
     {% block text %}
       &lt;p&gt;
         Kalastatic is a super-simple static site generator, powered by the magic
