@@ -1,10 +1,8 @@
-{# For some reason the classes array is not coming in as a proper array and is messing up the merge below. #}
-{% set classes = [classes|join(" ")] %}
 
 {# Set the class for this component, including any classes set by variants. #}
 {% set classes = [
     'menu'
-  ]|merge(classes ? classes : [])
+  ]|merge(classes ?? [])
 %}
 
 <nav class="{{ classes|join(" ") }}">
