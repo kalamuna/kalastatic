@@ -5,7 +5,7 @@
 {% set description = "A general section pattern with a section tag, h2 heading, and content." %}
 
 {% block sample %}
-  {% embed "section--text.html.twig" %}
+  {% embed "section--text.html.twig" only %}
     {% set heading = "What is lorem ipsum?" %}
     {% block content %}
       <p>Content here</p>
