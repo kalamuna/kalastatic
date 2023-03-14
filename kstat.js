@@ -90,7 +90,9 @@ const getDirectoryFiles = async (rootDirectory, subDirectory = false) => {
 
 // Compiles a twig file and returns HTML
 export const compileTwig = async (directory, twigFile, renderData) => {
-  console.log(`Compiling Twig File: ${twigFile}`);
+
+  // Tell the user we are compiling twig, and then set the console to red in case there are errors.
+  console.log(`Compiling Twig File: ${twigFile}\x1b[31m`);
 
   const twigFileStream = await fs.readFile(`${twigFile}`, { encoding: 'utf8' });
 
@@ -101,12 +103,15 @@ export const compileTwig = async (directory, twigFile, renderData) => {
     namespaces: config.kalastatic.namespaces,
   }).render(renderData);
 
+  // Set the console back to no color.
+  console.log(`\x1b[0m`);
+
   return compiledTwig;
 };
 
 // Writes HTML to a given location
 export const writeHtml = async (path, html) => {
-  console.log(`Writing ${path}`);
+  console.log(`Writing ${path}\n`);
 
   const pathPieces = path.split("/");
   pathPieces.pop();
@@ -135,14 +140,14 @@ export const moveFiles = async (directory, targetDirectory) => {
 // Delete the destination directories associated with a list of sources.
 export const clearDestinations = async (sources) => {
   for (const source in sources) {
-    console.log(`Clearing destination directory: ${sources[source]}`);
+    console.log(`Clearing destination directory: ${sources[source]}\n`);
     await fs.rm(sources[source], { recursive: true, force: true });
   }
 };
 
 // Compile scss source files into destination css.
 export const compileCSS = async (source, destination) => {
-  console.log(`Compiling ${source} to ${destination}.`);
+  console.log(`Compiling ${source} to ${destination}.\n`);
   const styleResult = await sassRenderPromise({
     file: source,
     outFile: destination,
