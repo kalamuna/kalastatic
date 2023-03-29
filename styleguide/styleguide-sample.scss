@@ -1,21 +1,31 @@
 
 .styleguide-sample {
-  details {
-    border: 1px solid #ccc;
-    margin: 1rem 0;
+  .details-tabs {
+    border: 1px solid var(--color-grey-80);
     background: white;
-    summary {
-      background: #ccc;
-      padding: .5em 1em;
-    }
-    pre {
-      padding: var(--container-padding);
+    margin: 1rem 0;
+    details {
+      summary {
+        background: var(--color-grey-80);
+      }
+      &[open] summary {
+
+          background: white;
+      }
+      .details-content {
+      }
+      pre {
+        padding: var(--container-padding);
+        white-space: pre-wrap;
+      }
     }
   }
   // Add padding to the rendered sample if the variable is set.
   &--add-padding {
-    .details-content {
-      padding: var(--container-padding);
+    details:first-child {
+      .details-content {
+        padding: var(--container-padding);
+      }
     }
   }
 }

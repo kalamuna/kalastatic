@@ -1,0 +1,76 @@
+// Accessible Details Tabs by Mike McCaffrey
+// https://codepen.io/mikemccaffrey/pen/mdGgJZm
+
+.details-tabs {
+
+  // Leave as accordions until the screen is large enough for tabs.
+  @media screen and (min-width: 30rem) {
+
+    // Make sure javascript is available before switching to a tab layout.
+    &[data-javascript-enabled="true"] {
+
+      // Give each details element tab equal space.
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(0, 1fr);
+
+      // The magic: Use negative margins to take up the space to the left and right of the current grid item (for up to 20 tabs).
+      @for $i from 1 through 20 {
+        details:nth-child(#{$i}) > *:not(summary) { margin-left: #{ ($i - 1) * -100% }; }
+        details:nth-last-child(#{$i}) > *:not(summary) { margin-right: #{ ($i - 1) * -100% }; }
+      }
+
+      // Make sure the open tab content isn't blocked by the other tabs.
+      details[open] {
+        z-index: 10;
+      }
+
+      // Style the summary tags as tabs that take up limited space.
+      summary {
+
+        // Center tab text horizontally and vertically.
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+
+        // If the text is overflowing the tab, handle gracefully with ellipsis.
+        // (Only works if there is an element within the summary because the of the vertical alignment flex display).
+        * {
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        // Hide the default details arrow (use content since some browsers don't allow the display propery on markers.)
+        &::marker, &::-webkit-details-marker {
+          display:none;
+          content: none;
+        }
+      }
+    }
+  }
+
+  // Styling to make the summary elements look more like tabs.
+  details {
+    summary {
+
+      // Style the summary to show clickable area.
+      padding: 1em;
+      background: LightGray;
+      &:hover { background: Silver; }
+
+      // Display the heading and the marker on the same line.
+      * {
+        display: inline;
+        font-size: 1rem;
+        margin: 0;
+      }
+    }
+
+    // Make the active tab gold.
+    &[open] summary {
+      background: gold;
+    }
+  }
+}

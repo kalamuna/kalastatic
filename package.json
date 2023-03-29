@@ -26,9 +26,11 @@
       "styleguide": "styleguide"
     },
     "stylesheets": {
-      "styles/styles.scss": ["build", "styles.css"]
+      "styles/styles.scss": ["build", "styles.css"],
+      "libraries/details-tabs.scss": ["build", "libraries/details-tabs.css"]
     },
     "scripts": {
+      "libraries/details-tabs.js": ["build", "libraries/details-tabs.js"]
     }
   },
   "dependencies": {
