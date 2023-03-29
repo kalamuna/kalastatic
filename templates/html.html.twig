@@ -1,10 +1,16 @@
 <html>
   <head>
     <title>{{ title }}</title>
-    <link href="{{ base_url }}/styles.css" rel="stylesheet">
+    {% for stylesheet in stylesheets %}
+      <link href="{{ base_url }}/{{ stylesheet }}" rel="stylesheet">
+    {% endfor %}
   </head>
   <body>
     {% block body %}
     {% endblock body %}
+
+    {% for script in scripts %}
+      <script src="{{ base_url }}/{{ script }}"></script>
+    {% endfor %}
   </body>
 </html>

@@ -112,11 +112,7 @@ export const compileTwig = async (directory, twigFile, renderData) => {
 // Writes HTML to a given location
 export const writeHtml = async (path, html) => {
   console.log(`Writing ${path}\n`);
-
-  const pathPieces = path.split("/");
-  pathPieces.pop();
-
-  await fs.mkdir(pathPieces.join("/"), { recursive: true });
+  await createDestinationDir(path);
   fs.writeFile(path, html);
 };
 
@@ -148,6 +144,7 @@ export const clearDestinations = async (sources) => {
 // Compile scss source files into destination css.
 export const compileCSS = async (source, destination) => {
   console.log(`Compiling ${source} to ${destination}.\n`);
+  await createDestinationDir(destination);
   const styleResult = await sassRenderPromise({
     file: source,
     outFile: destination,
@@ -158,15 +155,39 @@ export const compileCSS = async (source, destination) => {
   await fs.writeFile(`${destination}.map`, styleResult.map, "utf8");
 };
 
+// Make sure the destination directory exists for a file.
+export const createDestinationDir = (destination) => {
+  // Ensure the destination directory is created.
+  const pathPieces = destination.split("/");
+  pathPieces.pop();
+  fs.mkdir(pathPieces.join("/"), { recursive: true });
+}
 
 // Executes the other functions of Kstat
 export const kstat = async () => {
+  const renderData = {};
 
   // Delete all the destination files/directories in each source and assets so we don't get orphans.
   await clearDestinations({...config.kalastatic.sources, ...config.kalastatic.assets});
 
+  // Compile the SCSS into CSS.
+  renderData.stylesheets = [];
+  for (const source in config.kalastatic.stylesheets) {
+    let destination = config.kalastatic.stylesheets[source][0] + '/' + config.kalastatic.stylesheets[source][1];
+    await compileCSS(source, destination);
+    renderData.stylesheets.push(config.kalastatic.stylesheets[source][1]);
+  }
+
+  // Move the scripts to the proper directories.
+  renderData.scripts = [];
+  for (const source in config.kalastatic.scripts) {
+    let destination = config.kalastatic.scripts[source][0] + '/' + config.kalastatic.scripts[source][1];
+    await createDestinationDir(destination);
+    fs.copyFile(source, destination);
+    renderData.scripts.push(config.kalastatic.scripts[source][1]);
+  }
+
   // Get the list of files in each namespace so they will be availble when rendering pages.
-  const renderData = {};
   if (config.kalastatic.namespaces) {
     const namespaceFiles = await getNamespaceFiles(config.kalastatic.namespaces);
     renderData.namespaceFiles = namespaceFiles;
@@ -183,11 +204,6 @@ export const kstat = async () => {
       const compiledHtml = await compileTwig(source, page, renderData).catch(err => console.log(err.message));
       writeHtml(`${destination}/${page.replace(`${source}/`, "").replace(".twig", "")}`, compiledHtml);
     }
-  }
-
-  // Compile the SCSS into CSS.
-  for (const source in config.kalastatic.styles) {
-    await compileCSS(source, config.kalastatic.styles[source]);
   }
 
   // Move the assets to the proper directory.
