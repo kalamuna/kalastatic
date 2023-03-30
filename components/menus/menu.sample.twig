@@ -6,20 +6,20 @@
 {% set add_padding = true %}
 
 {% block sample %}
-  {% embed "@components/menus/menu.html.twig" only %}
+{% embed "@components/menus/menu.html.twig" only %}
 
-    {# Set the title for this menu (even though it will be visually hidden). #}
-    {% set menu_title = "Sample Menu" %}
+  {# Set the title for this menu (even though it will be visually hidden). #}
+  {% set menu_title = "Sample Menu" %}
 
-    {# Create some generic links that don't go anywhere. #}
-    {% set menu_items = [
-        { 'href': "#", 'title': "Menu Link 1" },
-        { 'href': "#", 'title': "Menu Link 2" },
-        { 'href': "#", 'title': "Menu Link 3" },
-        { 'href': "#", 'title': "Menu Link 4" },
-        { 'href': "#", 'title': "Menu Link 5" },
-        { 'href': "#", 'title': "Menu Link 6" },
-      ]
-    %}
-  {% endembed %}
+  {# Create some generic links that don't go anywhere. #}
+  {% set menu_items = [
+      { 'href': "#", 'title': "Menu Link 1" },
+      { 'href': "#", 'title': "Menu Link 2" },
+      { 'href': "#", 'title': "Menu Link 3" },
+      { 'href': "#", 'title': "Menu Link 4" },
+      { 'href': "#", 'title': "Menu Link 5" },
+      { 'href': "#", 'title': "Menu Link 6" },
+    ]
+  %}
+{% endembed %}
 {% endblock sample %}
