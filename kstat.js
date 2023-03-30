@@ -161,6 +161,30 @@ export const createDestinationDir = (destination) => {
   fs.mkdir(pathPieces.join("/"), { recursive: true });
 }
 
+/**
+ * Adds our own attach_library() function to Twig.
+ *
+ * @param renderData The render data variables passed to Twig.
+ */
+function addTwigAttachLibrary(renderData) {
+  // Set up the attach_library Twig function
+  Twig.functions.attach_library = function(library) {
+    for (const source in config.kalastatic.libraries[library].stylesheets) {
+      const filename = config.kalastatic.libraries[library].stylesheets[source];
+      if (!renderData.stylesheets.includes(filename)) {
+        renderData.stylesheets.push(filename);
+      }
+    }
+    for (const source in config.kalastatic.libraries[library].scripts) {
+      const filename = config.kalastatic.libraries[library].scripts[source];
+      if (!renderData.scripts.includes(filename)) {
+        renderData.scripts.push(filename);
+      }
+    }
+  }
+}
+
+
 // Executes the other functions of Kstat
 export const kstat = async () => {
   const renderData = {};
@@ -184,6 +208,22 @@ export const kstat = async () => {
     fs.copyFile(source, destination);
     renderData.scripts.push(config.kalastatic.scripts[source]);
   }
+
+  // Process all the stylesheets and scripts that have been specified by libraries.
+  for (const library in config.kalastatic.libraries) {
+    for (const source in config.kalastatic.libraries[library].stylesheets) {
+      let destination = config.kalastatic.destination + '/' + config.kalastatic.libraries[library].stylesheets[source];
+      await compileCSS(source, destination);
+    }
+    for (const source in config.kalastatic.libraries[library].scripts) {
+      let destination = config.kalastatic.destination + '/' + config.kalastatic.libraries[library].scripts[source];
+      await createDestinationDir(destination);
+      fs.copyFile(source, destination);
+    }
+  }
+
+  // Attatch our attach_library twig function so it will be avialable in twig.
+  addTwigAttachLibrary(renderData);
 
   // Get the list of files in each namespace so they will be availble when rendering pages.
   if (config.kalastatic.namespaces) {

@@ -26,12 +26,20 @@
     },
     "stylesheets": {
       "styles/styles.scss": "styles.css",
-      "libraries/prism.css": "libraries/prism.css",
-      "libraries/details-tabs.scss": "libraries/details-tabs.css"
+      "libraries/prism.css": "libraries/prism.css"
     },
     "scripts": {
-      "libraries/prism.js": "libraries/prism.js",
-      "libraries/details-tabs.js": "libraries/details-tabs.js"
+      "libraries/prism.js": "libraries/prism.js"
+    },
+    "libraries": {
+      "details-tabs" : {
+        "stylesheets": {
+          "libraries/details-tabs.scss": "libraries/details-tabs.css"
+        },
+        "scripts": {
+          "libraries/details-tabs.js": "libraries/details-tabs.js"
+        }
+      }
     }
   },
   "dependencies": {

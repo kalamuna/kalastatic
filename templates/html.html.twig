@@ -9,6 +9,11 @@
     {% block body %}
     {% endblock body %}
 
+    {# Output the stylesheets again afer the body block until we figure out hoisting issue.#}
+    {% for stylesheet in stylesheets %}
+      <link href="{{ base_url }}/{{ stylesheet }}" rel="stylesheet">
+    {% endfor %}
+
     {% for script in scripts %}
       <script src="{{ base_url }}/{{ script }}"></script>
     {% endfor %}
