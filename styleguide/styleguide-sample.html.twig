@@ -32,7 +32,7 @@
       <div class="details-content">
         {% set sample_source = source(file_root ~ ".sample.twig") %}
         {# Display the contents of the sample.twig file, and remove everything outside of the sample block. #}
-        <pre>{{ sample_source|split("{% block sample %}")[1]|split("{% endblock sample %}")[0]|escape('html') }}</pre>
+        <pre><code class="language-twig">{{ sample_source|split("{% block sample %}")[1]|split("{% endblock sample %}")[0]|escape('html')|trim('\n') }}</code></pre>
       </div>
     </details>
 
@@ -40,7 +40,7 @@
       <details>
         <summary>Twig Template</summary>
         <div class="details-content">
-          <pre>{{ source(file_root ~ ".html.twig")|escape('html') }}</pre>
+          <pre><code class="language-twig">{{ source(file_root ~ ".html.twig")|escape('html')|trim('\n') }}</code></pre>
         </div>
       </details>
     {% endif %}
@@ -49,7 +49,7 @@
       <details>
         <summary>SCSS</summary>
         <div class="details-content">
-          <pre>{{ source( file_root ~ ".scss") }}</pre>
+          <pre><code class="language-scss">{{ source( file_root ~ ".scss")|trim('\n') }}</code></pre>
         </div>
       </details>
     {% endif %}
@@ -58,7 +58,7 @@
       <details>
         <summary>JS</summary>
         <div class="details-content">
-          <pre>{{ source( file_root ~ ".js") }}</pre>
+          <pre><code class="language-js">{{ source( file_root ~ ".js")|trim('\n') }}</code></pre>
         </div>
       </details>
     {% endif %}

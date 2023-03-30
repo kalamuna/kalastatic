@@ -62,8 +62,8 @@
       <p>
         In practice, these alternate formats are not much simpler than the
         underlying markup they are trying to obscure. For example,
-        <code>**bold text**</code> in Markdown is not necessary simpler to
-        remember than <code>&lt;strong&gt;bold text&lt;/strong&gt;</code>, and
+        <code class="language-html">**bold text**</code> in Markdown is not necessary simpler to
+        remember than <code class="language-html">&lt;strong&gt;bold text&lt;/strong&gt;</code>, and
         having multiple formats also means that developers need to memorize
         multiple formats and perhaps create complicated functions to convert
         between the two.
@@ -91,7 +91,7 @@
 
 {#----------------------------------------------------------------------------#}
       <figure>
-        <code>{% verbatim %}<strong>
+        <code class="language-twig">{% verbatim %}
 {# Wrap the content for this page in the common page template. #}
 {% extends "@templates/page.html.twig" %}
 
@@ -100,9 +100,9 @@
 
 {# This block contains your page content. #}
 {% block content %}
-</strong>  [Page content will go here...]<strong>
+  [Page content will go here...]
 {% endblock content %}
-      </strong>{% endverbatim %}</code>
+{% endverbatim %}</code>
       <figcaption>
         Example index.html.twig file using the page template defined for this
         site, which provides a variable to hold the page title and a block to
@@ -119,7 +119,7 @@
 
 {#----------------------------------------------------------------------------#}
       <figure>
-        <code>{% verbatim %}
+        <code class="language-twig">{% verbatim %}
 {# This block contains your page content. #}
 {% block content %}
 <strong>

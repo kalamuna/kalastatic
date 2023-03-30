@@ -27,9 +27,11 @@
     },
     "stylesheets": {
       "styles/styles.scss": ["build", "styles.css"],
+      "libraries/prism.css": ["build", "libraries/prism.css"],
       "libraries/details-tabs.scss": ["build", "libraries/details-tabs.css"]
     },
     "scripts": {
+      "libraries/prism.js": ["build", "libraries/prism.js"],
       "libraries/details-tabs.js": ["build", "libraries/details-tabs.js"]
     }
   },

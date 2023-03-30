@@ -18,7 +18,7 @@
         as a node module:
       </p>
       <figure>
-        <code>
+        <code class="language-bash">
 npm require kalastatic
         </code>
       </figure>
@@ -27,7 +27,7 @@ npm require kalastatic
         started, you can use the npm create command:
       </p>
       <figure>
-        <code>
+        <code class="language-bash">
 npm create kalastatic
         </code>
       </figure>
@@ -48,7 +48,7 @@ npm create kalastatic
         <code>package.json</code> to store the settings:
       </p>
       <figure>
-        <code>
+        <code class="language-json">
 "kalastatic": {
 }
         </code>
@@ -63,11 +63,11 @@ npm create kalastatic
         the resulting <code>html</code> files should be placed in:
       </p>
       <figure>
-        <code>
+        <code class="language-json">
 "kalastatic": {
-  <strong>"sources": {
+  "sources": {
     "pages": "build"
-  }</strong>
+  }
 }
         </code>
       </figure>
@@ -80,16 +80,16 @@ npm create kalastatic
         directory:
       </p>
       <figure>
-        <code>
+        <code class="language-json">
 "kalastatic": {
   "sources": {
     "pages": "build"
   },
-  <strong>"namespaces": {
+  "namespaces": {
     "components": "components",
     "templates": "templates",
     "pages": "pages"
-  }</strong>
+  }
 }
         </code>
       </figure>
@@ -120,7 +120,7 @@ npm create kalastatic
         copied from one to the other during the build process.
       </p>
       <figure>
-        <code>
+        <code class="language-json">
 "kalastatic": {
   "sources": {
     "pages": "build"
@@ -129,10 +129,10 @@ npm create kalastatic
     "components": "components",
     "templates": "templates",
     "pages": "pages"
-  },<strong>
+  },
   "assets": {
     "assets": "build/assets"
-  }</strong>
+  }
 }
         </code>
       </figure>
@@ -146,7 +146,7 @@ npm create kalastatic
         process those files:
       </p>
       <figure>
-        <code>
+        <code class="language-json">
 "kalastatic": {
   "sources": {
     "pages": "build"
@@ -159,9 +159,9 @@ npm create kalastatic
   "assets": {
     "assets": "build/assets"
   },
-  <strong>"styles": {
+  "styles": {
     "styles/styles.scss": "build/styles.css"
-  }</strong>
+  }
 }
         </code>
       </figure>
@@ -184,7 +184,7 @@ npm create kalastatic
         compiled static files. Here is the workflow that this site uses:
       </p>
       <figure>
-        <code>
+        <code class="language-yaml">
 name: Build and Deploy a Branch to GH Pages
 on:
   push:
@@ -246,7 +246,7 @@ jobs:
         <code>namespaceFiles</code> variable:
       </p>
       <figure>
-        <code>
+        <code class="language-json">
 {
   "components": {
     "@components/sections/section--text.html.twig",
@@ -274,19 +274,19 @@ jobs:
         For reference, here is the code that the Kalastatic demo styleguide uses
         to look for <code>.sample.twig</code> files to include in the styleguide:
       <figure>
-        <code>{% verbatim %}
+        <code class="language-twig">{% verbatim %}
 {# Search through the files in a namespace to create a section for each sample.twig file. #}
-<strong>{% macro findSamples(namespace) %}</strong>
+{% macro findSamples(namespace) %}
 
   {# Iterate through all of the component files and output the samples on in the styleguide. #}
-  <strong>{% set sampleRoots = [] %}
+  {% set sampleRoots = [] %}
   {% for file in namespaceFiles[namespace] %}
     {% if '.sample.twig' in file %}
       {% embed file with {'namespace': namespace, 'file_root': file|replace({'.sample.twig': ''}) } %}{% endembed %}
     {% endif %}
   {% endfor %}
 
-{% endmacro %}</strong>
+{% endmacro %}
         {% endverbatim %}</code>
         <figcaption>
           A twig macro that accepts a namespace name, looks through the

@@ -1,32 +1,22 @@
 
 code {
-  background: var(--color-white);
-  color: var(--color-red-20);
+  background: var(--color-white) !important;
   border: .07em solid var(--color-grey-80);
   font-family: monospace;
   padding: .1em .3em;
-  font-size: .9em;
+  font-size: .9em !important;
 
   // If the code is wrapped in a figure tag, then it should be formatted as a block of text.
-  figure > & {
+  figure > &, pre > & {
     display: block;
-    padding: 1em;
-    white-space: pre-wrap;
+    padding: 1em !important;
+    white-space: pre-wrap !important;
     line-height: var(--paragraph-line-height);
 
     // If a caption is included after the code block give it the same background color as the border.
     + figcaption {
       display: inline-block;
       background: var(--color-grey-80);
-    }
-  }
-
-  // If a code block has a strong tag, keep that part red, but de-emphasize the rest of the text by making it grey.
-  &:has(strong) {
-    color: var(--color-grey-30);
-    strong {
-      font-weight: normal;
-      color: var(--color-red-20);
     }
   }
 }

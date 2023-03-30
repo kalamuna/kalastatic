@@ -15,8 +15,14 @@
       .details-content {
       }
       pre {
-        padding: var(--container-padding);
-        white-space: pre-wrap;
+        &[class*=language-] {
+          background: transparent;
+          padding: 0;
+          margin: 1em;
+          code {
+            border: 0;
+          }
+        }
       }
     }
   }
