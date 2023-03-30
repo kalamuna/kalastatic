@@ -54,24 +54,28 @@ npm create kalastatic
         </code>
       </figure>
 
-
-      <h3>sources</h3>
+      <h3>source and destination</h3>
       <p>
-        The first configuration item is the <code>sources</code> item, which
-        contains an array of directories that Kalastatic should look in for
-        <code>html.twig</code> files to process, along with the destination that
-        the resulting <code>html</code> files should be placed in:
+        The first two configuration items that you need to set are
+        <code>source</code> and <code>destination</code>. Kalastatic will
+        look in the <code>source</code> directory to find
+        <code>html.twig</code> files to process, compile them into
+        <code>html</code> files, and place them in the <code>destination</code>
+        directory.
       </p>
       <figure>
         <code class="language-json">
 "kalastatic": {
-  "sources": {
-    "pages": "build"
+  "source": "pages",
+  "destination": "build"
   }
 }
         </code>
       </figure>
-
+      <p>
+        The <code>destination</code> directory will also be prepended to any
+        destinations for assets, stylesheets, and scripts specified (see below).
+      </p>
       <h3>namespaces</h3>
       <p>
         The second configuration item is the <code>namespaces</code> item, which
@@ -82,9 +86,8 @@ npm create kalastatic
       <figure>
         <code class="language-json">
 "kalastatic": {
-  "sources": {
-    "pages": "build"
-  },
+  "source": "pages",
+  "destination": "build",
   "namespaces": {
     "components": "components",
     "templates": "templates",
@@ -122,16 +125,15 @@ npm create kalastatic
       <figure>
         <code class="language-json">
 "kalastatic": {
-  "sources": {
-    "pages": "build"
-  },
+  "source": "pages",
+  "destination": "build",
   "namespaces": {
     "components": "components",
     "templates": "templates",
     "pages": "pages"
   },
   "assets": {
-    "assets": "build/assets"
+    "assets": "assets"
   }
 }
         </code>
@@ -148,33 +150,87 @@ npm create kalastatic
       <figure>
         <code class="language-json">
 "kalastatic": {
-  "sources": {
-    "pages": "build"
-  },
+  "source": "pages",
+  "destination": "build",
   "namespaces": {
     "components": "components",
     "templates": "templates",
     "pages": "pages"
   },
   "assets": {
-    "assets": "build/assets"
+    "assets": "assets"
   },
   "styles": {
-    "styles/styles.scss": "build/styles.css"
+    "styles/styles.scss": "styles.css"
   }
 }
         </code>
       </figure>
       <p>
-        Note that beyond the files to compile, there is no configuration
+        An array of filenames processed as part of the stylesheet compilation
+        are passed into the twig rendering process in the
+        <code>stylesheets</code> variable, which can be used to automatically
+        add stylesheets to your main html template:
+      </p>
+      <figure>
+        <code class="language-twig">{% filter escape %}{% verbatim %}
+{% for stylesheet in stylesheets %}
+  <link href="{{ base_url }}/{{ stylesheet }}" rel="stylesheet">
+{% endfor %}
+          {% endverbatim %}{% endfilter %}</code>
+        </figure>
+      <p>
+        <em>Note that beyond the files to compile, there is no configuration
         available for changing how the scss is processed, so if you have a more
         complicated compilation process, you can just leave out this
         configuration item and set up your own process with the compilier and
-        settings of your choice.
+        settings of your choice.</em>
       </p>
+
+      <h3>scripts</h3>
+      <p>
+        Much like with <code>styles</code>, you can specify a <code>scripts</code>
+        parameter, which copies the script files from the source to the
+        destination specified:
+      </p>
+      <figure>
+        <code class="language-json">
+"kalastatic": {
+  "source": "pages",
+  "destination": "build",
+  "namespaces": {
+    "components": "components",
+    "templates": "templates",
+    "pages": "pages"
+  },
+  "assets": {
+    "assets": "assets"
+  },
+  "styles": {
+    "styles/styles.scss": "styles.css"
+  },
+  "scripts": {
+    "js/main.js": "main.js"
+  }
+}
+        </code>
+      </figure>
+      <p>
+        There is no processing done on the js files, so you could move them
+        using the <code>assets</code> parameter, but the files specified by the
+        <code>scripts</code> parameter are also passed into the twig file in a
+        variable called <code>scripts</code> that can be used to automatically
+        populate the script tags in your html template:
+      </p>
+      <figure>
+        <code class="language-twig">{% filter escape %}{% verbatim %}
+{% for script in scripts %}
+  <script src="{{ base_url }}/{{ script }}"></script>
+{% endfor %}
+{% endverbatim %}{% endfilter %}</code>
+      </figure>
     {% endblock text %}
   {% endembed %}
-
 
   {# Add a section to the page. #}
   {% embed "@components/sections/section--text.html.twig" with { 'heading': "Github Pages and base_url" } %}

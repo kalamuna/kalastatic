@@ -12,11 +12,10 @@
     "serve": "serve build"
   },
   "kalastatic": {
-    "sources": {
-      "pages": "build"
-    },
+    "source": "pages",
+    "destination": "build",
     "assets": {
-      "assets": "build/assets"
+      "assets": "assets"
     },
     "namespaces": {
       "styles": "styles",
@@ -26,13 +25,13 @@
       "styleguide": "styleguide"
     },
     "stylesheets": {
-      "styles/styles.scss": ["build", "styles.css"],
-      "libraries/prism.css": ["build", "libraries/prism.css"],
-      "libraries/details-tabs.scss": ["build", "libraries/details-tabs.css"]
+      "styles/styles.scss": "styles.css",
+      "libraries/prism.css": "libraries/prism.css",
+      "libraries/details-tabs.scss": "libraries/details-tabs.css"
     },
     "scripts": {
-      "libraries/prism.js": ["build", "libraries/prism.js"],
-      "libraries/details-tabs.js": ["build", "libraries/details-tabs.js"]
+      "libraries/prism.js": "libraries/prism.js",
+      "libraries/details-tabs.js": "libraries/details-tabs.js"
     }
   },
   "dependencies": {
