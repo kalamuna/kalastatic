@@ -171,14 +171,16 @@ function addTwigAttachLibrary(renderData) {
   Twig.functions.attach_library = function(library) {
     for (const source in config.kalastatic.libraries[library].stylesheets) {
       const filename = config.kalastatic.libraries[library].stylesheets[source];
-      if (!renderData.stylesheets.includes(filename)) {
-        renderData.stylesheets.push(filename);
+      if (!renderData.stylesheet_files.includes(filename)) {
+        renderData.stylesheet_files.push(filename);
+        renderData.stylesheets += "<link href=\"" + renderData.base_url + "/" + filename + "\" rel=\"stylesheet\">";
       }
     }
     for (const source in config.kalastatic.libraries[library].scripts) {
       const filename = config.kalastatic.libraries[library].scripts[source];
-      if (!renderData.scripts.includes(filename)) {
-        renderData.scripts.push(filename);
+      if (!renderData.script_files.includes(filename)) {
+        renderData.script_files.push(filename);
+        renderData.scripts += "<script src=\"" + renderData.base_url + "/" + filename + "\" ></script>";
       }
     }
   }
@@ -189,24 +191,31 @@ function addTwigAttachLibrary(renderData) {
 export const kstat = async () => {
   const renderData = {};
 
+  // Add the base url if set by the environmetn and / otherwise.
+  renderData.base_url = process.env.base_url || "";
+
   // Delete all the destination files/directories in each source and assets so we don't get orphans.
   await clearDestination(config.kalastatic.destination);
 
   // Compile the SCSS into CSS.
+  renderData.stylesheet_files = [];
   renderData.stylesheets = [];
   for (const source in config.kalastatic.stylesheets) {
     let destination = config.kalastatic.destination + '/' + config.kalastatic.stylesheets[source];
     await compileCSS(source, destination);
-    renderData.stylesheets.push(config.kalastatic.stylesheets[source]);
+    renderData.stylesheet_files.push(config.kalastatic.stylesheets[source]);
+    renderData.stylesheets += "<link href=\"" + renderData.base_url + "/" + config.kalastatic.stylesheets[source] + "\" rel=\"stylesheet\">";
   }
 
   // Move the scripts to the proper directories.
+  renderData.script_files = [];
   renderData.scripts = [];
   for (const source in config.kalastatic.scripts) {
     let destination = config.kalastatic.destination + '/' + config.kalastatic.scripts[source];
     await createDestinationDir(destination);
     fs.copyFile(source, destination);
-    renderData.scripts.push(config.kalastatic.scripts[source]);
+    renderData.script_files.push(config.kalastatic.scripts[source]);
+    renderData.scripts += "<script src=\"" + renderData.base_url + "/" + config.kalastatic.scripts[source] + "\" ></script>";
   }
 
   // Process all the stylesheets and scripts that have been specified by libraries.
@@ -231,8 +240,6 @@ export const kstat = async () => {
     renderData.namespaceFiles = namespaceFiles;
   }
 
-  // Add the base url if set by the environmetn and / otherwise.
-  renderData.base_url = process.env.base_url || "";
 
   // Process each source into its corresponding destination.
   const source = config.kalastatic.source
