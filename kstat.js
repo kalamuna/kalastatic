@@ -169,6 +169,7 @@ export const createDestinationDir = (destination) => {
 function addTwigAttachLibrary(renderData) {
   // Set up the attach_library Twig function
   Twig.functions.attach_library = function(library) {
+    // Add any associated sylesheets
     for (const source in config.kalastatic.libraries[library].stylesheets) {
       const filename = config.kalastatic.libraries[library].stylesheets[source];
       if (!renderData.stylesheet_files.includes(filename)) {
@@ -176,6 +177,8 @@ function addTwigAttachLibrary(renderData) {
         renderData.stylesheets += "<link href=\"" + renderData.base_url + "/" + filename + "\" rel=\"stylesheet\">";
       }
     }
+
+    // Add any associated scripts
     for (const source in config.kalastatic.libraries[library].scripts) {
       const filename = config.kalastatic.libraries[library].scripts[source];
       if (!renderData.script_files.includes(filename)) {
