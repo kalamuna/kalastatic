@@ -174,9 +174,7 @@ npm create kalastatic
       </p>
       <figure>
         <code class="language-twig">{% filter escape %}{% verbatim %}
-{% for stylesheet in stylesheets %}
-  <link href="{{ base_url }}/{{ stylesheet }}" rel="stylesheet">
-{% endfor %}
+{{ stylesheets }}
           {% endverbatim %}{% endfilter %}</code>
         </figure>
       <p>
@@ -224,11 +222,43 @@ npm create kalastatic
       </p>
       <figure>
         <code class="language-twig">{% filter escape %}{% verbatim %}
-{% for script in scripts %}
-  <script src="{{ base_url }}/{{ script }}"></script>
-{% endfor %}
+{{ scripts }}
 {% endverbatim %}{% endfilter %}</code>
       </figure>
+
+      <h3>libraries</h3>
+      <p>
+        If you have a collection of JavaScript and stylesheets that are
+        associated with one library, you can add it as a <code>"libraries"</code> entry. 
+      </p>
+      <figure>
+        <code class="language-json">"kalastatic": {
+  "libraries": {
+    "details-tabs" : {
+      "stylesheets": {
+        "libraries/details-tabs.scss": "libraries/details-tabs.css"
+      },
+      "scripts": {
+        "libraries/details-tabs.js": "libraries/details-tabs.js"
+      }
+    }
+  }
+}</code>
+      </figure>
+      <p>
+        To add the library to your page in Twig, use the <code>attach_library()</code> function...
+      </p>
+      <figure>
+        <code class="language-twig">{{ "{{ attach_library('details-tabs') }}"|raw }}</code>
+      </figure>
+      <p>
+        Once libraries are attached, they will be output as a <code>scripts</code> and <code>styles</code> Twig variables...
+      </p>
+      <figure>
+        <code class="language-twig">{{ "{{ stylesheets }}"|raw }}
+{{ "{{ scripts }}"|raw }}</code>
+      </figure>
+
     {% endblock text %}
   {% endembed %}
 
