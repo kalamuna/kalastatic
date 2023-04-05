@@ -174,7 +174,7 @@ function addTwigAttachLibrary(renderData) {
       const filename = config.kalastatic.libraries[library].stylesheets[source];
       if (!renderData.stylesheet_files.includes(filename)) {
         renderData.stylesheet_files.push(filename);
-        renderData.stylesheets += "<link href=\"" + renderData.base_url + "/" + filename + "\" rel=\"stylesheet\">";
+        renderData.stylesheets[0] += "<link href=\"" + renderData.base_url + "/" + filename + "\" rel=\"stylesheet\">";
       }
     }
 
@@ -183,7 +183,7 @@ function addTwigAttachLibrary(renderData) {
       const filename = config.kalastatic.libraries[library].scripts[source];
       if (!renderData.script_files.includes(filename)) {
         renderData.script_files.push(filename);
-        renderData.scripts += "<script src=\"" + renderData.base_url + "/" + filename + "\" ></script>";
+        renderData.scripts[0] += "<script src=\"" + renderData.base_url + "/" + filename + "\" ></script>";
       }
     }
   }
@@ -201,24 +201,24 @@ export const kstat = async () => {
   await clearDestination(config.kalastatic.destination);
 
   // Compile the SCSS into CSS.
-  renderData.stylesheet_files = [];
-  renderData.stylesheets = [];
+  renderData.stylesheet_files = []; // Stores which stylesheets have already been added.
+  renderData.stylesheets = [""]; // Stores the concatinated link tags, with the string in an array to solve the hoisting issue.
   for (const source in config.kalastatic.stylesheets) {
     let destination = config.kalastatic.destination + '/' + config.kalastatic.stylesheets[source];
     await compileCSS(source, destination);
     renderData.stylesheet_files.push(config.kalastatic.stylesheets[source]);
-    renderData.stylesheets += "<link href=\"" + renderData.base_url + "/" + config.kalastatic.stylesheets[source] + "\" rel=\"stylesheet\">";
+    renderData.stylesheets[0] += "<link href=\"" + renderData.base_url + "/" + config.kalastatic.stylesheets[source] + "\" rel=\"stylesheet\">";
   }
 
   // Move the scripts to the proper directories.
-  renderData.script_files = [];
-  renderData.scripts = [];
+  renderData.script_files = []; // Stores which scripts have already been added.
+  renderData.scripts = [""]; // Stores the concatinated script tags, with the string in an array to solve the hoisting issue.
   for (const source in config.kalastatic.scripts) {
     let destination = config.kalastatic.destination + '/' + config.kalastatic.scripts[source];
     await createDestinationDir(destination);
     fs.copyFile(source, destination);
     renderData.script_files.push(config.kalastatic.scripts[source]);
-    renderData.scripts += "<script src=\"" + renderData.base_url + "/" + config.kalastatic.scripts[source] + "\" ></script>";
+    renderData.scripts[0] += "<script src=\"" + renderData.base_url + "/" + config.kalastatic.scripts[source] + "\" ></script>";
   }
 
   // Process all the stylesheets and scripts that have been specified by libraries.

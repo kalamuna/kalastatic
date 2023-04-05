@@ -6,9 +6,6 @@
   <body>
     {% block body %}
     {% endblock body %}
-
-    {# Output the stylesheets again afer the body block until we figure out hoisting issue.#}
-    {{ stylesheets }}
     {{ scripts }}
   </body>
 </html>
