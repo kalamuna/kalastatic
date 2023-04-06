@@ -6,10 +6,16 @@
   --color-grey-80: #e6e6e6;
   --color-grey-90: #f9f9f9;
   --color-white: #fff;
-
+  --color-blue-30: #0077aa;
   --color-red-20: #ab0000;
 }
 
 body {
   background: var(--color-grey-90);
+}
+
+a {
+  &, &:hover {
+    color: var(--color-blue-30);
+  }
 }
