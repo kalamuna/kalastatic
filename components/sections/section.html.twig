@@ -5,7 +5,7 @@
   ]|merge(classes ?? [])
 %}
 
-<section class="{{ classes|join(" ") }}">
+<section id="{{ heading|clean_id }}" class="{{ classes|join(" ") }}">
   <h2>{{ heading }}</h2>
   {% block content %}
   {% endblock content %}
