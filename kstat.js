@@ -13,6 +13,7 @@ import { promisify } from "util";
 const sassRenderPromise = promisify(sass.render);
 
 const config = JSON.parse(await fs.readFile('./package.json'));
+let namespaceFiles = [];
 
 addDrupalExtensions(Twig);
 
@@ -186,7 +187,15 @@ function addTwigAttachLibrary(renderData) {
         renderData.scripts[0] += "<script src=\"" + renderData.base_url + "/" + filename + "\" ></script>";
       }
     }
+  };
+  // Get the list of namespaces from the configuration.
+  Twig.functions.get_namespaces = function() {
+    return Object.keys(config.kalastatic.namespaces);
   }
+  // Get the files within the directory of a twig namespace.
+  Twig.functions.get_namespace_files = function(namespace) {
+    return namespaceFiles[namespace];
+  };
 }
 
 
@@ -237,12 +246,10 @@ export const kstat = async () => {
   // Attatch our attach_library twig function so it will be avialable in twig.
   addTwigAttachLibrary(renderData);
 
-  // Get the list of files in each namespace so they will be availble when rendering pages.
+  // Populate the list of namespace files so they are available for the get_namespace_files() function.
   if (config.kalastatic.namespaces) {
-    const namespaceFiles = await getNamespaceFiles(config.kalastatic.namespaces);
-    renderData.namespaceFiles = namespaceFiles;
+    namespaceFiles = await getNamespaceFiles(config.kalastatic.namespaces);
   }
-
 
   // Process each source into its corresponding destination.
   const source = config.kalastatic.source

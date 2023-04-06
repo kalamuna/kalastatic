@@ -8,9 +8,9 @@
 
 {# Get the url for each section, which is the directory without the pages namespace and index.html.twig. #}
 {% set sections = [] %}
-{% for file in namespaceFiles['pages'] %}
-  {% if 'index.html.twig' in file %}
-    {% set sections = [file|replace({'@pages': '', 'index.html.twig': ''})]|merge(sections) %}
+{% for filename in get_namespace_files('pages') %}
+  {% if 'index.html.twig' in filename %}
+    {% set sections = [filename|replace({'@pages': '', 'index.html.twig': ''})]|merge(sections) %}
   {% endif %}
 {% endfor %}
 

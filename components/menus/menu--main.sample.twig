@@ -7,8 +7,8 @@
 
 {% block sample %}
 
-{# Just pass the component the namespace files and let it do its magic. #}
-{% embed "@components/menus/menu--main.html.twig" with { 'namespaceFiles': namespaceFiles} only %}
+{# Just let it do its magic by looking through the pages namespace. #}
+{% embed "@components/menus/menu--main.html.twig" only %}
 {% endembed %}
 
 {% endblock sample %}

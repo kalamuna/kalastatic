@@ -229,7 +229,7 @@ npm create kalastatic
       <h3>libraries</h3>
       <p>
         If you have a collection of JavaScript and stylesheets that are
-        associated with one library, you can add it as a <code>"libraries"</code> entry. 
+        associated with one library, you can add it as a <code>"libraries"</code> entry.
       </p>
       <figure>
         <code class="language-json">"kalastatic": {
@@ -308,85 +308,4 @@ jobs:
       </p>
     {% endblock text %}
   {% endembed %}
-
-
-  {# Add a section to the page. #}
-  {% embed "@components/sections/section--text.html.twig" with { 'heading': "Namespace files" } %}
-    {% block text %}
-      <p>
-        While Twig contains many helpful files for inclding content from
-        other files, such as
-        <a href="https://twig.symfony.com/doc/3.x/tags/embed.html">embed</a>
-        and <a href="https://twig.symfony.com/doc/3.x/functions/source.html">source</a>,
-        one limitation is that Twig doesn't know what files exist without
-        explicity declaring them in the code.
-      </p>
-      <p>
-        In order for Kalastatic to create things like styleguide pages that are
-        dynamically generated based on whatever files are present, Kalastatic
-        provides a <code>namespaceFiles</code> variable to Twig templates when
-        processing them, so that the templates can iterate over the available
-        files and take whatever action is needed.
-      </p>
-      <p>This is the general structure of the data that is passed inside of the
-        <code>namespaceFiles</code> variable:
-      </p>
-      <figure>
-        <code class="language-json">
-{
-  "components": {
-    "@components/sections/section--text.html.twig",
-    "@components/sections/section--text.sample.twig",
-    "@components/sections/section--text.scss",
-    "@components/sections/section.html.twig",
-    "@components/sections/section.sample.twig",
-    "@components/sections/section.scss"
-  },
-  "templates": {
-    "@templates/html.html.twig",
-    "@templates/page.html.twig",
-    "@templates/page.scss"
-  }
-}
-
-        </code>
-        <figcaption>
-          Example values of the <code>namespaceFiles</code> variable which
-          contains an array key for each namespace, along with all of the files
-          contained within.
-        </figcaption
-      </figure>
-      <p>
-        For reference, here is the code that the Kalastatic demo styleguide uses
-        to look for <code>.sample.twig</code> files to include in the styleguide:
-      <figure>
-        <code class="language-twig">{% verbatim %}
-{# Search through the files in a namespace to create a section for each sample.twig file. #}
-{% macro findSamples(namespace) %}
-
-  {# Iterate through all of the component files and output the samples on in the styleguide. #}
-  {% set sampleRoots = [] %}
-  {% for file in namespaceFiles[namespace] %}
-    {% if '.sample.twig' in file %}
-      {% embed file with {'namespace': namespace, 'file_root': file|replace({'.sample.twig': ''}) } %}{% endembed %}
-    {% endif %}
-  {% endfor %}
-
-{% endmacro %}
-        {% endverbatim %}</code>
-        <figcaption>
-          A twig macro that accepts a namespace name, looks through the
-          nested directories for sample twig files, and then embeds them on the
-          current page.
-        </figcaption>
-      </figure>
-      <p>
-        Note that the filenames within the <code>namespaceFiles</code> arrays
-        start with the namespaces themselves, and are ready to be plugged
-        directly into Twig tags and functions without any processing.
-    {% endblock text %}
-  {% endembed %}
-
-
-
 {% endblock content %}

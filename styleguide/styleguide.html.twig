@@ -1,21 +1,12 @@
 
-{# Search through the files in a namespace to create a section for each sample.twig file. #}
-{% macro findSamples(namespace) %}
-
-  {# Iterate through all of the component files and output the samples on in the styleguide. #}
-  {% set sampleRoots = [] %}
-  {% for file in namespaceFiles[namespace] %}
-    {% if '.sample.twig' in file %}
-      {% embed file with {'namespace': namespace, 'file_root': file|replace({'.sample.twig': ''}) } %}{% endembed %}
-    {% endif %}
-  {% endfor %}
-
-{% endmacro %}
-
 {# Create the styleguide and component library by finding sample files in each of the namespaces. #}
 <div class="styleguide">
-  {% import _self as myPage %}
-  {% for namespace in namespaceFiles|keys %}
-    {{ myPage.findSamples(namespace) }}
+  {% for namespace in get_namespaces() %}
+    {% for filename in get_namespace_files(namespace) %}
+      {% if '.sample.twig' in filename %}
+        {# Embed the sample, providing the namespace and filename root, so it can look for related files with different extensions. #}
+        {% embed filename with {'namespace': namespace, 'file_root': filename|replace({'.sample.twig': ''}) } %}{% endembed %}
+      {% endif %}
+    {% endfor %}
   {% endfor %}
 </div>
