@@ -124,48 +124,11 @@
         <a href="https://www.drupal.org/node/2456753">Drupal feature</a>.
       </p>
       <p>
-        Similar to the <code>libraries.yml</code> files that are provided by Drupal modules
-        and themes, you can define a library for Kalastatic in the
-        <code>package.json</code> configuration array:
-      </p>
-      <figure>
-        <code class="language-json">{% verbatim %}
-"kalastatic": {
-  ...
-  "libraries": {
-    "details-tabs" : {
-      "stylesheets": {
-        "libraries/details-tabs.scss": "libraries/details-tabs.css"
-      },
-      "scripts": {
-        "libraries/details-tabs.js": "libraries/details-tabs.js"
-      }
-    }
-  }
-}
-        {% endverbatim %}</code>
-        <figcaption>
-          An example library configuration in the <code>package.json</code>
-          file showing how you define the stylesheets and scripts for a library.
-        </figcaption>
-      </figure>
-      <p>
-        Note that unlike Drupal, each item requires source and destination for
-        the file, just like the <code>stylesheets</code> and <code>scripts</code>
-        parameters for the main Kalastatic configuration.
-      </p>
-      <p>
-        If you provide a scss file for the stylesheets instead of a css file,
-        it will be compiled when processed (which is why these definitions
-        eschew the innacurate <code>js</code> and <code>css</code> keys that
-        Drupal uses for its library definitions).
-      </p>
-      <p>
-        After you define the library, you can call the <code>attach_library</code>
-        function in a Twig template, and only at that point will the specified
-        files be added to the <code>scripts</code> and <code>stylesheets</code>
-        variables that are passed into the Twig templages by Kalastatic upon
-        processing:
+        After you define a library in your
+        <a href="/getting-started#libraries">Kalastatic configuration</a>,
+        you can call the <code>attach_library</code> function in a Twig template,
+        and the specified stylesheet and script files will be included on
+        the rendered page.
       </p>
       <figure>
         <code class="language-twig">{% filter escape('html') %}{% verbatim %}

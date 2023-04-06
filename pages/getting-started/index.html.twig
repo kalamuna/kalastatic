@@ -114,7 +114,7 @@ npm create kalastatic
         templates.
       </p>
 
-      <h3>assets</h3>
+      <h3 id="assets">assets</h3>
       <p>
         If you have files that you would like to deploy without any processing
         needed to be done, such as image files, you can add a
@@ -127,11 +127,7 @@ npm create kalastatic
 "kalastatic": {
   "source": "pages",
   "destination": "build",
-  "namespaces": {
-    "components": "components",
-    "templates": "templates",
-    "pages": "pages"
-  },
+  ...
   "assets": {
     "assets": "assets"
   }
@@ -152,14 +148,7 @@ npm create kalastatic
 "kalastatic": {
   "source": "pages",
   "destination": "build",
-  "namespaces": {
-    "components": "components",
-    "templates": "templates",
-    "pages": "pages"
-  },
-  "assets": {
-    "assets": "assets"
-  },
+  ...
   "styles": {
     "styles/styles.scss": "styles.css"
   }
@@ -185,7 +174,7 @@ npm create kalastatic
         settings of your choice.</em>
       </p>
 
-      <h3>scripts</h3>
+      <h3 id="scripts">scripts</h3>
       <p>
         Much like with <code>styles</code>, you can specify a <code>scripts</code>
         parameter, which copies the script files from the source to the
@@ -196,17 +185,7 @@ npm create kalastatic
 "kalastatic": {
   "source": "pages",
   "destination": "build",
-  "namespaces": {
-    "components": "components",
-    "templates": "templates",
-    "pages": "pages"
-  },
-  "assets": {
-    "assets": "assets"
-  },
-  "styles": {
-    "styles/styles.scss": "styles.css"
-  },
+  ...
   "scripts": {
     "js/main.js": "main.js"
   }
@@ -226,13 +205,18 @@ npm create kalastatic
 {% endverbatim %}{% endfilter %}</code>
       </figure>
 
-      <h3>libraries</h3>
+      <h3 id="libraries">libraries</h3>
       <p>
-        If you have a collection of JavaScript and stylesheets that are
-        associated with one library, you can add it as a <code>"libraries"</code> entry.
+        Similar to the <code>libraries.yml</code> files that are provided by Drupal modules
+        and themes, you can define a library for Kalastatic in the
+        <code>package.json</code> configuration array:
       </p>
       <figure>
-        <code class="language-json">"kalastatic": {
+        <code class="language-json">{% verbatim %}
+"kalastatic": {
+  "source": "pages",
+  "destination": "build",
+  ...
   "libraries": {
     "details-tabs" : {
       "stylesheets": {
@@ -243,21 +227,32 @@ npm create kalastatic
       }
     }
   }
-}</code>
+}
+        {% endverbatim %}</code>
+        <figcaption>
+          An example library configuration in the <code>package.json</code>
+          file showing how you define the stylesheets and scripts for a library.
+        </figcaption>
       </figure>
       <p>
-        To add the library to your page in Twig, use the <code>attach_library()</code> function...
+        Note that unlike Drupal, each item requires source and destination for
+        the file, just like the <code>stylesheets</code> and <code>scripts</code>
+        parameters for the main Kalastatic configuration.
       </p>
-      <figure>
-        <code class="language-twig">{{ "{{ attach_library('details-tabs') }}"|raw }}</code>
-      </figure>
       <p>
-        Once libraries are attached, they will be output as a <code>scripts</code> and <code>styles</code> Twig variables...
+        If you provide a scss file for the stylesheets instead of a css file,
+        it will be compiled when processed (which is why these definitions
+        eschew the innacurate <code>js</code> and <code>css</code> keys that
+        Drupal uses for its library definitions).
       </p>
-      <figure>
-        <code class="language-twig">{{ "{{ stylesheets }}"|raw }}
-{{ "{{ scripts }}"|raw }}</code>
-      </figure>
+      <p>
+        After you define the library, you can call the
+        <a href="/kalastatic-functions-filters#attach_library">attach_library
+        function</a> in a Twig template, and only at that point will the specified
+        files be added to the <code>scripts</code> and <code>stylesheets</code>
+        variables that are passed into the Twig templages by Kalastatic upon
+        processing.
+      </p>
 
     {% endblock text %}
   {% endembed %}
