@@ -11,8 +11,6 @@ import {
 import sass from "sass";
 import { promisify } from "util";
 const sassRenderPromise = promisify(sass.render);
-
-const config = JSON.parse(await fs.readFile('./package.json'));
 let namespaceFiles = [];
 
 addDrupalExtensions(Twig);
@@ -90,7 +88,7 @@ const getDirectoryFiles = async (rootDirectory, subDirectory = false) => {
 }
 
 // Compiles a twig file and returns HTML
-export const compileTwig = async (directory, twigFile, renderData) => {
+export const compileTwig = async (directory, twigFile, renderData, config) => {
 
   // Tell the user we are compiling twig, and then set the console to red in case there are errors.
   console.log(`Compiling Twig File: ${twigFile}\x1b[31m`);
@@ -167,7 +165,7 @@ export const createDestinationDir = (destination) => {
  *
  * @param renderData The render data variables passed to Twig.
  */
-function addTwigAttachLibrary(renderData) {
+function addTwigAttachLibrary(renderData, config) {
   // Set up the attach_library Twig function
   Twig.functions.attach_library = function(library) {
     // Add any associated sylesheets
@@ -200,7 +198,7 @@ function addTwigAttachLibrary(renderData) {
 
 
 // Executes the other functions of Kstat
-export const kstat = async () => {
+export const kstat = async (config) => {
   const renderData = {};
 
   // Add the base url if set by the environmetn and / otherwise.
@@ -244,7 +242,7 @@ export const kstat = async () => {
   }
 
   // Attatch our attach_library twig function so it will be avialable in twig.
-  addTwigAttachLibrary(renderData);
+  addTwigAttachLibrary(renderData, config);
 
   // Populate the list of namespace files so they are available for the get_namespace_files() function.
   if (config.kalastatic.namespaces) {
@@ -256,7 +254,7 @@ export const kstat = async () => {
   const destination = config.kalastatic.destination;
   const pages = await findTwigPages(config.kalastatic.source);
   for (const page of pages) {
-    const compiledHtml = await compileTwig(source, page, renderData).catch(err => console.log(err.message));
+    const compiledHtml = await compileTwig(source, page, renderData, config).catch(err => console.log(err.message));
     writeHtml(`${destination}/${page.replace(`${source}/`, "").replace(".twig", "")}`, compiledHtml);
   }
 
