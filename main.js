@@ -4,4 +4,4 @@ import { readFileSync } from 'fs';
 import { kstat } from "./kstat.js";
 
 const config = JSON.parse(readFileSync('./package.json'));
-kstat(config);
+kstat(config.kalastatic);
