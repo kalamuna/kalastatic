@@ -1,9 +1,10 @@
 {
-  "name": "kstat_test",
-  "version": "1.0.0",
+  "name": "kalastatic",
+  "version": "5.0.0",
   "description": "A test case for the new version of Kalastatic.",
-  "main": "main.js",
+  "main": "kstat.js",
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "node main.js",
     "watch": "nodemon -e twig,scss,css,js --watch components --watch styles --watch styleguide --watch pages --watch templates --exec npm run build",
@@ -50,5 +51,8 @@
   "devDependencies": {
     "nodemon": "^2.0.21",
     "serve": "^14.2.0"
+  },
+  "bin": {
+    "kalastatic": "main.js"
   }
 }
