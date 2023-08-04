@@ -1,0 +1,16 @@
+{
+  "name": "kalastatic-examples-simple",
+  "version": "0.0.1",
+  "description": "A test case for the new version of Kalastatic.",
+  "private": true,
+  "scripts": {
+    "build": "kalastatic"
+  },
+  "kalastatic": {
+    "source": "pages",
+    "destination": "build"
+  },
+  "dependencies": {
+    "kalastatic": "^6.0@alpha"
+  }
+}

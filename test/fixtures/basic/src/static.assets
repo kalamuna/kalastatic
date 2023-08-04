@@ -1,6 +1,0 @@
----
-source: static-assets
-destination: assets
----
-
-This tests bringing in homepage.md as a static asset.
