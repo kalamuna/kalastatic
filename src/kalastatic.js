@@ -1,244 +1,265 @@
-'use strict'
+// This script would exist within the node module and doesn't need to be invoked during a real project
+import {
+  promises as fs
+} from 'fs';
+import Twig from "twig";
 
-const assert = require('assert')
-const path = require('path')
-const kss = require('kss/lib/cli')
-const Metalsmith = require('metalsmith')
-const extend = require('extend')
+import {
+  addDrupalExtensions
+} from 'drupal-twig-extensions/twig';
 
-function KalaStatic(nconf) {
-  // Make sure there is an nconf configuration.
-  assert(nconf, 'An nconf configuration is required.')
+import * as sass from 'sass';
+import { promisify } from "util";
+const sassRenderPromise = promisify(sass.render);
+let namespaceFiles = [];
 
-  // Set the default values.
+addDrupalExtensions(Twig);
 
-  nconf.defaults({
-    base: '.',
-    bsIndex: 'index.html',
-    bsBrowser: false,
-    source: 'src',
-    destination: 'build',
-    plugins: [
-      // Load information from the environment variables.
-      'metalsmith-env',
-      // Define any global variables.
-      'metalsmith-define',
-      // Add .json metadata to each file.
-      'metalsmith-metadata-files',
-      // Add base, dir, ext, name, and href info to each file.
-      'metalsmith-paths',
-      // Load metadata info the metalsmith metadata object.
-      'metalsmith-metadata-convention',
-      // Concatenate any needed files.
-      'metalsmith-concat-convention',
-      // Load all collections.
-      'metalsmith-collections-convention',
-      // Bring in static assets.
-      'metalsmith-assets-convention',
-      // Allow ignoring files.
-      'metalsmith-ignore',
-      // Render all content with JSTransformers.
-      'metalsmith-jstransformer',
-      // Clean URLs.
-      'metalsmith-clean-urls'
-    ],
-    pluginOpts: {}
-  })
+// Finds twig pages in a directory and returns an array of filenames
+export const findTwigPages = async (directory) => {
+  let twigFiles = [];
 
-  // Set the properties of the object.
-  this.nconf = nconf
-}
-
-KalaStatic.prototype.build = function () {
-  const self = this
-  return new Promise((resolve, reject) => {
-    // Create the environment.
-    const config = self.nconf
-    const base = config.get('base')
-    const metalsmith = new Metalsmith(base)
-    const source = config.get('source')
-    const destination = config.get('destination')
-    // Retrieve the Plugin configuration.
-    const plugins = config.get('plugins')
-    const pluginDefaults = {
-      'metalsmith-define': {
-        // Expose both a base_path and a build_path variables.
-        'base_path': '/', // eslint-disable-line quote-props
-        'build_path': '/' // eslint-disable-line quote-props
-      },
-      'metalsmith-jstransformer': {
-        engineOptions: {
-          twig: {
-            namespaces: {
-              kalastatic: '.',
-              atoms: path.join('components', 'atoms'),
-              molecules: path.join('components', 'molecules'),
-              organisms: path.join('components', 'organisms')
+  await fs.readdir(`${directory}`)
+    .then(async (files) => {
+      for (const file of files) {
+        await fs.stat(`${directory}/${file}`)
+          .then(async (entry) => {
+            if (entry.isDirectory()) {
+              const pages = await findTwigPages(`${directory}/${file}`);
+              for (const page of pages) {
+                twigFiles.push(page);
+              }
+            } else if (file.endsWith('.twig')) {
+              twigFiles.push(`${directory}/${file}`);
             }
+          });
+      }
+    });
+
+  return twigFiles;
+};
+
+// Returns an array of namespaces with an array of files in each.
+const getNamespaceFiles = async (namespaces) => {
+  let namespaceFiles = [];
+  for (const namespace in namespaces) {
+    namespaceFiles[namespace] = [];
+    // Get the files in the namespace directory.
+    const files = await getDirectoryFiles(`${namespaces[namespace]}`);
+    // Add the namespace to the beginning of the filenames.
+    for (const file of files) {
+      namespaceFiles[namespace].push(`@${namespace}/${file}`);
+    }
+  };
+  // Sort the resulting files so that periods are sorted above hyphens.
+  for (const namespace in namespaces) {
+    namespaceFiles[namespace] = namespaceFiles[namespace].sort(function(a, b) {
+      return a.replace('.', ' ') > b.replace('.', ' ') ? 1 : -1;
+    });
+  }
+  return namespaceFiles;
+};
+
+// Recursively get the files in a directory, omitting the root directory of the namespace from the resulting path.
+const getDirectoryFiles = async (rootDirectory, subDirectory = false) => {
+  // If there is a subdirectory, combine it with the root directory to get the directory we are looking at.
+  const directory = subDirectory ? `${rootDirectory}/${subDirectory}` : rootDirectory;
+  let resultFiles = [];
+  // Read all the files in the directory and then iterate over each one.
+  await fs.readdir(`${directory}`).then(async (files) => {
+    for (const file of files) {
+      // Go through each file, and check if it is a subdirectory.
+      await fs.stat(`${directory}/${file}`).then(async (entry) => {
+        if (entry.isDirectory()) {
+          // If this is a directory, recursively get the contents of taht.
+          const files = await getDirectoryFiles(`${directory}`, file);
+          // If we are looking through a subdirectoy, prepend that to the file path.
+          for (const file of files) {
+            resultFiles.push(subDirectory ? `${subDirectory}/${file}` : file);
           }
-        }
-      },
-      'metalsmith-ignore': '{_*,**/_*}',
-      'metalsmith-metadata-files': {
-        inheritFilePrefix: '@kalastatic/'
-      }
-    }
-    const pluginOptions = config.get('pluginOpts')
-    const options = extend(true, {}, pluginDefaults, pluginOptions)
-    // Prepend the base to all namespaces.
-    for (const namespaceName in options['metalsmith-jstransformer'].engineOptions.twig.namespaces) {
-      if (options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName]) {
-        options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName] = path.join(base, source, options['metalsmith-jstransformer'].engineOptions.twig.namespaces[namespaceName])
-      }
-    }
-
-    const cleanBuild = config.get('cleanBuild') || false
-
-    // Set up Metalsmith.
-    metalsmith.source(source)
-    metalsmith.destination(destination)
-    metalsmith.clean(cleanBuild)
-
-    // Load the Metalsmith Plugins.
-    for (const i in plugins) {
-      if (plugins[i]) {
-        const plugin = plugins[i]
-        let mod = ''
-        let options_ = {}
-        if (typeof plugin === 'string') {
-          mod = require(plugin)
-          options_ = options[plugin] || {}
         } else {
-          mod = plugin.plugin
-          if (typeof mod === 'string') {
-            mod = require(mod)
-          }
-
-          options_ = plugin.options || options[plugin.name] || {}
+          // If this is a non-directory file, append it to the list, with the subdirectory appended if needed.
+          resultFiles.push(subDirectory ? `${subDirectory}/${file}` : file);
         }
+      })
+    }
+  });
+  return resultFiles;
+}
 
-        metalsmith.use(mod(options_))
+// Compiles a twig file and returns HTML
+export const compileTwig = async (directory, twigFile, renderData, config) => {
+
+  // Tell the user we are compiling twig, and then set the console to red in case there are errors.
+  console.log(`Compiling Twig File: ${twigFile}\x1b[31m`);
+
+  const twigFileStream = await fs.readFile(`${twigFile}`, { encoding: 'utf8' });
+
+  const compiledTwig = Twig.twig({
+    data: twigFileStream,
+    allowInlineIncludes: true,
+    path: directory,
+    namespaces: config.namespaces,
+  }).render(renderData);
+
+  // Set the console back to no color.
+  console.log(`\x1b[0m`);
+
+  return compiledTwig;
+};
+
+// Writes HTML to a given location
+export const writeHtml = async (path, html) => {
+  console.log(`Writing ${path}\n`);
+  await createDestinationDir(path);
+  fs.writeFile(path, html);
+};
+
+export const moveFiles = async (directory, targetDirectory) => {
+  await fs.readdir(`${directory}`)
+    .then(async (files) => {
+      for (const file of files) {
+        await fs.stat(`${directory}/${file}`)
+          .then(async (entry) => {
+            if (entry.isDirectory()) {
+              await moveFiles(`${directory}/${file}`, targetDirectory);
+            } else {
+              await fs.mkdir(`${targetDirectory}/`, { recursive: true });
+              fs.copyFile(`${directory}/${file}`, `${targetDirectory}/${file}`);
+            }
+          })
+      }
+    });
+};
+
+// Delete the destination directories associated with a list of sources.
+export const clearDestination = async (directory) => {
+  console.log(`Clearing destination directory: ${directory}\n`);
+  await fs.rm(directory, { recursive: true, force: true });
+};
+
+// Compile scss source files into destination css.
+export const compileCSS = async (source, destination) => {
+  console.log(`Compiling ${source} to ${destination}.\n`);
+  await createDestinationDir(destination);
+  const styleResult = await sassRenderPromise({
+    file: source,
+    outFile: destination,
+    sourceMap: true,
+    sourceMapContents: true
+  });
+  await fs.writeFile(destination, styleResult.css, "utf8");
+  await fs.writeFile(`${destination}.map`, styleResult.map, "utf8");
+};
+
+// Make sure the destination directory exists for a file.
+export const createDestinationDir = (destination) => {
+  // Ensure the destination directory is created.
+  const pathPieces = destination.split("/");
+  pathPieces.pop();
+  fs.mkdir(pathPieces.join("/"), { recursive: true });
+}
+
+/**
+ * Adds our own attach_library() function to Twig.
+ *
+ * @param renderData The render data variables passed to Twig.
+ */
+function addTwigAttachLibrary(renderData, config) {
+  // Set up the attach_library Twig function
+  Twig.functions.attach_library = function(library) {
+    // Add any associated sylesheets
+    for (const source in config.libraries[library].stylesheets) {
+      const filename = config.libraries[library].stylesheets[source];
+      if (!renderData.stylesheet_files.includes(filename)) {
+        renderData.stylesheet_files.push(filename);
+        renderData.stylesheets[0] += "<link href=\"" + renderData.base_url + "/" + filename + "\" rel=\"stylesheet\">";
       }
     }
 
-    // Build the application.
-    metalsmith.build(err => {
-      if (err) {
-        return reject(err)
+    // Add any associated scripts
+    for (const source in config.libraries[library].scripts) {
+      const filename = config.libraries[library].scripts[source];
+      if (!renderData.script_files.includes(filename)) {
+        renderData.script_files.push(filename);
+        renderData.scripts[0] += "<script src=\"" + renderData.base_url + "/" + filename + "\" ></script>";
       }
-
-      // Construct the default KSS options.
-      const kssDefaultConf = {
-        destination: 'styleguide',
-        builder: path.dirname(require.resolve('kstat-kss-builder')),
-        css: '../main.css',
-        homepage: 'kalastatic-kss-homepage.md',
-        twig: true
-      }
-
-      // Retrieve the KSS config.
-      let kssConf = config.get('kss')
-      if (kssConf === true) {
-        kssConf = {}
-      } else if (!kssConf) {
-        // If we don't set a "kss: true", don't build the styleguide.
-        return resolve()
-      }
-
-      // Check if we're to build the KSS Config.
-      const argv = ['kss']
-      if (kssConf.config) {
-        // Use KSS's config file.
-        argv.push('--config=' + kssConf.config)
-      } else {
-        // Merge in the default KSS configuration.
-        kssConf = extend({}, kssDefaultConf, kssConf)
-        // Build the KSS arguments.
-        argv.push(
-          // Make sure we log everything.
-          '--verbose',
-          // Add KalaStatic's src directory, so that there is a good base.
-          '--destination=' + path.join(base, destination, kssConf.destination),
-          // Choose the Twig builder.
-          '--builder=' + kssConf.builder
-        )
-
-        // Add the Twig extensions.
-        if (kssConf.twig) {
-          argv.push('--extend-drupal8')
-          const kssNamespaces = {
-            kalastatic: '.',
-            atoms: path.join('components', 'atoms'),
-            molecules: path.join('components', 'molecules'),
-            organisms: path.join('components', 'organisms')
-          }
-          extend(kssNamespaces, kssConf.namespaces)
-          for (const kssNamespaceName in kssNamespaces) {
-            if (kssNamespaces[kssNamespaceName]) {
-              argv.push('--namespace=' + kssNamespaceName + ':' + path.join(base, source, kssNamespaces[kssNamespaceName]))
-            }
-          }
-        }
-
-        // Add the optional configurations.
-        if (kssConf.title) {
-          argv.push('--title=' + kssConf.title)
-        }
-
-        if (kssConf.homepage) {
-          argv.push('--homepage=' + kssConf.homepage)
-        }
-
-        // Normalize the CSS and JavaScript sources so we can handle string or array.
-        if (typeof kssConf.css === 'string') {
-          kssConf.css = [kssConf.css]
-        }
-
-        if (typeof kssConf.js === 'string') {
-          kssConf.js = [kssConf.js]
-        }
-
-        if (typeof kssConf.source === 'string') {
-          kssConf.source = [kssConf.source]
-        } else if (!kssConf.source) {
-          kssConf.source = [
-            path.join(base, source),
-            __dirname
-          ]
-        }
-
-        // Load up the stylesheets.
-        let dirIndex = 0
-        for (dirIndex in kssConf.css) {
-          if (kssConf.css[dirIndex]) {
-            argv.push('--css=' + kssConf.css[dirIndex])
-          }
-        }
-
-        // Load up the KSS sources.
-        for (dirIndex in kssConf.source) {
-          if (kssConf.source[dirIndex]) {
-            argv.push('--source=' + kssConf.source[dirIndex])
-          }
-        }
-
-        // Load up the JavaScript.
-        for (dirIndex in kssConf.js) {
-          if (kssConf.js[dirIndex]) {
-            argv.push('--js=' + kssConf.js[dirIndex])
-          }
-        }
-      }
-
-      // Now that it's complete, run KSS on it.
-      const kssOptions = {
-        stdout: process.stdout,
-        stderr: reject,
-        argv
-      }
-      return kss(kssOptions).then(resolve).catch(reject)
-    })
-  })
+    }
+  };
+  // Get the list of namespaces from the configuration.
+  Twig.functions.get_namespaces = function() {
+    return Object.keys(config.namespaces);
+  }
+  // Get the files within the directory of a twig namespace.
+  Twig.functions.get_namespace_files = function(namespace) {
+    return namespaceFiles[namespace];
+  };
 }
 
-module.exports = KalaStatic
+
+// Executes the other functions of Kstat
+export const kstat = async (config) => {
+  const renderData = {};
+
+  // Add the base url if set by the environmetn and / otherwise.
+  renderData.base_url = process.env.base_url || "";
+
+  // Delete all the destination files/directories in each source and assets so we don't get orphans.
+  await clearDestination(config.destination);
+
+  // Compile the SCSS into CSS.
+  renderData.stylesheet_files = []; // Stores which stylesheets have already been added.
+  renderData.stylesheets = [""]; // Stores the concatinated link tags, with the string in an array to solve the hoisting issue.
+  for (const source in config.stylesheets) {
+    let destination = config.destination + '/' + config.stylesheets[source];
+    await compileCSS(source, destination);
+    renderData.stylesheet_files.push(config.stylesheets[source]);
+    renderData.stylesheets[0] += "<link href=\"" + renderData.base_url + "/" + config.stylesheets[source] + "\" rel=\"stylesheet\">";
+  }
+
+  // Move the scripts to the proper directories.
+  renderData.script_files = []; // Stores which scripts have already been added.
+  renderData.scripts = [""]; // Stores the concatinated script tags, with the string in an array to solve the hoisting issue.
+  for (const source in config.scripts) {
+    let destination = config.destination + '/' + config.scripts[source];
+    await createDestinationDir(destination);
+    fs.copyFile(source, destination);
+    renderData.script_files.push(config.scripts[source]);
+    renderData.scripts[0] += "<script src=\"" + renderData.base_url + "/" + config.scripts[source] + "\" ></script>";
+  }
+
+  // Process all the stylesheets and scripts that have been specified by libraries.
+  for (const library in config.libraries) {
+    for (const source in config.libraries[library].stylesheets) {
+      let destination = config.destination + '/' + config.libraries[library].stylesheets[source];
+      await compileCSS(source, destination);
+    }
+    for (const source in config.libraries[library].scripts) {
+      let destination = config.destination + '/' + config.libraries[library].scripts[source];
+      await createDestinationDir(destination);
+      fs.copyFile(source, destination);
+    }
+  }
+
+  // Attatch our attach_library twig function so it will be avialable in twig.
+  addTwigAttachLibrary(renderData, config);
+
+  // Populate the list of namespace files so they are available for the get_namespace_files() function.
+  if (config.namespaces) {
+    namespaceFiles = await getNamespaceFiles(config.namespaces);
+  }
+
+  // Process each source into its corresponding destination.
+  const source = config.source
+  const destination = config.destination;
+  const pages = await findTwigPages(config.source);
+  for (const page of pages) {
+    const compiledHtml = await compileTwig(source, page, renderData, config).catch(err => console.log(err.message));
+    writeHtml(`${destination}/${page.replace(`${source}/`, "").replace(".twig", "")}`, compiledHtml);
+  }
+
+  // Move the assets to the proper directory.
+  for (const source in config.assets) {
+    await moveFiles(source, config.destination + '/' + config.assets[source]);
+  }
+};

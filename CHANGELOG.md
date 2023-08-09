@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.0.0-alpha1: xxxx-xx-xx
+
+- Complete rewrite without metalsmith, focusing on minimalism
+
 ## 5.0.0-alpha1: 2022-06-12
 
 - Move from node-sass to normal sass

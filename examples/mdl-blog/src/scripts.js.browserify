@@ -1,9 +1,0 @@
-/**
- * Scripts
- *
- * This uses Swig to include the MDL JavaScript explicitly.
- */
-
-// Include the Material Design Lite CSS.
-var mdl = require('material-design-lite/material.js')
-console.log(mdl);
