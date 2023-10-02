@@ -23,7 +23,8 @@
 
     <details open>
       <summary>Sample</summary>
-      <div class="details-content">
+      {# Add the attribute to exclude the contents from the page heading structure. #}
+      <div class="details-content" data-page-contents-exclude="true">
         {% block sample %}
         {% endblock sample %}
       </div>

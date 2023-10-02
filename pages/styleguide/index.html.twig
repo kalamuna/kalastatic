@@ -10,6 +10,10 @@
 {# The page content. #}
 {% block content %}
 
+  {# We want to add a page contents tree of links on this page. #}
+  <section id="page-contents" class="section"></section>
+  {{ attach_library('page-contents') }}
+
   {# Add an introduction section to the page. #}
   {% embed "@components/sections/section--text.html.twig" with { 'heading': "About this Styleguide" } %}
     {% block text %}

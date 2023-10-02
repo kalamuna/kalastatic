@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "kalastatic",
-    "watch": "nodemon -e twig,scss,css,js --watch components --watch styles --watch styleguide --watch pages --watch templates --exec npm run build",
+    "watch": "nodemon -e twig,scss,css,js --watch components --watch styles --watch styleguide --watch pages --watch templates --watch libraries --exec npm run build",
     "test": "npm run build",
     "start": "npm run watch & npm run serve",
     "serve": "serve build"
@@ -38,6 +38,11 @@
         },
         "scripts": {
           "libraries/details-tabs.js": "libraries/details-tabs.js"
+        }
+      },
+      "page-contents" : {
+        "scripts": {
+          "libraries/page-contents.js": "libraries/page-contents.js"
         }
       }
     }
