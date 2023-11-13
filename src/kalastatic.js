@@ -1,7 +1,8 @@
 // This script would exist within the node module and doesn't need to be invoked during a real project
 import {
-  promises as fs
+  promises as fs,
 } from 'fs';
+import { extname, basename, dirname } from 'path';
 import Twig from "twig";
 
 import {
@@ -154,10 +155,12 @@ export const compileCSS = async (source, destination) => {
 
 // Make sure the destination directory exists for a file.
 export const createDestinationDir = (destination) => {
-  // Ensure the destination directory is created.
-  const pathPieces = destination.split("/");
-  pathPieces.pop();
-  fs.mkdir(pathPieces.join("/"), { recursive: true });
+  let directory = dirname(destination)
+  if (directory) {
+    return fs.mkdir(directory, {
+      recursive: true
+    });
+  }
 }
 
 /**
@@ -195,7 +198,6 @@ function addTwigAttachLibrary(renderData, config) {
     return namespaceFiles[namespace];
   };
 }
-
 
 // Executes the other functions of Kstat
 export const kstat = async (config) => {
@@ -255,7 +257,17 @@ export const kstat = async (config) => {
   const pages = await findTwigPages(config.source);
   for (const page of pages) {
     const compiledHtml = await compileTwig(source, page, renderData, config).catch(err => console.log(err.message));
-    writeHtml(`${destination}/${page.replace(`${source}/`, "").replace(".twig", "")}`, compiledHtml);
+
+    // Find the correct output filename.
+    let destinationFilename = page
+      .replace(`${source}/`, '')
+      .replace('.twig', '');
+    if (extname(destinationFilename) == '.html' && basename(destinationFilename, '.html') != 'index') {
+      destinationFilename = destinationFilename.replace(basename(destinationFilename), basename(destinationFilename, '.html') + '/index.html');
+    }
+
+    // Write the file.
+    writeHtml(`${destination}/${destinationFilename}`, compiledHtml);
   }
 
   // Move the assets to the proper directory.
