@@ -21,4 +21,5 @@ npm i kalastatic --global
 kalastatic path/to/prototype
 ```
 
-For more in depth documentation, visit https://kalamuna.github.io/kalastatic/
+An example with some draft documentation for the new version of Kalastatic:
+https://kalamuna.github.io/kstat_test
