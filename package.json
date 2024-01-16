@@ -17,7 +17,8 @@
     "twig": "^1.16.0"
   },
   "scripts": {
-    "test": "bin/kalastatic.js examples/simple"
+    "test": "bin/kalastatic.js examples/simple",
+    "pretest": "npm it --prefix test"
   },
   "bin": {
     "kalastatic": "./bin/kalastatic.js"
