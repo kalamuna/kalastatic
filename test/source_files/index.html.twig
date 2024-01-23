@@ -4,8 +4,13 @@
 <html>
   <head>
     <title>{{ title }}</title>
+    {{ stylesheets }}
   </head>
   <body>
     {% include '@components/body.twig' %}
+
+    {{ attach_library('samplelibrary') }}
+
+    {{ scripts }}
   </body>
 </html>

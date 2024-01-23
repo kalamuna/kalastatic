@@ -171,12 +171,27 @@ export const createDestinationDir = (destination) => {
 function addTwigAttachLibrary(renderData, config) {
   // Set up the attach_library Twig function
   Twig.functions.attach_library = function(library) {
+    // Check if libraries are defined.
+    if (!config.libraries) {
+      console.error('kalastatic: Called attach_library(), but no libraries are defined');
+      return;
+    }
+
+    // Check if the desired library is defined.
+    if (!Object.hasOwn(config.libraries, library)) {
+      console.error(`kalastatic: Called attach_library('${library}'), but the library is not defined`);
+      return;
+    }
+
     // Add any associated sylesheets
     for (const source in config.libraries[library].stylesheets) {
       const filename = config.libraries[library].stylesheets[source];
       if (!renderData.stylesheet_files.includes(filename)) {
         renderData.stylesheet_files.push(filename);
         renderData.stylesheets[0] += "<link href=\"" + renderData.base_url + "/" + filename + "\" rel=\"stylesheet\">";
+      }
+      else {
+        console.error(`kalastatic: Library stylesheet file missing: ${library} ${source} expects "${filename}"`);
       }
     }
 
@@ -187,8 +202,12 @@ function addTwigAttachLibrary(renderData, config) {
         renderData.script_files.push(filename);
         renderData.scripts[0] += "<script src=\"" + renderData.base_url + "/" + filename + "\" ></script>";
       }
+      else {
+        console.error(`kalastatic: Library JavaScript file missing: ${library} ${source} expects "${filename}"`);
+      }
     }
   };
+
   // Get the list of namespaces from the configuration.
   Twig.functions.get_namespaces = function() {
     return Object.keys(config.namespaces);
