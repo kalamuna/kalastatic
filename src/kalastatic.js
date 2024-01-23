@@ -30,7 +30,7 @@ export const findTwigPages = async (directory) => {
               for (const page of pages) {
                 twigFiles.push(page);
               }
-            } else if (file.endsWith('.twig')) {
+            } else if (file.endsWith('.html.twig')) {
               twigFiles.push(`${directory}/${file}`);
             }
           });

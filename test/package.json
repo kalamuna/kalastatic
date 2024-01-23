@@ -1,0 +1,27 @@
+{
+  "name": "kalastatic-test",
+  "version": "6.0.0",
+  "description": "A test case for the new version of Kalastatic.",
+  "private": true,
+  "scripts": {
+    "build": "kalastatic",
+    "test": "npm run build",
+    "preinstall": "npm install --prefix=.."
+  },
+  "kalastatic": {
+    "source": "source_files",
+    "destination": "build_directory",
+    "assets": {
+      "assets_directory": "assets"
+    },
+    "namespaces": {
+      "components": "source_files/components"
+    },
+    "stylesheets": {
+      "styles_directory/styles.scss": "styles.css"
+    }
+  },
+  "dependencies": {
+    "kalastatic": "file:.."
+  }
+}
