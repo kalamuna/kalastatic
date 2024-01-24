@@ -189,10 +189,16 @@ function addTwigAttachLibrary(renderData, config) {
       }
     }
   };
+
   // Get the list of namespaces from the configuration.
   Twig.functions.get_namespaces = function() {
+    if (!config.hasOwnProperty('namespaces')) {
+      return [];
+    }
+
     return Object.keys(config.namespaces);
   }
+
   // Get the files within the directory of a twig namespace.
   Twig.functions.get_namespace_files = function(namespace) {
     return namespaceFiles[namespace];
