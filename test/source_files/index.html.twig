@@ -4,13 +4,13 @@
 <html>
   <head>
     <title>{{ title }}</title>
-    {{ stylesheets }}
+    {{ kalastatic_stylesheets }}
   </head>
   <body>
     {% include '@components/body.twig' %}
 
     {{ attach_library('samplelibrary') }}
 
-    {{ scripts }}
+    {{ kalastatic_scripts }}
   </body>
 </html>

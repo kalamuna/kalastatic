@@ -17,7 +17,7 @@
     "namespaces": {
       "components": "source_files/components"
     },
-    "stylesheets": {
+    "kalastatic_stylesheets": {
       "styles_directory/styles.scss": "styles.css"
     },
     "libraries": {
