@@ -188,7 +188,7 @@ function addTwigAttachLibrary(renderData, config) {
       const filename = config.libraries[library].stylesheets[source];
       if (!renderData.stylesheet_files.includes(filename)) {
         renderData.stylesheet_files.push(filename);
-        renderData.stylesheets[0] += "<link href=\"" + renderData.base_url + "/" + filename + "\" rel=\"stylesheet\">";
+        renderData.kalastatic_stylesheets[0] += "<link href=\"" + renderData.base_url + "/" + filename + "\" rel=\"stylesheet\">";
       }
       else {
         console.error(`kalastatic: Library stylesheet file missing: ${library} ${source} expects "${filename}"`);
@@ -200,7 +200,7 @@ function addTwigAttachLibrary(renderData, config) {
       const filename = config.libraries[library].scripts[source];
       if (!renderData.script_files.includes(filename)) {
         renderData.script_files.push(filename);
-        renderData.scripts[0] += "<script src=\"" + renderData.base_url + "/" + filename + "\" ></script>";
+        renderData.kalastatic_scripts[0] += "<script src=\"" + renderData.base_url + "/" + filename + "\" ></script>";
       }
       else {
         console.error(`kalastatic: Library JavaScript file missing: ${library} ${source} expects "${filename}"`);
@@ -230,23 +230,23 @@ export const kstat = async (config) => {
 
   // Compile the SCSS into CSS.
   renderData.stylesheet_files = []; // Stores which stylesheets have already been added.
-  renderData.stylesheets = [""]; // Stores the concatinated link tags, with the string in an array to solve the hoisting issue.
-  for (const source in config.stylesheets) {
-    let destination = config.destination + '/' + config.stylesheets[source];
+  renderData.kalastatic_stylesheets = [""]; // Stores the concatinated link tags, with the string in an array to solve the hoisting issue.
+  for (const source in config.kalastatic_stylesheets) {
+    let destination = config.destination + '/' + config.kalastatic_stylesheets[source];
     await compileCSS(source, destination);
-    renderData.stylesheet_files.push(config.stylesheets[source]);
-    renderData.stylesheets[0] += "<link href=\"" + renderData.base_url + "/" + config.stylesheets[source] + "\" rel=\"stylesheet\">";
+    renderData.stylesheet_files.push(config.kalastatic_stylesheets[source]);
+    renderData.kalastatic_stylesheets[0] += "<link href=\"" + renderData.base_url + "/" + config.kalastatic_stylesheets[source] + "\" rel=\"stylesheet\">";
   }
 
   // Move the scripts to the proper directories.
   renderData.script_files = []; // Stores which scripts have already been added.
-  renderData.scripts = [""]; // Stores the concatinated script tags, with the string in an array to solve the hoisting issue.
-  for (const source in config.scripts) {
-    let destination = config.destination + '/' + config.scripts[source];
+  renderData.kalastatic_scripts = [""]; // Stores the concatinated script tags, with the string in an array to solve the hoisting issue.
+  for (const source in config.kalastatic_scripts) {
+    let destination = config.destination + '/' + config.kalastatic_scripts[source];
     await createDestinationDir(destination);
     fs.copyFile(source, destination);
-    renderData.script_files.push(config.scripts[source]);
-    renderData.scripts[0] += "<script src=\"" + renderData.base_url + "/" + config.scripts[source] + "\" ></script>";
+    renderData.script_files.push(config.kalastatic_scripts[source]);
+    renderData.kalastatic_scripts[0] += "<script src=\"" + renderData.base_url + "/" + config.kalastatic_scripts[source] + "\" ></script>";
   }
 
   // Process all the stylesheets and scripts that have been specified by libraries.
