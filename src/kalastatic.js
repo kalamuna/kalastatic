@@ -173,13 +173,13 @@ function addTwigAttachLibrary(renderData, config) {
   Twig.functions.attach_library = function(library) {
     // Check if libraries are defined.
     if (!config.libraries) {
-      console.error(`kalastatic: Called attach_library('${library}'), but no libraries are defined. Add the library definitions to package.json's kalastatic.libraries configuration.`);
+      console.error(`kalastatic: Called attach_library('${library}'), but no libraries are defined. Add the library definitions to package.json's kalastatic.libraries configuration. See https://kalamuna.github.io/kstat_test/kalastatic-functions-filters/#attach-library`);
       return;
     }
 
     // Check if the desired library is defined.
     if (!Object.hasOwn(config.libraries, library)) {
-      console.error(`kalastatic: Called attach_library('${library}'), but the library is not defined. Add it to package.json's kalastatic.libraries configuration.`);
+      console.error(`kalastatic: Called attach_library('${library}'), but the library is not defined. Add it to package.json's kalastatic.libraries configuration. See https://kalamuna.github.io/kstat_test/kalastatic-functions-filters/#attach-library`);
       return;
     }
 
