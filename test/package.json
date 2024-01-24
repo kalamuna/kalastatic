@@ -19,6 +19,13 @@
     },
     "stylesheets": {
       "styles_directory/styles.scss": "styles.css"
+    },
+    "libraries": {
+      "samplelibrary" : {
+        "scripts": {
+          "libraries/sampleJavaScript.js": "sampleJavaScript.js"
+        }
+      }
     }
   },
   "dependencies": {
