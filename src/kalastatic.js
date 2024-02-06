@@ -4,6 +4,7 @@ import {
 } from 'fs';
 import { extname, basename, dirname } from 'path';
 import Twig from "twig";
+import twigMarkdown from 'twig-markdown';
 
 import {
   addDrupalExtensions
@@ -14,7 +15,9 @@ import { promisify } from "util";
 const sassRenderPromise = promisify(sass.render);
 let namespaceFiles = [];
 
+// Add the Twig extensions.
 addDrupalExtensions(Twig);
+Twig.extend(twigMarkdown);
 
 // Finds twig pages in a directory and returns an array of filenames
 export const findTwigPages = async (directory) => {

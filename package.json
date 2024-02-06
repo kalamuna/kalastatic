@@ -14,7 +14,8 @@
     "drupal-twig-extensions": "^1.0.0-beta.4",
     "meow": "^12.0.1",
     "sass": "^1.58.3",
-    "twig": "^1.16.0"
+    "twig": "^1.16.0",
+    "twig-markdown": "^1.0.1"
   },
   "scripts": {
     "test": "bin/kalastatic.js examples/simple",
