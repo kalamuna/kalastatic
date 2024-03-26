@@ -1,0 +1,17 @@
+{
+  "name": "kalastatic-test-single_source_file",
+  "version": "0.0.1",
+  "description": "A test case for the new version of Kalastatic on single source files.",
+  "private": true,
+  "scripts": {
+    "build": "kalastatic",
+    "test": "npm run build",
+    "preinstall": "npm install --prefix=../.."
+  },
+  "kalastatic": {
+    "source": "test.html.twig"
+  },
+  "dependencies": {
+    "kalastatic": "file:../.."
+  }
+}

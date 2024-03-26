@@ -229,6 +229,8 @@ function addTwigAttachLibrary(renderData, config) {
 // Executes the other functions of Kstat
 export const kstat = async (config) => {
   const renderData = {};
+  config = config || {};
+  config.destination = config.destination || 'build';
 
   // Add the base url if set by the environmetn and / otherwise.
   renderData.base_url = process.env.base_url || "";
@@ -279,9 +281,11 @@ export const kstat = async (config) => {
   }
 
   // Process each source into its corresponding destination.
-  const source = config.source
+  const source = config.source;
+  let stats = await fs.stat(config.source);
+
   const destination = config.destination;
-  const pages = await findTwigPages(config.source);
+  const pages = stats.isFile() ? [config.source] : await findTwigPages(config.source);
   for (const page of pages) {
     const compiledHtml = await compileTwig(source, page, renderData, config).catch(err => console.log(err.message));
 
