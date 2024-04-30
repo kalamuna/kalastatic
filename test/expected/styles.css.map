@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["file:///home/rob/Documents/kalastatic/test/styles_directory/styles.scss"],"names":[],"mappings":"AAGE;EACE,OAJQ","file":"styles.css","sourcesContent":["$textColor: red;\n\nbody {\n  h1 {\n    color: $textColor;\n  }\n}\n"]}
