@@ -6,7 +6,8 @@
   "scripts": {
     "build": "kalastatic",
     "pretest": "npm run build",
-    "test": "npm it --prefix=single_source_file",
+    "test": "node ./test.js",
+    "posttest": "npm it --prefix=single_source_file",
     "preinstall": "npm install --prefix=.."
   },
   "kalastatic": {
