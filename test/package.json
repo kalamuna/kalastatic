@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "build": "kalastatic",
-    "test": "npm run build",
+    "pretest": "npm run build",
+    "test": "node ./test.js",
     "preinstall": "npm install --prefix=.."
   },
   "kalastatic": {

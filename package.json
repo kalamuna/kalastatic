@@ -23,5 +23,8 @@
   },
   "bin": {
     "kalastatic": "./bin/kalastatic.js"
+  },
+  "devDependencies": {
+    "assert-dir-equal": "^1.1.0"
   }
 }
