@@ -2,6 +2,5 @@ node_modules
 build
 build_directory
 npm-debug.log
-package-lock.json
 /site
 .sass-cache
