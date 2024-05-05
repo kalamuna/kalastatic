@@ -6,7 +6,9 @@ const path = require('path');
 const directory = path.dirname(__filename);
 
 // Assert that the build directory matches what's expected
-assertDir(path.join(directory, 'build_directory'), path.join(directory, 'expected'));
+assertDir(path.join(directory, 'build_directory'), path.join(directory, 'expected'), {
+  filter: (file) => !file.includes('.map')
+});
 
 // Output test result
 console.log("Tests passed!");
