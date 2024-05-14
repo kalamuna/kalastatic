@@ -235,6 +235,9 @@ export const kstat = async (config) => {
   // Add the base url if set by the environmetn and / otherwise.
   renderData.base_url = process.env.base_url || "";
 
+  // Add all the environment variables to the `env` object in the render data.
+  renderData.env = process.env;
+
   // Delete all the destination files/directories in each source and assets so we don't get orphans.
   await clearDestination(config.destination);
 
