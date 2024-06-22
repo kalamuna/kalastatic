@@ -193,9 +193,6 @@ function addTwigAttachLibrary(renderData, config) {
         renderData.stylesheet_files.push(filename);
         renderData.kalastatic_stylesheets[0] += "<link href=\"" + renderData.base_url + "/" + filename + "\" rel=\"stylesheet\">";
       }
-      else {
-        console.error(`kalastatic: Library stylesheet file missing: ${library} ${source} expects "${filename}"`);
-      }
     }
 
     // Add any associated scripts
@@ -204,9 +201,6 @@ function addTwigAttachLibrary(renderData, config) {
       if (!renderData.script_files.includes(filename)) {
         renderData.script_files.push(filename);
         renderData.kalastatic_scripts[0] += "<script src=\"" + renderData.base_url + "/" + filename + "\" ></script>";
-      }
-      else {
-        console.error(`kalastatic: Library JavaScript file missing: ${library} ${source} expects "${filename}"`);
       }
     }
   };
