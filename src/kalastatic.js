@@ -3,7 +3,7 @@ import {
   promises as fs,
 } from 'fs';
 import { extname, basename, dirname } from 'path';
-import Twig from "twig";
+import Twig from 'twig';
 import twigMarkdown from 'twig-markdown';
 
 import {
