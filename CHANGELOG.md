@@ -1,6 +1,6 @@
 # Changelog
 
-## 6.0.0-alpha1: xxxx-xx-xx
+## 6.0.0-alpha6: 2024-10-29
 
 - Complete rewrite without metalsmith, focusing on minimalism
 
