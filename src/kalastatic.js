@@ -95,7 +95,9 @@ const getDirectoryFiles = async (rootDirectory, subDirectory = false) => {
 export const compileTwig = async (directory, twigFile, renderData, config) => {
 
   // Tell the user we are compiling twig, and then set the console to red in case there are errors.
-  console.log(`Compiling Twig File: ${twigFile}\x1b[31m`);
+  if (config.debug) {
+    console.log(`Compiling Twig File: ${twigFile}\x1b[31m`);
+  }
 
   const twigFileStream = await fs.readFile(`${twigFile}`, { encoding: 'utf8' });
 
@@ -107,14 +109,18 @@ export const compileTwig = async (directory, twigFile, renderData, config) => {
   }).render(renderData);
 
   // Set the console back to no color.
-  console.log(`\x1b[0m`);
+  if (config.debug) {
+    console.log(`\x1b[0m`);
+  }
 
   return compiledTwig;
 };
 
 // Writes HTML to a given location
-export const writeHtml = async (path, html) => {
-  console.log(`Writing ${path}\n`);
+export const writeHtml = async (path, html, config) => {
+  if (config.debug) {
+    console.log(`Writing ${path}\n`);
+  }
   await createDestinationDir(path);
   fs.writeFile(path, html);
 };
@@ -137,14 +143,18 @@ export const moveFiles = async (directory, targetDirectory) => {
 };
 
 // Delete the destination directories associated with a list of sources.
-export const clearDestination = async (directory) => {
-  console.log(`Clearing destination directory: ${directory}\n`);
+export const clearDestination = async (directory, config) => {
+  if (config.debug) {
+    console.log(`Clearing destination directory: ${directory}\n`);
+  }
   await fs.rm(directory, { recursive: true, force: true });
 };
 
 // Compile scss source files into destination css.
-export const compileCSS = async (source, destination) => {
-  console.log(`Compiling ${source} to ${destination}.\n`);
+export const compileCSS = async (source, destination, config) => {
+  if (config.debug) {
+    console.log(`Compiling ${source} to ${destination}.\n`);
+  }
   await createDestinationDir(destination);
   const styleResult = await sassRenderPromise({
     file: source,
@@ -225,6 +235,7 @@ export const kstat = async (config) => {
   const renderData = {};
   config = config || {};
   config.destination = config.destination || 'build';
+  config.debug = config.debug || (process.env.DEBUG ? true : false);
 
   // Add the base url if set by the environmetn and / otherwise.
   // TODO: The `base_url` variable will be deprecated in favor of `env.base_url`.
@@ -233,14 +244,14 @@ export const kstat = async (config) => {
   renderData.env = process.env;
 
   // Delete all the destination files/directories in each source and assets so we don't get orphans.
-  await clearDestination(config.destination);
+  await clearDestination(config.destination, config);
 
   // Compile the SCSS into CSS.
   renderData.stylesheet_files = []; // Stores which stylesheets have already been added.
   renderData.kalastatic_stylesheets = [""]; // Stores the concatinated link tags, with the string in an array to solve the hoisting issue.
   for (const source in config.kalastatic_stylesheets) {
     let destination = config.destination + '/' + config.kalastatic_stylesheets[source];
-    await compileCSS(source, destination);
+    await compileCSS(source, destination, config);
     renderData.stylesheet_files.push(config.kalastatic_stylesheets[source]);
     renderData.kalastatic_stylesheets[0] += "<link href=\"" + renderData.base_url + "/" + config.kalastatic_stylesheets[source] + "\" rel=\"stylesheet\">";
   }
@@ -260,7 +271,7 @@ export const kstat = async (config) => {
   for (const library in config.libraries) {
     for (const source in config.libraries[library].stylesheets) {
       let destination = config.destination + '/' + config.libraries[library].stylesheets[source];
-      await compileCSS(source, destination);
+      await compileCSS(source, destination, config);
     }
     for (const source in config.libraries[library].scripts) {
       let destination = config.destination + '/' + config.libraries[library].scripts[source];
@@ -284,7 +295,7 @@ export const kstat = async (config) => {
   const destination = config.destination;
   const pages = stats.isFile() ? [config.source] : await findTwigPages(config.source);
   for (const page of pages) {
-    const compiledHtml = await compileTwig(source, page, renderData, config).catch(err => console.log(err.message));
+    const compiledHtml = await compileTwig(source, page, renderData, config).catch(err => console.error(err.message));
 
     // Find the correct output filename.
     let destinationFilename = page
@@ -295,7 +306,7 @@ export const kstat = async (config) => {
     }
 
     // Write the file.
-    writeHtml(`${destination}/${destinationFilename}`, compiledHtml);
+    writeHtml(`${destination}/${destinationFilename}`, compiledHtml, config);
   }
 
   // Move the assets to the proper directory.
