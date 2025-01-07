@@ -8,7 +8,8 @@
   },
   "kalastatic": {
     "source": "pages",
-    "destination": "build"
+    "destination": "build",
+    "debug": true
   },
   "dependencies": {
     "kalastatic": "^6.0@alpha"
