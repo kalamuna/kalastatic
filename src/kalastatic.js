@@ -7,7 +7,7 @@ import Twig from 'twig';
 import twigMarkdown from 'twig-markdown';
 
 import {
-  addDrupalExtensions
+  addDrupalExtensions, Attribute
 } from 'drupal-twig-extensions/twig';
 
 import * as sass from 'sass';
@@ -242,6 +242,9 @@ export const kstat = async (config) => {
   renderData.base_url = process.env.base_url || "";
   // Add all the environment variables to the `env` object in the render data.
   renderData.env = process.env;
+
+  // Provide an attributes variable so templates can use functions like addClass().
+  renderData.attributes = new Attribute();
 
   // Delete all the destination files/directories in each source and assets so we don't get orphans.
   await clearDestination(config.destination, config);
