@@ -1,0 +1,41 @@
+{#
+  Tests the `attributes` variable.
+  https://www.drupal.org/docs/8/theming-drupal-8/using-attributes-in-templates
+#}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Attributes</title>
+  </head>
+  <body>{# The `attributes` variable is always available, and starts out empty. #}
+    <div{{ attributes }}></div>
+
+    {# Adding a single class. #}{% set attributes = create_attribute() -%}
+    <div{{ attributes.addClass('my-class') }}></div>
+
+    {# Adding several classes at once. #}{% set attributes = create_attribute() -%}
+    {% set classes = ['red', 'green'] -%}
+    <div{{ attributes.addClass(classes) }}></div>
+
+    {# Removing a class. #}{% set attributes = create_attribute() -%}
+    {% set classes = ['red', 'green', 'blue'] -%}
+    <div{{ attributes.addClass(classes).removeClass('green') }}></div>
+
+    {# Setting an arbitrary attribute. #}{% set attributes = create_attribute() -%}
+    <div{{ attributes.setAttribute('id', 'myID') }}></div>
+
+    {# Removing an attribute. #}{% set attributes = create_attribute().setAttribute('id', 'myID') -%}
+    <div{{ attributes.removeAttribute('id') }}></div>
+
+    {# Checking for a class. #}{% set attributes = create_attribute().addClass('red') -%}
+    <div>{% if attributes.hasClass('red') %}red{% endif %}{% if attributes.hasClass('blue') %}blue{% endif %}</div>
+
+    {# Modifying the attributes without printing them, using `do`. #}{% set attributes = create_attribute() -%}
+    {% do attributes.setAttribute('title', 'The Title') -%}
+    <div{{ attributes }}></div>
+
+    {# Modifying the attributes without printing them, using `set`. #}{% set attributes = create_attribute() -%}
+    {% set attributes = attributes.addClass('my-class') -%}
+    <div{{ attributes }}></div>
+  </body>
+</html>
