@@ -159,7 +159,7 @@ export const compileCSS = async (source, destination, config) => {
     sourceMap: true,
     sourceMapIncludeSources: true
   });
-  // The modern Sass API doesn't append the sourceMappingURL comment, so add it here.
+  // New Sass API doesn't add the sourceMappingURL, so we add it ourselves.
   const css = `${styleResult.css}\n\n/*# sourceMappingURL=${filename}.map */`;
   await fs.writeFile(destination, css, "utf8");
   await fs.writeFile(`${destination}.map`, JSON.stringify({
