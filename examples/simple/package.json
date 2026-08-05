@@ -4,7 +4,8 @@
   "description": "A test case for the new version of Kalastatic.",
   "private": true,
   "scripts": {
-    "build": "kalastatic"
+    "build": "kalastatic",
+    "test": "npm run build"
   },
   "kalastatic": {
     "source": "pages",
@@ -12,6 +13,6 @@
     "debug": true
   },
   "dependencies": {
-    "kalastatic": "^6.0@alpha"
+    "kalastatic": "file:../.."
   }
 }

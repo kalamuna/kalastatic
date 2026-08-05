@@ -4,3 +4,4 @@ build_directory
 npm-debug.log
 /site
 .sass-cache
+examples/simple/package-lock.json
