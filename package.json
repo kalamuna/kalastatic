@@ -10,12 +10,15 @@
     "bin"
   ],
   "main": "src/kalastatic.js",
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
     "drupal-twig-extensions": "^1.0.0-beta.5",
-    "meow": "^13.2.0",
-    "sass": "^1.80.4",
-    "twig": "^1.17.1",
-    "twig-markdown": "^1.1.0"
+    "meow": "^14.1.0",
+    "sass": "^1.102.0",
+    "twig": "^3.0.0",
+    "twig-markdown": "^1.1.5"
   },
   "scripts": {
     "test": "bin/kalastatic.js examples/simple",

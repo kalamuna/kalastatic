@@ -11,8 +11,6 @@ import {
 } from 'drupal-twig-extensions/twig';
 
 import * as sass from 'sass';
-import { promisify } from "util";
-const sassRenderPromise = promisify(sass.render);
 let namespaceFiles = [];
 
 // Add the Twig extensions.
@@ -156,14 +154,18 @@ export const compileCSS = async (source, destination, config) => {
     console.log(`Compiling ${source} to ${destination}.\n`);
   }
   await createDestinationDir(destination);
-  const styleResult = await sassRenderPromise({
-    file: source,
-    outFile: destination,
+  const filename = basename(destination);
+  const styleResult = await sass.compileAsync(source, {
     sourceMap: true,
-    sourceMapContents: true
+    sourceMapIncludeSources: true
   });
-  await fs.writeFile(destination, styleResult.css, "utf8");
-  await fs.writeFile(`${destination}.map`, styleResult.map, "utf8");
+  // New Sass API doesn't add the sourceMappingURL, so we add it ourselves.
+  const css = `${styleResult.css}\n\n/*# sourceMappingURL=${filename}.map */`;
+  await fs.writeFile(destination, css, "utf8");
+  await fs.writeFile(`${destination}.map`, JSON.stringify({
+    ...styleResult.sourceMap,
+    file: filename
+  }), "utf8");
 };
 
 // Make sure the destination directory exists for a file.
