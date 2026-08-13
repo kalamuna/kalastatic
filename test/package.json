@@ -7,7 +7,7 @@
     "build": "kalastatic",
     "pretest": "npm run build",
     "test": "node ./test.js",
-    "posttest": "npm it --prefix=single_source_file",
+    "posttest": "npm it --prefix=single_source_file && npm it --prefix=twig_error",
     "preinstall": "npm install --prefix=.."
   },
   "kalastatic": {

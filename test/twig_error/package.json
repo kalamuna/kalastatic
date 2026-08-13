@@ -1,0 +1,13 @@
+{
+  "name": "kalastatic-test-twig_error",
+  "version": "0.0.1",
+  "description": "A test case for the way Kalastatic reports Twig errors.",
+  "private": true,
+  "scripts": {
+    "test": "node ./test.js",
+    "preinstall": "npm install --prefix=../.."
+  },
+  "dependencies": {
+    "kalastatic": "file:../.."
+  }
+}

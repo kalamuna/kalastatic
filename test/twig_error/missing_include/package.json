@@ -1,0 +1,10 @@
+{
+  "name": "kalastatic-test-twig_error-missing_include",
+  "version": "0.0.1",
+  "description": "A prototype that includes a Twig file which doesn't exist.",
+  "private": true,
+  "kalastatic": {
+    "source": "source_files",
+    "destination": "build_directory"
+  }
+}

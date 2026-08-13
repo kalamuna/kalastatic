@@ -99,16 +99,24 @@ export const compileTwig = async (directory, twigFile, renderData, config) => {
 
   const twigFileStream = await fs.readFile(`${twigFile}`, { encoding: 'utf8' });
 
-  const compiledTwig = Twig.twig({
-    data: twigFileStream,
-    allowInlineIncludes: true,
-    path: directory,
-    namespaces: config.namespaces,
-  }).render(renderData);
-
-  // Set the console back to no color.
-  if (config.debug) {
-    console.log(`\x1b[0m`);
+  let compiledTwig;
+  try {
+    compiledTwig = Twig.twig({
+      data: twigFileStream,
+      allowInlineIncludes: true,
+      path: directory,
+      namespaces: config.namespaces,
+      // Without this, Twig.js only logs its exceptions and renders an empty page.
+      rethrow: true,
+    }).render(renderData);
+  } catch (error) {
+    // Twig.js doesn't know the filename, so name it here to make the error usable.
+    throw new Error(`Error compiling Twig file ${twigFile}: ${error.message}`, { cause: error });
+  } finally {
+    // Set the console back to no color.
+    if (config.debug) {
+      console.log(`\x1b[0m`);
+    }
   }
 
   return compiledTwig;
@@ -300,7 +308,7 @@ export const kstat = async (config) => {
   const destination = config.destination;
   const pages = stats.isFile() ? [config.source] : await findTwigPages(config.source);
   for (const page of pages) {
-    const compiledHtml = await compileTwig(source, page, renderData, config).catch(err => console.error(err.message));
+    const compiledHtml = await compileTwig(source, page, renderData, config);
 
     // Find the correct output filename.
     let destinationFilename = page

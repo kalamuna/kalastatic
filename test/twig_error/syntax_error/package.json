@@ -1,0 +1,10 @@
+{
+  "name": "kalastatic-test-twig_error-syntax_error",
+  "version": "0.0.1",
+  "description": "A prototype whose Twig cannot be compiled.",
+  "private": true,
+  "kalastatic": {
+    "source": "source_files",
+    "destination": "build_directory"
+  }
+}
