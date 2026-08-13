@@ -1,7 +1,11 @@
 # Changelog
 
-## 6.0.0-alpha6: 2024-10-29
-
+## 6.0.0-beta1: 2024-10-29
+- Update dependencies by @RobLoach in https://github.com/kalamuna/kalastatic/pull/662
+- KSTAT-184: Add a debug option to enable/disable console logging by @RobLoach in https://github.com/kalamuna/kalastatic/pull/663
+- Bump picomatch from 2.3.1 to 2.3.2 in https://github.com/kalamuna/kalastatic/pull/667
+- TECH-1090: Update SASS, and all other dependencies by @RobLoach in https://github.com/kalamuna/kalastatic/pull/674
+- Provide an attributes variable so templates can use functions like addClass(). by @mikemccaffrey in https://github.com/kalamuna/kalastatic/pull/672
 - Complete rewrite without metalsmith, focusing on minimalism
 
 ## 5.0.0-alpha1: 2022-06-12
