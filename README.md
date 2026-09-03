@@ -17,6 +17,10 @@ Iterate through the twig files in the pages directory, parse the twig into html,
 - Twig embed using with for variables (optional)
 - Outputting html
 
+## Requirements
+
+- [Node.js](https://nodejs.org) 22 or newer
+
 ## Usage
 
 Run Kalastatic locally by using...

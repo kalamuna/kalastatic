@@ -14,12 +14,12 @@
   {% embed "@components/sections/section--text.html.twig" with { 'heading': "Installing Kalastatic" } %}
     {% block text %}
       <p>
-        Once Kalastatic is published, it is easy to include it into your project
-        as a node module:
+        Kalastatic requires <a href="https://nodejs.org">Node.js</a> 22 or
+        newer, and is easy to include in your project as a node module:
       </p>
       <figure>
         <code class="language-bash">
-npm require kalastatic
+npm install kalastatic
         </code>
       </figure>
       <p>
@@ -140,13 +140,13 @@ npm create kalastatic
         </code>
       </figure>
 
-      <h3 id="styles">styles</h3>
+      <h3 id="kalastatic-stylesheets">kalastatic_stylesheets</h3>
       <p>
         If you have scss files that need to be processed into css files, you
-        can include a <code>styles</code> array with individual source and
-        destination filenames (wildcard patterns have not actually been tested
-        yet), and Kalatatic will use the node <code>sass</code> library to
-        process those files:
+        can include a <code>kalastatic_stylesheets</code> array with individual
+        source and destination filenames (wildcard patterns have not actually
+        been tested yet), and Kalatatic will use the node <code>sass</code>
+        library to process those files:
       </p>
       <figure>
         <code class="language-json">
@@ -154,7 +154,7 @@ npm create kalastatic
   "source": "pages",
   "destination": "build",
   ...
-  "styles": {
+  "kalastatic_stylesheets": {
     "styles/styles.scss": "styles.css"
   }
 }
@@ -163,12 +163,12 @@ npm create kalastatic
       <p>
         An array of filenames processed as part of the stylesheet compilation
         are passed into the twig rendering process in the
-        <code>stylesheets</code> variable, which can be used to automatically
-        add stylesheets to your main html template:
+        <code>kalastatic_stylesheets</code> variable, which can be used to
+        automatically add stylesheets to your main html template:
       </p>
       <figure>
         <code class="language-twig">{% filter escape %}{% verbatim %}
-{{ stylesheets }}
+{{ kalastatic_stylesheets }}
           {% endverbatim %}{% endfilter %}</code>
         </figure>
       <p>
@@ -179,11 +179,11 @@ npm create kalastatic
         settings of your choice.</em>
       </p>
 
-      <h3 id="scripts">scripts</h3>
+      <h3 id="kalastatic-scripts">kalastatic_scripts</h3>
       <p>
-        Much like with <code>styles</code>, you can specify a <code>scripts</code>
-        parameter, which copies the script files from the source to the
-        destination specified:
+        Much like with <code>kalastatic_stylesheets</code>, you can specify a
+        <code>kalastatic_scripts</code> parameter, which copies the script files
+        from the source to the destination specified:
       </p>
       <figure>
         <code class="language-json">
@@ -191,7 +191,7 @@ npm create kalastatic
   "source": "pages",
   "destination": "build",
   ...
-  "scripts": {
+  "kalastatic_scripts": {
     "js/main.js": "main.js"
   }
 }
@@ -200,13 +200,13 @@ npm create kalastatic
       <p>
         There is no processing done on the js files, so you could move them
         using the <code>assets</code> parameter, but the files specified by the
-        <code>scripts</code> parameter are also passed into the twig file in a
-        variable called <code>scripts</code> that can be used to automatically
-        populate the script tags in your html template:
+        <code>kalastatic_scripts</code> parameter are also passed into the twig
+        file in a variable called <code>kalastatic_scripts</code> that can be
+        used to automatically populate the script tags in your html template:
       </p>
       <figure>
         <code class="language-twig">{% filter escape %}{% verbatim %}
-{{ scripts }}
+{{ kalastatic_scripts }}
 {% endverbatim %}{% endfilter %}</code>
       </figure>
 
@@ -241,8 +241,9 @@ npm create kalastatic
       </figure>
       <p>
         Note that unlike Drupal, each item requires source and destination for
-        the file, just like the <code>stylesheets</code> and <code>scripts</code>
-        parameters for the main Kalastatic configuration.
+        the file, just like the <code>kalastatic_stylesheets</code> and
+        <code>kalastatic_scripts</code> parameters for the main Kalastatic
+        configuration.
       </p>
       <p>
         If you provide a scss file for the stylesheets instead of a css file,
@@ -254,9 +255,9 @@ npm create kalastatic
         After you define the library, you can call the
         <a href="{{ base_url }}/kalastatic-functions-filters#attach_library">attach_library
         function</a> in a Twig template, and only at that point will the specified
-        files be added to the <code>scripts</code> and <code>stylesheets</code>
-        variables that are passed into the Twig templages by Kalastatic upon
-        processing.
+        files be added to the <code>kalastatic_scripts</code> and
+        <code>kalastatic_stylesheets</code> variables that are passed into the
+        Twig templages by Kalastatic upon processing.
       </p>
 
     {% endblock text %}
@@ -281,7 +282,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
       - name: npm Install
         env:
           base_url: '/kstat_test'

@@ -24,11 +24,11 @@
       "pages": "pages",
       "styleguide": "styleguide"
     },
-    "stylesheets": {
+    "kalastatic_stylesheets": {
       "styles/styles.scss": "styles.css",
       "libraries/prism.css": "libraries/prism.css"
     },
-    "scripts": {
+    "kalastatic_scripts": {
       "libraries/prism.js": "libraries/prism.js"
     },
     "libraries": {
@@ -47,11 +47,14 @@
       }
     }
   },
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
-    "kalastatic": "6.0.0-alpha1"
+    "kalastatic": "^6.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.21",
-    "serve": "^14.2.0"
+    "nodemon": "^3.1.14",
+    "serve": "^14.2.6"
   }
 }

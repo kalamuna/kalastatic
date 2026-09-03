@@ -1,19 +1,19 @@
 @charset "UTF-8";
 
-@import "normalize";
+@use "normalize";
 
-@import "base/colors";
-@import "base/layout";
-@import "base/typography";
+@use "base/colors";
+@use "base/layout";
+@use "base/typography";
 
-@import "elements/code";
-@import "elements/figure";
+@use "elements/code";
+@use "elements/figure";
 
-@import "components/template-regions/template-region--header";
-@import "components/sections/section";
-@import "components/sections/section--text";
+@use "../components/template-regions/template-region--header";
+@use "../components/sections/section";
+@use "../components/sections/section--text";
 
-@import "templates/page";
+@use "../templates/page";
 
-@import "styleguide/styleguide-sample";
-@import "styleguide/styleguide";
+@use "../styleguide/styleguide-sample";
+@use "../styleguide/styleguide";
