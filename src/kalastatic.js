@@ -2,7 +2,7 @@
 import {
   promises as fs,
 } from 'fs';
-import { extname, basename, dirname } from 'path';
+import { extname, basename, dirname, resolve, relative } from 'path';
 import Twig from 'twig';
 import twigMarkdown from 'twig-markdown';
 
@@ -140,6 +140,15 @@ export const moveFiles = async (directory, targetDirectory) => {
     });
 };
 
+// Figure out whether or not the destination can safely be deleted.
+export const destinationIsSafeToClear = async (source, destination) => {
+  // Do not clear out the directory if it matches the source directory.
+  const stats = await fs.stat(source).catch(() => false);
+  const sourceDirectory = stats && stats.isFile() ? dirname(resolve(source)) : resolve(source);
+  const relativePath = relative(resolve(destination), sourceDirectory);
+  return relativePath !== '' && relativePath.startsWith('..');
+};
+
 // Delete the destination directories associated with a list of sources.
 export const clearDestination = async (directory, config) => {
   if (config.debug) {
@@ -248,8 +257,12 @@ export const kstat = async (config) => {
   // Provide an attributes variable so templates can use functions like addClass().
   renderData.attributes = new Attribute();
 
-  // Delete all the destination files/directories in each source and assets so we don't get orphans.
-  await clearDestination(config.destination, config);
+  // Delete all the destination files/directories in each source if it's different than the source.
+  if (await destinationIsSafeToClear(config.source, config.destination)) {
+    await clearDestination(config.destination, config);
+  } else if (config.debug) {
+    console.log(`Building into the source directory. ${config.destination} won't be cleared.\n`);
+  }
 
   // Compile the SCSS into CSS.
   renderData.stylesheet_files = []; // Stores which stylesheets have already been added.
