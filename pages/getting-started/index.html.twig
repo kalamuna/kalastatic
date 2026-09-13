@@ -22,6 +22,12 @@
 npm install kalastatic
         </code>
       </figure>
+    {% endblock text %}
+  {% endembed %}
+
+  {# Add a section to the page. #}
+  {% embed "@components/sections/section--text.html.twig" with { 'heading': "Installing a Demo (Currently In Development)" } %}
+    {% block text %}
       <p>
         However, if you are looking for some demo content to help get you
         started, you will soon be able to use the npm create command (once we
