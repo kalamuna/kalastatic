@@ -1,0 +1,60 @@
+{
+  "name": "kstat_test",
+  "version": "6.0.0",
+  "description": "A test case for the new version of Kalastatic.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "kalastatic",
+    "watch": "nodemon -e twig,scss,css,js --watch components --watch styles --watch styleguide --watch pages --watch templates --watch libraries --exec npm run build",
+    "test": "npm run build",
+    "start": "npm run watch & npm run serve",
+    "serve": "serve build"
+  },
+  "kalastatic": {
+    "source": "pages",
+    "destination": "build",
+    "assets": {
+      "assets": "assets"
+    },
+    "namespaces": {
+      "styles": "styles",
+      "components": "components",
+      "templates": "templates",
+      "pages": "pages",
+      "styleguide": "styleguide"
+    },
+    "kalastatic_stylesheets": {
+      "styles/styles.scss": "styles.css",
+      "libraries/prism.css": "libraries/prism.css"
+    },
+    "kalastatic_scripts": {
+      "libraries/prism.js": "libraries/prism.js"
+    },
+    "libraries": {
+      "details-tabs" : {
+        "stylesheets": {
+          "libraries/details-tabs.scss": "libraries/details-tabs.css"
+        },
+        "scripts": {
+          "libraries/details-tabs.js": "libraries/details-tabs.js"
+        }
+      },
+      "page-contents" : {
+        "scripts": {
+          "libraries/page-contents.js": "libraries/page-contents.js"
+        }
+      }
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "kalastatic": "^6.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "serve": "^14.2.6"
+  }
+}

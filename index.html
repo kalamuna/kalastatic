@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <title>Welcome to the new Kalastatic!</title>
+    <link href="/kalastatic/styles.css" rel="stylesheet"><link href="/kalastatic/libraries/prism.css" rel="stylesheet">
+  </head>
+  <body>
+    
+  <header class="template-region--header">
+  <div class="template-region--header__logo">
+    <a href="/kalastatic/"><img src="/kalastatic/assets/logo.svg" aria-label="Lorem Ipsum"/></a>
+  </div>
+
+  
+  <div class="template-region--header__text">
+    <div class="template-region--header__site-title"><a href="/kalastatic/">Kalastatic</a></div>
+
+    
+
+
+<nav class="menu menu--main">
+  <h2>Main menu</h2>
+  <ul>
+          <li><a href="/kalastatic/">Introduction</a></li>
+          <li><a href="/kalastatic/getting-started/">Getting Started</a></li>
+          <li><a href="/kalastatic/kalastatic-functions-filters/">Functions/Filters</a></li>
+          <li><a href="/kalastatic/styleguide/">Styleguide Demo</a></li>
+      </ul>
+</nav>
+</header>
+  <main>
+    <h1>Welcome to the new Kalastatic!</h1>
+    
+  
+  
+
+
+<section id="what-is-kalastatic" class="section section--text">
+  <h2>What is Kalastatic?</h2>
+          <p>
+        Kalastatic is a super-simple static site generator, powered by the magic
+        of Twig. It allows front-end developers who are familiar with Twig to
+        quickly and conveniently create static sites, prototypes, and complicated
+        applications like styleguides without the need of a CMS backend.
+      </p>
+    </section>
+
+  
+  
+
+
+<section id="why-use-twig" class="section section--text">
+  <h2>Why use Twig?</h2>
+          <p>
+        Twig is a very powerful templating system that was created for
+        applications powered by PHP as part of the Symphony framework. Using just a
+        <a href="https://twig.symfony.com/doc/3.x/">slim collection</a> of tags,
+        filters, and functions, Twig provides an outsized ability to manipulate
+        and display content in ways that previously would have required extensive
+        and complicated custom code in PHP or other languages.
+      </p>
+      <p>
+        Since Twig is the templating system used by modern versions of Drupal,
+        it has broad adoption in the web development community, and any
+        front-end Drupal developers should already know everything they need to
+        start using Kalastatic.
+      </p>
+      <p>Kalastatic uses <a href="https://github.com/twigjs/twig.js/">
+        Twig.js</a> which is a pure JavaScript implementation of the Twig
+        templating language, allowing Twig to be integrated into the node-based
+        workflow that is used by most front-end developers for tasks like CSS
+        compilation and library inclusion.
+      </p>
+    </section>
+
+  
+  
+
+
+<section id="why-no-markdown-or-yml-files" class="section section--text">
+  <h2>Why no Markdown or YML files?</h2>
+          <p>
+        Most static site generators store content in a separate format from the
+        templates that are used to display it, usually either in Markdown files,
+        or other structured data files such as YML for JSON. This is under the
+        assumption that those formats are simpler and easier to understand by
+        editors than the html and other markup syntax that is used by the
+        underlying templates.
+      </p>
+      <p>
+        In practice, these alternate formats are not much simpler than the
+        underlying markup they are trying to obscure. For example,
+        <code class="language-html">**bold text**</code> in Markdown is not necessary simpler to
+        remember than <code class="language-html">&lt;strong&gt;bold text&lt;/strong&gt;</code>, and
+        having multiple formats also means that developers need to memorize
+        multiple formats and perhaps create complicated functions to convert
+        between the two.
+      </p>
+      <p>
+        File formats like YML and JSON are not particually well suited to storing
+        complicated markup and long blocks of text in a way that are easy to
+        view and edit by humans. They have been optimized for machine generation
+        and consumption, and even minor syntax mistakes may lead to complete
+        failure of the site generation.
+      </p>
+    </section>
+
+  
+  
+
+
+<section id="what-does-content-creation-in-twig-look-like" class="section section--text">
+  <h2>What does content creation in twig look like?</h2>
+          <p>
+        By creating page templates and then extending them, you quickly and
+        easily wrap your page content in a large amount of markup that is
+        shared across the pages on your site:
+      </p>
+
+
+
+
+      <figure>
+        <code class="language-twig">{# Wrap the content for this page in the common page template. #}
+{% extends "@templates/page.html.twig" %}
+
+{# Set the page title, which is output in the title and h1 elements. #}
+{% set title = "Welcome to the new Kalastatic!" %}
+
+{# This block contains your page content. #}
+{% block content %}
+  [Page content will go here...]
+{% endblock content %}</code>
+      <figcaption>
+        Example index.html.twig file using the page template defined for this
+        site, which provides a variable to hold the page title and a block to
+        hold the page content.
+      </figcaption>
+    </figure>
+
+
+      <p>
+        By defining component templates and embedding them into your page,
+        other chunks of markup can be standardized across many smaller repeating
+        parts of your website.
+      </p>
+
+
+      <figure>
+        <code class="language-twig">{# This block contains your page content. #}
+{% block content %}
+<strong>
+  {% embed "@components/sections/section--text.html.twig" with { 'heading': "What is Kalastatic?" } %}
+    {% block text %}
+      &lt;p&gt;
+        Kalastatic is a super-simple static site generator, powered by the magic
+        of Twig. It allows front-end developers who are familiar with Twig to
+        quickly and conveniently create static sites, prototypes, and complicated
+        applications like styleguides without the need of a CMS backend.
+      &lt;/p&gt;
+    {% endblock text %}
+  {% endembed %}
+</strong>
+{% endblock content %}</code>
+      <figcaption>
+        Example of placing a text section component that was defined for this
+        site within the content block from the page template above. The section
+        heading is passed in with a variable, and the content is placed in a
+        block named 'text'. The text block can contain paragraph tags and any
+        other HTML markup that is needed.
+      </figcaption>
+    </figure>
+
+
+      <p>
+        While creating pages this way requires a bit more technical knowledge
+        than just plugging text into CMS edit forms, it should not be a
+        challenge for front-end developers with Twig and HTML knowledge, and even
+        non-technical editors should be able to see how things work when given
+        an example to use as a reference.
+      </p>
+    </section>
+
+  </main>
+    <script src="/kalastatic/libraries/prism.js" ></script>
+  </body>
+</html>

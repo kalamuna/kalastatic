@@ -1,0 +1,260 @@
+<html>
+  <head>
+    <title>Kalastatic Functions and Filters</title>
+    <link href="/kalastatic/styles.css" rel="stylesheet"><link href="/kalastatic/libraries/prism.css" rel="stylesheet">
+  </head>
+  <body>
+    
+  <header class="template-region--header">
+  <div class="template-region--header__logo">
+    <a href="/kalastatic/"><img src="/kalastatic/assets/logo.svg" aria-label="Lorem Ipsum"/></a>
+  </div>
+
+  
+  <div class="template-region--header__text">
+    <div class="template-region--header__site-title"><a href="/kalastatic/">Kalastatic</a></div>
+
+    
+
+
+<nav class="menu menu--main">
+  <h2>Main menu</h2>
+  <ul>
+          <li><a href="/kalastatic/">Introduction</a></li>
+          <li><a href="/kalastatic/getting-started/">Getting Started</a></li>
+          <li><a href="/kalastatic/kalastatic-functions-filters/">Functions/Filters</a></li>
+          <li><a href="/kalastatic/styleguide/">Styleguide Demo</a></li>
+      </ul>
+</nav>
+</header>
+  <main>
+    <h1>Kalastatic Functions and Filters</h1>
+    
+  
+  
+
+
+<section id="custom-filters-and-functions" class="section section--text">
+  <h2>Custom filters and functions?</h2>
+          <p>
+        While Twig provides almost every function, filter, and tag you might
+        need to create a complicated static site, Kalastatic will include and
+        define some additional filters and functions that are needed both to
+        integrate with Drupal and also provide functions needed to easily create
+        complex static sites.
+      </p>
+    </section>
+
+  
+  
+
+
+<section id="drupal-twig-extensions" class="section section--text">
+  <h2>drupal-twig-extensions</h2>
+          <p>
+        Installing Kalastatic includes the
+        <a href="https://github.com/JohnAlbin/drupal-twig-extensions">drupal-twig-extensions</a>
+        library, which provides twig.js with additional functions and filters
+        that are provided when using Twig within drupal.
+      </p>
+      <p>
+        Some filters and functions are fully-implemented, while others merely
+        return their input or a blank string so that when the templates are used
+        outside of Drupal they do not throw errors when called.
+      </p>
+      <figure>
+        <div style="display: flex; gap: 1em">
+          <div>
+            <h3 style="margin: 0 1em">Filters</h3>
+            <ul>
+              <li>
+                <code>clean_class</code>
+              </li>
+              <li>
+                <code>clean_id</code>
+              </li>
+              <li>
+                <code>drupal_escape</code>
+              </li>
+              <li>
+                <code>format_date</code>
+              </li>
+              <li>
+                <code><em>render</em></code>
+              </li>
+              <li>
+                <code>safe_join</code>
+              </li>
+              <li>
+                <code><em>t</em></code>
+              </li>
+              <li>
+                <code><em>trans</em></code>
+              </li>
+              <li>
+                <code>without</code>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="margin: 0 1em">Functions</h3>
+            <ul>
+              <li>
+                <code>active_theme</code>
+              </li>
+              <li>
+                <code>active_theme_path</code>
+              </li>
+              <li>
+                <code><em>attach_library</em></code>
+              </li>
+              <li>
+                <code>create_attribute</code>
+              </li>
+              <li>
+                <code>file_url</code>
+              </li>
+              <li>
+                <code>link</code>
+              </li>
+              <li>
+                <code><em>path</em></code>
+              </li>
+              <li>
+                <code><em>render_var</em></code>
+              </li>
+              <li>
+                <code><em>url</em></code>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <figcaption>
+          The filters and functions provided by the drupal-twig-extensions
+          library, with those that are partially implemented or merely stubs
+          shown in italics.
+        </figcaption>
+      </figure>
+    </section>
+
+  
+  
+
+
+<section id="attach-library" class="section section--text">
+  <h2>attach_library()</h2>
+          <p>
+        Even though the <code>attach_library</code> function provided by the
+        drupal-twig-extensions library is just a stub that does not do anything
+        when called, Kalastatic provides its own <code>attach_library</code>
+        function that actually works the same way as the
+        <a href="https://www.drupal.org/node/2456753">Drupal feature</a>.
+      </p>
+      <p>
+        After you define a library in your
+        <a href="/kalastatic/getting-started#libraries">Kalastatic configuration</a>,
+        you can call the <code>attach_library</code> function in a Twig template,
+        and the specified stylesheet and script files will be included on
+        the rendered page.
+      </p>
+      <figure>
+        <code class="language-twig">{{ attach_library(&#039;details-tabs&#039;) }}</code>
+        <figcaption>
+          Very simple example of calling the function with the library name.
+        </figcaption>
+      </figure>
+    </section>
+
+
+  
+  
+
+
+<section id="get-namespaces-and-get-namespace-files" class="section section--text">
+  <h2>get_namespaces() and get_namespace_files()</h2>
+          <p>
+        While Twig contains many helpful files for inclding content from
+        other files, such as
+        <a href="https://twig.symfony.com/doc/3.x/tags/embed.html">embed</a>
+        and <a href="https://twig.symfony.com/doc/3.x/functions/source.html">source</a>,
+        one limitation is that Twig doesn't know what files exist without
+        explicity declaring them in the code.
+      </p>
+      <p>
+        In order for Kalastatic to create things like styleguide pages that are
+        dynamically generated based on whatever files are present, Kalastatic
+        provides two functions for Twig to know what files are present:
+        <code>get_namespaces()</code> and <code>get_namespace_files()</code>.
+      </p>
+      <p>The <code>get_namespaces()</code> function simply returns the keys
+        of the namespaces <a href='/getting-started/#namespaces'>
+        specified in the package.json file</a> for
+        your project, and the <code>get_namespace_files()</code> function
+        returns the list of files within that namespace, with the namespace
+        already prefixed, so you can immediately use that filename in twig
+        embed and include tags.
+      </p>
+      <p>
+        For reference, here is the code that the Kalastatic demo styleguide uses
+        to look for <code>.sample.twig</code> files to include in the styleguide:
+      <figure>
+        <code class="language-twig">{# Create the styleguide and component library by finding sample files in each of the namespaces. #}
+&lt;div class=&quot;styleguide&quot;&gt;
+{% for namespace in get_namespaces() %}
+  {% for filename in get_namespace_files(namespace) %}
+    {% if &#039;.sample.twig&#039; in filename %}
+      {# Embed the sample, providing the namespace and filename root, so it can look for related files with different extensions. #}
+      {% embed filename with {&#039;namespace&#039;: namespace, &#039;file_root&#039;: filename|replace({&#039;.sample.twig&#039;: &#039;&#039;}) } %}{% endembed %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+&lt;/div&gt;</code>
+        <figcaption>
+          Twig markup that gets the files within each namespace, and then
+          looks through them for <code>sample.twig</code> files to embed on
+          the styleguide page.
+        </figcaption>
+      </figure>
+
+      <p>
+        Another example is the template for the main menu of this site, which
+        is automatically generated by looking through all of the files in
+        the <code>pages</code> namespace:
+      </p>
+        <figure>
+          <code class="language-twig">{# Get the url for each section, which is the directory without the pages namespace and index.html.twig. #}
+{% set sections = [] %}
+{% for filename in get_namespace_files(&#039;pages&#039;) %}
+{% if &#039;index.html.twig&#039; in filename %}
+  {% set sections = [filename|replace({&#039;@pages&#039;: &#039;&#039;, &#039;index.html.twig&#039;: &#039;&#039;})]|merge(sections) %}
+{% endif %}
+{% endfor %}
+
+{# Iterate through all of the component files and output the pages as menu items. #}
+{% set menu_items = [] %}
+{% for section in sections|sort %}
+  {% import &#039;@pages&#039; ~ section ~ &#039;index.html.twig&#039; as page %}
+  {% if page.menu_title is defined %}
+    {% set menu_items = menu_items|merge([{ &#039;href&#039;: section, &#039;title&#039;: page.menu_title() }]) %}
+  {% endif %}
+{% endfor %}</code>
+        <figcaption>
+          Twig markup that gets the files within the page namespace, and then
+          checks each for a <code>menu_title()</code> macro that provides a
+          name for the menu link.
+        </figcaption>
+      </figure>
+
+      <p>
+        <em>Note that since these functions are specific to Kalastatic, they
+          should only be used when generating static pages, and cannot be used
+          in any templates that are also going to be used by Drupal.
+        </em>
+      </p>
+    </section>
+
+
+  </main>
+    <script src="/kalastatic/libraries/prism.js" ></script>
+  </body>
+</html>

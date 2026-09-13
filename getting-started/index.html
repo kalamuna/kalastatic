@@ -1,0 +1,340 @@
+<html>
+  <head>
+    <title>Getting Started</title>
+    <link href="/kalastatic/styles.css" rel="stylesheet"><link href="/kalastatic/libraries/prism.css" rel="stylesheet">
+  </head>
+  <body>
+    
+  <header class="template-region--header">
+  <div class="template-region--header__logo">
+    <a href="/kalastatic/"><img src="/kalastatic/assets/logo.svg" aria-label="Lorem Ipsum"/></a>
+  </div>
+
+  
+  <div class="template-region--header__text">
+    <div class="template-region--header__site-title"><a href="/kalastatic/">Kalastatic</a></div>
+
+    
+
+
+<nav class="menu menu--main">
+  <h2>Main menu</h2>
+  <ul>
+          <li><a href="/kalastatic/">Introduction</a></li>
+          <li><a href="/kalastatic/getting-started/">Getting Started</a></li>
+          <li><a href="/kalastatic/kalastatic-functions-filters/">Functions/Filters</a></li>
+          <li><a href="/kalastatic/styleguide/">Styleguide Demo</a></li>
+      </ul>
+</nav>
+</header>
+  <main>
+    <h1>Getting Started</h1>
+    
+  
+  
+
+
+<section id="installing-kalastatic" class="section section--text">
+  <h2>Installing Kalastatic</h2>
+          <p>
+        Kalastatic requires <a href="https://nodejs.org">Node.js</a> 22 or
+        newer, and is easy to include in your project as a node module:
+      </p>
+      <figure>
+        <code class="language-bash">
+npm install kalastatic
+        </code>
+      </figure>
+      <p>
+        However, if you are looking for some demo content to help get you
+        started, you will soon be able to use the npm create command (once we
+        have finished developing it):
+      </p>
+      <figure>
+        <code class="language-bash">
+npm create kalastatic
+        </code>
+      </figure>
+      <p>
+        When running the create command, you will be prompted with questions
+        about which types of demo content that you'd like to start with,
+        including pages, components, styleguide, and drupal theme integration.
+      </p>
+    </section>
+
+  
+  
+
+
+<section id="configuring-kalastatic" class="section section--text">
+  <h2>Configuring Kalastatic</h2>
+          <p>
+        Since Kalastatic is a very simple system, its configuration is also
+        very simple. Simply create a <code>kalastatic</code> key in your
+        <code>package.json</code> to store the settings:
+      </p>
+      <figure>
+        <code class="language-json">
+"kalastatic": {
+}
+        </code>
+      </figure>
+      <p>
+        You can look at the <a href="../assets/package.json">package.json</a>
+        file for this demo site to get an idea of the overall structure.
+      </p>
+
+      <h3 id="source-destination">source and destination</h3>
+      <p>
+        The first two configuration items that you need to set are
+        <code>source</code> and <code>destination</code>. Kalastatic will
+        look in the <code>source</code> directory to find
+        <code>html.twig</code> files to process, compile them into
+        <code>html</code> files, and place them in the <code>destination</code>
+        directory.
+      </p>
+      <figure>
+        <code class="language-json">
+"kalastatic": {
+  "source": "pages",
+  "destination": "build"
+  }
+}
+        </code>
+      </figure>
+      <p>
+        The <code>destination</code> directory will also be prepended to any
+        destinations for assets, stylesheets, and scripts specified (see below).
+      </p>
+      <h3 id="namespaces">namespaces</h3>
+      <p>
+        The second configuration item is the <code>namespaces</code> item, which
+        contains an array of directories that should be used for twig
+        namespaces, with each item mapping a namespace name to a corresponding
+        directory:
+      </p>
+      <figure>
+        <code class="language-json">
+"kalastatic": {
+  "source": "pages",
+  "destination": "build",
+  "namespaces": {
+    "components": "components",
+    "templates": "templates",
+    "pages": "pages"
+  }
+}
+        </code>
+      </figure>
+      <p>
+        Having these namespaces will allow for things like pages extending
+        templates in the <code>@templates/</code> namespace and embedding
+        components using the <code>@components/</code> namespace. In addition,
+        Kalastatic will generate a list of files in each namespace, and pass
+        the list to the twig files in a <code>namespaceFiles</code> variable.
+        See the <strong>Namespace Files</strong> section below for more info.
+      </p>
+      <p>
+        These namespaces are just common ones that we tend to use, but they
+        can be named and organized in whatever way that makes sense for your
+        project, along with adding additional items. For example, if you are
+        buiding a styleguide, there may also be a <code>@styles/</code>
+        namespace to contain sample twig files with example code and a
+        <code>@styleguide/</code> namespace to contain styleguide-specific
+        templates.
+      </p>
+
+      <h3 id="assets">assets</h3>
+      <p>
+        If you have files that you would like to deploy without any processing
+        needed to be done, such as image files, you can add a
+        <code>assets</code> configuration item with an array of destination and
+        source directories or individual files, and the files will be simply
+        copied from one to the other during the build process.
+      </p>
+      <figure>
+        <code class="language-json">
+"kalastatic": {
+  "source": "pages",
+  "destination": "build",
+  ...
+  "assets": {
+    "assets": "assets"
+  }
+}
+        </code>
+      </figure>
+
+      <h3 id="kalastatic-stylesheets">kalastatic_stylesheets</h3>
+      <p>
+        If you have scss files that need to be processed into css files, you
+        can include a <code>kalastatic_stylesheets</code> array with individual
+        source and destination filenames (wildcard patterns have not actually
+        been tested yet), and Kalatatic will use the node <code>sass</code>
+        library to process those files:
+      </p>
+      <figure>
+        <code class="language-json">
+"kalastatic": {
+  "source": "pages",
+  "destination": "build",
+  ...
+  "kalastatic_stylesheets": {
+    "styles/styles.scss": "styles.css"
+  }
+}
+        </code>
+      </figure>
+      <p>
+        An array of filenames processed as part of the stylesheet compilation
+        are passed into the twig rendering process in the
+        <code>kalastatic_stylesheets</code> variable, which can be used to
+        automatically add stylesheets to your main html template:
+      </p>
+      <figure>
+        <code class="language-twig">{{ kalastatic_stylesheets }}</code>
+        </figure>
+      <p>
+        <em>Note that beyond the files to compile, there is no configuration
+        available for changing how the scss is processed, so if you have a more
+        complicated compilation process, you can just leave out this
+        configuration item and set up your own process with the compilier and
+        settings of your choice.</em>
+      </p>
+
+      <h3 id="kalastatic-scripts">kalastatic_scripts</h3>
+      <p>
+        Much like with <code>kalastatic_stylesheets</code>, you can specify a
+        <code>kalastatic_scripts</code> parameter, which copies the script files
+        from the source to the destination specified:
+      </p>
+      <figure>
+        <code class="language-json">
+"kalastatic": {
+  "source": "pages",
+  "destination": "build",
+  ...
+  "kalastatic_scripts": {
+    "js/main.js": "main.js"
+  }
+}
+        </code>
+      </figure>
+      <p>
+        There is no processing done on the js files, so you could move them
+        using the <code>assets</code> parameter, but the files specified by the
+        <code>kalastatic_scripts</code> parameter are also passed into the twig
+        file in a variable called <code>kalastatic_scripts</code> that can be
+        used to automatically populate the script tags in your html template:
+      </p>
+      <figure>
+        <code class="language-twig">{{ kalastatic_scripts }}</code>
+      </figure>
+
+      <h3 id="libraries">libraries</h3>
+      <p>
+        Similar to the <code>libraries.yml</code> files that are provided by Drupal modules
+        and themes, you can define a library for Kalastatic in the
+        <code>package.json</code> configuration array:
+      </p>
+      <figure>
+        <code class="language-json">"kalastatic": {
+  "source": "pages",
+  "destination": "build",
+  ...
+  "libraries": {
+    "details-tabs" : {
+      "stylesheets": {
+        "libraries/details-tabs.scss": "libraries/details-tabs.css"
+      },
+      "scripts": {
+        "libraries/details-tabs.js": "libraries/details-tabs.js"
+      }
+    }
+  }
+}</code>
+        <figcaption>
+          An example library configuration in the <code>package.json</code>
+          file showing how you define the stylesheets and scripts for a library.
+        </figcaption>
+      </figure>
+      <p>
+        Note that unlike Drupal, each item requires source and destination for
+        the file, just like the <code>kalastatic_stylesheets</code> and
+        <code>kalastatic_scripts</code> parameters for the main Kalastatic
+        configuration.
+      </p>
+      <p>
+        If you provide a scss file for the stylesheets instead of a css file,
+        it will be compiled when processed (which is why these definitions
+        eschew the innacurate <code>js</code> and <code>css</code> keys that
+        Drupal uses for its library definitions).
+      </p>
+      <p>
+        After you define the library, you can call the
+        <a href="/kalastatic/kalastatic-functions-filters#attach_library">attach_library
+        function</a> in a Twig template, and only at that point will the specified
+        files be added to the <code>kalastatic_scripts</code> and
+        <code>kalastatic_stylesheets</code> variables that are passed into the
+        Twig templages by Kalastatic upon processing.
+      </p>
+
+    </section>
+
+  
+  
+
+
+<section id="github-pages-and-base-url" class="section section--text">
+  <h2>Github Pages and base_url</h2>
+          <p>
+        Kalastatic can be easily deployed to Github pages for hosting the
+        compiled static files. Here is the workflow that this site uses:
+      </p>
+      <figure>
+        <code class="language-yaml">
+name: Build and Deploy a Branch to GH Pages
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - name: npm Install
+        env:
+          base_url: '/kstat_test'
+        run: |
+          npm install
+          npm run build
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+          # Remove previous build files
+          clean: true
+        </code>
+        <figcaption>
+          The contents of our <code>gh-pages.yml</code> file that deployes that
+          compiles the pages for this site and deploys them to Github Pages.
+        </figcaption>
+      </figure>
+      <p>
+        When hosting your site in an environment like Github Page, the site
+        root may have a base path in front of it, so Kalastatic looks for a
+        <code>base_url</code> environment variable, which you can then prepend
+        to any links, image sources, or styleguide and script includes.
+      </p>
+    </section>
+  </main>
+    <script src="/kalastatic/libraries/prism.js" ></script>
+  </body>
+</html>

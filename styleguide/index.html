@@ -1,0 +1,896 @@
+<html>
+  <head>
+    <title>Styleguide and Component Library Demo</title>
+    <link href="/kalastatic/styles.css" rel="stylesheet"><link href="/kalastatic/libraries/prism.css" rel="stylesheet"><link href="/kalastatic/libraries/details-tabs.css" rel="stylesheet">
+  </head>
+  <body>
+    
+  <header class="template-region--header">
+  <div class="template-region--header__logo">
+    <a href="/kalastatic/"><img src="/kalastatic/assets/logo.svg" aria-label="Lorem Ipsum"/></a>
+  </div>
+
+  
+  <div class="template-region--header__text">
+    <div class="template-region--header__site-title"><a href="/kalastatic/">Kalastatic</a></div>
+
+    
+
+
+<nav class="menu menu--main">
+  <h2>Main menu</h2>
+  <ul>
+          <li><a href="/kalastatic/">Introduction</a></li>
+          <li><a href="/kalastatic/getting-started/">Getting Started</a></li>
+          <li><a href="/kalastatic/kalastatic-functions-filters/">Functions/Filters</a></li>
+          <li><a href="/kalastatic/styleguide/">Styleguide Demo</a></li>
+      </ul>
+</nav>
+</header>
+  <main>
+    <h1>Styleguide and Component Library Demo</h1>
+    
+  
+  <section id="page-contents" class="section"></section>
+  
+
+  
+  
+
+
+<section id="about-this-styleguide" class="section section--text">
+  <h2>About this Styleguide</h2>
+        <p>
+      This is an example of what a styleguide can look like with Kalastatic.
+      Note that even though you can have a demo styleguide created when
+      installing Kalastatic, it is assembled with normal components that use the
+      Kalastatic site generator, and the design and functionality can be
+      customized as needed to meet your own project's needs.
+    </p>
+    </section>
+
+  
+  
+
+<div class="styleguide">
+                    
+        
+
+
+<section id="colors" class="section styleguide-sample styleguide-sample--add-padding">
+  <h2>Colors</h2>
+  
+      <p>The palette of colors that are used throughout this site.</p>
+  
+  
+
+  <div class="details-tabs">
+
+    <details open>
+      <summary>Sample</summary>
+      
+      <div class="details-content" data-page-contents-exclude="true">
+        <div style="padding: 1em; margin: 1em 0; color: var(--color-grey-90); background: var(--color-grey-10);">
+  --color-grey-10: #333333;
+</div>
+
+<div style="padding: 1em; margin: 1em 0; color: var(--color-grey-90); background: var(--color-grey-20);">
+  --color-grey-20: #595959;
+</div>
+
+<div style="padding: 1em; margin: 1em 0; color: var(--color-grey-90); background: var(--color-grey-30);">
+  --color-grey-30: #707070;
+</div>
+
+<div style="padding: 1em; margin: 1em 0; color: var(--color-grey-10); background: var(--color-grey-80);">
+  --color-grey-80: #e6e6e6;
+</div>
+
+<div style="padding: 1em; margin: 1em 0; color: var(--color-grey-10); background: var(--color-grey-90);">
+  --color-grey-90: #f9f9f9;
+</div>
+
+<div style="padding: 1em; margin: 1em 0; color: var(--color-grey-10); background: var(--color-white);">
+  --color-white: #ffffff;
+</div>
+
+<div style="padding: 1em; margin: 1em 0; color: var(--color-grey-90); background: var(--color-blue-30);">
+  --color-blue-30: #0077aa;
+</div>
+
+<div style="padding: 1em; margin: 1em 0; color: var(--color-grey-90); background: var(--color-red-20);">
+  --color-red-20: #ab0000;
+</div>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>Sample Twig</summary>
+      <div class="details-content">
+                
+        <pre><code class="language-twig">&lt;div style=&quot;padding: 1em; margin: 1em 0; color: var(--color-grey-90); background: var(--color-grey-10);&quot;&gt;
+  --color-grey-10: #333333;
+&lt;/div&gt;
+
+&lt;div style=&quot;padding: 1em; margin: 1em 0; color: var(--color-grey-90); background: var(--color-grey-20);&quot;&gt;
+  --color-grey-20: #595959;
+&lt;/div&gt;
+
+&lt;div style=&quot;padding: 1em; margin: 1em 0; color: var(--color-grey-90); background: var(--color-grey-30);&quot;&gt;
+  --color-grey-30: #707070;
+&lt;/div&gt;
+
+&lt;div style=&quot;padding: 1em; margin: 1em 0; color: var(--color-grey-10); background: var(--color-grey-80);&quot;&gt;
+  --color-grey-80: #e6e6e6;
+&lt;/div&gt;
+
+&lt;div style=&quot;padding: 1em; margin: 1em 0; color: var(--color-grey-10); background: var(--color-grey-90);&quot;&gt;
+  --color-grey-90: #f9f9f9;
+&lt;/div&gt;
+
+&lt;div style=&quot;padding: 1em; margin: 1em 0; color: var(--color-grey-10); background: var(--color-white);&quot;&gt;
+  --color-white: #ffffff;
+&lt;/div&gt;
+
+&lt;div style=&quot;padding: 1em; margin: 1em 0; color: var(--color-grey-90); background: var(--color-blue-30);&quot;&gt;
+  --color-blue-30: #0077aa;
+&lt;/div&gt;
+
+&lt;div style=&quot;padding: 1em; margin: 1em 0; color: var(--color-grey-90); background: var(--color-red-20);&quot;&gt;
+  --color-red-20: #ab0000;
+&lt;/div&gt;</code></pre>
+      </div>
+    </details>
+
+    
+          <details>
+        <summary>SCSS</summary>
+        <div class="details-content">
+          <pre><code class="language-scss">:root {
+  --color-grey-10: #333333;
+  --color-grey-20: #595959;
+  --color-grey-30: #707070;
+  --color-grey-80: #e6e6e6;
+  --color-grey-90: #f9f9f9;
+  --color-white: #fff;
+  --color-blue-30: #0077aa;
+  --color-red-20: #ab0000;
+}
+
+body {
+  background: var(--color-grey-90);
+}
+
+a {
+  &, &:hover {
+    color: var(--color-blue-30);
+  }
+}</code></pre>
+        </div>
+      </details>
+    
+      </div>
+</section>
+                                            
+        
+
+
+<section id="typography" class="section styleguide-sample styleguide-sample--add-padding">
+  <h2>Typography</h2>
+  
+      <p>The six levels of headings and paragraph text styles.</p>
+  
+  
+
+  <div class="details-tabs">
+
+    <details open>
+      <summary>Sample</summary>
+      
+      <div class="details-content" data-page-contents-exclude="true">
+        <h1>What is Lorem Ipsum?</h1>
+
+<h2>What is Lorem Ipsum?</h2>
+
+<h3>What is Lorem Ipsum?</h3>
+
+<h4>What is Lorem Ipsum?</h4>
+
+<h5>What is Lorem Ipsum?</h5>
+
+<h6>What is Lorem Ipsum?</h6>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Sample Twig</summary>
+      <div class="details-content">
+                
+        <pre><code class="language-twig">&lt;h1&gt;What is Lorem Ipsum?&lt;/h1&gt;
+
+&lt;h2&gt;What is Lorem Ipsum?&lt;/h2&gt;
+
+&lt;h3&gt;What is Lorem Ipsum?&lt;/h3&gt;
+
+&lt;h4&gt;What is Lorem Ipsum?&lt;/h4&gt;
+
+&lt;h5&gt;What is Lorem Ipsum?&lt;/h5&gt;
+
+&lt;h6&gt;What is Lorem Ipsum?&lt;/h6&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+
+&lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.&lt;/p&gt;</code></pre>
+      </div>
+    </details>
+
+    
+          <details>
+        <summary>SCSS</summary>
+        <div class="details-content">
+          <pre><code class="language-scss">@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root {
+  // Common styles across all the headings.
+  --heading-font-family: "Source Sans Pro", sans-serif;
+  --heading-line-height: 1.2;
+  --heading-font-weight: bold;
+
+  // The font size for the actual page content is usually larger.
+  --paragraph-font-family: "Source Sans Pro", sans-serif;
+  --paragraph-font-size: var(--font-size-500); // 18px
+  --paragraph-line-height: 1.5;
+  --paragraph-margin: 1em;
+
+  // The standard font sizes that are used throughout the site.
+  --font-size-100: 2.625rem;  // 42px
+  --font-size-200: 2rem;      // 32px
+  --font-size-300: 1.625rem;  // 26px
+  --font-size-400: 1.25rem;   // 20px
+  --font-size-500: 1.125rem;   // 18px
+  --font-size-600: 1rem;      // 16px
+  --font-size-700: .8rem;     // 12.8px
+}
+
+// Set the default document font to the paragraph text.
+body {
+  font-family: var(--paragraph-font-family);
+}
+
+// Common spacing and styles for all headings.
+h1, h2, h3, h4, h5, h6 {
+  margin: 1em 0 .5em;
+  font-family: var(--heading-font-family);
+  line-height: var(--heading-line-height);
+  font-weight: var(--heading-font-weight);
+}
+
+// Sizes of the different heading levels.
+h1 { font-size: var(--font-size-100); }
+h2 { font-size: var(--font-size-200); }
+h3 { font-size: var(--font-size-300); }
+h4 { font-size: var(--font-size-400); }
+h5 { font-size: var(--font-size-500); }
+h6 { font-size: var(--font-size-600); }
+
+
+// Set the size all paragraphs and long-text content.
+p {
+  font-size: var(--paragraph-font-size);
+  line-height: var(--paragraph-line-height);
+  margin: var(--paragraph-margin) 0;
+}</code></pre>
+        </div>
+      </details>
+    
+      </div>
+</section>
+                                  
+        
+
+
+<section id="inline-code-and-code-blocks" class="section styleguide-sample styleguide-sample--add-padding">
+  <h2>Inline Code and Code Blocks</h2>
+  
+      <p>The code tag that is used to format code both within paragraph text and as a block within a figure tag.</p>
+  
+  
+
+  <div class="details-tabs">
+
+    <details open>
+      <summary>Sample</summary>
+      
+      <div class="details-content" data-page-contents-exclude="true">
+        
+<p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using <code class="language-bash">echo "Content here, content here"</code>, making it look like readable English.</p>
+
+<figure>
+  <code class="language-html">
+&lt;p&gt;The point of using Lorem Ipsum is that it has a more-or-less normal
+  distribution of letters, as opposed to using &lt;code&gt;Content here, content
+  here&lt;/code&gt;, making it look like readable English.
+&lt;/p&gt;
+  </code>
+  <figcaption>A block of code or markup.</figcaption>
+</figure>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>Sample Twig</summary>
+      <div class="details-content">
+                
+        <pre><code class="language-twig">&lt;p&gt;The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &lt;code class=&quot;language-bash&quot;&gt;echo &quot;Content here, content here&quot;&lt;/code&gt;, making it look like readable English.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;code class=&quot;language-html&quot;&gt;
+&amp;lt;p&amp;gt;The point of using Lorem Ipsum is that it has a more-or-less normal
+  distribution of letters, as opposed to using &amp;lt;code&amp;gt;Content here, content
+  here&amp;lt;/code&amp;gt;, making it look like readable English.
+&amp;lt;/p&amp;gt;
+  &lt;/code&gt;
+  &lt;figcaption&gt;A block of code or markup.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+      </div>
+    </details>
+
+    
+          <details>
+        <summary>SCSS</summary>
+        <div class="details-content">
+          <pre><code class="language-scss">code {
+  background: var(--color-white) !important;
+  border: .07em solid var(--color-grey-80);
+  font-family: monospace;
+  padding: .1em .3em;
+  font-size: .9em !important;
+
+  // If the code is wrapped in a figure tag, then it should be formatted as a block of text.
+  figure > &, pre > & {
+    display: block;
+    padding: 1em !important;
+    white-space: pre-wrap !important;
+    line-height: var(--paragraph-line-height);
+
+    // If a caption is included after the code block give it the same background color as the border.
+    + figcaption {
+      display: inline-block;
+      background: var(--color-grey-80);
+    }
+  }
+}</code></pre>
+        </div>
+      </details>
+    
+      </div>
+</section>
+                                  
+        
+
+
+<section id="figure" class="section styleguide-sample styleguide-sample--add-padding">
+  <h2>Figure</h2>
+  
+      <p>A figure tag which can contain things like images and blocks of code.</p>
+  
+  
+
+  <div class="details-tabs">
+
+    <details open>
+      <summary>Sample</summary>
+      
+      <div class="details-content" data-page-contents-exclude="true">
+        
+<figure>
+  <img src="/kalastatic/assets/logo.svg" width="300" height="300" />
+  <figcaption>The Kalastatic site logo.</figcaption>
+</figure>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>Sample Twig</summary>
+      <div class="details-content">
+                
+        <pre><code class="language-twig">&lt;figure&gt;
+  &lt;img src=&quot;{{ base_url }}/assets/logo.svg&quot; width=&quot;300&quot; height=&quot;300&quot; /&gt;
+  &lt;figcaption&gt;The Kalastatic site logo.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+      </div>
+    </details>
+
+    
+          <details>
+        <summary>SCSS</summary>
+        <div class="details-content">
+          <pre><code class="language-scss">// By default, give figures the same font size and margin as a paragraph.
+figure {
+  font-size: var(--paragraph-font-size);
+  line-height: var(--paragraph-line-height);
+  margin: 2em 0;
+
+  // The caption text that describes the figure.
+  figcaption {
+    font-size: .9em;
+    font-style: italic;
+    padding: .5em 1em;
+
+    // If someone wraps the figcaption text in paragraphs, ensure there isn't too much space at the top and bottom.
+    > *:first-child {
+      margin-top: 0;
+    }
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+}</code></pre>
+        </div>
+      </details>
+    
+      </div>
+</section>
+                                                                      
+        
+
+
+<section id="menu" class="section styleguide-sample styleguide-sample--add-padding">
+  <h2>Menu</h2>
+  
+      <p>A generic menu, with an unordered list of links wrapped in a nav element.</p>
+  
+  
+
+  <div class="details-tabs">
+
+    <details open>
+      <summary>Sample</summary>
+      
+      <div class="details-content" data-page-contents-exclude="true">
+        
+
+
+<nav class="menu">
+  <h2>Sample Menu</h2>
+  <ul>
+          <li><a href="#">Menu Link 1</a></li>
+          <li><a href="#">Menu Link 2</a></li>
+          <li><a href="#">Menu Link 3</a></li>
+          <li><a href="#">Menu Link 4</a></li>
+          <li><a href="#">Menu Link 5</a></li>
+          <li><a href="#">Menu Link 6</a></li>
+      </ul>
+</nav>
+      </div>
+    </details>
+
+    <details>
+      <summary>Sample Twig</summary>
+      <div class="details-content">
+                
+        <pre><code class="language-twig">{% embed &quot;@components/menus/menu.html.twig&quot; only %}
+
+  {# Set the title for this menu (even though it will be visually hidden). #}
+  {% set menu_title = &quot;Sample Menu&quot; %}
+
+  {# Create some generic links that don&#039;t go anywhere. #}
+  {% set menu_items = [
+      { &#039;href&#039;: &quot;#&quot;, &#039;title&#039;: &quot;Menu Link 1&quot; },
+      { &#039;href&#039;: &quot;#&quot;, &#039;title&#039;: &quot;Menu Link 2&quot; },
+      { &#039;href&#039;: &quot;#&quot;, &#039;title&#039;: &quot;Menu Link 3&quot; },
+      { &#039;href&#039;: &quot;#&quot;, &#039;title&#039;: &quot;Menu Link 4&quot; },
+      { &#039;href&#039;: &quot;#&quot;, &#039;title&#039;: &quot;Menu Link 5&quot; },
+      { &#039;href&#039;: &quot;#&quot;, &#039;title&#039;: &quot;Menu Link 6&quot; },
+    ]
+  %}
+{% endembed %}</code></pre>
+      </div>
+    </details>
+
+          <details>
+        <summary>Twig Template</summary>
+        <div class="details-content">
+          <pre><code class="language-twig">{# Set the class for this component, including any classes set by variants. #}
+{% set classes = [
+    &#039;menu&#039;
+  ]|merge(classes ?? [])
+%}
+
+&lt;nav class=&quot;{{ classes|join(&quot; &quot;) }}&quot;&gt;
+  &lt;h2&gt;{{ menu_title }}&lt;/h2&gt;
+  &lt;ul&gt;
+    {% for item in menu_items %}
+      &lt;li&gt;&lt;a href=&quot;{{ base_url }}{{ item.href }}&quot;&gt;{{ item.title }}&lt;/a&gt;&lt;/li&gt;
+    {% endfor %}
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+        </div>
+      </details>
+    
+    
+      </div>
+</section>
+                                  
+        
+
+
+<section id="menu-main-menu" class="section styleguide-sample styleguide-sample--add-padding">
+  <h2>Menu: Main Menu</h2>
+  
+      <p>The main menu for the site which is dynamically created by iterating through all of the twig files in the pages namespace.</p>
+  
+  
+
+  <div class="details-tabs">
+
+    <details open>
+      <summary>Sample</summary>
+      
+      <div class="details-content" data-page-contents-exclude="true">
+        
+
+
+
+
+<nav class="menu menu--main">
+  <h2>Main menu</h2>
+  <ul>
+          <li><a href="/">Introduction</a></li>
+          <li><a href="/getting-started/">Getting Started</a></li>
+          <li><a href="/kalastatic-functions-filters/">Functions/Filters</a></li>
+          <li><a href="/styleguide/">Styleguide Demo</a></li>
+      </ul>
+</nav>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>Sample Twig</summary>
+      <div class="details-content">
+                
+        <pre><code class="language-twig">{# Just let it do its magic by looking through the pages namespace. #}
+{% embed &quot;@components/menus/menu--main.html.twig&quot; only %}
+{% endembed %}</code></pre>
+      </div>
+    </details>
+
+          <details>
+        <summary>Twig Template</summary>
+        <div class="details-content">
+          <pre><code class="language-twig">{% extends &quot;menu.html.twig&quot; %}
+
+{# Set the class for this component. #}
+{% set classes = [&#039;menu--main&#039;] %}
+
+{# Set the title for this menu (even though it will be visually hidden). #}
+{% set menu_title = &quot;Main menu&quot; %}
+
+{# Get the url for each section, which is the directory without the pages namespace and index.html.twig. #}
+{% set sections = [] %}
+{% for filename in get_namespace_files(&#039;pages&#039;) %}
+  {% if &#039;index.html.twig&#039; in filename %}
+    {% set sections = [filename|replace({&#039;@pages&#039;: &#039;&#039;, &#039;index.html.twig&#039;: &#039;&#039;})]|merge(sections) %}
+  {% endif %}
+{% endfor %}
+
+{# Iterate through all of the component files and output the pages as menu items. #}
+{% set menu_items = [] %}
+{% for section in sections|sort %}
+    {% import &#039;@pages&#039; ~ section ~ &#039;index.html.twig&#039; as page %}
+    {% if page.menu_title is defined %}
+      {% set menu_items = menu_items|merge([{ &#039;href&#039;: section, &#039;title&#039;: page.menu_title() }]) %}
+    {% endif %}
+{% endfor %}</code></pre>
+        </div>
+      </details>
+    
+    
+      </div>
+</section>
+                                  
+        
+
+
+<section id="section" class="section styleguide-sample ">
+  <h2>Section</h2>
+  
+      <p>A general section pattern with a section tag, h2 heading, and content.</p>
+  
+  
+
+  <div class="details-tabs">
+
+    <details open>
+      <summary>Sample</summary>
+      
+      <div class="details-content" data-page-contents-exclude="true">
+        
+
+
+<section id="what-is-lorem-ipsum" class="section section--text">
+  <h2>What is lorem ipsum?</h2>
+      <p>Content here</p>
+  </section>
+      </div>
+    </details>
+
+    <details>
+      <summary>Sample Twig</summary>
+      <div class="details-content">
+                
+        <pre><code class="language-twig">{% embed &quot;section--text.html.twig&quot; only %}
+  {% set heading = &quot;What is lorem ipsum?&quot; %}
+  {% block content %}
+    &lt;p&gt;Content here&lt;/p&gt;
+  {% endblock content %}
+{% endembed %}</code></pre>
+      </div>
+    </details>
+
+          <details>
+        <summary>Twig Template</summary>
+        <div class="details-content">
+          <pre><code class="language-twig">{# Set the class for this component, including any classes set by variants. #}
+{% set classes = [
+    &#039;section&#039;
+  ]|merge(classes ?? [])
+%}
+
+&lt;section id=&quot;{{ heading|clean_id }}&quot; class=&quot;{{ classes|join(&quot; &quot;) }}&quot;&gt;
+  &lt;h2&gt;{{ heading }}&lt;/h2&gt;
+  {% block content %}
+  {% endblock content %}
+&lt;/section&gt;</code></pre>
+        </div>
+      </details>
+    
+          <details>
+        <summary>SCSS</summary>
+        <div class="details-content">
+          <pre><code class="language-scss">.section {
+  padding: 0 var(--container-padding) var(--container-padding);
+  border-bottom: .2rem solid var(--color-white);
+
+}</code></pre>
+        </div>
+      </details>
+    
+      </div>
+</section>
+                                            
+        
+
+
+<section id="section-text" class="section styleguide-sample ">
+  <h2>Section: Text</h2>
+  
+      <p>A section whose content is primarly a block of text, possibly with images or media embedded within.</p>
+  
+  
+
+  <div class="details-tabs">
+
+    <details open>
+      <summary>Sample</summary>
+      
+      <div class="details-content" data-page-contents-exclude="true">
+        
+
+
+<section id="what-is-lorem-ipsum" class="section section--text">
+  <h2>What is lorem ipsum?</h2>
+        <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting
+      industry. Lorem Ipsum has been the industry's standard dummy text ever
+      since the 1500s, when an unknown printer took a galley of type and
+      scrambled it to make a type specimen book. It has survived not only five
+      centuries, but also the leap into electronic typesetting, remaining
+      essentially unchanged. It was popularised in the 1960s with the release
+      of Letraset sheets containing Lorem Ipsum passages, and more recently
+      with desktop publishing software like Aldus PageMaker including versions
+      of Lorem Ipsum.
+    </p>
+  </section>
+      </div>
+    </details>
+
+    <details>
+      <summary>Sample Twig</summary>
+      <div class="details-content">
+                
+        <pre><code class="language-twig">{% embed &quot;section--text.html.twig&quot; only %}
+  {% set heading = &quot;What is lorem ipsum?&quot; %}
+  {% block text %}
+    &lt;p&gt;
+      Lorem Ipsum is simply dummy text of the printing and typesetting
+      industry. Lorem Ipsum has been the industry&#039;s standard dummy text ever
+      since the 1500s, when an unknown printer took a galley of type and
+      scrambled it to make a type specimen book. It has survived not only five
+      centuries, but also the leap into electronic typesetting, remaining
+      essentially unchanged. It was popularised in the 1960s with the release
+      of Letraset sheets containing Lorem Ipsum passages, and more recently
+      with desktop publishing software like Aldus PageMaker including versions
+      of Lorem Ipsum.
+    &lt;/p&gt;
+  {% endblock text %}
+{% endembed %}</code></pre>
+      </div>
+    </details>
+
+          <details>
+        <summary>Twig Template</summary>
+        <div class="details-content">
+          <pre><code class="language-twig">{% extends &quot;@components/sections/section.html.twig&quot; %}
+
+{# Set the class for this component. #}
+{% set classes = [
+    &#039;section--text&#039;
+  ]
+%}
+
+{# Allow a block of text to be placed in the content. #}
+{% block content %}
+  {% block text %}
+  {% endblock text %}
+{% endblock content %}</code></pre>
+        </div>
+      </details>
+    
+          <details>
+        <summary>SCSS</summary>
+        <div class="details-content">
+          <pre><code class="language-scss">.section--text {
+  > * {
+    max-width: 60rem;
+  }
+}</code></pre>
+        </div>
+      </details>
+    
+      </div>
+</section>
+                                            
+        
+
+
+<section id="template-region-header" class="section styleguide-sample ">
+  <h2>Template Region: Header</h2>
+  
+      <p>The header region at the top of the page template that includes the logo.</p>
+  
+  
+
+  <div class="details-tabs">
+
+    <details open>
+      <summary>Sample</summary>
+      
+      <div class="details-content" data-page-contents-exclude="true">
+        <header class="template-region--header">
+  <div class="template-region--header__logo">
+    <a href="/"><img src="/assets/logo.svg" aria-label="Lorem Ipsum"/></a>
+  </div>
+
+  
+  <div class="template-region--header__text">
+    <div class="template-region--header__site-title"><a href="/">Kalastatic</a></div>
+
+    
+
+
+<nav class="menu menu--main">
+  <h2>Main menu</h2>
+  <ul>
+          <li><a href="/">Introduction</a></li>
+          <li><a href="/getting-started/">Getting Started</a></li>
+          <li><a href="/kalastatic-functions-filters/">Functions/Filters</a></li>
+          <li><a href="/styleguide/">Styleguide Demo</a></li>
+      </ul>
+</nav>
+</header>
+      </div>
+    </details>
+
+    <details>
+      <summary>Sample Twig</summary>
+      <div class="details-content">
+                
+        <pre><code class="language-twig">{% embed &quot;template-region--header.html.twig&quot; only %}
+{% endembed %}</code></pre>
+      </div>
+    </details>
+
+          <details>
+        <summary>Twig Template</summary>
+        <div class="details-content">
+          <pre><code class="language-twig">&lt;header class=&quot;template-region--header&quot;&gt;
+  &lt;div class=&quot;template-region--header__logo&quot;&gt;
+    &lt;a href=&quot;{{ base_url }}/&quot;&gt;&lt;img src=&quot;{{ base_url }}/assets/logo.svg&quot; aria-label=&quot;Lorem Ipsum&quot;/&gt;&lt;/a&gt;
+  &lt;/div&gt;
+
+  {# The site name and menu, which are shown side-by-side when there is room. #}
+  &lt;div class=&quot;template-region--header__text&quot;&gt;
+    &lt;div class=&quot;template-region--header__site-title&quot;&gt;&lt;a href=&quot;{{ base_url }}/&quot;&gt;Kalastatic&lt;/a&gt;&lt;/div&gt;
+
+    {% embed &quot;@components/menus/menu--main.html.twig&quot; %}{% endembed %}
+&lt;/header&gt;</code></pre>
+        </div>
+      </details>
+    
+          <details>
+        <summary>SCSS</summary>
+        <div class="details-content">
+          <pre><code class="language-scss">.template-region--header {
+  padding: var(--container-padding);
+  &, a {
+    color: var(--color-grey-10);
+    text-decoration: none;
+  }
+
+  &, &__text {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-width);
+    align-items: center;
+  }
+
+  &__logo {
+    img {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+
+  &__text {
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  &__site-title {
+    font-size: var(--font-size-100);
+  }
+
+  .menu--main {
+    h2 {
+      display: none; // Need to get visually-hidden mixin.
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      font-size: var(--font-size-400);
+      gap: 1em;
+      list-style: none;
+      li {
+        margin: 0;
+        padding: 0;
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}</code></pre>
+        </div>
+      </details>
+    
+      </div>
+</section>
+                                                                                                                                                      </div>
+
+  </main>
+    <script src="/kalastatic/libraries/prism.js" ></script><script src="/kalastatic/libraries/page-contents.js" ></script><script src="/kalastatic/libraries/details-tabs.js" ></script>
+  </body>
+</html>
