@@ -276,7 +276,7 @@ name: Build and Deploy a Branch to GH Pages
 on:
   push:
     branches:
-      - main
+      - guide
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -290,7 +290,7 @@ jobs:
           cache: npm
       - name: npm Install
         env:
-          base_url: '/kstat_test'
+          base_url: '/kalastatic'
         run: |
           npm install
           npm run build
