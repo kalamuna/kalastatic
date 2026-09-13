@@ -16,7 +16,7 @@ jobs:
           cache: npm
       - name: npm Install
         env:
-          base_url: '/kstat_test'
+          base_url: '/kalastatic'
         run: |
           npm install
           npm run build
