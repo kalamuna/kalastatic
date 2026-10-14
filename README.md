@@ -1,31 +1,7 @@
-# Kalastatic Test Content (Example 1)
+# Kalastatic Documentation site
 
-## Purpose ##
+This branch contains the code for the documentation site at [kalamuna.github.io/kalastatic](https://kalamuna.github.io/kalastatic)
 
-The purpose of this repository is to provide the simplest possible sample content to test the twig parsing portion of Kalastatic.
+In addition to providing information about Kalastatic, this branch also serves as an example of how you can set up a site with kalastatic and deploy it to Github pages.
 
-## Goal ##
-
-Iterate through the twig files in the pages directory, parse the twig into html, and put the resulting files in a build directory.
-
-## Things this is testing ##
-
-- Iterating over twig files
-- Twig extends with blocks
-- Twig namespaces (templates and components)
-- Twig embeds
-- Twig embed using with for variables (optional)
-- Outputting html
-
-## Requirements
-
-- [Node.js](https://nodejs.org) 22 or newer
-
-## Usage
-
-Run Kalastatic locally by using...
-
-```
-npm install
-npm start
-```
+Refer to the [master](https://github.com/kalamuna/kalastatic) branch for the actual Kalastatic source code.
