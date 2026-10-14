@@ -22,4 +22,6 @@ kalastatic path/to/prototype
 ```
 
 An example with some draft documentation for the new version of Kalastatic:
-https://kalamuna.github.io/kstat_test
+https://kalamuna.github.io/kalastatic
+
+Build from the [guide](https://github.com/kalamuna/kalastatic/tree/guide) branch.
