@@ -27,4 +27,10 @@ if (directory != '.') {
 
 const pkg = readFileSync('package.json', 'utf8');
 const config = JSON.parse(pkg);
-kstat(config.kalastatic);
+
+try {
+  await kstat(config.kalastatic);
+} catch (error) {
+  console.error(`kalastatic: ${error.message}`);
+  process.exitCode = 1;
+}
